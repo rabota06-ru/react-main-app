@@ -1,4 +1,5 @@
 import { api } from './baseApi';
+
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -100,7 +101,6 @@ export type AppUpdate = {
   updatedAt: Scalars['DateTime'];
   version: Scalars['String'];
 };
-
 
 export type AppUpdateFeaturesArgs = {
   cursor?: InputMaybe<AppUpdateFeatureWhereUniqueInput>;
@@ -311,7 +311,7 @@ export enum AppUpdateFeatureScalarFieldEnum {
   AppUpdateId = 'appUpdateId',
   Features = 'features',
   Id = 'id',
-  Title = 'title'
+  Title = 'title',
 }
 
 export type AppUpdateFeatureScalarWhereInput = {
@@ -451,7 +451,7 @@ export type AppUpdateMinOrderByAggregateInput = {
 
 export enum AppUpdateOs {
   Android = 'android',
-  Ios = 'ios'
+  Ios = 'ios',
 }
 
 export type AppUpdateOrderByWithAggregationInput = {
@@ -484,7 +484,7 @@ export enum AppUpdateScalarFieldEnum {
   Id = 'id',
   Os = 'os',
   UpdatedAt = 'updatedAt',
-  Version = 'version'
+  Version = 'version',
 }
 
 export type AppUpdateScalarWhereWithAggregatesInput = {
@@ -721,7 +721,7 @@ export enum CallScheduleScalarFieldEnum {
   Id = 'id',
   LessonNumber = 'lessonNumber',
   PeriodId = 'periodId',
-  Start = 'start'
+  Start = 'start',
 }
 
 export type CallScheduleScalarWhereInput = {
@@ -992,7 +992,6 @@ export type Faculty = {
   updatedAt: Scalars['DateTime'];
 };
 
-
 export type FacultyGroupsArgs = {
   cursor?: InputMaybe<GroupWhereUniqueInput>;
   distinct?: InputMaybe<Array<GroupScalarFieldEnum>>;
@@ -1124,7 +1123,7 @@ export enum FacultyScalarFieldEnum {
   CreatedAt = 'createdAt',
   Id = 'id',
   Title = 'title',
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = 'updatedAt',
 }
 
 export type FacultyScalarWhereWithAggregatesInput = {
@@ -1199,7 +1198,6 @@ export type Group = {
   title: Scalars['String'];
   updatedAt: Scalars['DateTime'];
 };
-
 
 export type GroupPeriodsArgs = {
   cursor?: InputMaybe<PeriodWhereUniqueInput>;
@@ -1416,7 +1414,7 @@ export enum GroupScalarFieldEnum {
   FacultyId = 'facultyId',
   Id = 'id',
   Title = 'title',
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = 'updatedAt',
 }
 
 export type GroupScalarWhereInput = {
@@ -1611,7 +1609,6 @@ export type Lesson = {
   weeks: Array<Scalars['Int']>;
   weeksType: WeeksType;
 };
-
 
 export type LessonNotesArgs = {
   cursor?: InputMaybe<LessonNoteWhereUniqueInput>;
@@ -2073,7 +2070,7 @@ export enum LessonNoteScalarFieldEnum {
   Id = 'id',
   LessonId = 'lessonId',
   UpdatedAt = 'updatedAt',
-  Week = 'week'
+  Week = 'week',
 }
 
 export type LessonNoteScalarWhereInput = {
@@ -2248,7 +2245,7 @@ export enum LessonScalarFieldEnum {
   UpdatedAt = 'updatedAt',
   WeekDay = 'weekDay',
   Weeks = 'weeks',
-  WeeksType = 'weeksType'
+  WeeksType = 'weeksType',
 }
 
 export type LessonScalarWhereInput = {
@@ -2504,303 +2501,248 @@ export type Mutation = {
   upsertOneSecretLabel: SecretLabel;
 };
 
-
 export type MutationCreateManyAppUpdateArgs = {
   data: Array<AppUpdateCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
-
 
 export type MutationCreateManyAppUpdateFeatureArgs = {
   data: Array<AppUpdateFeatureCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationCreateManyCallScheduleArgs = {
   data: Array<CallScheduleCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
-
 
 export type MutationCreateManyFacultyArgs = {
   data: Array<FacultyCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationCreateManyGroupArgs = {
   data: Array<GroupCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
-
 
 export type MutationCreateManyLessonArgs = {
   data: Array<LessonCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationCreateManyLessonNoteArgs = {
   data: Array<LessonNoteCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
-
 
 export type MutationCreateManyPeriodArgs = {
   data: Array<PeriodCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationCreateManySecretLabelArgs = {
   data: Array<SecretLabelCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationCreateOneAppUpdateArgs = {
   data: AppUpdateCreateInput;
 };
-
 
 export type MutationCreateOneAppUpdateFeatureArgs = {
   data: AppUpdateFeatureCreateInput;
 };
 
-
 export type MutationCreateOneCallScheduleArgs = {
   data: CallScheduleCreateInput;
 };
-
 
 export type MutationCreateOneFacultyArgs = {
   data: FacultyCreateInput;
 };
 
-
 export type MutationCreateOneGroupArgs = {
   data: GroupCreateInput;
 };
-
 
 export type MutationCreateOneLessonArgs = {
   data: LessonCreateInput;
 };
 
-
 export type MutationCreateOneLessonNoteArgs = {
   data: LessonNoteCreateInput;
 };
-
 
 export type MutationCreateOnePeriodArgs = {
   data: PeriodCreateInput;
 };
 
-
 export type MutationCreateOneSecretLabelArgs = {
   data: SecretLabelCreateInput;
 };
-
 
 export type MutationDeleteManyAppUpdateArgs = {
   where?: InputMaybe<AppUpdateWhereInput>;
 };
 
-
 export type MutationDeleteManyAppUpdateFeatureArgs = {
   where?: InputMaybe<AppUpdateFeatureWhereInput>;
 };
-
 
 export type MutationDeleteManyCallScheduleArgs = {
   where?: InputMaybe<CallScheduleWhereInput>;
 };
 
-
 export type MutationDeleteManyFacultyArgs = {
   where?: InputMaybe<FacultyWhereInput>;
 };
-
 
 export type MutationDeleteManyGroupArgs = {
   where?: InputMaybe<GroupWhereInput>;
 };
 
-
 export type MutationDeleteManyLessonArgs = {
   where?: InputMaybe<LessonWhereInput>;
 };
-
 
 export type MutationDeleteManyLessonNoteArgs = {
   where?: InputMaybe<LessonNoteWhereInput>;
 };
 
-
 export type MutationDeleteManyPeriodArgs = {
   where?: InputMaybe<PeriodWhereInput>;
 };
-
 
 export type MutationDeleteManySecretLabelArgs = {
   where?: InputMaybe<SecretLabelWhereInput>;
 };
 
-
 export type MutationDeleteOneAppUpdateArgs = {
   where: AppUpdateWhereUniqueInput;
 };
-
 
 export type MutationDeleteOneAppUpdateFeatureArgs = {
   where: AppUpdateFeatureWhereUniqueInput;
 };
 
-
 export type MutationDeleteOneCallScheduleArgs = {
   where: CallScheduleWhereUniqueInput;
 };
-
 
 export type MutationDeleteOneFacultyArgs = {
   where: FacultyWhereUniqueInput;
 };
 
-
 export type MutationDeleteOneGroupArgs = {
   where: GroupWhereUniqueInput;
 };
-
 
 export type MutationDeleteOneLessonArgs = {
   where: LessonWhereUniqueInput;
 };
 
-
 export type MutationDeleteOneLessonNoteArgs = {
   where: LessonNoteWhereUniqueInput;
 };
-
 
 export type MutationDeleteOnePeriodArgs = {
   where: PeriodWhereUniqueInput;
 };
 
-
 export type MutationDeleteOneSecretLabelArgs = {
   where: SecretLabelWhereUniqueInput;
 };
-
 
 export type MutationUpdateManyAppUpdateArgs = {
   data: AppUpdateUpdateManyMutationInput;
   where?: InputMaybe<AppUpdateWhereInput>;
 };
 
-
 export type MutationUpdateManyAppUpdateFeatureArgs = {
   data: AppUpdateFeatureUpdateManyMutationInput;
   where?: InputMaybe<AppUpdateFeatureWhereInput>;
 };
-
 
 export type MutationUpdateManyCallScheduleArgs = {
   data: CallScheduleUpdateManyMutationInput;
   where?: InputMaybe<CallScheduleWhereInput>;
 };
 
-
 export type MutationUpdateManyFacultyArgs = {
   data: FacultyUpdateManyMutationInput;
   where?: InputMaybe<FacultyWhereInput>;
 };
-
 
 export type MutationUpdateManyGroupArgs = {
   data: GroupUpdateManyMutationInput;
   where?: InputMaybe<GroupWhereInput>;
 };
 
-
 export type MutationUpdateManyLessonArgs = {
   data: LessonUpdateManyMutationInput;
   where?: InputMaybe<LessonWhereInput>;
 };
-
 
 export type MutationUpdateManyLessonNoteArgs = {
   data: LessonNoteUpdateManyMutationInput;
   where?: InputMaybe<LessonNoteWhereInput>;
 };
 
-
 export type MutationUpdateManyPeriodArgs = {
   data: PeriodUpdateManyMutationInput;
   where?: InputMaybe<PeriodWhereInput>;
 };
-
 
 export type MutationUpdateManySecretLabelArgs = {
   data: SecretLabelUpdateManyMutationInput;
   where?: InputMaybe<SecretLabelWhereInput>;
 };
 
-
 export type MutationUpdateOneAppUpdateArgs = {
   data: AppUpdateUpdateInput;
   where: AppUpdateWhereUniqueInput;
 };
-
 
 export type MutationUpdateOneAppUpdateFeatureArgs = {
   data: AppUpdateFeatureUpdateInput;
   where: AppUpdateFeatureWhereUniqueInput;
 };
 
-
 export type MutationUpdateOneCallScheduleArgs = {
   data: CallScheduleUpdateInput;
   where: CallScheduleWhereUniqueInput;
 };
-
 
 export type MutationUpdateOneFacultyArgs = {
   data: FacultyUpdateInput;
   where: FacultyWhereUniqueInput;
 };
 
-
 export type MutationUpdateOneGroupArgs = {
   data: GroupUpdateInput;
   where: GroupWhereUniqueInput;
 };
-
 
 export type MutationUpdateOneLessonArgs = {
   data: LessonUpdateInput;
   where: LessonWhereUniqueInput;
 };
 
-
 export type MutationUpdateOneLessonNoteArgs = {
   data: LessonNoteUpdateInput;
   where: LessonNoteWhereUniqueInput;
 };
-
 
 export type MutationUpdateOnePeriodArgs = {
   data: PeriodUpdateInput;
   where: PeriodWhereUniqueInput;
 };
 
-
 export type MutationUpdateOneSecretLabelArgs = {
   data: SecretLabelUpdateInput;
   where: SecretLabelWhereUniqueInput;
 };
-
 
 export type MutationUpsertOneAppUpdateArgs = {
   create: AppUpdateCreateInput;
@@ -2808,13 +2750,11 @@ export type MutationUpsertOneAppUpdateArgs = {
   where: AppUpdateWhereUniqueInput;
 };
 
-
 export type MutationUpsertOneAppUpdateFeatureArgs = {
   create: AppUpdateFeatureCreateInput;
   update: AppUpdateFeatureUpdateInput;
   where: AppUpdateFeatureWhereUniqueInput;
 };
-
 
 export type MutationUpsertOneCallScheduleArgs = {
   create: CallScheduleCreateInput;
@@ -2822,13 +2762,11 @@ export type MutationUpsertOneCallScheduleArgs = {
   where: CallScheduleWhereUniqueInput;
 };
 
-
 export type MutationUpsertOneFacultyArgs = {
   create: FacultyCreateInput;
   update: FacultyUpdateInput;
   where: FacultyWhereUniqueInput;
 };
-
 
 export type MutationUpsertOneGroupArgs = {
   create: GroupCreateInput;
@@ -2836,13 +2774,11 @@ export type MutationUpsertOneGroupArgs = {
   where: GroupWhereUniqueInput;
 };
 
-
 export type MutationUpsertOneLessonArgs = {
   create: LessonCreateInput;
   update: LessonUpdateInput;
   where: LessonWhereUniqueInput;
 };
-
 
 export type MutationUpsertOneLessonNoteArgs = {
   create: LessonNoteCreateInput;
@@ -2850,13 +2786,11 @@ export type MutationUpsertOneLessonNoteArgs = {
   where: LessonNoteWhereUniqueInput;
 };
 
-
 export type MutationUpsertOnePeriodArgs = {
   create: PeriodCreateInput;
   update: PeriodUpdateInput;
   where: PeriodWhereUniqueInput;
 };
-
 
 export type MutationUpsertOneSecretLabelArgs = {
   create: SecretLabelCreateInput;
@@ -3100,7 +3034,6 @@ export type Period = {
   updatedAt: Scalars['DateTime'];
 };
 
-
 export type PeriodCallScheduleArgs = {
   cursor?: InputMaybe<CallScheduleWhereUniqueInput>;
   distinct?: InputMaybe<Array<CallScheduleScalarFieldEnum>>;
@@ -3109,7 +3042,6 @@ export type PeriodCallScheduleArgs = {
   take?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<CallScheduleWhereInput>;
 };
-
 
 export type PeriodLessonsArgs = {
   cursor?: InputMaybe<LessonWhereUniqueInput>;
@@ -3387,7 +3319,7 @@ export enum PeriodScalarFieldEnum {
   Start = 'start',
   Title = 'title',
   Type = 'type',
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = 'updatedAt',
 }
 
 export type PeriodScalarWhereInput = {
@@ -3423,7 +3355,7 @@ export type PeriodScalarWhereWithAggregatesInput = {
 export enum PeriodType {
   Learning = 'learning',
   Session = 'session',
-  Vacation = 'vacation'
+  Vacation = 'vacation',
 }
 
 export type PeriodUpdateInput = {
@@ -3617,7 +3549,6 @@ export type Query = {
   secretLabels: Array<SecretLabel>;
 };
 
-
 export type QueryAggregateAppUpdateArgs = {
   cursor?: InputMaybe<AppUpdateWhereUniqueInput>;
   orderBy?: InputMaybe<Array<AppUpdateOrderByWithRelationInput>>;
@@ -3625,7 +3556,6 @@ export type QueryAggregateAppUpdateArgs = {
   take?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<AppUpdateWhereInput>;
 };
-
 
 export type QueryAggregateAppUpdateFeatureArgs = {
   cursor?: InputMaybe<AppUpdateFeatureWhereUniqueInput>;
@@ -3635,7 +3565,6 @@ export type QueryAggregateAppUpdateFeatureArgs = {
   where?: InputMaybe<AppUpdateFeatureWhereInput>;
 };
 
-
 export type QueryAggregateCallScheduleArgs = {
   cursor?: InputMaybe<CallScheduleWhereUniqueInput>;
   orderBy?: InputMaybe<Array<CallScheduleOrderByWithRelationInput>>;
@@ -3643,7 +3572,6 @@ export type QueryAggregateCallScheduleArgs = {
   take?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<CallScheduleWhereInput>;
 };
-
 
 export type QueryAggregateFacultyArgs = {
   cursor?: InputMaybe<FacultyWhereUniqueInput>;
@@ -3653,7 +3581,6 @@ export type QueryAggregateFacultyArgs = {
   where?: InputMaybe<FacultyWhereInput>;
 };
 
-
 export type QueryAggregateGroupArgs = {
   cursor?: InputMaybe<GroupWhereUniqueInput>;
   orderBy?: InputMaybe<Array<GroupOrderByWithRelationInput>>;
@@ -3661,7 +3588,6 @@ export type QueryAggregateGroupArgs = {
   take?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<GroupWhereInput>;
 };
-
 
 export type QueryAggregateLessonArgs = {
   cursor?: InputMaybe<LessonWhereUniqueInput>;
@@ -3671,7 +3597,6 @@ export type QueryAggregateLessonArgs = {
   where?: InputMaybe<LessonWhereInput>;
 };
 
-
 export type QueryAggregateLessonNoteArgs = {
   cursor?: InputMaybe<LessonNoteWhereUniqueInput>;
   orderBy?: InputMaybe<Array<LessonNoteOrderByWithRelationInput>>;
@@ -3679,7 +3604,6 @@ export type QueryAggregateLessonNoteArgs = {
   take?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<LessonNoteWhereInput>;
 };
-
 
 export type QueryAggregatePeriodArgs = {
   cursor?: InputMaybe<PeriodWhereUniqueInput>;
@@ -3689,7 +3613,6 @@ export type QueryAggregatePeriodArgs = {
   where?: InputMaybe<PeriodWhereInput>;
 };
 
-
 export type QueryAggregateSecretLabelArgs = {
   cursor?: InputMaybe<SecretLabelWhereUniqueInput>;
   orderBy?: InputMaybe<Array<SecretLabelOrderByWithRelationInput>>;
@@ -3698,16 +3621,13 @@ export type QueryAggregateSecretLabelArgs = {
   where?: InputMaybe<SecretLabelWhereInput>;
 };
 
-
 export type QueryAppUpdateArgs = {
   where: AppUpdateWhereUniqueInput;
 };
 
-
 export type QueryAppUpdateFeatureArgs = {
   where: AppUpdateFeatureWhereUniqueInput;
 };
-
 
 export type QueryAppUpdateFeaturesArgs = {
   cursor?: InputMaybe<AppUpdateFeatureWhereUniqueInput>;
@@ -3718,7 +3638,6 @@ export type QueryAppUpdateFeaturesArgs = {
   where?: InputMaybe<AppUpdateFeatureWhereInput>;
 };
 
-
 export type QueryAppUpdatesArgs = {
   cursor?: InputMaybe<AppUpdateWhereUniqueInput>;
   distinct?: InputMaybe<Array<AppUpdateScalarFieldEnum>>;
@@ -3728,11 +3647,9 @@ export type QueryAppUpdatesArgs = {
   where?: InputMaybe<AppUpdateWhereInput>;
 };
 
-
 export type QueryCallScheduleArgs = {
   where: CallScheduleWhereUniqueInput;
 };
-
 
 export type QueryCallSchedulesArgs = {
   cursor?: InputMaybe<CallScheduleWhereUniqueInput>;
@@ -3743,7 +3660,6 @@ export type QueryCallSchedulesArgs = {
   where?: InputMaybe<CallScheduleWhereInput>;
 };
 
-
 export type QueryFacultiesArgs = {
   cursor?: InputMaybe<FacultyWhereUniqueInput>;
   distinct?: InputMaybe<Array<FacultyScalarFieldEnum>>;
@@ -3753,11 +3669,9 @@ export type QueryFacultiesArgs = {
   where?: InputMaybe<FacultyWhereInput>;
 };
 
-
 export type QueryFacultyArgs = {
   where: FacultyWhereUniqueInput;
 };
-
 
 export type QueryFindFirstAppUpdateArgs = {
   cursor?: InputMaybe<AppUpdateWhereUniqueInput>;
@@ -3768,7 +3682,6 @@ export type QueryFindFirstAppUpdateArgs = {
   where?: InputMaybe<AppUpdateWhereInput>;
 };
 
-
 export type QueryFindFirstAppUpdateFeatureArgs = {
   cursor?: InputMaybe<AppUpdateFeatureWhereUniqueInput>;
   distinct?: InputMaybe<Array<AppUpdateFeatureScalarFieldEnum>>;
@@ -3777,7 +3690,6 @@ export type QueryFindFirstAppUpdateFeatureArgs = {
   take?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<AppUpdateFeatureWhereInput>;
 };
-
 
 export type QueryFindFirstCallScheduleArgs = {
   cursor?: InputMaybe<CallScheduleWhereUniqueInput>;
@@ -3788,7 +3700,6 @@ export type QueryFindFirstCallScheduleArgs = {
   where?: InputMaybe<CallScheduleWhereInput>;
 };
 
-
 export type QueryFindFirstFacultyArgs = {
   cursor?: InputMaybe<FacultyWhereUniqueInput>;
   distinct?: InputMaybe<Array<FacultyScalarFieldEnum>>;
@@ -3797,7 +3708,6 @@ export type QueryFindFirstFacultyArgs = {
   take?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<FacultyWhereInput>;
 };
-
 
 export type QueryFindFirstGroupArgs = {
   cursor?: InputMaybe<GroupWhereUniqueInput>;
@@ -3808,7 +3718,6 @@ export type QueryFindFirstGroupArgs = {
   where?: InputMaybe<GroupWhereInput>;
 };
 
-
 export type QueryFindFirstLessonArgs = {
   cursor?: InputMaybe<LessonWhereUniqueInput>;
   distinct?: InputMaybe<Array<LessonScalarFieldEnum>>;
@@ -3817,7 +3726,6 @@ export type QueryFindFirstLessonArgs = {
   take?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<LessonWhereInput>;
 };
-
 
 export type QueryFindFirstLessonNoteArgs = {
   cursor?: InputMaybe<LessonNoteWhereUniqueInput>;
@@ -3828,7 +3736,6 @@ export type QueryFindFirstLessonNoteArgs = {
   where?: InputMaybe<LessonNoteWhereInput>;
 };
 
-
 export type QueryFindFirstPeriodArgs = {
   cursor?: InputMaybe<PeriodWhereUniqueInput>;
   distinct?: InputMaybe<Array<PeriodScalarFieldEnum>>;
@@ -3837,7 +3744,6 @@ export type QueryFindFirstPeriodArgs = {
   take?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<PeriodWhereInput>;
 };
-
 
 export type QueryFindFirstSecretLabelArgs = {
   cursor?: InputMaybe<SecretLabelWhereUniqueInput>;
@@ -3848,11 +3754,9 @@ export type QueryFindFirstSecretLabelArgs = {
   where?: InputMaybe<SecretLabelWhereInput>;
 };
 
-
 export type QueryGroupArgs = {
   where: GroupWhereUniqueInput;
 };
-
 
 export type QueryGroupByAppUpdateArgs = {
   by: Array<AppUpdateScalarFieldEnum>;
@@ -3863,7 +3767,6 @@ export type QueryGroupByAppUpdateArgs = {
   where?: InputMaybe<AppUpdateWhereInput>;
 };
 
-
 export type QueryGroupByAppUpdateFeatureArgs = {
   by: Array<AppUpdateFeatureScalarFieldEnum>;
   having?: InputMaybe<AppUpdateFeatureScalarWhereWithAggregatesInput>;
@@ -3872,7 +3775,6 @@ export type QueryGroupByAppUpdateFeatureArgs = {
   take?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<AppUpdateFeatureWhereInput>;
 };
-
 
 export type QueryGroupByCallScheduleArgs = {
   by: Array<CallScheduleScalarFieldEnum>;
@@ -3883,7 +3785,6 @@ export type QueryGroupByCallScheduleArgs = {
   where?: InputMaybe<CallScheduleWhereInput>;
 };
 
-
 export type QueryGroupByFacultyArgs = {
   by: Array<FacultyScalarFieldEnum>;
   having?: InputMaybe<FacultyScalarWhereWithAggregatesInput>;
@@ -3892,7 +3793,6 @@ export type QueryGroupByFacultyArgs = {
   take?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<FacultyWhereInput>;
 };
-
 
 export type QueryGroupByGroupArgs = {
   by: Array<GroupScalarFieldEnum>;
@@ -3903,7 +3803,6 @@ export type QueryGroupByGroupArgs = {
   where?: InputMaybe<GroupWhereInput>;
 };
 
-
 export type QueryGroupByLessonArgs = {
   by: Array<LessonScalarFieldEnum>;
   having?: InputMaybe<LessonScalarWhereWithAggregatesInput>;
@@ -3912,7 +3811,6 @@ export type QueryGroupByLessonArgs = {
   take?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<LessonWhereInput>;
 };
-
 
 export type QueryGroupByLessonNoteArgs = {
   by: Array<LessonNoteScalarFieldEnum>;
@@ -3923,7 +3821,6 @@ export type QueryGroupByLessonNoteArgs = {
   where?: InputMaybe<LessonNoteWhereInput>;
 };
 
-
 export type QueryGroupByPeriodArgs = {
   by: Array<PeriodScalarFieldEnum>;
   having?: InputMaybe<PeriodScalarWhereWithAggregatesInput>;
@@ -3932,7 +3829,6 @@ export type QueryGroupByPeriodArgs = {
   take?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<PeriodWhereInput>;
 };
-
 
 export type QueryGroupBySecretLabelArgs = {
   by: Array<SecretLabelScalarFieldEnum>;
@@ -3943,7 +3839,6 @@ export type QueryGroupBySecretLabelArgs = {
   where?: InputMaybe<SecretLabelWhereInput>;
 };
 
-
 export type QueryGroupsArgs = {
   cursor?: InputMaybe<GroupWhereUniqueInput>;
   distinct?: InputMaybe<Array<GroupScalarFieldEnum>>;
@@ -3953,16 +3848,13 @@ export type QueryGroupsArgs = {
   where?: InputMaybe<GroupWhereInput>;
 };
 
-
 export type QueryLessonArgs = {
   where: LessonWhereUniqueInput;
 };
 
-
 export type QueryLessonNoteArgs = {
   where: LessonNoteWhereUniqueInput;
 };
-
 
 export type QueryLessonNotesArgs = {
   cursor?: InputMaybe<LessonNoteWhereUniqueInput>;
@@ -3973,7 +3865,6 @@ export type QueryLessonNotesArgs = {
   where?: InputMaybe<LessonNoteWhereInput>;
 };
 
-
 export type QueryLessonsArgs = {
   cursor?: InputMaybe<LessonWhereUniqueInput>;
   distinct?: InputMaybe<Array<LessonScalarFieldEnum>>;
@@ -3983,11 +3874,9 @@ export type QueryLessonsArgs = {
   where?: InputMaybe<LessonWhereInput>;
 };
 
-
 export type QueryPeriodArgs = {
   where: PeriodWhereUniqueInput;
 };
-
 
 export type QueryPeriodsArgs = {
   cursor?: InputMaybe<PeriodWhereUniqueInput>;
@@ -3998,11 +3887,9 @@ export type QueryPeriodsArgs = {
   where?: InputMaybe<PeriodWhereInput>;
 };
 
-
 export type QuerySecretLabelArgs = {
   where: SecretLabelWhereUniqueInput;
 };
-
 
 export type QuerySecretLabelsArgs = {
   cursor?: InputMaybe<SecretLabelWhereUniqueInput>;
@@ -4015,7 +3902,7 @@ export type QuerySecretLabelsArgs = {
 
 export enum QueryMode {
   Default = 'default',
-  Insensitive = 'insensitive'
+  Insensitive = 'insensitive',
 }
 
 export type SecretLabel = {
@@ -4092,7 +3979,7 @@ export type SecretLabelOrderByWithRelationInput = {
 
 export enum SecretLabelScalarFieldEnum {
   Id = 'id',
-  Label = 'label'
+  Label = 'label',
 }
 
 export type SecretLabelScalarWhereWithAggregatesInput = {
@@ -4127,7 +4014,7 @@ export type SecretLabelWhereUniqueInput = {
 
 export enum SortOrder {
   Asc = 'asc',
-  Desc = 'desc'
+  Desc = 'desc',
 }
 
 export type StringFieldUpdateOperationsInput = {
@@ -4178,7 +4065,7 @@ export type StringWithAggregatesFilter = {
 export enum Subgroup {
   First = 'first',
   None = 'none',
-  Second = 'second'
+  Second = 'second',
 }
 
 export enum WeekDay {
@@ -4188,21 +4075,19 @@ export enum WeekDay {
   Sunday = 'sunday',
   Thursday = 'thursday',
   Tuesday = 'tuesday',
-  Wednesday = 'wednesday'
+  Wednesday = 'wednesday',
 }
 
 export enum WeeksType {
   All = 'all',
   Custom = 'custom',
   First = 'first',
-  Second = 'second'
+  Second = 'second',
 }
 
 export type FacultiesList2QueryVariables = Exact<{ [key: string]: never; }>;
 
-
 export type FacultiesList2Query = { __typename?: 'Query', faculties: Array<{ __typename?: 'Faculty', id: string, title: string, createdAt: any }> };
-
 
 export const FacultiesList2Document = `
     query FacultiesList2 {
@@ -4217,11 +4102,9 @@ export const FacultiesList2Document = `
 const injectedRtkApi = api.injectEndpoints({
   endpoints: (build) => ({
     FacultiesList2: build.query<FacultiesList2Query, FacultiesList2QueryVariables | void>({
-      query: (variables) => ({ document: FacultiesList2Document, variables })
+      query: (variables) => ({ document: FacultiesList2Document, variables }),
     }),
   }),
 });
 
 export { injectedRtkApi as api };
-
-
