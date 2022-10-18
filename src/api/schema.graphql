@@ -1,0 +1,3705 @@
+type Query {
+  aggregateAppUpdate(
+    where: AppUpdateWhereInput
+    orderBy: [AppUpdateOrderByWithRelationInput!]
+    cursor: AppUpdateWhereUniqueInput
+    take: Int
+    skip: Int
+  ): AggregateAppUpdate!
+  findFirstAppUpdate(
+    where: AppUpdateWhereInput
+    orderBy: [AppUpdateOrderByWithRelationInput!]
+    cursor: AppUpdateWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [AppUpdateScalarFieldEnum!]
+  ): AppUpdate
+  appUpdates(
+    where: AppUpdateWhereInput
+    orderBy: [AppUpdateOrderByWithRelationInput!]
+    cursor: AppUpdateWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [AppUpdateScalarFieldEnum!]
+  ): [AppUpdate!]!
+  appUpdate(where: AppUpdateWhereUniqueInput!): AppUpdate
+  groupByAppUpdate(
+    where: AppUpdateWhereInput
+    orderBy: [AppUpdateOrderByWithAggregationInput!]
+    by: [AppUpdateScalarFieldEnum!]!
+    having: AppUpdateScalarWhereWithAggregatesInput
+    take: Int
+    skip: Int
+  ): [AppUpdateGroupBy!]!
+  aggregateAppUpdateFeature(
+    where: AppUpdateFeatureWhereInput
+    orderBy: [AppUpdateFeatureOrderByWithRelationInput!]
+    cursor: AppUpdateFeatureWhereUniqueInput
+    take: Int
+    skip: Int
+  ): AggregateAppUpdateFeature!
+  findFirstAppUpdateFeature(
+    where: AppUpdateFeatureWhereInput
+    orderBy: [AppUpdateFeatureOrderByWithRelationInput!]
+    cursor: AppUpdateFeatureWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [AppUpdateFeatureScalarFieldEnum!]
+  ): AppUpdateFeature
+  appUpdateFeatures(
+    where: AppUpdateFeatureWhereInput
+    orderBy: [AppUpdateFeatureOrderByWithRelationInput!]
+    cursor: AppUpdateFeatureWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [AppUpdateFeatureScalarFieldEnum!]
+  ): [AppUpdateFeature!]!
+  appUpdateFeature(where: AppUpdateFeatureWhereUniqueInput!): AppUpdateFeature
+  groupByAppUpdateFeature(
+    where: AppUpdateFeatureWhereInput
+    orderBy: [AppUpdateFeatureOrderByWithAggregationInput!]
+    by: [AppUpdateFeatureScalarFieldEnum!]!
+    having: AppUpdateFeatureScalarWhereWithAggregatesInput
+    take: Int
+    skip: Int
+  ): [AppUpdateFeatureGroupBy!]!
+  aggregateCallSchedule(
+    where: CallScheduleWhereInput
+    orderBy: [CallScheduleOrderByWithRelationInput!]
+    cursor: CallScheduleWhereUniqueInput
+    take: Int
+    skip: Int
+  ): AggregateCallSchedule!
+  findFirstCallSchedule(
+    where: CallScheduleWhereInput
+    orderBy: [CallScheduleOrderByWithRelationInput!]
+    cursor: CallScheduleWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [CallScheduleScalarFieldEnum!]
+  ): CallSchedule
+  callSchedules(
+    where: CallScheduleWhereInput
+    orderBy: [CallScheduleOrderByWithRelationInput!]
+    cursor: CallScheduleWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [CallScheduleScalarFieldEnum!]
+  ): [CallSchedule!]!
+  callSchedule(where: CallScheduleWhereUniqueInput!): CallSchedule
+  groupByCallSchedule(
+    where: CallScheduleWhereInput
+    orderBy: [CallScheduleOrderByWithAggregationInput!]
+    by: [CallScheduleScalarFieldEnum!]!
+    having: CallScheduleScalarWhereWithAggregatesInput
+    take: Int
+    skip: Int
+  ): [CallScheduleGroupBy!]!
+  aggregateFaculty(
+    where: FacultyWhereInput
+    orderBy: [FacultyOrderByWithRelationInput!]
+    cursor: FacultyWhereUniqueInput
+    take: Int
+    skip: Int
+  ): AggregateFaculty!
+  findFirstFaculty(
+    where: FacultyWhereInput
+    orderBy: [FacultyOrderByWithRelationInput!]
+    cursor: FacultyWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [FacultyScalarFieldEnum!]
+  ): Faculty
+  faculties(
+    where: FacultyWhereInput
+    orderBy: [FacultyOrderByWithRelationInput!]
+    cursor: FacultyWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [FacultyScalarFieldEnum!]
+  ): [Faculty!]!
+  faculty(where: FacultyWhereUniqueInput!): Faculty
+  groupByFaculty(
+    where: FacultyWhereInput
+    orderBy: [FacultyOrderByWithAggregationInput!]
+    by: [FacultyScalarFieldEnum!]!
+    having: FacultyScalarWhereWithAggregatesInput
+    take: Int
+    skip: Int
+  ): [FacultyGroupBy!]!
+  aggregateGroup(
+    where: GroupWhereInput
+    orderBy: [GroupOrderByWithRelationInput!]
+    cursor: GroupWhereUniqueInput
+    take: Int
+    skip: Int
+  ): AggregateGroup!
+  findFirstGroup(
+    where: GroupWhereInput
+    orderBy: [GroupOrderByWithRelationInput!]
+    cursor: GroupWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [GroupScalarFieldEnum!]
+  ): Group
+  groups(
+    where: GroupWhereInput
+    orderBy: [GroupOrderByWithRelationInput!]
+    cursor: GroupWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [GroupScalarFieldEnum!]
+  ): [Group!]!
+  group(where: GroupWhereUniqueInput!): Group
+  groupByGroup(
+    where: GroupWhereInput
+    orderBy: [GroupOrderByWithAggregationInput!]
+    by: [GroupScalarFieldEnum!]!
+    having: GroupScalarWhereWithAggregatesInput
+    take: Int
+    skip: Int
+  ): [GroupGroupBy!]!
+  aggregateLesson(
+    where: LessonWhereInput
+    orderBy: [LessonOrderByWithRelationInput!]
+    cursor: LessonWhereUniqueInput
+    take: Int
+    skip: Int
+  ): AggregateLesson!
+  findFirstLesson(
+    where: LessonWhereInput
+    orderBy: [LessonOrderByWithRelationInput!]
+    cursor: LessonWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [LessonScalarFieldEnum!]
+  ): Lesson
+  lessons(
+    where: LessonWhereInput
+    orderBy: [LessonOrderByWithRelationInput!]
+    cursor: LessonWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [LessonScalarFieldEnum!]
+  ): [Lesson!]!
+  lesson(where: LessonWhereUniqueInput!): Lesson
+  groupByLesson(
+    where: LessonWhereInput
+    orderBy: [LessonOrderByWithAggregationInput!]
+    by: [LessonScalarFieldEnum!]!
+    having: LessonScalarWhereWithAggregatesInput
+    take: Int
+    skip: Int
+  ): [LessonGroupBy!]!
+  aggregateLessonNote(
+    where: LessonNoteWhereInput
+    orderBy: [LessonNoteOrderByWithRelationInput!]
+    cursor: LessonNoteWhereUniqueInput
+    take: Int
+    skip: Int
+  ): AggregateLessonNote!
+  findFirstLessonNote(
+    where: LessonNoteWhereInput
+    orderBy: [LessonNoteOrderByWithRelationInput!]
+    cursor: LessonNoteWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [LessonNoteScalarFieldEnum!]
+  ): LessonNote
+  lessonNotes(
+    where: LessonNoteWhereInput
+    orderBy: [LessonNoteOrderByWithRelationInput!]
+    cursor: LessonNoteWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [LessonNoteScalarFieldEnum!]
+  ): [LessonNote!]!
+  lessonNote(where: LessonNoteWhereUniqueInput!): LessonNote
+  groupByLessonNote(
+    where: LessonNoteWhereInput
+    orderBy: [LessonNoteOrderByWithAggregationInput!]
+    by: [LessonNoteScalarFieldEnum!]!
+    having: LessonNoteScalarWhereWithAggregatesInput
+    take: Int
+    skip: Int
+  ): [LessonNoteGroupBy!]!
+  aggregatePeriod(
+    where: PeriodWhereInput
+    orderBy: [PeriodOrderByWithRelationInput!]
+    cursor: PeriodWhereUniqueInput
+    take: Int
+    skip: Int
+  ): AggregatePeriod!
+  findFirstPeriod(
+    where: PeriodWhereInput
+    orderBy: [PeriodOrderByWithRelationInput!]
+    cursor: PeriodWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [PeriodScalarFieldEnum!]
+  ): Period
+  periods(
+    where: PeriodWhereInput
+    orderBy: [PeriodOrderByWithRelationInput!]
+    cursor: PeriodWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [PeriodScalarFieldEnum!]
+  ): [Period!]!
+  period(where: PeriodWhereUniqueInput!): Period
+  groupByPeriod(
+    where: PeriodWhereInput
+    orderBy: [PeriodOrderByWithAggregationInput!]
+    by: [PeriodScalarFieldEnum!]!
+    having: PeriodScalarWhereWithAggregatesInput
+    take: Int
+    skip: Int
+  ): [PeriodGroupBy!]!
+  aggregateSecretLabel(
+    where: SecretLabelWhereInput
+    orderBy: [SecretLabelOrderByWithRelationInput!]
+    cursor: SecretLabelWhereUniqueInput
+    take: Int
+    skip: Int
+  ): AggregateSecretLabel!
+  findFirstSecretLabel(
+    where: SecretLabelWhereInput
+    orderBy: [SecretLabelOrderByWithRelationInput!]
+    cursor: SecretLabelWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [SecretLabelScalarFieldEnum!]
+  ): SecretLabel
+  secretLabels(
+    where: SecretLabelWhereInput
+    orderBy: [SecretLabelOrderByWithRelationInput!]
+    cursor: SecretLabelWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [SecretLabelScalarFieldEnum!]
+  ): [SecretLabel!]!
+  secretLabel(where: SecretLabelWhereUniqueInput!): SecretLabel
+  groupBySecretLabel(
+    where: SecretLabelWhereInput
+    orderBy: [SecretLabelOrderByWithAggregationInput!]
+    by: [SecretLabelScalarFieldEnum!]!
+    having: SecretLabelScalarWhereWithAggregatesInput
+    take: Int
+    skip: Int
+  ): [SecretLabelGroupBy!]!
+}
+
+type AggregateAppUpdate {
+  _count: AppUpdateCountAggregate
+  _min: AppUpdateMinAggregate
+  _max: AppUpdateMaxAggregate
+}
+
+type AppUpdateCountAggregate {
+  id: Int!
+  os: Int!
+  version: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  _all: Int!
+}
+
+type AppUpdateMinAggregate {
+  id: String
+  os: AppUpdateOS
+  version: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+enum AppUpdateOS {
+  ios
+  android
+}
+
+# A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+scalar DateTime
+
+type AppUpdateMaxAggregate {
+  id: String
+  os: AppUpdateOS
+  version: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input AppUpdateWhereInput {
+  AND: [AppUpdateWhereInput!]
+  OR: [AppUpdateWhereInput!]
+  NOT: [AppUpdateWhereInput!]
+  id: StringFilter
+  os: EnumAppUpdateOSFilter
+  version: StringFilter
+  features: AppUpdateFeatureListRelationFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input StringFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  mode: QueryMode
+  not: NestedStringFilter
+}
+
+enum QueryMode {
+  default
+  insensitive
+}
+
+input NestedStringFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringFilter
+}
+
+input EnumAppUpdateOSFilter {
+  equals: AppUpdateOS
+  in: [AppUpdateOS!]
+  notIn: [AppUpdateOS!]
+  not: NestedEnumAppUpdateOSFilter
+}
+
+input NestedEnumAppUpdateOSFilter {
+  equals: AppUpdateOS
+  in: [AppUpdateOS!]
+  notIn: [AppUpdateOS!]
+  not: NestedEnumAppUpdateOSFilter
+}
+
+input AppUpdateFeatureListRelationFilter {
+  every: AppUpdateFeatureWhereInput
+  some: AppUpdateFeatureWhereInput
+  none: AppUpdateFeatureWhereInput
+}
+
+input AppUpdateFeatureWhereInput {
+  AND: [AppUpdateFeatureWhereInput!]
+  OR: [AppUpdateFeatureWhereInput!]
+  NOT: [AppUpdateFeatureWhereInput!]
+  id: StringFilter
+  title: StringFilter
+  features: StringNullableListFilter
+  appUpdate: AppUpdateRelationFilter
+  appUpdateId: StringFilter
+}
+
+input StringNullableListFilter {
+  equals: [String!]
+  has: String
+  hasEvery: [String!]
+  hasSome: [String!]
+  isEmpty: Boolean
+}
+
+input AppUpdateRelationFilter {
+  is: AppUpdateWhereInput
+  isNot: AppUpdateWhereInput
+}
+
+input DateTimeFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeFilter
+}
+
+input NestedDateTimeFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeFilter
+}
+
+input AppUpdateOrderByWithRelationInput {
+  id: SortOrder
+  os: SortOrder
+  version: SortOrder
+  features: AppUpdateFeatureOrderByRelationAggregateInput
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input AppUpdateFeatureOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input AppUpdateWhereUniqueInput {
+  id: String
+}
+
+type AppUpdate {
+  id: String!
+  os: AppUpdateOS!
+  version: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  _count: AppUpdateCount
+  features(
+    where: AppUpdateFeatureWhereInput
+    orderBy: [AppUpdateFeatureOrderByWithRelationInput!]
+    cursor: AppUpdateFeatureWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [AppUpdateFeatureScalarFieldEnum!]
+  ): [AppUpdateFeature!]!
+}
+
+type AppUpdateCount {
+  features: Int!
+}
+
+type AppUpdateFeature {
+  id: String!
+  title: String!
+  features: [String!]!
+  appUpdateId: String!
+  appUpdate: AppUpdate!
+}
+
+input AppUpdateFeatureOrderByWithRelationInput {
+  id: SortOrder
+  title: SortOrder
+  features: SortOrder
+  appUpdate: AppUpdateOrderByWithRelationInput
+  appUpdateId: SortOrder
+}
+
+input AppUpdateFeatureWhereUniqueInput {
+  id: String
+}
+
+enum AppUpdateFeatureScalarFieldEnum {
+  id
+  title
+  features
+  appUpdateId
+}
+
+enum AppUpdateScalarFieldEnum {
+  id
+  os
+  version
+  createdAt
+  updatedAt
+}
+
+type AppUpdateGroupBy {
+  id: String!
+  os: AppUpdateOS!
+  version: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  _count: AppUpdateCountAggregate
+  _min: AppUpdateMinAggregate
+  _max: AppUpdateMaxAggregate
+}
+
+input AppUpdateOrderByWithAggregationInput {
+  id: SortOrder
+  os: SortOrder
+  version: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  _count: AppUpdateCountOrderByAggregateInput
+  _max: AppUpdateMaxOrderByAggregateInput
+  _min: AppUpdateMinOrderByAggregateInput
+}
+
+input AppUpdateCountOrderByAggregateInput {
+  id: SortOrder
+  os: SortOrder
+  version: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input AppUpdateMaxOrderByAggregateInput {
+  id: SortOrder
+  os: SortOrder
+  version: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input AppUpdateMinOrderByAggregateInput {
+  id: SortOrder
+  os: SortOrder
+  version: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input AppUpdateScalarWhereWithAggregatesInput {
+  AND: [AppUpdateScalarWhereWithAggregatesInput!]
+  OR: [AppUpdateScalarWhereWithAggregatesInput!]
+  NOT: [AppUpdateScalarWhereWithAggregatesInput!]
+  id: StringWithAggregatesFilter
+  os: EnumAppUpdateOSWithAggregatesFilter
+  version: StringWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+}
+
+input StringWithAggregatesFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  mode: QueryMode
+  not: NestedStringWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedStringFilter
+  _max: NestedStringFilter
+}
+
+input NestedStringWithAggregatesFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedStringFilter
+  _max: NestedStringFilter
+}
+
+input NestedIntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input EnumAppUpdateOSWithAggregatesFilter {
+  equals: AppUpdateOS
+  in: [AppUpdateOS!]
+  notIn: [AppUpdateOS!]
+  not: NestedEnumAppUpdateOSWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumAppUpdateOSFilter
+  _max: NestedEnumAppUpdateOSFilter
+}
+
+input NestedEnumAppUpdateOSWithAggregatesFilter {
+  equals: AppUpdateOS
+  in: [AppUpdateOS!]
+  notIn: [AppUpdateOS!]
+  not: NestedEnumAppUpdateOSWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumAppUpdateOSFilter
+  _max: NestedEnumAppUpdateOSFilter
+}
+
+input DateTimeWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedDateTimeFilter
+  _max: NestedDateTimeFilter
+}
+
+input NestedDateTimeWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedDateTimeFilter
+  _max: NestedDateTimeFilter
+}
+
+type AggregateAppUpdateFeature {
+  _count: AppUpdateFeatureCountAggregate
+  _min: AppUpdateFeatureMinAggregate
+  _max: AppUpdateFeatureMaxAggregate
+}
+
+type AppUpdateFeatureCountAggregate {
+  id: Int!
+  title: Int!
+  features: Int!
+  appUpdateId: Int!
+  _all: Int!
+}
+
+type AppUpdateFeatureMinAggregate {
+  id: String
+  title: String
+  appUpdateId: String
+}
+
+type AppUpdateFeatureMaxAggregate {
+  id: String
+  title: String
+  appUpdateId: String
+}
+
+type AppUpdateFeatureGroupBy {
+  id: String!
+  title: String!
+  features: [String!]
+  appUpdateId: String!
+  _count: AppUpdateFeatureCountAggregate
+  _min: AppUpdateFeatureMinAggregate
+  _max: AppUpdateFeatureMaxAggregate
+}
+
+input AppUpdateFeatureOrderByWithAggregationInput {
+  id: SortOrder
+  title: SortOrder
+  features: SortOrder
+  appUpdateId: SortOrder
+  _count: AppUpdateFeatureCountOrderByAggregateInput
+  _max: AppUpdateFeatureMaxOrderByAggregateInput
+  _min: AppUpdateFeatureMinOrderByAggregateInput
+}
+
+input AppUpdateFeatureCountOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  features: SortOrder
+  appUpdateId: SortOrder
+}
+
+input AppUpdateFeatureMaxOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  appUpdateId: SortOrder
+}
+
+input AppUpdateFeatureMinOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  appUpdateId: SortOrder
+}
+
+input AppUpdateFeatureScalarWhereWithAggregatesInput {
+  AND: [AppUpdateFeatureScalarWhereWithAggregatesInput!]
+  OR: [AppUpdateFeatureScalarWhereWithAggregatesInput!]
+  NOT: [AppUpdateFeatureScalarWhereWithAggregatesInput!]
+  id: StringWithAggregatesFilter
+  title: StringWithAggregatesFilter
+  features: StringNullableListFilter
+  appUpdateId: StringWithAggregatesFilter
+}
+
+type AggregateCallSchedule {
+  _count: CallScheduleCountAggregate
+  _avg: CallScheduleAvgAggregate
+  _sum: CallScheduleSumAggregate
+  _min: CallScheduleMinAggregate
+  _max: CallScheduleMaxAggregate
+}
+
+type CallScheduleCountAggregate {
+  id: Int!
+  lessonNumber: Int!
+  start: Int!
+  end: Int!
+  periodId: Int!
+  _all: Int!
+}
+
+type CallScheduleAvgAggregate {
+  lessonNumber: Float
+}
+
+type CallScheduleSumAggregate {
+  lessonNumber: Int
+}
+
+type CallScheduleMinAggregate {
+  id: String
+  lessonNumber: Int
+  start: String
+  end: String
+  periodId: String
+}
+
+type CallScheduleMaxAggregate {
+  id: String
+  lessonNumber: Int
+  start: String
+  end: String
+  periodId: String
+}
+
+input CallScheduleWhereInput {
+  AND: [CallScheduleWhereInput!]
+  OR: [CallScheduleWhereInput!]
+  NOT: [CallScheduleWhereInput!]
+  id: StringFilter
+  lessonNumber: IntFilter
+  start: StringFilter
+  end: StringFilter
+  period: PeriodRelationFilter
+  periodId: StringFilter
+}
+
+input IntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input PeriodRelationFilter {
+  is: PeriodWhereInput
+  isNot: PeriodWhereInput
+}
+
+input PeriodWhereInput {
+  AND: [PeriodWhereInput!]
+  OR: [PeriodWhereInput!]
+  NOT: [PeriodWhereInput!]
+  id: StringFilter
+  title: StringFilter
+  start: DateTimeFilter
+  end: DateTimeFilter
+  group: GroupRelationFilter
+  groupId: StringFilter
+  lastScheduleUpdate: DateTimeNullableFilter
+  type: EnumPeriodTypeFilter
+  callSchedule: CallScheduleListRelationFilter
+  lessons: LessonListRelationFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input GroupRelationFilter {
+  is: GroupWhereInput
+  isNot: GroupWhereInput
+}
+
+input GroupWhereInput {
+  AND: [GroupWhereInput!]
+  OR: [GroupWhereInput!]
+  NOT: [GroupWhereInput!]
+  id: StringFilter
+  title: StringFilter
+  course: IntFilter
+  faculty: FacultyRelationFilter
+  facultyId: StringFilter
+  periods: PeriodListRelationFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input FacultyRelationFilter {
+  is: FacultyWhereInput
+  isNot: FacultyWhereInput
+}
+
+input FacultyWhereInput {
+  AND: [FacultyWhereInput!]
+  OR: [FacultyWhereInput!]
+  NOT: [FacultyWhereInput!]
+  id: StringFilter
+  title: StringFilter
+  groups: GroupListRelationFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input GroupListRelationFilter {
+  every: GroupWhereInput
+  some: GroupWhereInput
+  none: GroupWhereInput
+}
+
+input PeriodListRelationFilter {
+  every: PeriodWhereInput
+  some: PeriodWhereInput
+  none: PeriodWhereInput
+}
+
+input DateTimeNullableFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeNullableFilter
+}
+
+input NestedDateTimeNullableFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeNullableFilter
+}
+
+input EnumPeriodTypeFilter {
+  equals: PeriodType
+  in: [PeriodType!]
+  notIn: [PeriodType!]
+  not: NestedEnumPeriodTypeFilter
+}
+
+enum PeriodType {
+  learning
+  session
+  vacation
+}
+
+input NestedEnumPeriodTypeFilter {
+  equals: PeriodType
+  in: [PeriodType!]
+  notIn: [PeriodType!]
+  not: NestedEnumPeriodTypeFilter
+}
+
+input CallScheduleListRelationFilter {
+  every: CallScheduleWhereInput
+  some: CallScheduleWhereInput
+  none: CallScheduleWhereInput
+}
+
+input LessonListRelationFilter {
+  every: LessonWhereInput
+  some: LessonWhereInput
+  none: LessonWhereInput
+}
+
+input LessonWhereInput {
+  AND: [LessonWhereInput!]
+  OR: [LessonWhereInput!]
+  NOT: [LessonWhereInput!]
+  id: StringFilter
+  title: StringFilter
+  teacher: StringFilter
+  number: IntFilter
+  subgroup: EnumSubgroupFilter
+  classroom: StringFilter
+  weekDay: EnumWeekDayFilter
+  weeksType: EnumWeeksTypeFilter
+  weeks: IntNullableListFilter
+  type: StringFilter
+  semester: PeriodRelationFilter
+  semesterId: StringFilter
+  notes: LessonNoteListRelationFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input EnumSubgroupFilter {
+  equals: Subgroup
+  in: [Subgroup!]
+  notIn: [Subgroup!]
+  not: NestedEnumSubgroupFilter
+}
+
+enum Subgroup {
+  none
+  first
+  second
+}
+
+input NestedEnumSubgroupFilter {
+  equals: Subgroup
+  in: [Subgroup!]
+  notIn: [Subgroup!]
+  not: NestedEnumSubgroupFilter
+}
+
+input EnumWeekDayFilter {
+  equals: WeekDay
+  in: [WeekDay!]
+  notIn: [WeekDay!]
+  not: NestedEnumWeekDayFilter
+}
+
+enum WeekDay {
+  monday
+  tuesday
+  wednesday
+  thursday
+  friday
+  saturday
+  sunday
+}
+
+input NestedEnumWeekDayFilter {
+  equals: WeekDay
+  in: [WeekDay!]
+  notIn: [WeekDay!]
+  not: NestedEnumWeekDayFilter
+}
+
+input EnumWeeksTypeFilter {
+  equals: WeeksType
+  in: [WeeksType!]
+  notIn: [WeeksType!]
+  not: NestedEnumWeeksTypeFilter
+}
+
+enum WeeksType {
+  all
+  first
+  second
+  custom
+}
+
+input NestedEnumWeeksTypeFilter {
+  equals: WeeksType
+  in: [WeeksType!]
+  notIn: [WeeksType!]
+  not: NestedEnumWeeksTypeFilter
+}
+
+input IntNullableListFilter {
+  equals: [Int!]
+  has: Int
+  hasEvery: [Int!]
+  hasSome: [Int!]
+  isEmpty: Boolean
+}
+
+input LessonNoteListRelationFilter {
+  every: LessonNoteWhereInput
+  some: LessonNoteWhereInput
+  none: LessonNoteWhereInput
+}
+
+input LessonNoteWhereInput {
+  AND: [LessonNoteWhereInput!]
+  OR: [LessonNoteWhereInput!]
+  NOT: [LessonNoteWhereInput!]
+  id: StringFilter
+  content: StringFilter
+  deviceId: StringFilter
+  lesson: LessonRelationFilter
+  lessonId: StringFilter
+  week: IntFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input LessonRelationFilter {
+  is: LessonWhereInput
+  isNot: LessonWhereInput
+}
+
+input CallScheduleOrderByWithRelationInput {
+  id: SortOrder
+  lessonNumber: SortOrder
+  start: SortOrder
+  end: SortOrder
+  period: PeriodOrderByWithRelationInput
+  periodId: SortOrder
+}
+
+input PeriodOrderByWithRelationInput {
+  id: SortOrder
+  title: SortOrder
+  start: SortOrder
+  end: SortOrder
+  group: GroupOrderByWithRelationInput
+  groupId: SortOrder
+  lastScheduleUpdate: SortOrder
+  type: SortOrder
+  callSchedule: CallScheduleOrderByRelationAggregateInput
+  lessons: LessonOrderByRelationAggregateInput
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input GroupOrderByWithRelationInput {
+  id: SortOrder
+  title: SortOrder
+  course: SortOrder
+  faculty: FacultyOrderByWithRelationInput
+  facultyId: SortOrder
+  periods: PeriodOrderByRelationAggregateInput
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input FacultyOrderByWithRelationInput {
+  id: SortOrder
+  title: SortOrder
+  groups: GroupOrderByRelationAggregateInput
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input GroupOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input PeriodOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input CallScheduleOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input LessonOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input CallScheduleWhereUniqueInput {
+  id: String
+}
+
+type CallSchedule {
+  id: String!
+  lessonNumber: Int!
+  start: String!
+  end: String!
+  periodId: String!
+  period: Period!
+}
+
+type Period {
+  id: String!
+  title: String!
+  start: DateTime!
+  end: DateTime!
+  groupId: String!
+  lastScheduleUpdate: DateTime
+  type: PeriodType!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  _count: PeriodCount
+  group: Group!
+  callSchedule(
+    where: CallScheduleWhereInput
+    orderBy: [CallScheduleOrderByWithRelationInput!]
+    cursor: CallScheduleWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [CallScheduleScalarFieldEnum!]
+  ): [CallSchedule!]!
+  lessons(
+    where: LessonWhereInput
+    orderBy: [LessonOrderByWithRelationInput!]
+    cursor: LessonWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [LessonScalarFieldEnum!]
+  ): [Lesson!]!
+}
+
+type PeriodCount {
+  callSchedule: Int!
+  lessons: Int!
+}
+
+type Group {
+  id: String!
+  title: String!
+  course: Int!
+  facultyId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  _count: GroupCount
+  faculty: Faculty!
+  periods(
+    where: PeriodWhereInput
+    orderBy: [PeriodOrderByWithRelationInput!]
+    cursor: PeriodWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [PeriodScalarFieldEnum!]
+  ): [Period!]!
+}
+
+type GroupCount {
+  periods: Int!
+}
+
+type Faculty {
+  id: String!
+  title: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  _count: FacultyCount
+  groups(
+    where: GroupWhereInput
+    orderBy: [GroupOrderByWithRelationInput!]
+    cursor: GroupWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [GroupScalarFieldEnum!]
+  ): [Group!]!
+}
+
+type FacultyCount {
+  groups: Int!
+}
+
+input GroupWhereUniqueInput {
+  id: String
+}
+
+enum GroupScalarFieldEnum {
+  id
+  title
+  course
+  facultyId
+  createdAt
+  updatedAt
+}
+
+input PeriodWhereUniqueInput {
+  id: String
+}
+
+enum PeriodScalarFieldEnum {
+  id
+  title
+  start
+  end
+  groupId
+  lastScheduleUpdate
+  type
+  createdAt
+  updatedAt
+}
+
+enum CallScheduleScalarFieldEnum {
+  id
+  lessonNumber
+  start
+  end
+  periodId
+}
+
+type Lesson {
+  id: String!
+  title: String!
+  teacher: String!
+  number: Int!
+  subgroup: Subgroup!
+  classroom: String!
+  weekDay: WeekDay!
+  weeksType: WeeksType!
+  weeks: [Int!]!
+  type: String!
+  semesterId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  _count: LessonCount
+  semester: Period!
+  notes(
+    where: LessonNoteWhereInput
+    orderBy: [LessonNoteOrderByWithRelationInput!]
+    cursor: LessonNoteWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [LessonNoteScalarFieldEnum!]
+  ): [LessonNote!]!
+}
+
+type LessonCount {
+  notes: Int!
+}
+
+type LessonNote {
+  id: String!
+  content: String!
+  deviceId: String!
+  lessonId: String!
+  week: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  lesson: Lesson!
+}
+
+input LessonNoteOrderByWithRelationInput {
+  id: SortOrder
+  content: SortOrder
+  deviceId: SortOrder
+  lesson: LessonOrderByWithRelationInput
+  lessonId: SortOrder
+  week: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input LessonOrderByWithRelationInput {
+  id: SortOrder
+  title: SortOrder
+  teacher: SortOrder
+  number: SortOrder
+  subgroup: SortOrder
+  classroom: SortOrder
+  weekDay: SortOrder
+  weeksType: SortOrder
+  weeks: SortOrder
+  type: SortOrder
+  semester: PeriodOrderByWithRelationInput
+  semesterId: SortOrder
+  notes: LessonNoteOrderByRelationAggregateInput
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input LessonNoteOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input LessonNoteWhereUniqueInput {
+  id: String
+}
+
+enum LessonNoteScalarFieldEnum {
+  id
+  content
+  deviceId
+  lessonId
+  week
+  createdAt
+  updatedAt
+}
+
+input LessonWhereUniqueInput {
+  id: String
+}
+
+enum LessonScalarFieldEnum {
+  id
+  title
+  teacher
+  number
+  subgroup
+  classroom
+  weekDay
+  weeksType
+  weeks
+  type
+  semesterId
+  createdAt
+  updatedAt
+}
+
+type CallScheduleGroupBy {
+  id: String!
+  lessonNumber: Int!
+  start: String!
+  end: String!
+  periodId: String!
+  _count: CallScheduleCountAggregate
+  _avg: CallScheduleAvgAggregate
+  _sum: CallScheduleSumAggregate
+  _min: CallScheduleMinAggregate
+  _max: CallScheduleMaxAggregate
+}
+
+input CallScheduleOrderByWithAggregationInput {
+  id: SortOrder
+  lessonNumber: SortOrder
+  start: SortOrder
+  end: SortOrder
+  periodId: SortOrder
+  _count: CallScheduleCountOrderByAggregateInput
+  _avg: CallScheduleAvgOrderByAggregateInput
+  _max: CallScheduleMaxOrderByAggregateInput
+  _min: CallScheduleMinOrderByAggregateInput
+  _sum: CallScheduleSumOrderByAggregateInput
+}
+
+input CallScheduleCountOrderByAggregateInput {
+  id: SortOrder
+  lessonNumber: SortOrder
+  start: SortOrder
+  end: SortOrder
+  periodId: SortOrder
+}
+
+input CallScheduleAvgOrderByAggregateInput {
+  lessonNumber: SortOrder
+}
+
+input CallScheduleMaxOrderByAggregateInput {
+  id: SortOrder
+  lessonNumber: SortOrder
+  start: SortOrder
+  end: SortOrder
+  periodId: SortOrder
+}
+
+input CallScheduleMinOrderByAggregateInput {
+  id: SortOrder
+  lessonNumber: SortOrder
+  start: SortOrder
+  end: SortOrder
+  periodId: SortOrder
+}
+
+input CallScheduleSumOrderByAggregateInput {
+  lessonNumber: SortOrder
+}
+
+input CallScheduleScalarWhereWithAggregatesInput {
+  AND: [CallScheduleScalarWhereWithAggregatesInput!]
+  OR: [CallScheduleScalarWhereWithAggregatesInput!]
+  NOT: [CallScheduleScalarWhereWithAggregatesInput!]
+  id: StringWithAggregatesFilter
+  lessonNumber: IntWithAggregatesFilter
+  start: StringWithAggregatesFilter
+  end: StringWithAggregatesFilter
+  periodId: StringWithAggregatesFilter
+}
+
+input IntWithAggregatesFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntWithAggregatesFilter
+  _count: NestedIntFilter
+  _avg: NestedFloatFilter
+  _sum: NestedIntFilter
+  _min: NestedIntFilter
+  _max: NestedIntFilter
+}
+
+input NestedIntWithAggregatesFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntWithAggregatesFilter
+  _count: NestedIntFilter
+  _avg: NestedFloatFilter
+  _sum: NestedIntFilter
+  _min: NestedIntFilter
+  _max: NestedIntFilter
+}
+
+input NestedFloatFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: NestedFloatFilter
+}
+
+type AggregateFaculty {
+  _count: FacultyCountAggregate
+  _min: FacultyMinAggregate
+  _max: FacultyMaxAggregate
+}
+
+type FacultyCountAggregate {
+  id: Int!
+  title: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  _all: Int!
+}
+
+type FacultyMinAggregate {
+  id: String
+  title: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type FacultyMaxAggregate {
+  id: String
+  title: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input FacultyWhereUniqueInput {
+  id: String
+}
+
+enum FacultyScalarFieldEnum {
+  id
+  title
+  createdAt
+  updatedAt
+}
+
+type FacultyGroupBy {
+  id: String!
+  title: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  _count: FacultyCountAggregate
+  _min: FacultyMinAggregate
+  _max: FacultyMaxAggregate
+}
+
+input FacultyOrderByWithAggregationInput {
+  id: SortOrder
+  title: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  _count: FacultyCountOrderByAggregateInput
+  _max: FacultyMaxOrderByAggregateInput
+  _min: FacultyMinOrderByAggregateInput
+}
+
+input FacultyCountOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input FacultyMaxOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input FacultyMinOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input FacultyScalarWhereWithAggregatesInput {
+  AND: [FacultyScalarWhereWithAggregatesInput!]
+  OR: [FacultyScalarWhereWithAggregatesInput!]
+  NOT: [FacultyScalarWhereWithAggregatesInput!]
+  id: StringWithAggregatesFilter
+  title: StringWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+}
+
+type AggregateGroup {
+  _count: GroupCountAggregate
+  _avg: GroupAvgAggregate
+  _sum: GroupSumAggregate
+  _min: GroupMinAggregate
+  _max: GroupMaxAggregate
+}
+
+type GroupCountAggregate {
+  id: Int!
+  title: Int!
+  course: Int!
+  facultyId: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  _all: Int!
+}
+
+type GroupAvgAggregate {
+  course: Float
+}
+
+type GroupSumAggregate {
+  course: Int
+}
+
+type GroupMinAggregate {
+  id: String
+  title: String
+  course: Int
+  facultyId: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type GroupMaxAggregate {
+  id: String
+  title: String
+  course: Int
+  facultyId: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type GroupGroupBy {
+  id: String!
+  title: String!
+  course: Int!
+  facultyId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  _count: GroupCountAggregate
+  _avg: GroupAvgAggregate
+  _sum: GroupSumAggregate
+  _min: GroupMinAggregate
+  _max: GroupMaxAggregate
+}
+
+input GroupOrderByWithAggregationInput {
+  id: SortOrder
+  title: SortOrder
+  course: SortOrder
+  facultyId: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  _count: GroupCountOrderByAggregateInput
+  _avg: GroupAvgOrderByAggregateInput
+  _max: GroupMaxOrderByAggregateInput
+  _min: GroupMinOrderByAggregateInput
+  _sum: GroupSumOrderByAggregateInput
+}
+
+input GroupCountOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  course: SortOrder
+  facultyId: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input GroupAvgOrderByAggregateInput {
+  course: SortOrder
+}
+
+input GroupMaxOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  course: SortOrder
+  facultyId: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input GroupMinOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  course: SortOrder
+  facultyId: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input GroupSumOrderByAggregateInput {
+  course: SortOrder
+}
+
+input GroupScalarWhereWithAggregatesInput {
+  AND: [GroupScalarWhereWithAggregatesInput!]
+  OR: [GroupScalarWhereWithAggregatesInput!]
+  NOT: [GroupScalarWhereWithAggregatesInput!]
+  id: StringWithAggregatesFilter
+  title: StringWithAggregatesFilter
+  course: IntWithAggregatesFilter
+  facultyId: StringWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+}
+
+type AggregateLesson {
+  _count: LessonCountAggregate
+  _avg: LessonAvgAggregate
+  _sum: LessonSumAggregate
+  _min: LessonMinAggregate
+  _max: LessonMaxAggregate
+}
+
+type LessonCountAggregate {
+  id: Int!
+  title: Int!
+  teacher: Int!
+  number: Int!
+  subgroup: Int!
+  classroom: Int!
+  weekDay: Int!
+  weeksType: Int!
+  weeks: Int!
+  type: Int!
+  semesterId: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  _all: Int!
+}
+
+type LessonAvgAggregate {
+  number: Float
+  weeks: Float
+}
+
+type LessonSumAggregate {
+  number: Int
+  weeks: [Int!]
+}
+
+type LessonMinAggregate {
+  id: String
+  title: String
+  teacher: String
+  number: Int
+  subgroup: Subgroup
+  classroom: String
+  weekDay: WeekDay
+  weeksType: WeeksType
+  type: String
+  semesterId: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type LessonMaxAggregate {
+  id: String
+  title: String
+  teacher: String
+  number: Int
+  subgroup: Subgroup
+  classroom: String
+  weekDay: WeekDay
+  weeksType: WeeksType
+  type: String
+  semesterId: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type LessonGroupBy {
+  id: String!
+  title: String!
+  teacher: String!
+  number: Int!
+  subgroup: Subgroup!
+  classroom: String!
+  weekDay: WeekDay!
+  weeksType: WeeksType!
+  weeks: [Int!]
+  type: String!
+  semesterId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  _count: LessonCountAggregate
+  _avg: LessonAvgAggregate
+  _sum: LessonSumAggregate
+  _min: LessonMinAggregate
+  _max: LessonMaxAggregate
+}
+
+input LessonOrderByWithAggregationInput {
+  id: SortOrder
+  title: SortOrder
+  teacher: SortOrder
+  number: SortOrder
+  subgroup: SortOrder
+  classroom: SortOrder
+  weekDay: SortOrder
+  weeksType: SortOrder
+  weeks: SortOrder
+  type: SortOrder
+  semesterId: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  _count: LessonCountOrderByAggregateInput
+  _avg: LessonAvgOrderByAggregateInput
+  _max: LessonMaxOrderByAggregateInput
+  _min: LessonMinOrderByAggregateInput
+  _sum: LessonSumOrderByAggregateInput
+}
+
+input LessonCountOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  teacher: SortOrder
+  number: SortOrder
+  subgroup: SortOrder
+  classroom: SortOrder
+  weekDay: SortOrder
+  weeksType: SortOrder
+  weeks: SortOrder
+  type: SortOrder
+  semesterId: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input LessonAvgOrderByAggregateInput {
+  number: SortOrder
+  weeks: SortOrder
+}
+
+input LessonMaxOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  teacher: SortOrder
+  number: SortOrder
+  subgroup: SortOrder
+  classroom: SortOrder
+  weekDay: SortOrder
+  weeksType: SortOrder
+  type: SortOrder
+  semesterId: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input LessonMinOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  teacher: SortOrder
+  number: SortOrder
+  subgroup: SortOrder
+  classroom: SortOrder
+  weekDay: SortOrder
+  weeksType: SortOrder
+  type: SortOrder
+  semesterId: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input LessonSumOrderByAggregateInput {
+  number: SortOrder
+  weeks: SortOrder
+}
+
+input LessonScalarWhereWithAggregatesInput {
+  AND: [LessonScalarWhereWithAggregatesInput!]
+  OR: [LessonScalarWhereWithAggregatesInput!]
+  NOT: [LessonScalarWhereWithAggregatesInput!]
+  id: StringWithAggregatesFilter
+  title: StringWithAggregatesFilter
+  teacher: StringWithAggregatesFilter
+  number: IntWithAggregatesFilter
+  subgroup: EnumSubgroupWithAggregatesFilter
+  classroom: StringWithAggregatesFilter
+  weekDay: EnumWeekDayWithAggregatesFilter
+  weeksType: EnumWeeksTypeWithAggregatesFilter
+  weeks: IntNullableListFilter
+  type: StringWithAggregatesFilter
+  semesterId: StringWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+}
+
+input EnumSubgroupWithAggregatesFilter {
+  equals: Subgroup
+  in: [Subgroup!]
+  notIn: [Subgroup!]
+  not: NestedEnumSubgroupWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumSubgroupFilter
+  _max: NestedEnumSubgroupFilter
+}
+
+input NestedEnumSubgroupWithAggregatesFilter {
+  equals: Subgroup
+  in: [Subgroup!]
+  notIn: [Subgroup!]
+  not: NestedEnumSubgroupWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumSubgroupFilter
+  _max: NestedEnumSubgroupFilter
+}
+
+input EnumWeekDayWithAggregatesFilter {
+  equals: WeekDay
+  in: [WeekDay!]
+  notIn: [WeekDay!]
+  not: NestedEnumWeekDayWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumWeekDayFilter
+  _max: NestedEnumWeekDayFilter
+}
+
+input NestedEnumWeekDayWithAggregatesFilter {
+  equals: WeekDay
+  in: [WeekDay!]
+  notIn: [WeekDay!]
+  not: NestedEnumWeekDayWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumWeekDayFilter
+  _max: NestedEnumWeekDayFilter
+}
+
+input EnumWeeksTypeWithAggregatesFilter {
+  equals: WeeksType
+  in: [WeeksType!]
+  notIn: [WeeksType!]
+  not: NestedEnumWeeksTypeWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumWeeksTypeFilter
+  _max: NestedEnumWeeksTypeFilter
+}
+
+input NestedEnumWeeksTypeWithAggregatesFilter {
+  equals: WeeksType
+  in: [WeeksType!]
+  notIn: [WeeksType!]
+  not: NestedEnumWeeksTypeWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumWeeksTypeFilter
+  _max: NestedEnumWeeksTypeFilter
+}
+
+type AggregateLessonNote {
+  _count: LessonNoteCountAggregate
+  _avg: LessonNoteAvgAggregate
+  _sum: LessonNoteSumAggregate
+  _min: LessonNoteMinAggregate
+  _max: LessonNoteMaxAggregate
+}
+
+type LessonNoteCountAggregate {
+  id: Int!
+  content: Int!
+  deviceId: Int!
+  lessonId: Int!
+  week: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  _all: Int!
+}
+
+type LessonNoteAvgAggregate {
+  week: Float
+}
+
+type LessonNoteSumAggregate {
+  week: Int
+}
+
+type LessonNoteMinAggregate {
+  id: String
+  content: String
+  deviceId: String
+  lessonId: String
+  week: Int
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type LessonNoteMaxAggregate {
+  id: String
+  content: String
+  deviceId: String
+  lessonId: String
+  week: Int
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type LessonNoteGroupBy {
+  id: String!
+  content: String!
+  deviceId: String!
+  lessonId: String!
+  week: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  _count: LessonNoteCountAggregate
+  _avg: LessonNoteAvgAggregate
+  _sum: LessonNoteSumAggregate
+  _min: LessonNoteMinAggregate
+  _max: LessonNoteMaxAggregate
+}
+
+input LessonNoteOrderByWithAggregationInput {
+  id: SortOrder
+  content: SortOrder
+  deviceId: SortOrder
+  lessonId: SortOrder
+  week: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  _count: LessonNoteCountOrderByAggregateInput
+  _avg: LessonNoteAvgOrderByAggregateInput
+  _max: LessonNoteMaxOrderByAggregateInput
+  _min: LessonNoteMinOrderByAggregateInput
+  _sum: LessonNoteSumOrderByAggregateInput
+}
+
+input LessonNoteCountOrderByAggregateInput {
+  id: SortOrder
+  content: SortOrder
+  deviceId: SortOrder
+  lessonId: SortOrder
+  week: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input LessonNoteAvgOrderByAggregateInput {
+  week: SortOrder
+}
+
+input LessonNoteMaxOrderByAggregateInput {
+  id: SortOrder
+  content: SortOrder
+  deviceId: SortOrder
+  lessonId: SortOrder
+  week: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input LessonNoteMinOrderByAggregateInput {
+  id: SortOrder
+  content: SortOrder
+  deviceId: SortOrder
+  lessonId: SortOrder
+  week: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input LessonNoteSumOrderByAggregateInput {
+  week: SortOrder
+}
+
+input LessonNoteScalarWhereWithAggregatesInput {
+  AND: [LessonNoteScalarWhereWithAggregatesInput!]
+  OR: [LessonNoteScalarWhereWithAggregatesInput!]
+  NOT: [LessonNoteScalarWhereWithAggregatesInput!]
+  id: StringWithAggregatesFilter
+  content: StringWithAggregatesFilter
+  deviceId: StringWithAggregatesFilter
+  lessonId: StringWithAggregatesFilter
+  week: IntWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+}
+
+type AggregatePeriod {
+  _count: PeriodCountAggregate
+  _min: PeriodMinAggregate
+  _max: PeriodMaxAggregate
+}
+
+type PeriodCountAggregate {
+  id: Int!
+  title: Int!
+  start: Int!
+  end: Int!
+  groupId: Int!
+  lastScheduleUpdate: Int!
+  type: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  _all: Int!
+}
+
+type PeriodMinAggregate {
+  id: String
+  title: String
+  start: DateTime
+  end: DateTime
+  groupId: String
+  lastScheduleUpdate: DateTime
+  type: PeriodType
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type PeriodMaxAggregate {
+  id: String
+  title: String
+  start: DateTime
+  end: DateTime
+  groupId: String
+  lastScheduleUpdate: DateTime
+  type: PeriodType
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type PeriodGroupBy {
+  id: String!
+  title: String!
+  start: DateTime!
+  end: DateTime!
+  groupId: String!
+  lastScheduleUpdate: DateTime
+  type: PeriodType!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  _count: PeriodCountAggregate
+  _min: PeriodMinAggregate
+  _max: PeriodMaxAggregate
+}
+
+input PeriodOrderByWithAggregationInput {
+  id: SortOrder
+  title: SortOrder
+  start: SortOrder
+  end: SortOrder
+  groupId: SortOrder
+  lastScheduleUpdate: SortOrder
+  type: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  _count: PeriodCountOrderByAggregateInput
+  _max: PeriodMaxOrderByAggregateInput
+  _min: PeriodMinOrderByAggregateInput
+}
+
+input PeriodCountOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  start: SortOrder
+  end: SortOrder
+  groupId: SortOrder
+  lastScheduleUpdate: SortOrder
+  type: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input PeriodMaxOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  start: SortOrder
+  end: SortOrder
+  groupId: SortOrder
+  lastScheduleUpdate: SortOrder
+  type: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input PeriodMinOrderByAggregateInput {
+  id: SortOrder
+  title: SortOrder
+  start: SortOrder
+  end: SortOrder
+  groupId: SortOrder
+  lastScheduleUpdate: SortOrder
+  type: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input PeriodScalarWhereWithAggregatesInput {
+  AND: [PeriodScalarWhereWithAggregatesInput!]
+  OR: [PeriodScalarWhereWithAggregatesInput!]
+  NOT: [PeriodScalarWhereWithAggregatesInput!]
+  id: StringWithAggregatesFilter
+  title: StringWithAggregatesFilter
+  start: DateTimeWithAggregatesFilter
+  end: DateTimeWithAggregatesFilter
+  groupId: StringWithAggregatesFilter
+  lastScheduleUpdate: DateTimeNullableWithAggregatesFilter
+  type: EnumPeriodTypeWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+}
+
+input DateTimeNullableWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _min: NestedDateTimeNullableFilter
+  _max: NestedDateTimeNullableFilter
+}
+
+input NestedDateTimeNullableWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _min: NestedDateTimeNullableFilter
+  _max: NestedDateTimeNullableFilter
+}
+
+input NestedIntNullableFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntNullableFilter
+}
+
+input EnumPeriodTypeWithAggregatesFilter {
+  equals: PeriodType
+  in: [PeriodType!]
+  notIn: [PeriodType!]
+  not: NestedEnumPeriodTypeWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumPeriodTypeFilter
+  _max: NestedEnumPeriodTypeFilter
+}
+
+input NestedEnumPeriodTypeWithAggregatesFilter {
+  equals: PeriodType
+  in: [PeriodType!]
+  notIn: [PeriodType!]
+  not: NestedEnumPeriodTypeWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumPeriodTypeFilter
+  _max: NestedEnumPeriodTypeFilter
+}
+
+type AggregateSecretLabel {
+  _count: SecretLabelCountAggregate
+  _min: SecretLabelMinAggregate
+  _max: SecretLabelMaxAggregate
+}
+
+type SecretLabelCountAggregate {
+  id: Int!
+  label: Int!
+  _all: Int!
+}
+
+type SecretLabelMinAggregate {
+  id: String
+  label: String
+}
+
+type SecretLabelMaxAggregate {
+  id: String
+  label: String
+}
+
+input SecretLabelWhereInput {
+  AND: [SecretLabelWhereInput!]
+  OR: [SecretLabelWhereInput!]
+  NOT: [SecretLabelWhereInput!]
+  id: StringFilter
+  label: StringFilter
+}
+
+input SecretLabelOrderByWithRelationInput {
+  id: SortOrder
+  label: SortOrder
+}
+
+input SecretLabelWhereUniqueInput {
+  id: String
+}
+
+type SecretLabel {
+  id: String!
+  label: String!
+}
+
+enum SecretLabelScalarFieldEnum {
+  id
+  label
+}
+
+type SecretLabelGroupBy {
+  id: String!
+  label: String!
+  _count: SecretLabelCountAggregate
+  _min: SecretLabelMinAggregate
+  _max: SecretLabelMaxAggregate
+}
+
+input SecretLabelOrderByWithAggregationInput {
+  id: SortOrder
+  label: SortOrder
+  _count: SecretLabelCountOrderByAggregateInput
+  _max: SecretLabelMaxOrderByAggregateInput
+  _min: SecretLabelMinOrderByAggregateInput
+}
+
+input SecretLabelCountOrderByAggregateInput {
+  id: SortOrder
+  label: SortOrder
+}
+
+input SecretLabelMaxOrderByAggregateInput {
+  id: SortOrder
+  label: SortOrder
+}
+
+input SecretLabelMinOrderByAggregateInput {
+  id: SortOrder
+  label: SortOrder
+}
+
+input SecretLabelScalarWhereWithAggregatesInput {
+  AND: [SecretLabelScalarWhereWithAggregatesInput!]
+  OR: [SecretLabelScalarWhereWithAggregatesInput!]
+  NOT: [SecretLabelScalarWhereWithAggregatesInput!]
+  id: StringWithAggregatesFilter
+  label: StringWithAggregatesFilter
+}
+
+type Mutation {
+  createManyAppUpdate(
+    data: [AppUpdateCreateManyInput!]!
+    skipDuplicates: Boolean
+  ): AffectedRowsOutput!
+  createOneAppUpdate(data: AppUpdateCreateInput!): AppUpdate!
+  deleteManyAppUpdate(where: AppUpdateWhereInput): AffectedRowsOutput!
+  deleteOneAppUpdate(where: AppUpdateWhereUniqueInput!): AppUpdate
+  updateManyAppUpdate(
+    data: AppUpdateUpdateManyMutationInput!
+    where: AppUpdateWhereInput
+  ): AffectedRowsOutput!
+  updateOneAppUpdate(
+    data: AppUpdateUpdateInput!
+    where: AppUpdateWhereUniqueInput!
+  ): AppUpdate
+  upsertOneAppUpdate(
+    where: AppUpdateWhereUniqueInput!
+    create: AppUpdateCreateInput!
+    update: AppUpdateUpdateInput!
+  ): AppUpdate!
+  createManyAppUpdateFeature(
+    data: [AppUpdateFeatureCreateManyInput!]!
+    skipDuplicates: Boolean
+  ): AffectedRowsOutput!
+  createOneAppUpdateFeature(
+    data: AppUpdateFeatureCreateInput!
+  ): AppUpdateFeature!
+  deleteManyAppUpdateFeature(
+    where: AppUpdateFeatureWhereInput
+  ): AffectedRowsOutput!
+  deleteOneAppUpdateFeature(
+    where: AppUpdateFeatureWhereUniqueInput!
+  ): AppUpdateFeature
+  updateManyAppUpdateFeature(
+    data: AppUpdateFeatureUpdateManyMutationInput!
+    where: AppUpdateFeatureWhereInput
+  ): AffectedRowsOutput!
+  updateOneAppUpdateFeature(
+    data: AppUpdateFeatureUpdateInput!
+    where: AppUpdateFeatureWhereUniqueInput!
+  ): AppUpdateFeature
+  upsertOneAppUpdateFeature(
+    where: AppUpdateFeatureWhereUniqueInput!
+    create: AppUpdateFeatureCreateInput!
+    update: AppUpdateFeatureUpdateInput!
+  ): AppUpdateFeature!
+  createManyCallSchedule(
+    data: [CallScheduleCreateManyInput!]!
+    skipDuplicates: Boolean
+  ): AffectedRowsOutput!
+  createOneCallSchedule(data: CallScheduleCreateInput!): CallSchedule!
+  deleteManyCallSchedule(where: CallScheduleWhereInput): AffectedRowsOutput!
+  deleteOneCallSchedule(where: CallScheduleWhereUniqueInput!): CallSchedule
+  updateManyCallSchedule(
+    data: CallScheduleUpdateManyMutationInput!
+    where: CallScheduleWhereInput
+  ): AffectedRowsOutput!
+  updateOneCallSchedule(
+    data: CallScheduleUpdateInput!
+    where: CallScheduleWhereUniqueInput!
+  ): CallSchedule
+  upsertOneCallSchedule(
+    where: CallScheduleWhereUniqueInput!
+    create: CallScheduleCreateInput!
+    update: CallScheduleUpdateInput!
+  ): CallSchedule!
+  createManyFaculty(
+    data: [FacultyCreateManyInput!]!
+    skipDuplicates: Boolean
+  ): AffectedRowsOutput!
+  createOneFaculty(data: FacultyCreateInput!): Faculty!
+  deleteManyFaculty(where: FacultyWhereInput): AffectedRowsOutput!
+  deleteOneFaculty(where: FacultyWhereUniqueInput!): Faculty
+  updateManyFaculty(
+    data: FacultyUpdateManyMutationInput!
+    where: FacultyWhereInput
+  ): AffectedRowsOutput!
+  updateOneFaculty(
+    data: FacultyUpdateInput!
+    where: FacultyWhereUniqueInput!
+  ): Faculty
+  upsertOneFaculty(
+    where: FacultyWhereUniqueInput!
+    create: FacultyCreateInput!
+    update: FacultyUpdateInput!
+  ): Faculty!
+  createManyGroup(
+    data: [GroupCreateManyInput!]!
+    skipDuplicates: Boolean
+  ): AffectedRowsOutput!
+  createOneGroup(data: GroupCreateInput!): Group!
+  deleteManyGroup(where: GroupWhereInput): AffectedRowsOutput!
+  deleteOneGroup(where: GroupWhereUniqueInput!): Group
+  updateManyGroup(
+    data: GroupUpdateManyMutationInput!
+    where: GroupWhereInput
+  ): AffectedRowsOutput!
+  updateOneGroup(data: GroupUpdateInput!, where: GroupWhereUniqueInput!): Group
+  upsertOneGroup(
+    where: GroupWhereUniqueInput!
+    create: GroupCreateInput!
+    update: GroupUpdateInput!
+  ): Group!
+  createManyLesson(
+    data: [LessonCreateManyInput!]!
+    skipDuplicates: Boolean
+  ): AffectedRowsOutput!
+  createOneLesson(data: LessonCreateInput!): Lesson!
+  deleteManyLesson(where: LessonWhereInput): AffectedRowsOutput!
+  deleteOneLesson(where: LessonWhereUniqueInput!): Lesson
+  updateManyLesson(
+    data: LessonUpdateManyMutationInput!
+    where: LessonWhereInput
+  ): AffectedRowsOutput!
+  updateOneLesson(
+    data: LessonUpdateInput!
+    where: LessonWhereUniqueInput!
+  ): Lesson
+  upsertOneLesson(
+    where: LessonWhereUniqueInput!
+    create: LessonCreateInput!
+    update: LessonUpdateInput!
+  ): Lesson!
+  createManyLessonNote(
+    data: [LessonNoteCreateManyInput!]!
+    skipDuplicates: Boolean
+  ): AffectedRowsOutput!
+  createOneLessonNote(data: LessonNoteCreateInput!): LessonNote!
+  deleteManyLessonNote(where: LessonNoteWhereInput): AffectedRowsOutput!
+  deleteOneLessonNote(where: LessonNoteWhereUniqueInput!): LessonNote
+  updateManyLessonNote(
+    data: LessonNoteUpdateManyMutationInput!
+    where: LessonNoteWhereInput
+  ): AffectedRowsOutput!
+  updateOneLessonNote(
+    data: LessonNoteUpdateInput!
+    where: LessonNoteWhereUniqueInput!
+  ): LessonNote
+  upsertOneLessonNote(
+    where: LessonNoteWhereUniqueInput!
+    create: LessonNoteCreateInput!
+    update: LessonNoteUpdateInput!
+  ): LessonNote!
+  createManyPeriod(
+    data: [PeriodCreateManyInput!]!
+    skipDuplicates: Boolean
+  ): AffectedRowsOutput!
+  createOnePeriod(data: PeriodCreateInput!): Period!
+  deleteManyPeriod(where: PeriodWhereInput): AffectedRowsOutput!
+  deleteOnePeriod(where: PeriodWhereUniqueInput!): Period
+  updateManyPeriod(
+    data: PeriodUpdateManyMutationInput!
+    where: PeriodWhereInput
+  ): AffectedRowsOutput!
+  updateOnePeriod(
+    data: PeriodUpdateInput!
+    where: PeriodWhereUniqueInput!
+  ): Period
+  upsertOnePeriod(
+    where: PeriodWhereUniqueInput!
+    create: PeriodCreateInput!
+    update: PeriodUpdateInput!
+  ): Period!
+  createManySecretLabel(
+    data: [SecretLabelCreateManyInput!]!
+    skipDuplicates: Boolean
+  ): AffectedRowsOutput!
+  createOneSecretLabel(data: SecretLabelCreateInput!): SecretLabel!
+  deleteManySecretLabel(where: SecretLabelWhereInput): AffectedRowsOutput!
+  deleteOneSecretLabel(where: SecretLabelWhereUniqueInput!): SecretLabel
+  updateManySecretLabel(
+    data: SecretLabelUpdateManyMutationInput!
+    where: SecretLabelWhereInput
+  ): AffectedRowsOutput!
+  updateOneSecretLabel(
+    data: SecretLabelUpdateInput!
+    where: SecretLabelWhereUniqueInput!
+  ): SecretLabel
+  upsertOneSecretLabel(
+    where: SecretLabelWhereUniqueInput!
+    create: SecretLabelCreateInput!
+    update: SecretLabelUpdateInput!
+  ): SecretLabel!
+}
+
+type AffectedRowsOutput {
+  count: Int!
+}
+
+input AppUpdateCreateManyInput {
+  id: String
+  os: AppUpdateOS!
+  version: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input AppUpdateCreateInput {
+  id: String
+  os: AppUpdateOS!
+  version: String!
+  features: AppUpdateFeatureCreateNestedManyWithoutAppUpdateInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input AppUpdateFeatureCreateNestedManyWithoutAppUpdateInput {
+  create: [AppUpdateFeatureCreateWithoutAppUpdateInput!]
+  connectOrCreate: [AppUpdateFeatureCreateOrConnectWithoutAppUpdateInput!]
+  createMany: AppUpdateFeatureCreateManyAppUpdateInputEnvelope
+  connect: [AppUpdateFeatureWhereUniqueInput!]
+}
+
+input AppUpdateFeatureCreateWithoutAppUpdateInput {
+  id: String
+  title: String!
+  features: AppUpdateFeatureCreatefeaturesInput
+}
+
+input AppUpdateFeatureCreatefeaturesInput {
+  set: [String!]!
+}
+
+input AppUpdateFeatureCreateOrConnectWithoutAppUpdateInput {
+  where: AppUpdateFeatureWhereUniqueInput!
+  create: AppUpdateFeatureCreateWithoutAppUpdateInput!
+}
+
+input AppUpdateFeatureCreateManyAppUpdateInputEnvelope {
+  data: [AppUpdateFeatureCreateManyAppUpdateInput!]!
+  skipDuplicates: Boolean
+}
+
+input AppUpdateFeatureCreateManyAppUpdateInput {
+  id: String
+  title: String!
+  features: AppUpdateFeatureCreatefeaturesInput
+}
+
+input AppUpdateUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  os: EnumAppUpdateOSFieldUpdateOperationsInput
+  version: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
+}
+
+input EnumAppUpdateOSFieldUpdateOperationsInput {
+  set: AppUpdateOS
+}
+
+input DateTimeFieldUpdateOperationsInput {
+  set: DateTime
+}
+
+input AppUpdateUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  os: EnumAppUpdateOSFieldUpdateOperationsInput
+  version: StringFieldUpdateOperationsInput
+  features: AppUpdateFeatureUpdateManyWithoutAppUpdateNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input AppUpdateFeatureUpdateManyWithoutAppUpdateNestedInput {
+  create: [AppUpdateFeatureCreateWithoutAppUpdateInput!]
+  connectOrCreate: [AppUpdateFeatureCreateOrConnectWithoutAppUpdateInput!]
+  upsert: [AppUpdateFeatureUpsertWithWhereUniqueWithoutAppUpdateInput!]
+  createMany: AppUpdateFeatureCreateManyAppUpdateInputEnvelope
+  set: [AppUpdateFeatureWhereUniqueInput!]
+  disconnect: [AppUpdateFeatureWhereUniqueInput!]
+  delete: [AppUpdateFeatureWhereUniqueInput!]
+  connect: [AppUpdateFeatureWhereUniqueInput!]
+  update: [AppUpdateFeatureUpdateWithWhereUniqueWithoutAppUpdateInput!]
+  updateMany: [AppUpdateFeatureUpdateManyWithWhereWithoutAppUpdateInput!]
+  deleteMany: [AppUpdateFeatureScalarWhereInput!]
+}
+
+input AppUpdateFeatureUpsertWithWhereUniqueWithoutAppUpdateInput {
+  where: AppUpdateFeatureWhereUniqueInput!
+  update: AppUpdateFeatureUpdateWithoutAppUpdateInput!
+  create: AppUpdateFeatureCreateWithoutAppUpdateInput!
+}
+
+input AppUpdateFeatureUpdateWithoutAppUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  features: AppUpdateFeatureUpdatefeaturesInput
+}
+
+input AppUpdateFeatureUpdatefeaturesInput {
+  set: [String!]
+  push: [String!]
+}
+
+input AppUpdateFeatureUpdateWithWhereUniqueWithoutAppUpdateInput {
+  where: AppUpdateFeatureWhereUniqueInput!
+  data: AppUpdateFeatureUpdateWithoutAppUpdateInput!
+}
+
+input AppUpdateFeatureUpdateManyWithWhereWithoutAppUpdateInput {
+  where: AppUpdateFeatureScalarWhereInput!
+  data: AppUpdateFeatureUpdateManyMutationInput!
+}
+
+input AppUpdateFeatureScalarWhereInput {
+  AND: [AppUpdateFeatureScalarWhereInput!]
+  OR: [AppUpdateFeatureScalarWhereInput!]
+  NOT: [AppUpdateFeatureScalarWhereInput!]
+  id: StringFilter
+  title: StringFilter
+  features: StringNullableListFilter
+  appUpdateId: StringFilter
+}
+
+input AppUpdateFeatureUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  features: AppUpdateFeatureUpdatefeaturesInput
+}
+
+input AppUpdateFeatureCreateManyInput {
+  id: String
+  title: String!
+  features: AppUpdateFeatureCreatefeaturesInput
+  appUpdateId: String!
+}
+
+input AppUpdateFeatureCreateInput {
+  id: String
+  title: String!
+  features: AppUpdateFeatureCreatefeaturesInput
+  appUpdate: AppUpdateCreateNestedOneWithoutFeaturesInput!
+}
+
+input AppUpdateCreateNestedOneWithoutFeaturesInput {
+  create: AppUpdateCreateWithoutFeaturesInput
+  connectOrCreate: AppUpdateCreateOrConnectWithoutFeaturesInput
+  connect: AppUpdateWhereUniqueInput
+}
+
+input AppUpdateCreateWithoutFeaturesInput {
+  id: String
+  os: AppUpdateOS!
+  version: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input AppUpdateCreateOrConnectWithoutFeaturesInput {
+  where: AppUpdateWhereUniqueInput!
+  create: AppUpdateCreateWithoutFeaturesInput!
+}
+
+input AppUpdateFeatureUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  features: AppUpdateFeatureUpdatefeaturesInput
+  appUpdate: AppUpdateUpdateOneRequiredWithoutFeaturesNestedInput
+}
+
+input AppUpdateUpdateOneRequiredWithoutFeaturesNestedInput {
+  create: AppUpdateCreateWithoutFeaturesInput
+  connectOrCreate: AppUpdateCreateOrConnectWithoutFeaturesInput
+  upsert: AppUpdateUpsertWithoutFeaturesInput
+  connect: AppUpdateWhereUniqueInput
+  update: AppUpdateUpdateWithoutFeaturesInput
+}
+
+input AppUpdateUpsertWithoutFeaturesInput {
+  update: AppUpdateUpdateWithoutFeaturesInput!
+  create: AppUpdateCreateWithoutFeaturesInput!
+}
+
+input AppUpdateUpdateWithoutFeaturesInput {
+  id: StringFieldUpdateOperationsInput
+  os: EnumAppUpdateOSFieldUpdateOperationsInput
+  version: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CallScheduleCreateManyInput {
+  id: String
+  lessonNumber: Int!
+  start: String!
+  end: String!
+  periodId: String!
+}
+
+input CallScheduleCreateInput {
+  id: String
+  lessonNumber: Int!
+  start: String!
+  end: String!
+  period: PeriodCreateNestedOneWithoutCallScheduleInput!
+}
+
+input PeriodCreateNestedOneWithoutCallScheduleInput {
+  create: PeriodCreateWithoutCallScheduleInput
+  connectOrCreate: PeriodCreateOrConnectWithoutCallScheduleInput
+  connect: PeriodWhereUniqueInput
+}
+
+input PeriodCreateWithoutCallScheduleInput {
+  id: String
+  title: String!
+  start: DateTime!
+  end: DateTime!
+  group: GroupCreateNestedOneWithoutPeriodsInput!
+  lastScheduleUpdate: DateTime
+  type: PeriodType!
+  lessons: LessonCreateNestedManyWithoutSemesterInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input GroupCreateNestedOneWithoutPeriodsInput {
+  create: GroupCreateWithoutPeriodsInput
+  connectOrCreate: GroupCreateOrConnectWithoutPeriodsInput
+  connect: GroupWhereUniqueInput
+}
+
+input GroupCreateWithoutPeriodsInput {
+  id: String
+  title: String!
+  course: Int!
+  faculty: FacultyCreateNestedOneWithoutGroupsInput!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input FacultyCreateNestedOneWithoutGroupsInput {
+  create: FacultyCreateWithoutGroupsInput
+  connectOrCreate: FacultyCreateOrConnectWithoutGroupsInput
+  connect: FacultyWhereUniqueInput
+}
+
+input FacultyCreateWithoutGroupsInput {
+  id: String
+  title: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input FacultyCreateOrConnectWithoutGroupsInput {
+  where: FacultyWhereUniqueInput!
+  create: FacultyCreateWithoutGroupsInput!
+}
+
+input GroupCreateOrConnectWithoutPeriodsInput {
+  where: GroupWhereUniqueInput!
+  create: GroupCreateWithoutPeriodsInput!
+}
+
+input LessonCreateNestedManyWithoutSemesterInput {
+  create: [LessonCreateWithoutSemesterInput!]
+  connectOrCreate: [LessonCreateOrConnectWithoutSemesterInput!]
+  createMany: LessonCreateManySemesterInputEnvelope
+  connect: [LessonWhereUniqueInput!]
+}
+
+input LessonCreateWithoutSemesterInput {
+  id: String
+  title: String!
+  teacher: String!
+  number: Int!
+  subgroup: Subgroup!
+  classroom: String!
+  weekDay: WeekDay!
+  weeksType: WeeksType!
+  weeks: LessonCreateweeksInput
+  type: String!
+  notes: LessonNoteCreateNestedManyWithoutLessonInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input LessonCreateweeksInput {
+  set: [Int!]!
+}
+
+input LessonNoteCreateNestedManyWithoutLessonInput {
+  create: [LessonNoteCreateWithoutLessonInput!]
+  connectOrCreate: [LessonNoteCreateOrConnectWithoutLessonInput!]
+  createMany: LessonNoteCreateManyLessonInputEnvelope
+  connect: [LessonNoteWhereUniqueInput!]
+}
+
+input LessonNoteCreateWithoutLessonInput {
+  id: String
+  content: String!
+  deviceId: String!
+  week: Int!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input LessonNoteCreateOrConnectWithoutLessonInput {
+  where: LessonNoteWhereUniqueInput!
+  create: LessonNoteCreateWithoutLessonInput!
+}
+
+input LessonNoteCreateManyLessonInputEnvelope {
+  data: [LessonNoteCreateManyLessonInput!]!
+  skipDuplicates: Boolean
+}
+
+input LessonNoteCreateManyLessonInput {
+  id: String
+  content: String!
+  deviceId: String!
+  week: Int!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input LessonCreateOrConnectWithoutSemesterInput {
+  where: LessonWhereUniqueInput!
+  create: LessonCreateWithoutSemesterInput!
+}
+
+input LessonCreateManySemesterInputEnvelope {
+  data: [LessonCreateManySemesterInput!]!
+  skipDuplicates: Boolean
+}
+
+input LessonCreateManySemesterInput {
+  id: String
+  title: String!
+  teacher: String!
+  number: Int!
+  subgroup: Subgroup!
+  classroom: String!
+  weekDay: WeekDay!
+  weeksType: WeeksType!
+  weeks: LessonCreateweeksInput
+  type: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input PeriodCreateOrConnectWithoutCallScheduleInput {
+  where: PeriodWhereUniqueInput!
+  create: PeriodCreateWithoutCallScheduleInput!
+}
+
+input CallScheduleUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  lessonNumber: IntFieldUpdateOperationsInput
+  start: StringFieldUpdateOperationsInput
+  end: StringFieldUpdateOperationsInput
+}
+
+input IntFieldUpdateOperationsInput {
+  set: Int
+  increment: Int
+  decrement: Int
+  multiply: Int
+  divide: Int
+}
+
+input CallScheduleUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  lessonNumber: IntFieldUpdateOperationsInput
+  start: StringFieldUpdateOperationsInput
+  end: StringFieldUpdateOperationsInput
+  period: PeriodUpdateOneRequiredWithoutCallScheduleNestedInput
+}
+
+input PeriodUpdateOneRequiredWithoutCallScheduleNestedInput {
+  create: PeriodCreateWithoutCallScheduleInput
+  connectOrCreate: PeriodCreateOrConnectWithoutCallScheduleInput
+  upsert: PeriodUpsertWithoutCallScheduleInput
+  connect: PeriodWhereUniqueInput
+  update: PeriodUpdateWithoutCallScheduleInput
+}
+
+input PeriodUpsertWithoutCallScheduleInput {
+  update: PeriodUpdateWithoutCallScheduleInput!
+  create: PeriodCreateWithoutCallScheduleInput!
+}
+
+input PeriodUpdateWithoutCallScheduleInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  start: DateTimeFieldUpdateOperationsInput
+  end: DateTimeFieldUpdateOperationsInput
+  group: GroupUpdateOneRequiredWithoutPeriodsNestedInput
+  lastScheduleUpdate: NullableDateTimeFieldUpdateOperationsInput
+  type: EnumPeriodTypeFieldUpdateOperationsInput
+  lessons: LessonUpdateManyWithoutSemesterNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input GroupUpdateOneRequiredWithoutPeriodsNestedInput {
+  create: GroupCreateWithoutPeriodsInput
+  connectOrCreate: GroupCreateOrConnectWithoutPeriodsInput
+  upsert: GroupUpsertWithoutPeriodsInput
+  connect: GroupWhereUniqueInput
+  update: GroupUpdateWithoutPeriodsInput
+}
+
+input GroupUpsertWithoutPeriodsInput {
+  update: GroupUpdateWithoutPeriodsInput!
+  create: GroupCreateWithoutPeriodsInput!
+}
+
+input GroupUpdateWithoutPeriodsInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  course: IntFieldUpdateOperationsInput
+  faculty: FacultyUpdateOneRequiredWithoutGroupsNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input FacultyUpdateOneRequiredWithoutGroupsNestedInput {
+  create: FacultyCreateWithoutGroupsInput
+  connectOrCreate: FacultyCreateOrConnectWithoutGroupsInput
+  upsert: FacultyUpsertWithoutGroupsInput
+  connect: FacultyWhereUniqueInput
+  update: FacultyUpdateWithoutGroupsInput
+}
+
+input FacultyUpsertWithoutGroupsInput {
+  update: FacultyUpdateWithoutGroupsInput!
+  create: FacultyCreateWithoutGroupsInput!
+}
+
+input FacultyUpdateWithoutGroupsInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input NullableDateTimeFieldUpdateOperationsInput {
+  set: DateTime
+}
+
+input EnumPeriodTypeFieldUpdateOperationsInput {
+  set: PeriodType
+}
+
+input LessonUpdateManyWithoutSemesterNestedInput {
+  create: [LessonCreateWithoutSemesterInput!]
+  connectOrCreate: [LessonCreateOrConnectWithoutSemesterInput!]
+  upsert: [LessonUpsertWithWhereUniqueWithoutSemesterInput!]
+  createMany: LessonCreateManySemesterInputEnvelope
+  set: [LessonWhereUniqueInput!]
+  disconnect: [LessonWhereUniqueInput!]
+  delete: [LessonWhereUniqueInput!]
+  connect: [LessonWhereUniqueInput!]
+  update: [LessonUpdateWithWhereUniqueWithoutSemesterInput!]
+  updateMany: [LessonUpdateManyWithWhereWithoutSemesterInput!]
+  deleteMany: [LessonScalarWhereInput!]
+}
+
+input LessonUpsertWithWhereUniqueWithoutSemesterInput {
+  where: LessonWhereUniqueInput!
+  update: LessonUpdateWithoutSemesterInput!
+  create: LessonCreateWithoutSemesterInput!
+}
+
+input LessonUpdateWithoutSemesterInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  teacher: StringFieldUpdateOperationsInput
+  number: IntFieldUpdateOperationsInput
+  subgroup: EnumSubgroupFieldUpdateOperationsInput
+  classroom: StringFieldUpdateOperationsInput
+  weekDay: EnumWeekDayFieldUpdateOperationsInput
+  weeksType: EnumWeeksTypeFieldUpdateOperationsInput
+  weeks: LessonUpdateweeksInput
+  type: StringFieldUpdateOperationsInput
+  notes: LessonNoteUpdateManyWithoutLessonNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input EnumSubgroupFieldUpdateOperationsInput {
+  set: Subgroup
+}
+
+input EnumWeekDayFieldUpdateOperationsInput {
+  set: WeekDay
+}
+
+input EnumWeeksTypeFieldUpdateOperationsInput {
+  set: WeeksType
+}
+
+input LessonUpdateweeksInput {
+  set: [Int!]
+  push: [Int!]
+}
+
+input LessonNoteUpdateManyWithoutLessonNestedInput {
+  create: [LessonNoteCreateWithoutLessonInput!]
+  connectOrCreate: [LessonNoteCreateOrConnectWithoutLessonInput!]
+  upsert: [LessonNoteUpsertWithWhereUniqueWithoutLessonInput!]
+  createMany: LessonNoteCreateManyLessonInputEnvelope
+  set: [LessonNoteWhereUniqueInput!]
+  disconnect: [LessonNoteWhereUniqueInput!]
+  delete: [LessonNoteWhereUniqueInput!]
+  connect: [LessonNoteWhereUniqueInput!]
+  update: [LessonNoteUpdateWithWhereUniqueWithoutLessonInput!]
+  updateMany: [LessonNoteUpdateManyWithWhereWithoutLessonInput!]
+  deleteMany: [LessonNoteScalarWhereInput!]
+}
+
+input LessonNoteUpsertWithWhereUniqueWithoutLessonInput {
+  where: LessonNoteWhereUniqueInput!
+  update: LessonNoteUpdateWithoutLessonInput!
+  create: LessonNoteCreateWithoutLessonInput!
+}
+
+input LessonNoteUpdateWithoutLessonInput {
+  id: StringFieldUpdateOperationsInput
+  content: StringFieldUpdateOperationsInput
+  deviceId: StringFieldUpdateOperationsInput
+  week: IntFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input LessonNoteUpdateWithWhereUniqueWithoutLessonInput {
+  where: LessonNoteWhereUniqueInput!
+  data: LessonNoteUpdateWithoutLessonInput!
+}
+
+input LessonNoteUpdateManyWithWhereWithoutLessonInput {
+  where: LessonNoteScalarWhereInput!
+  data: LessonNoteUpdateManyMutationInput!
+}
+
+input LessonNoteScalarWhereInput {
+  AND: [LessonNoteScalarWhereInput!]
+  OR: [LessonNoteScalarWhereInput!]
+  NOT: [LessonNoteScalarWhereInput!]
+  id: StringFilter
+  content: StringFilter
+  deviceId: StringFilter
+  lessonId: StringFilter
+  week: IntFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input LessonNoteUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  content: StringFieldUpdateOperationsInput
+  deviceId: StringFieldUpdateOperationsInput
+  week: IntFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input LessonUpdateWithWhereUniqueWithoutSemesterInput {
+  where: LessonWhereUniqueInput!
+  data: LessonUpdateWithoutSemesterInput!
+}
+
+input LessonUpdateManyWithWhereWithoutSemesterInput {
+  where: LessonScalarWhereInput!
+  data: LessonUpdateManyMutationInput!
+}
+
+input LessonScalarWhereInput {
+  AND: [LessonScalarWhereInput!]
+  OR: [LessonScalarWhereInput!]
+  NOT: [LessonScalarWhereInput!]
+  id: StringFilter
+  title: StringFilter
+  teacher: StringFilter
+  number: IntFilter
+  subgroup: EnumSubgroupFilter
+  classroom: StringFilter
+  weekDay: EnumWeekDayFilter
+  weeksType: EnumWeeksTypeFilter
+  weeks: IntNullableListFilter
+  type: StringFilter
+  semesterId: StringFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input LessonUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  teacher: StringFieldUpdateOperationsInput
+  number: IntFieldUpdateOperationsInput
+  subgroup: EnumSubgroupFieldUpdateOperationsInput
+  classroom: StringFieldUpdateOperationsInput
+  weekDay: EnumWeekDayFieldUpdateOperationsInput
+  weeksType: EnumWeeksTypeFieldUpdateOperationsInput
+  weeks: LessonUpdateweeksInput
+  type: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input FacultyCreateManyInput {
+  id: String
+  title: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input FacultyCreateInput {
+  id: String
+  title: String!
+  groups: GroupCreateNestedManyWithoutFacultyInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input GroupCreateNestedManyWithoutFacultyInput {
+  create: [GroupCreateWithoutFacultyInput!]
+  connectOrCreate: [GroupCreateOrConnectWithoutFacultyInput!]
+  createMany: GroupCreateManyFacultyInputEnvelope
+  connect: [GroupWhereUniqueInput!]
+}
+
+input GroupCreateWithoutFacultyInput {
+  id: String
+  title: String!
+  course: Int!
+  periods: PeriodCreateNestedManyWithoutGroupInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input PeriodCreateNestedManyWithoutGroupInput {
+  create: [PeriodCreateWithoutGroupInput!]
+  connectOrCreate: [PeriodCreateOrConnectWithoutGroupInput!]
+  createMany: PeriodCreateManyGroupInputEnvelope
+  connect: [PeriodWhereUniqueInput!]
+}
+
+input PeriodCreateWithoutGroupInput {
+  id: String
+  title: String!
+  start: DateTime!
+  end: DateTime!
+  lastScheduleUpdate: DateTime
+  type: PeriodType!
+  callSchedule: CallScheduleCreateNestedManyWithoutPeriodInput
+  lessons: LessonCreateNestedManyWithoutSemesterInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input CallScheduleCreateNestedManyWithoutPeriodInput {
+  create: [CallScheduleCreateWithoutPeriodInput!]
+  connectOrCreate: [CallScheduleCreateOrConnectWithoutPeriodInput!]
+  createMany: CallScheduleCreateManyPeriodInputEnvelope
+  connect: [CallScheduleWhereUniqueInput!]
+}
+
+input CallScheduleCreateWithoutPeriodInput {
+  id: String
+  lessonNumber: Int!
+  start: String!
+  end: String!
+}
+
+input CallScheduleCreateOrConnectWithoutPeriodInput {
+  where: CallScheduleWhereUniqueInput!
+  create: CallScheduleCreateWithoutPeriodInput!
+}
+
+input CallScheduleCreateManyPeriodInputEnvelope {
+  data: [CallScheduleCreateManyPeriodInput!]!
+  skipDuplicates: Boolean
+}
+
+input CallScheduleCreateManyPeriodInput {
+  id: String
+  lessonNumber: Int!
+  start: String!
+  end: String!
+}
+
+input PeriodCreateOrConnectWithoutGroupInput {
+  where: PeriodWhereUniqueInput!
+  create: PeriodCreateWithoutGroupInput!
+}
+
+input PeriodCreateManyGroupInputEnvelope {
+  data: [PeriodCreateManyGroupInput!]!
+  skipDuplicates: Boolean
+}
+
+input PeriodCreateManyGroupInput {
+  id: String
+  title: String!
+  start: DateTime!
+  end: DateTime!
+  lastScheduleUpdate: DateTime
+  type: PeriodType!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input GroupCreateOrConnectWithoutFacultyInput {
+  where: GroupWhereUniqueInput!
+  create: GroupCreateWithoutFacultyInput!
+}
+
+input GroupCreateManyFacultyInputEnvelope {
+  data: [GroupCreateManyFacultyInput!]!
+  skipDuplicates: Boolean
+}
+
+input GroupCreateManyFacultyInput {
+  id: String
+  title: String!
+  course: Int!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input FacultyUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input FacultyUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  groups: GroupUpdateManyWithoutFacultyNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input GroupUpdateManyWithoutFacultyNestedInput {
+  create: [GroupCreateWithoutFacultyInput!]
+  connectOrCreate: [GroupCreateOrConnectWithoutFacultyInput!]
+  upsert: [GroupUpsertWithWhereUniqueWithoutFacultyInput!]
+  createMany: GroupCreateManyFacultyInputEnvelope
+  set: [GroupWhereUniqueInput!]
+  disconnect: [GroupWhereUniqueInput!]
+  delete: [GroupWhereUniqueInput!]
+  connect: [GroupWhereUniqueInput!]
+  update: [GroupUpdateWithWhereUniqueWithoutFacultyInput!]
+  updateMany: [GroupUpdateManyWithWhereWithoutFacultyInput!]
+  deleteMany: [GroupScalarWhereInput!]
+}
+
+input GroupUpsertWithWhereUniqueWithoutFacultyInput {
+  where: GroupWhereUniqueInput!
+  update: GroupUpdateWithoutFacultyInput!
+  create: GroupCreateWithoutFacultyInput!
+}
+
+input GroupUpdateWithoutFacultyInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  course: IntFieldUpdateOperationsInput
+  periods: PeriodUpdateManyWithoutGroupNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PeriodUpdateManyWithoutGroupNestedInput {
+  create: [PeriodCreateWithoutGroupInput!]
+  connectOrCreate: [PeriodCreateOrConnectWithoutGroupInput!]
+  upsert: [PeriodUpsertWithWhereUniqueWithoutGroupInput!]
+  createMany: PeriodCreateManyGroupInputEnvelope
+  set: [PeriodWhereUniqueInput!]
+  disconnect: [PeriodWhereUniqueInput!]
+  delete: [PeriodWhereUniqueInput!]
+  connect: [PeriodWhereUniqueInput!]
+  update: [PeriodUpdateWithWhereUniqueWithoutGroupInput!]
+  updateMany: [PeriodUpdateManyWithWhereWithoutGroupInput!]
+  deleteMany: [PeriodScalarWhereInput!]
+}
+
+input PeriodUpsertWithWhereUniqueWithoutGroupInput {
+  where: PeriodWhereUniqueInput!
+  update: PeriodUpdateWithoutGroupInput!
+  create: PeriodCreateWithoutGroupInput!
+}
+
+input PeriodUpdateWithoutGroupInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  start: DateTimeFieldUpdateOperationsInput
+  end: DateTimeFieldUpdateOperationsInput
+  lastScheduleUpdate: NullableDateTimeFieldUpdateOperationsInput
+  type: EnumPeriodTypeFieldUpdateOperationsInput
+  callSchedule: CallScheduleUpdateManyWithoutPeriodNestedInput
+  lessons: LessonUpdateManyWithoutSemesterNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CallScheduleUpdateManyWithoutPeriodNestedInput {
+  create: [CallScheduleCreateWithoutPeriodInput!]
+  connectOrCreate: [CallScheduleCreateOrConnectWithoutPeriodInput!]
+  upsert: [CallScheduleUpsertWithWhereUniqueWithoutPeriodInput!]
+  createMany: CallScheduleCreateManyPeriodInputEnvelope
+  set: [CallScheduleWhereUniqueInput!]
+  disconnect: [CallScheduleWhereUniqueInput!]
+  delete: [CallScheduleWhereUniqueInput!]
+  connect: [CallScheduleWhereUniqueInput!]
+  update: [CallScheduleUpdateWithWhereUniqueWithoutPeriodInput!]
+  updateMany: [CallScheduleUpdateManyWithWhereWithoutPeriodInput!]
+  deleteMany: [CallScheduleScalarWhereInput!]
+}
+
+input CallScheduleUpsertWithWhereUniqueWithoutPeriodInput {
+  where: CallScheduleWhereUniqueInput!
+  update: CallScheduleUpdateWithoutPeriodInput!
+  create: CallScheduleCreateWithoutPeriodInput!
+}
+
+input CallScheduleUpdateWithoutPeriodInput {
+  id: StringFieldUpdateOperationsInput
+  lessonNumber: IntFieldUpdateOperationsInput
+  start: StringFieldUpdateOperationsInput
+  end: StringFieldUpdateOperationsInput
+}
+
+input CallScheduleUpdateWithWhereUniqueWithoutPeriodInput {
+  where: CallScheduleWhereUniqueInput!
+  data: CallScheduleUpdateWithoutPeriodInput!
+}
+
+input CallScheduleUpdateManyWithWhereWithoutPeriodInput {
+  where: CallScheduleScalarWhereInput!
+  data: CallScheduleUpdateManyMutationInput!
+}
+
+input CallScheduleScalarWhereInput {
+  AND: [CallScheduleScalarWhereInput!]
+  OR: [CallScheduleScalarWhereInput!]
+  NOT: [CallScheduleScalarWhereInput!]
+  id: StringFilter
+  lessonNumber: IntFilter
+  start: StringFilter
+  end: StringFilter
+  periodId: StringFilter
+}
+
+input PeriodUpdateWithWhereUniqueWithoutGroupInput {
+  where: PeriodWhereUniqueInput!
+  data: PeriodUpdateWithoutGroupInput!
+}
+
+input PeriodUpdateManyWithWhereWithoutGroupInput {
+  where: PeriodScalarWhereInput!
+  data: PeriodUpdateManyMutationInput!
+}
+
+input PeriodScalarWhereInput {
+  AND: [PeriodScalarWhereInput!]
+  OR: [PeriodScalarWhereInput!]
+  NOT: [PeriodScalarWhereInput!]
+  id: StringFilter
+  title: StringFilter
+  start: DateTimeFilter
+  end: DateTimeFilter
+  groupId: StringFilter
+  lastScheduleUpdate: DateTimeNullableFilter
+  type: EnumPeriodTypeFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input PeriodUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  start: DateTimeFieldUpdateOperationsInput
+  end: DateTimeFieldUpdateOperationsInput
+  lastScheduleUpdate: NullableDateTimeFieldUpdateOperationsInput
+  type: EnumPeriodTypeFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input GroupUpdateWithWhereUniqueWithoutFacultyInput {
+  where: GroupWhereUniqueInput!
+  data: GroupUpdateWithoutFacultyInput!
+}
+
+input GroupUpdateManyWithWhereWithoutFacultyInput {
+  where: GroupScalarWhereInput!
+  data: GroupUpdateManyMutationInput!
+}
+
+input GroupScalarWhereInput {
+  AND: [GroupScalarWhereInput!]
+  OR: [GroupScalarWhereInput!]
+  NOT: [GroupScalarWhereInput!]
+  id: StringFilter
+  title: StringFilter
+  course: IntFilter
+  facultyId: StringFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input GroupUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  course: IntFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input GroupCreateManyInput {
+  id: String
+  title: String!
+  course: Int!
+  facultyId: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input GroupCreateInput {
+  id: String
+  title: String!
+  course: Int!
+  faculty: FacultyCreateNestedOneWithoutGroupsInput!
+  periods: PeriodCreateNestedManyWithoutGroupInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input GroupUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  course: IntFieldUpdateOperationsInput
+  faculty: FacultyUpdateOneRequiredWithoutGroupsNestedInput
+  periods: PeriodUpdateManyWithoutGroupNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input LessonCreateManyInput {
+  id: String
+  title: String!
+  teacher: String!
+  number: Int!
+  subgroup: Subgroup!
+  classroom: String!
+  weekDay: WeekDay!
+  weeksType: WeeksType!
+  weeks: LessonCreateweeksInput
+  type: String!
+  semesterId: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input LessonCreateInput {
+  id: String
+  title: String!
+  teacher: String!
+  number: Int!
+  subgroup: Subgroup!
+  classroom: String!
+  weekDay: WeekDay!
+  weeksType: WeeksType!
+  weeks: LessonCreateweeksInput
+  type: String!
+  semester: PeriodCreateNestedOneWithoutLessonsInput!
+  notes: LessonNoteCreateNestedManyWithoutLessonInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input PeriodCreateNestedOneWithoutLessonsInput {
+  create: PeriodCreateWithoutLessonsInput
+  connectOrCreate: PeriodCreateOrConnectWithoutLessonsInput
+  connect: PeriodWhereUniqueInput
+}
+
+input PeriodCreateWithoutLessonsInput {
+  id: String
+  title: String!
+  start: DateTime!
+  end: DateTime!
+  group: GroupCreateNestedOneWithoutPeriodsInput!
+  lastScheduleUpdate: DateTime
+  type: PeriodType!
+  callSchedule: CallScheduleCreateNestedManyWithoutPeriodInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input PeriodCreateOrConnectWithoutLessonsInput {
+  where: PeriodWhereUniqueInput!
+  create: PeriodCreateWithoutLessonsInput!
+}
+
+input LessonUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  teacher: StringFieldUpdateOperationsInput
+  number: IntFieldUpdateOperationsInput
+  subgroup: EnumSubgroupFieldUpdateOperationsInput
+  classroom: StringFieldUpdateOperationsInput
+  weekDay: EnumWeekDayFieldUpdateOperationsInput
+  weeksType: EnumWeeksTypeFieldUpdateOperationsInput
+  weeks: LessonUpdateweeksInput
+  type: StringFieldUpdateOperationsInput
+  semester: PeriodUpdateOneRequiredWithoutLessonsNestedInput
+  notes: LessonNoteUpdateManyWithoutLessonNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PeriodUpdateOneRequiredWithoutLessonsNestedInput {
+  create: PeriodCreateWithoutLessonsInput
+  connectOrCreate: PeriodCreateOrConnectWithoutLessonsInput
+  upsert: PeriodUpsertWithoutLessonsInput
+  connect: PeriodWhereUniqueInput
+  update: PeriodUpdateWithoutLessonsInput
+}
+
+input PeriodUpsertWithoutLessonsInput {
+  update: PeriodUpdateWithoutLessonsInput!
+  create: PeriodCreateWithoutLessonsInput!
+}
+
+input PeriodUpdateWithoutLessonsInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  start: DateTimeFieldUpdateOperationsInput
+  end: DateTimeFieldUpdateOperationsInput
+  group: GroupUpdateOneRequiredWithoutPeriodsNestedInput
+  lastScheduleUpdate: NullableDateTimeFieldUpdateOperationsInput
+  type: EnumPeriodTypeFieldUpdateOperationsInput
+  callSchedule: CallScheduleUpdateManyWithoutPeriodNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input LessonNoteCreateManyInput {
+  id: String
+  content: String!
+  deviceId: String!
+  lessonId: String!
+  week: Int!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input LessonNoteCreateInput {
+  id: String
+  content: String!
+  deviceId: String!
+  lesson: LessonCreateNestedOneWithoutNotesInput!
+  week: Int!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input LessonCreateNestedOneWithoutNotesInput {
+  create: LessonCreateWithoutNotesInput
+  connectOrCreate: LessonCreateOrConnectWithoutNotesInput
+  connect: LessonWhereUniqueInput
+}
+
+input LessonCreateWithoutNotesInput {
+  id: String
+  title: String!
+  teacher: String!
+  number: Int!
+  subgroup: Subgroup!
+  classroom: String!
+  weekDay: WeekDay!
+  weeksType: WeeksType!
+  weeks: LessonCreateweeksInput
+  type: String!
+  semester: PeriodCreateNestedOneWithoutLessonsInput!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input LessonCreateOrConnectWithoutNotesInput {
+  where: LessonWhereUniqueInput!
+  create: LessonCreateWithoutNotesInput!
+}
+
+input LessonNoteUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  content: StringFieldUpdateOperationsInput
+  deviceId: StringFieldUpdateOperationsInput
+  lesson: LessonUpdateOneRequiredWithoutNotesNestedInput
+  week: IntFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input LessonUpdateOneRequiredWithoutNotesNestedInput {
+  create: LessonCreateWithoutNotesInput
+  connectOrCreate: LessonCreateOrConnectWithoutNotesInput
+  upsert: LessonUpsertWithoutNotesInput
+  connect: LessonWhereUniqueInput
+  update: LessonUpdateWithoutNotesInput
+}
+
+input LessonUpsertWithoutNotesInput {
+  update: LessonUpdateWithoutNotesInput!
+  create: LessonCreateWithoutNotesInput!
+}
+
+input LessonUpdateWithoutNotesInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  teacher: StringFieldUpdateOperationsInput
+  number: IntFieldUpdateOperationsInput
+  subgroup: EnumSubgroupFieldUpdateOperationsInput
+  classroom: StringFieldUpdateOperationsInput
+  weekDay: EnumWeekDayFieldUpdateOperationsInput
+  weeksType: EnumWeeksTypeFieldUpdateOperationsInput
+  weeks: LessonUpdateweeksInput
+  type: StringFieldUpdateOperationsInput
+  semester: PeriodUpdateOneRequiredWithoutLessonsNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PeriodCreateManyInput {
+  id: String
+  title: String!
+  start: DateTime!
+  end: DateTime!
+  groupId: String!
+  lastScheduleUpdate: DateTime
+  type: PeriodType!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input PeriodCreateInput {
+  id: String
+  title: String!
+  start: DateTime!
+  end: DateTime!
+  group: GroupCreateNestedOneWithoutPeriodsInput!
+  lastScheduleUpdate: DateTime
+  type: PeriodType!
+  callSchedule: CallScheduleCreateNestedManyWithoutPeriodInput
+  lessons: LessonCreateNestedManyWithoutSemesterInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input PeriodUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  start: DateTimeFieldUpdateOperationsInput
+  end: DateTimeFieldUpdateOperationsInput
+  group: GroupUpdateOneRequiredWithoutPeriodsNestedInput
+  lastScheduleUpdate: NullableDateTimeFieldUpdateOperationsInput
+  type: EnumPeriodTypeFieldUpdateOperationsInput
+  callSchedule: CallScheduleUpdateManyWithoutPeriodNestedInput
+  lessons: LessonUpdateManyWithoutSemesterNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input SecretLabelCreateManyInput {
+  id: String
+  label: String!
+}
+
+input SecretLabelCreateInput {
+  id: String
+  label: String!
+}
+
+input SecretLabelUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  label: StringFieldUpdateOperationsInput
+}
+
+input SecretLabelUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  label: StringFieldUpdateOperationsInput
+}

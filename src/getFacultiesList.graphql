@@ -1,0 +1,7 @@
+query FacultiesList2 {
+  faculties {
+    id
+    title
+    createdAt
+  }
+}
