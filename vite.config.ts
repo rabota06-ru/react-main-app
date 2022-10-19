@@ -14,6 +14,10 @@ export default defineConfig({
     alias: {
       api: path.resolve(__dirname, './src/api'),
       components: path.resolve(__dirname, './src/components'),
+      hooks: path.resolve(__dirname, './src/hooks'),
+      pages: path.resolve(__dirname, './src/pages'),
+      store: path.resolve(__dirname, './src/store'),
+      types: path.resolve(__dirname, './src/types'),
     },
   },
 })
