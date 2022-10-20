@@ -2,7 +2,7 @@ import { InputBase, InputBaseProps } from 'components/input-base'
 import { forwardRef, InputHTMLAttributes } from 'react'
 import { Props } from 'types/common'
 
-interface InputProps
+export interface InputProps
   extends Props<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
     Pick<InputBaseProps, 'bottomText' | 'status' | 'label'> {
   isDisabled?: boolean
