@@ -7,7 +7,13 @@ interface SpinnerProps {
   thickness?: number
   color?: Color
 }
-
+/**
+ * Спиннер
+ * @param size размер спиннера
+ * @param thickness толщина стенки спиннера
+ * @param color Цвет спиннера
+ * @example <Spinner size={30} thickness={5} color={Color.Primary} />
+ */
 export function Spinner({ size, thickness = 5, color = Color.Primary }: SpinnerProps) {
   return (
     <span className={styles.spinner} style={{ width: size, height: size }}>
