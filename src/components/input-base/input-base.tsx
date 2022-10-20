@@ -5,6 +5,7 @@ export interface InputBaseProps extends DetailedHTMLProps<HTMLAttributes<HTMLDiv
   label?: string
   status?: InputStatus
   bottomText?: string
+  isDisabled?: boolean
 }
 
 export function InputBase({ label, status, bottomText, ...props }: InputBaseProps) {
