@@ -1,5 +1,5 @@
 import { InputBase, InputBaseProps } from 'components/input-base'
-import { forwardRef, InputHTMLAttributes } from 'react'
+import { FC, forwardRef, InputHTMLAttributes } from 'react'
 import { Props } from 'types/common'
 
 export interface InputProps
@@ -7,6 +7,7 @@ export interface InputProps
     Pick<InputBaseProps, 'bottomText' | 'status' | 'label'> {
   isDisabled?: boolean
   isLoading?: boolean
+  renderRightIcon?: FC
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
