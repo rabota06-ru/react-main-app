@@ -1,9 +1,10 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react'
+import { ButtonHTMLAttributes } from 'react'
 import cn from 'classnames'
+import { Props } from 'types/common'
 import { ButtonVariant } from './button.types'
 import styles from './button.module.scss'
 
-interface ButtonProps extends Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'disabled'> {
+interface ButtonProps extends Omit<Props<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'disabled'> {
   variant?: ButtonVariant
   isShadow?: boolean
   isLoading?: boolean

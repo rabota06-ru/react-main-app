@@ -1,17 +1,20 @@
 import { InputBase, InputBaseProps } from 'components/input-base'
-import { DetailedHTMLProps, InputHTMLAttributes } from 'react'
+import { forwardRef, InputHTMLAttributes } from 'react'
+import { Props } from 'types/common'
 
 interface InputProps
-  extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
+  extends Props<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
     Pick<InputBaseProps, 'bottomText' | 'status' | 'label'> {
   isDisabled?: boolean
   isLoading?: boolean
 }
 
-export function Input({ bottomText, status, label, isDisabled, isLoading, ...props }: InputProps) {
-  return (
-    <InputBase bottomText={bottomText} status={status} label={label} isDisabled={isDisabled}>
-      <input type='text' {...props} />
-    </InputBase>
-  )
-}
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ bottomText, status, label, isDisabled, isLoading, ...props }, inputRef) => {
+    return (
+      <InputBase bottomText={bottomText} status={status} label={label} isDisabled={isDisabled}>
+        <input ref={inputRef} type='text' {...props} />
+      </InputBase>
+    )
+  }
+)

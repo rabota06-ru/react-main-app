@@ -1,6 +1,7 @@
-import { DetailedHTMLProps, TextareaHTMLAttributes } from 'react'
+import { TextareaHTMLAttributes } from 'react'
+import { Props } from 'types/common'
 
-interface TextAreaProps extends DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {}
+interface TextAreaProps extends Props<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {}
 
 export function TextArea({ ...props }: TextAreaProps) {
   return <textarea {...props} />

@@ -1,7 +1,8 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
+import { HTMLAttributes } from 'react'
+import { Props } from 'types/common'
 import { CardShadow } from './card.types'
 
-interface CardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface CardProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   shadow?: CardShadow
   hoverShadow?: CardShadow
   activeShadow?: CardShadow
