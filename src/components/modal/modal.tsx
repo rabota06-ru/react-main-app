@@ -1,4 +1,6 @@
-interface ModalProps {
+import { PropsWithChildren } from 'react'
+
+interface ModalProps extends PropsWithChildren {
   isShown: boolean
 }
 
