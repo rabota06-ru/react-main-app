@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react'
 import { InputStatus } from './input-base.types'
 
-interface InputBaseProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface InputBaseProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   label?: string
   status?: InputStatus
   bottomText?: string
