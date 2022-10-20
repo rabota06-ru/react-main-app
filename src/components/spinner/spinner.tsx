@@ -11,7 +11,7 @@ interface SpinnerProps {
  * Спиннер
  * @param size размер спиннера
  * @param thickness толщина стенки спиннера
- * @param color Цвет спиннера
+ * @param color цвет спиннера
  * @example <Spinner size={30} thickness={5} color={Color.Primary} />
  */
 export function Spinner({ size, thickness = 5, color = Color.Primary }: SpinnerProps) {
