@@ -1,6 +1,5 @@
 import { InputBase, InputBaseProps } from 'components/input-base'
 import { FC, forwardRef, InputHTMLAttributes } from 'react'
-import { Props } from 'types/common'
 
 export interface InputProps
   extends Props<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,

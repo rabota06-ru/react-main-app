@@ -1,5 +1,4 @@
 import { HTMLAttributes } from 'react'
-import { Props } from 'types/common'
 import { CardShadow } from './card.types'
 
 interface CardProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

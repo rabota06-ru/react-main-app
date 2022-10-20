@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes } from 'react'
-import { Props } from 'types/common'
 
 interface CloseButtonProps extends Omit<Props<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'type'> {}
 

@@ -1,5 +1,4 @@
 import { HTMLAttributes } from 'react'
-import { Props } from 'types/common'
 import { InputStatus } from './input-base.types'
 
 export interface InputBaseProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -9,6 +8,6 @@ export interface InputBaseProps extends Props<HTMLAttributes<HTMLDivElement>, HT
   isDisabled?: boolean
 }
 
-export function InputBase({ label, status, bottomText, ...props }: InputBaseProps) {
+export function InputBase({ label, status, bottomText, isDisabled, ...props }: InputBaseProps) {
   return <div {...props} />
 }

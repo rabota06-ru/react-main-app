@@ -1,6 +1,5 @@
 import { ButtonHTMLAttributes } from 'react'
 import cn from 'classnames'
-import { Props } from 'types/common'
 import { ButtonVariant } from './button.types'
 import styles from './button.module.scss'
 

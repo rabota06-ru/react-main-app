@@ -1,5 +1,4 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
-import { Props } from 'types/common'
+import { HTMLAttributes } from 'react'
 import { DividerDirection } from './divider.types'
 
 interface DividerProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
