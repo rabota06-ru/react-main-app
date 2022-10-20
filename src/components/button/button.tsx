@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react'
-import styles from './button.module.scss'
+import cn from 'classnames'
 import { ButtonVariant } from './button.types'
+import styles from './button.module.scss'
 
 interface ButtonProps extends Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'disabled'> {
   variant?: ButtonVariant
@@ -9,6 +10,6 @@ interface ButtonProps extends Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLBu
   isDisabled?: boolean
 }
 
-export function Button({ variant, isShadow, isLoading, ...props }: ButtonProps) {
-  return <button className={styles.button} type='button' {...props} />
+export function Button({ variant = ButtonVariant.Primary, isShadow, isLoading, ...props }: ButtonProps) {
+  return <button className={cn(styles.button)} type='button' {...props} />
 }
