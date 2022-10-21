@@ -1,0 +1,33 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  width: 28px;
+  border-radius: 5px;
+  background-color: var(--secondaryColor);
+  border: none;
+  cursor: pointer;
+  transition: filter 0.3s;
+  &:hover {
+    filter: brightness(90%);
+  }
+  &:active {
+    filter: brightness(80%);
+  }
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    height: 16px;
+    border: 1px solid #000;
+    background-color: #000;
+    transform-origin: center;
+  }
+  &::after {
+    transform: rotate(45deg);
+  }
+  &::before {
+    transform: rotate(-45deg);
+  }
+}
