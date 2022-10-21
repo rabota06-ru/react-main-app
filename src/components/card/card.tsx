@@ -12,6 +12,13 @@ interface CardProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement
   isActive?: boolean
 }
 
+/**
+ * Компонент карточки
+ * @param shadow основная тень, которая переопределит дефолтную тень карточки
+ * @param hoverShadow тень, которая будет устанавливаться, если произойдёт событие наведения на карточку
+ * @param activeShadow тень, которая будет устанавливаться, если пропс isActive будет true. Работает только если передан пропс isActive
+ * @param isActive если пропс true, то тень перезапишется на тень activeShadow
+ */
 export function Card({ shadow, hoverShadow, activeShadow, isActive, className, ...props }: CardProps) {
   const [hovered, setHovered] = useState(false)
   const calculatedShadow = useMemo<CSSProperties['boxShadow']>(() => {
