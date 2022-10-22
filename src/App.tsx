@@ -10,7 +10,9 @@ function App() {
       <Main />
       <Spinner size={30} />
       <CloseButton />
-      <InputBase bottomText='testetst' status={InputStatus.Error} />
+      <InputBase bottomText='testetst' status={InputStatus.Error} isDisabled>
+        test
+      </InputBase>
     </div>
   )
 }

@@ -11,9 +11,9 @@ export interface InputBaseProps extends PropsWithChildren {
   isDisabled?: boolean
 }
 
-export function InputBase({ label, status, size = InputSize.Default, bottomText, isDisabled, ...props }: InputBaseProps) {
+export function InputBase({ label, status, size = InputSize.Default, bottomText, isDisabled, children }: InputBaseProps) {
   return (
-    <div {...props}>
+    <div>
       {label !== undefined && <span className={styles.inputBaseLabel}>{label}</span>}
       <div
         className={cn(styles.inputBaseWrapper, {
@@ -22,8 +22,11 @@ export function InputBase({ label, status, size = InputSize.Default, bottomText,
           [styles.inputBaseWrapper_SuccessStatus]: status === InputStatus.Success,
           [styles.inputBaseWrapper_ErrorStatus]: status === InputStatus.Error,
           [styles.inputBaseWrapper_WarningStatus]: status === InputStatus.Warning,
+          [styles.inputBaseWrapper_Disabled]: isDisabled,
         })}
-      />
+      >
+        {children}
+      </div>
       {bottomText !== undefined && (
         <span
           className={cn(styles.inputBaseBottomText, {
