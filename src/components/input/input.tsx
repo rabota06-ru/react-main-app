@@ -12,6 +12,16 @@ export interface InputProps
   RightIcon?: FC
 }
 
+/**
+ * @param label текст, который отображается над инпутом
+ * @param status статус инпута, от которого зависит какого цвета обводка и нижний текст
+ * @param size размер инпута. Default - высота 50px, Large - высота 60px
+ * @param bottomText нижний текст
+ * @param isDisabled заблокирован ли инпут
+ * @param wrapperProps пропсы элемента, который оборачивает children
+ * @param isLoading флаг загрузки. Если true, то отображается спиннер и инуп заблокирован
+ * @param RightIcon иконка справа от инпута
+ */
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ bottomText, status, size = InputSize.Default, label, isDisabled, isLoading, className, RightIcon, ...props }, inputRef) => {
     return (
