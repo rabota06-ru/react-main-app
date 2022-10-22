@@ -1,5 +1,5 @@
 import { CloseButton } from 'components/close-button'
-import { InputBase, InputStatus } from 'components/input-base'
+import { Input } from 'components/input'
 import { Spinner } from 'components/spinner'
 import './index.scss'
 import { Main } from './pages/main/main'
@@ -10,9 +10,7 @@ function App() {
       <Main />
       <Spinner size={30} />
       <CloseButton />
-      <InputBase bottomText='testetst' status={InputStatus.Error} isDisabled>
-        test
-      </InputBase>
+      <Input bottomText='testetst' placeholder='testtest' RightIcon={() => <div>test</div>} />
     </div>
   )
 }
