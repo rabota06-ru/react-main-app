@@ -11,5 +11,5 @@ interface ButtonProps extends Omit<Props<ButtonHTMLAttributes<HTMLButtonElement>
 }
 
 export function Button({ variant = ButtonVariant.Primary, isShadow, isLoading, ...props }: ButtonProps) {
-  return <button className={cn(styles.button)} type='button' {...props} />
+  return <button className={cn(styles.button)} type='button' {...props} > Показать телефон </button>
 }
