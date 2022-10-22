@@ -10,7 +10,7 @@ function App() {
       <Main />
       <Spinner size={30} />
       <CloseButton />
-      <Input bottomText='testetst' placeholder='testtest' RightIcon={() => <div>test</div>} />
+      <Input bottomText='testetst' placeholder='testtest' isLoading />
     </div>
   )
 }

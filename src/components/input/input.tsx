@@ -1,6 +1,7 @@
 import { InputBase, InputBaseProps, InputSize } from 'components/input-base'
 import { FC, forwardRef, InputHTMLAttributes } from 'react'
 import cn from 'classnames'
+import { Spinner } from 'components/spinner'
 import styles from './input.module.scss'
 
 export interface InputProps
@@ -19,21 +20,23 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         status={status}
         size={size}
         label={label}
-        isDisabled={isDisabled}
-        wrapperProps={{ className: cn(styles.inputBaseWrapper, { [styles.inputBaseWrapper_RightIconProvided]: !!RightIcon }) }}
+        isDisabled={isDisabled || isLoading}
+        wrapperProps={{ className: cn(styles.inputBaseWrapper, { [styles.inputBaseWrapper_RightIconProvided]: RightIcon || isLoading }) }}
       >
         <input
           {...props}
           ref={inputRef}
           type='text'
+          disabled={isDisabled || isLoading}
           className={cn(styles.input, className, {
-            [styles.input_RightIconProvidedDefaultSize]: !!RightIcon && size === InputSize.Default,
-            [styles.input_RightIconProvidedLargeSize]: !!RightIcon && size === InputSize.Large,
+            [styles.input_RightIconProvidedDefaultSize]: (RightIcon || isLoading) && size === InputSize.Default,
+            [styles.input_RightIconProvidedLargeSize]: (RightIcon || isLoading) && size === InputSize.Large,
           })}
         />
-        {RightIcon && (
+        {(RightIcon || isLoading) && (
           <div className={styles.inputRightIconWrapper}>
-            <RightIcon />
+            {RightIcon && !isLoading && <RightIcon />}
+            {isLoading && <Spinner size={25} thickness={4} />}
           </div>
         )}
       </InputBase>
