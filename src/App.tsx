@@ -10,7 +10,7 @@ function App() {
       <Main />
       <Spinner size={30} />
       <CloseButton />
-      <Input bottomText='testetst' placeholder='testtest' isLoading />
+      <Input label='Вакансия' bottomText='testetst' placeholder='testtest' isLoading />
     </div>
   )
 }
