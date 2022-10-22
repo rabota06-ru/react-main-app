@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { PropsWithChildren } from 'react'
+import { HTMLAttributes, PropsWithChildren } from 'react'
 import { InputSize, InputStatus } from './input-base.types'
 import styles from './input-base.module.scss'
 
@@ -9,14 +9,25 @@ export interface InputBaseProps extends PropsWithChildren {
   size?: InputSize
   bottomText?: string
   isDisabled?: boolean
+  wrapperProps?: Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 }
 
-export function InputBase({ label, status, size = InputSize.Default, bottomText, isDisabled, children }: InputBaseProps) {
+/**
+ * Компонент, который является корневым для компонентов Input, Dropdown, PhoneInput, PasswordInput
+ * @param label текст, который отображается над инпутом
+ * @param status статус инпута, от которого зависит какого цвета обводка и нижний текст
+ * @param size размер инпута. Default - высота 50px, Large - высота 60px
+ * @param bottomText нижний текст
+ * @param isDisabled заблокирован ли инпут
+ * @param wrapperProps пропсы элемента, который оборачивает children
+ */
+export function InputBase({ label, status, size = InputSize.Default, bottomText, isDisabled, wrapperProps, children }: InputBaseProps) {
   return (
     <div>
       {label !== undefined && <span className={styles.inputBaseLabel}>{label}</span>}
       <div
-        className={cn(styles.inputBaseWrapper, {
+        {...wrapperProps}
+        className={cn(styles.inputBaseWrapper, wrapperProps?.className, {
           [styles.inputBaseWrapper_DefaultSize]: size === InputSize.Default,
           [styles.inputBaseWrapper_LargeSize]: size === InputSize.Large,
           [styles.inputBaseWrapper_SuccessStatus]: status === InputStatus.Success,
