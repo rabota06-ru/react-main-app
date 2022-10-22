@@ -3,12 +3,12 @@ import styles from './modal.module.scss'
 
 interface ModalProps extends PropsWithChildren {
   isShown: boolean
-  onClose: (isShown: boolean) => void
+  onClose: () => void
 }
 
 export function Modal({ isShown, onClose, children }: ModalProps) {
   const handleOverlayClick = () => {
-    onClose(false)
+    onClose()
   }
 
   return isShown ? (
