@@ -8,26 +8,21 @@ import { CARD_DEFAULT_SHADOW } from './card.constants'
 interface CardProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   shadow?: CardShadow
   hoverShadow?: CardShadow
-  activeShadow?: CardShadow
-  isActive?: boolean
 }
 
 /**
  * Компонент карточки
  * @param shadow основная тень, которая переопределит дефолтную тень карточки
  * @param hoverShadow тень, которая будет устанавливаться, если произойдёт событие наведения на карточку
- * @param activeShadow тень, которая будет устанавливаться, если пропс isActive будет true. Работает только если передан пропс isActive
- * @param isActive если пропс true, то тень перезапишется на тень activeShadow
  */
-export function Card({ shadow, hoverShadow, activeShadow, isActive, className, ...props }: CardProps) {
+export function Card({ shadow, hoverShadow, className, ...props }: CardProps) {
   const [hovered, setHovered] = useState(false)
   const calculatedShadow = useMemo<CSSProperties['boxShadow']>(() => {
-    if (isActive && activeShadow) return getShadow(activeShadow)
     if (hovered && hoverShadow) return getShadow(hoverShadow)
     if (shadow) return getShadow(shadow)
 
     return getShadow(CARD_DEFAULT_SHADOW)
-  }, [shadow, hoverShadow, activeShadow, isActive, hovered])
+  }, [shadow, hoverShadow, hovered])
 
   function getShadow(shadow: CardShadow): CSSProperties['boxShadow'] {
     if (isCardCustomizedShadow(shadow))
