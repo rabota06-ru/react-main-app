@@ -35,11 +35,11 @@ export function Card({ shadow, hoverShadow, className, ...props }: CardProps) {
 
   return (
     <div
+      {...props}
       className={cn(styles.card, className)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ boxShadow: calculatedShadow }}
-      {...props}
+      style={{ ...props.style, boxShadow: calculatedShadow }}
     />
   )
 }
