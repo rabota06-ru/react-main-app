@@ -1,3 +1,5 @@
+@import '/src/variables';
+
 $wrapperBorderRadius: 8px;
 
 .inputBase {
@@ -13,10 +15,10 @@ $wrapperBorderRadius: 8px;
     border: 1px solid var(--secondaryColor2);
     margin-bottom: 5px;
     &_DefaultSize {
-      height: 50px;
+      height: $inputBaseDefaultSizeHeight;
     }
     &_LargeSize {
-      height: 60px;
+      height: $inputBaseLargeSizeHeight;
     }
     &_SuccessStatus {
       border-color: var(--greenColor);
@@ -38,7 +40,7 @@ $wrapperBorderRadius: 8px;
         left: -1px;
         right: -1px;
         background-color: var(--secondaryColor1);
-        opacity: 0.8;
+        opacity: 0.5;
       }
     }
   }

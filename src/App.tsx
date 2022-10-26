@@ -1,6 +1,6 @@
 import { Card } from 'components/card'
 import { CloseButton } from 'components/close-button'
-import { InputBase, InputStatus } from 'components/input-base'
+import { Input } from 'components/input'
 import { Spinner } from 'components/spinner'
 import './index.scss'
 import { Main } from './pages/main/main'
@@ -17,9 +17,7 @@ function App() {
         </div>
       </Card>
       <CloseButton />
-      <InputBase bottomText='testetst' status={InputStatus.Error} isDisabled>
-        test
-      </InputBase>
+      <Input label='Вакансия' bottomText='testetst' placeholder='testtest' isLoading />
     </div>
   )
 }
