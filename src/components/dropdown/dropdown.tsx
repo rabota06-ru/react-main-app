@@ -1,7 +1,7 @@
 import { InputBase, InputBaseProps, InputSize } from 'components/input-base'
 import { HTMLAttributes, useEffect, useState } from 'react'
 import cn from 'classnames'
-import { useOnClickOutside } from 'hooks/use-click-outside'
+import { useOnClickOutside } from 'hooks/use-on-click-outside'
 import { DropdownItem } from './dropdown.types'
 import styles from './dropdown.module.scss'
 import { DropdownRightIcon } from './dropdown-right-icon'

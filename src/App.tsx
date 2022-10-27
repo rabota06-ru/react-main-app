@@ -23,7 +23,7 @@ function App() {
       <CloseButton />
       <Input label='Вакансия' bottomText='testetst' placeholder='testtest' isLoading />
       <Dropdown
-        isCollapsed
+        isCollapsedByDefault
         // isDisabled
         status={InputStatus.Error}
         bottomText='test'
@@ -42,7 +42,7 @@ function App() {
           { id: 12, label: 'тест3' },
         ]}
         onSelectItem={setSelectedItem}
-        selectedItem={selectedItem}
+        selectedItemByDefault={selectedItem}
       />
     </div>
   )
