@@ -25,13 +25,21 @@ function App() {
       <Dropdown
         isCollapsed
         // isDisabled
-        isLoading
         status={InputStatus.Error}
         bottomText='test'
         items={[
           { id: 1, label: 'тест1' },
           { id: 2, label: 'тест2' },
           { id: 3, label: 'тест3' },
+          { id: 4, label: 'тест1' },
+          { id: 5, label: 'тест2' },
+          { id: 6, label: 'тест3' },
+          { id: 7, label: 'тест1' },
+          { id: 8, label: 'тест2' },
+          { id: 9, label: 'тест3' },
+          { id: 10, label: 'тест1' },
+          { id: 11, label: 'тест2' },
+          { id: 12, label: 'тест3' },
         ]}
         onSelectItem={setSelectedItem}
         selectedItem={selectedItem}
