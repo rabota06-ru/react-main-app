@@ -51,9 +51,7 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
   }, [selectedItemProps, selectedItem])
 
   useEffect(() => {
-    if (isDisabled) {
-      setIsCollapsed(false)
-    }
+    if (isDisabled) setIsCollapsed(false)
   }, [isDisabled])
 
   return (
