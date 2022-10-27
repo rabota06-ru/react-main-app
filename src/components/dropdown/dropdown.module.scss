@@ -64,6 +64,9 @@
         background-color: var(--secondaryColor1);
       }
     }
+    &_Hidden {
+      display: none;
+    }
     &_Loading {
       overflow: hidden;
       &::after {

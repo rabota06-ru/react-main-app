@@ -1,6 +1,7 @@
 import { InputBase, InputBaseProps, InputSize } from 'components/input-base'
 import { HTMLAttributes, useEffect, useState } from 'react'
 import cn from 'classnames'
+import { useOnClickOutside } from 'hooks/use-click-outside'
 import { DropdownItem } from './dropdown.types'
 import styles from './dropdown.module.scss'
 import { DropdownRightIcon } from './dropdown-right-icon'
@@ -33,6 +34,7 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
 }: DropdownProps<T, K>) {
   const [isCollapsed, setIsCollapsed] = useState(isCollapsedProps ?? false)
   const [selectedItem, setSelectedItem] = useState<T | null>(null)
+  const ref = useOnClickOutside<HTMLDivElement>(() => setIsCollapsed(false))
 
   function handleSelectItem(item: T | null) {
     setSelectedItem(item)
@@ -55,7 +57,7 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
   }, [isDisabled])
 
   return (
-    <div {...props} className={cn(styles.dropdown, props.className)}>
+    <div ref={ref} {...props} className={cn(styles.dropdown, props.className)}>
       <InputBase
         size={inputBaseSize}
         isDisabled={isDisabled || isLoading}
@@ -85,19 +87,17 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
           <p className={styles.dropdownPlaceholder}>{placeholder}</p>
         )}
       </InputBase>
-      {isCollapsed && (
-        <div className={cn(styles.dropdownList, { [styles.dropdownList_Loading]: isLoading })}>
-          {items.map(item => (
-            <div
-              key={item.id}
-              className={cn(styles.dropdownListItem, { [styles.dropdownListItem_Selected]: selectedItem?.id === item.id })}
-              onClick={() => handleSelectItem(item)}
-            >
-              {item.label}
-            </div>
-          ))}
-        </div>
-      )}
+      <div className={cn(styles.dropdownList, { [styles.dropdownList_Loading]: isLoading, [styles.dropdownList_Hidden]: !isCollapsed })}>
+        {items.map(item => (
+          <div
+            key={item.id}
+            className={cn(styles.dropdownListItem, { [styles.dropdownListItem_Selected]: selectedItem?.id === item.id })}
+            onClick={() => handleSelectItem(item)}
+          >
+            {item.label}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
