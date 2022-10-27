@@ -1,0 +1,50 @@
+@import '/src/variables';
+
+.dropdown {
+  position: relative;
+  &InputBaseWrapper {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    cursor: pointer;
+    &_DropdownCollapsed {
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+  }
+  &Placeholder {
+    color: var(--textSecondaryColor);
+  }
+  &SelectedItemLabel {
+    color: var(--textColor);
+  }
+  &List {
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    top: 100%;
+    border-bottom-left-radius: $inputBaseWrapperBorderRadius;
+    border-bottom-right-radius: $inputBaseWrapperBorderRadius;
+    border: $inputBaseWrapperBorder;
+    border-top: none;
+    &Item {
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      height: 40px;
+      border-bottom: $inputBaseWrapperBorder;
+      cursor: pointer;
+      &:last-child {
+        border-bottom: none;
+        border-bottom-left-radius: $inputBaseWrapperBorderRadius;
+        border-bottom-right-radius: $inputBaseWrapperBorderRadius;
+      }
+      &:hover {
+        background-color: var(--secondaryColor1);
+      }
+      &_Selected {
+        background-color: var(--secondaryColor1);
+      }
+    }
+  }
+}

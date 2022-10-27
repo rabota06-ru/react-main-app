@@ -1,4 +1,4 @@
-export interface DropdownItem<T> {
+export interface DropdownItem<T extends string | number> {
   id: T
   label: string
 }
