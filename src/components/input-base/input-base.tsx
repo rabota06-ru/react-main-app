@@ -13,7 +13,7 @@ export interface InputBaseProps extends PropsWithChildren {
   bottomText?: string
   isDisabled?: boolean
   isLoading?: boolean
-  RightIcon?: JSX.Element
+  RightContent?: JSX.Element
   wrapperProps?: Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 }
 
@@ -24,6 +24,8 @@ export interface InputBaseProps extends PropsWithChildren {
  * @param size размер инпута. Default - высота 50px, Large - высота 60px
  * @param bottomText нижний текст
  * @param isDisabled заблокирован ли инпут
+ * @param isLoading отображается ли загрузка
+ * @param RightContent контент в правой части InputBase
  * @param wrapperProps пропсы элемента, который оборачивает children
  */
 export function InputBase({
@@ -33,7 +35,7 @@ export function InputBase({
   bottomText,
   isDisabled,
   isLoading,
-  RightIcon,
+  RightContent,
   wrapperProps,
   children,
 }: InputBaseProps) {
@@ -52,9 +54,9 @@ export function InputBase({
         })}
       >
         {children}
-        {(RightIcon || isLoading) && (
+        {(RightContent || isLoading) && (
           <div className={styles.inputBaseRightIconWrapper}>
-            {RightIcon && !isLoading ? RightIcon : null}
+            {RightContent && !isLoading ? RightContent : null}
             {isLoading && <Spinner size={25} thickness={2} color={status !== undefined ? getColorByInputStatus(status) : Color.Primary} />}
           </div>
         )}

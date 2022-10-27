@@ -78,7 +78,7 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
         label={label}
         status={status}
         bottomText={bottomText}
-        RightIcon={
+        RightContent={
           <DropdownRightIcon
             isCollapsed={isCollapsed}
             onUnselectItem={() => handleSelectItem(null)}
