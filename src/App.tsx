@@ -1,15 +1,14 @@
 import { Card } from 'components/card'
 import { CloseButton } from 'components/close-button'
+import { Divider, DividerDirection } from 'components/divider'
 import { Dropdown } from 'components/dropdown'
 import { Input, InputStatus } from 'components/input'
 import { Spinner } from 'components/spinner'
-import { useState } from 'react'
 import './index.scss'
 import { Main } from './pages/main/main'
+import { Color } from './types'
 
 function App() {
-  const [selectedItem, setSelectedItem] = useState({ id: 1, label: 'ntcn1' })
-
   return (
     <div className='app' style={{ padding: 20 }}>
       <Main />
@@ -23,7 +22,6 @@ function App() {
       <CloseButton />
       <Input label='Вакансия' bottomText='testetst' placeholder='testtest' isLoading />
       <Dropdown
-        isCollapsedByDefault
         // isDisabled
         status={InputStatus.Success}
         bottomText='test'
@@ -41,9 +39,8 @@ function App() {
           { id: 11, label: 'тест2' },
           { id: 12, label: 'тест3' },
         ]}
-        onSelectItem={setSelectedItem}
-        selectedItemByDefault={selectedItem}
       />
+      <Divider direction={DividerDirection.Horizontal} size={4} color={Color.SuccessColor} />
     </div>
   )
 }
