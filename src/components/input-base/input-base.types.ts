@@ -3,3 +3,8 @@ export enum InputStatus {
   Error,
   Warning,
 }
+
+export enum InputSize {
+  Large,
+  Default,
+}

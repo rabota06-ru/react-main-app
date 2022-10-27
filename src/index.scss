@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .app {
@@ -11,4 +12,12 @@
 
 :root {
   --primaryColor: #2042e3;
+  --textColor: #222222;
+  --textSecondaryColor: #79859e;
+  --buttonTextColor: #ffffff;
+  --secondaryColor1: #f8fafc;
+  --secondaryColor2: #79859e;
+  --redColor: #ff0b0b;
+  --greenColor: #e5fcda;
+  --yellowColor: #faf1d8;
 }
