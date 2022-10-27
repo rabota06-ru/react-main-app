@@ -21,13 +21,13 @@
       height: $inputBaseLargeSizeHeight;
     }
     &_SuccessStatus {
-      border-color: var(--greenColor);
+      border-color: var(--successColor);
     }
     &_ErrorStatus {
-      border-color: var(--redColor);
+      border-color: var(--errorColor);
     }
     &_WarningStatus {
-      border-color: var(--yellowColor);
+      border-color: var(--warningColor);
     }
     &_Disabled {
       position: relative;

@@ -25,7 +25,7 @@ function App() {
       <Dropdown
         isCollapsedByDefault
         // isDisabled
-        status={InputStatus.Error}
+        status={InputStatus.Success}
         bottomText='test'
         items={[
           { id: 1, label: 'тест1' },

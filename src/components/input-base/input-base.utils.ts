@@ -5,11 +5,11 @@ import { InputStatus } from './input-base.types'
 export function getColorByInputStatus(status: InputStatus): Color {
   switch (status) {
     case InputStatus.Success:
-      return Color.GreenColor
+      return Color.SuccessColor
     case InputStatus.Warning:
-      return Color.YellowColor
+      return Color.WarningColor
     case InputStatus.Error:
-      return Color.RedColor
+      return Color.ErrorColor
     default:
       throw new Error(`Неизвестный статус: ${status}`)
   }

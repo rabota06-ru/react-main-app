@@ -57,7 +57,9 @@ export function InputBase({
         {(RightContent || isLoading) && (
           <div className={styles.inputBaseRightIconWrapper}>
             {RightContent && !isLoading ? RightContent : null}
-            {isLoading && <Spinner size={25} thickness={2} color={status !== undefined ? getColorByInputStatus(status) : Color.Primary} />}
+            {isLoading && (
+              <Spinner size={25} thickness={2} color={status !== undefined ? getColorByInputStatus(status) : Color.PrimaryColor} />
+            )}
           </div>
         )}
       </div>
