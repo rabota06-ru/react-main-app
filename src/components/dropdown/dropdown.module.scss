@@ -2,18 +2,26 @@
 
 .dropdown {
   position: relative;
-  &InputBaseWrapper {
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    cursor: pointer;
-    &_DropdownCollapsed,
-    &::after {
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
+  &InputBase {
+    &Wrapper {
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      cursor: pointer;
+      &_DropdownCollapsed,
+      &::after {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      &_Disabled {
+        pointer-events: none;
+      }
     }
-    &_Disabled {
-      pointer-events: none;
+    &Arrow {
+      transition: 0.3s;
+      &_DropdownCollapsed {
+        transform: rotate(-180deg);
+      }
     }
   }
   &Placeholder {

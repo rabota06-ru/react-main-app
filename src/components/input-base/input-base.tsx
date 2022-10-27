@@ -1,8 +1,10 @@
 import cn from 'classnames'
-import { FC, HTMLAttributes, PropsWithChildren } from 'react'
+import { HTMLAttributes, PropsWithChildren } from 'react'
 import { Spinner } from 'components/spinner'
+import { Color } from 'types/index'
 import { InputSize, InputStatus } from './input-base.types'
 import styles from './input-base.module.scss'
+import { getColorByInputStatus } from './input-base.utils'
 
 export interface InputBaseProps extends PropsWithChildren {
   label?: string
@@ -11,7 +13,7 @@ export interface InputBaseProps extends PropsWithChildren {
   bottomText?: string
   isDisabled?: boolean
   isLoading?: boolean
-  RightIcon?: FC
+  RightIcon?: JSX.Element
   wrapperProps?: Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 }
 
@@ -52,8 +54,8 @@ export function InputBase({
         {children}
         {(RightIcon || isLoading) && (
           <div className={styles.inputBaseRightIconWrapper}>
-            {RightIcon && !isLoading && <RightIcon />}
-            {isLoading && <Spinner size={25} thickness={4} />}
+            {RightIcon && !isLoading ? RightIcon : null}
+            {isLoading && <Spinner size={25} thickness={2} color={status !== undefined ? getColorByInputStatus(status) : Color.Primary} />}
           </div>
         )}
       </div>

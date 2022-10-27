@@ -3,12 +3,13 @@ import { HTMLAttributes, useEffect, useState } from 'react'
 import cn from 'classnames'
 import { DropdownItem } from './dropdown.types'
 import styles from './dropdown.module.scss'
+import { DropdownRightIcon } from './dropdown-right-icon'
 
 interface DropdownProps<T extends DropdownItem<K>, K extends string | number>
   extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
     Pick<InputBaseProps, 'label' | 'status' | 'bottomText'> {
   items: T[]
-  onSelectItem?: (item: T) => void
+  onSelectItem?: (item: T | null) => void
   selectedItem?: T | null
   isDisabled?: boolean
   isLoading?: boolean
@@ -33,7 +34,7 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
   const [isCollapsed, setIsCollapsed] = useState(isCollapsedProps ?? false)
   const [selectedItem, setSelectedItem] = useState<T | null>(null)
 
-  function handleSelectItem(item: T) {
+  function handleSelectItem(item: T | null) {
     setSelectedItem(item)
     setIsCollapsed(false)
     onSelectItem?.(item)
@@ -64,6 +65,14 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
         label={label}
         status={status}
         bottomText={bottomText}
+        RightIcon={
+          <DropdownRightIcon
+            isCollapsed={isCollapsed}
+            onUnselectItem={() => handleSelectItem(null)}
+            selectedItem={selectedItem}
+            status={status}
+          />
+        }
         wrapperProps={{
           className: cn(styles.dropdownInputBaseWrapper, {
             [styles.dropdownInputBaseWrapper_DropdownCollapsed]: isCollapsed,
