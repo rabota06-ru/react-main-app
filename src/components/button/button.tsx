@@ -10,6 +10,18 @@ interface ButtonProps extends Omit<Props<ButtonHTMLAttributes<HTMLButtonElement>
   isDisabled?: boolean
 }
 
-export function Button({ variant = ButtonVariant.Primary, isShadow, isLoading, ...props }: ButtonProps) {
-  return <button className={cn(styles.button)} type='button' {...props} > Показать телефон </button>
+export function Button({ variant = ButtonVariant.Primary, isShadow = false, isLoading, isDisabled = false, ...props }: ButtonProps) {
+  return (
+    <button
+      className={cn(styles.button_Primary, {
+        [styles.button_Outline]: variant === ButtonVariant.Variant,
+        [styles.button_PrimaryIsShadow]: isShadow,
+      })}
+      type='button'
+      disabled={isDisabled}
+      {...props}
+    >
+      Создать резюме
+    </button>
+  )
 }
