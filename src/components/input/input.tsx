@@ -1,7 +1,6 @@
 import { InputBase, InputBaseProps, InputSize } from 'components/input-base'
 import { FC, forwardRef, InputHTMLAttributes } from 'react'
 import cn from 'classnames'
-import { Spinner } from 'components/spinner'
 import styles from './input.module.scss'
 
 export interface InputProps
@@ -31,6 +30,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         size={size}
         label={label}
         isDisabled={isDisabled || isLoading}
+        isLoading={isLoading}
         wrapperProps={{ className: cn(styles.inputBaseWrapper, { [styles.inputBaseWrapper_RightIconProvided]: RightIcon || isLoading }) }}
       >
         <input
@@ -43,12 +43,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             [styles.input_RightIconProvidedLargeSize]: (RightIcon || isLoading) && size === InputSize.Large,
           })}
         />
-        {(RightIcon || isLoading) && (
+        {/* {(RightIcon || isLoading) && (
           <div className={styles.inputRightIconWrapper}>
             {RightIcon && !isLoading && <RightIcon />}
             {isLoading && <Spinner size={25} thickness={4} />}
           </div>
-        )}
+        )} */}
       </InputBase>
     )
   }

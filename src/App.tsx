@@ -25,6 +25,7 @@ function App() {
       <Dropdown
         isCollapsed
         // isDisabled
+        isLoading
         status={InputStatus.Error}
         bottomText='test'
         items={[

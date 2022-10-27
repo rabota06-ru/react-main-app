@@ -59,14 +59,15 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
     <div {...props} className={cn(styles.dropdown, props.className)}>
       <InputBase
         size={inputBaseSize}
-        isDisabled={isDisabled}
+        isDisabled={isDisabled || isLoading}
+        isLoading={isLoading}
         label={label}
         status={status}
         bottomText={bottomText}
         wrapperProps={{
           className: cn(styles.dropdownInputBaseWrapper, {
             [styles.dropdownInputBaseWrapper_DropdownCollapsed]: isCollapsed,
-            [styles.dropdownInputBaseWrapper_Disabled]: isDisabled,
+            [styles.dropdownInputBaseWrapper_Disabled]: isDisabled || isLoading,
           }),
           onClick: () => setIsCollapsed(is => !is),
         }}
@@ -78,7 +79,7 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
         )}
       </InputBase>
       {isCollapsed && (
-        <div className={styles.dropdownList}>
+        <div className={cn(styles.dropdownList, { [styles.dropdownList_Loading]: isLoading })}>
           {items.map(item => (
             <div
               key={item.id}

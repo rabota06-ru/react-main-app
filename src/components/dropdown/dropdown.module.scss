@@ -7,7 +7,8 @@
     align-items: center;
     padding: 0 20px;
     cursor: pointer;
-    &_DropdownCollapsed {
+    &_DropdownCollapsed,
+    &::after {
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
     }
@@ -48,6 +49,18 @@
       }
       &_Selected {
         background-color: var(--secondaryColor1);
+      }
+    }
+    &_Loading {
+      &::after {
+        position: absolute;
+        content: '';
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+        background-color: var(--secondaryColor1);
+        opacity: 0.5;
       }
     }
   }

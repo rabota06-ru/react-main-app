@@ -1,5 +1,6 @@
 import cn from 'classnames'
-import { HTMLAttributes, PropsWithChildren } from 'react'
+import { FC, HTMLAttributes, PropsWithChildren } from 'react'
+import { Spinner } from 'components/spinner'
 import { InputSize, InputStatus } from './input-base.types'
 import styles from './input-base.module.scss'
 
@@ -9,6 +10,8 @@ export interface InputBaseProps extends PropsWithChildren {
   size?: InputSize
   bottomText?: string
   isDisabled?: boolean
+  isLoading?: boolean
+  RightIcon?: FC
   wrapperProps?: Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 }
 
@@ -21,7 +24,17 @@ export interface InputBaseProps extends PropsWithChildren {
  * @param isDisabled заблокирован ли инпут
  * @param wrapperProps пропсы элемента, который оборачивает children
  */
-export function InputBase({ label, status, size = InputSize.Default, bottomText, isDisabled, wrapperProps, children }: InputBaseProps) {
+export function InputBase({
+  label,
+  status,
+  size = InputSize.Default,
+  bottomText,
+  isDisabled,
+  isLoading,
+  RightIcon,
+  wrapperProps,
+  children,
+}: InputBaseProps) {
   return (
     <div className={styles.inputBase}>
       {label !== undefined && <span className={styles.inputBaseLabel}>{label}</span>}
@@ -37,6 +50,12 @@ export function InputBase({ label, status, size = InputSize.Default, bottomText,
         })}
       >
         {children}
+        {(RightIcon || isLoading) && (
+          <div className={styles.inputBaseRightIconWrapper}>
+            {RightIcon && !isLoading && <RightIcon />}
+            {isLoading && <Spinner size={25} thickness={4} />}
+          </div>
+        )}
       </div>
       {bottomText !== undefined && (
         <span
