@@ -6,25 +6,38 @@ import { DropdownItem } from './dropdown.types'
 import styles from './dropdown.module.scss'
 import { DropdownRightIcon } from './dropdown-right-icon'
 
+/**
+ * Выпадающий список элементов
+ * @param items список отображаемых элементов
+ * @param onSelectItem функция, которая будет вызываться при выборе элемента. Если в дроупдауне выбранный элемент удаляется(при клике на крестик), то в функцию передастся null
+ * @param selectedItemByDefault элемент, который выбран по умолчанию
+ * @param isDisabled заблокирован ли выпадающий список
+ * @param isLoading отображается ли загрузка на выпадающем списке
+ * @param isCollapsedByDefault открыт ли по умолчанию
+ * @param inputBaseSize размер инпута. Default - 50px; Large - 60px
+ * @param label отображаемый над инпутом текст
+ * @param status статус выпадающего списка
+ * @param bottomText текст, отображаемый под инпутом
+ */
 interface DropdownProps<T extends DropdownItem<K>, K extends string | number>
   extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
     Pick<InputBaseProps, 'label' | 'status' | 'bottomText'> {
   items: T[]
   onSelectItem?: (item: T | null) => void
-  selectedItem?: T | null
+  selectedItemByDefault?: T | null
   isDisabled?: boolean
   isLoading?: boolean
-  isCollapsed?: boolean
+  isCollapsedByDefault?: boolean
   inputBaseSize?: InputSize
 }
 
 export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
   items,
   onSelectItem,
-  selectedItem: selectedItemProps,
+  selectedItemByDefault,
   isDisabled,
   isLoading,
-  isCollapsed: isCollapsedProps,
+  isCollapsedByDefault,
   placeholder = 'Выберите элемент',
   inputBaseSize,
   label,
@@ -32,7 +45,7 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
   bottomText,
   ...props
 }: DropdownProps<T, K>) {
-  const [isCollapsed, setIsCollapsed] = useState(isCollapsedProps ?? false)
+  const [isCollapsed, setIsCollapsed] = useState(isCollapsedByDefault ?? false)
   const [selectedItem, setSelectedItem] = useState<T | null>(null)
   const ref = useOnClickOutside<HTMLDivElement>(() => setIsCollapsed(false))
 
@@ -43,14 +56,14 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
   }
 
   useEffect(() => {
-    if (isCollapsedProps !== undefined) setIsCollapsed(isCollapsedProps)
-  }, [isCollapsedProps])
+    if (selectedItemByDefault !== undefined && selectedItemByDefault !== null && selectedItemByDefault !== selectedItem) {
+      setSelectedItem(selectedItemByDefault)
+    }
+  }, [selectedItemByDefault, selectedItem])
 
   useEffect(() => {
-    if (selectedItemProps !== undefined && selectedItemProps !== null && selectedItemProps !== selectedItem) {
-      setSelectedItem(selectedItemProps)
-    }
-  }, [selectedItemProps, selectedItem])
+    if (isCollapsedByDefault !== undefined) setIsCollapsed(isCollapsedByDefault)
+  }, [isCollapsedByDefault])
 
   useEffect(() => {
     if (isDisabled) setIsCollapsed(false)
