@@ -32,7 +32,6 @@ export function Card({ shadow, hoverShadow, className, ...props }: CardProps) {
 
     return shadow
   }
-  console.log(calculatedShadow)
 
   return (
     <div

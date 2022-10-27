@@ -1,17 +1,19 @@
-import { InputBase } from 'components/input-base'
+import { InputBase, InputBaseProps, InputSize } from 'components/input-base'
 import { HTMLAttributes, useEffect, useState } from 'react'
 import cn from 'classnames'
 import { DropdownItem } from './dropdown.types'
 import styles from './dropdown.module.scss'
 
 interface DropdownProps<T extends DropdownItem<K>, K extends string | number>
-  extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
+    Pick<InputBaseProps, 'label' | 'status' | 'bottomText'> {
   items: T[]
   onSelectItem?: (item: T) => void
   selectedItem?: T | null
   isDisabled?: boolean
   isLoading?: boolean
   isCollapsed?: boolean
+  inputBaseSize?: InputSize
 }
 
 export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
@@ -22,6 +24,10 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
   isLoading,
   isCollapsed: isCollapsedProps,
   placeholder = 'Выберите элемент',
+  inputBaseSize,
+  label,
+  status,
+  bottomText,
   ...props
 }: DropdownProps<T, K>) {
   const [isCollapsed, setIsCollapsed] = useState(isCollapsedProps ?? false)
@@ -43,11 +49,25 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
     }
   }, [selectedItemProps, selectedItem])
 
+  useEffect(() => {
+    if (isDisabled) {
+      setIsCollapsed(false)
+    }
+  }, [isDisabled])
+
   return (
     <div {...props} className={cn(styles.dropdown, props.className)}>
       <InputBase
+        size={inputBaseSize}
+        isDisabled={isDisabled}
+        label={label}
+        status={status}
+        bottomText={bottomText}
         wrapperProps={{
-          className: cn(styles.dropdownInputBaseWrapper, { [styles.dropdownInputBaseWrapper_DropdownCollapsed]: isCollapsed }),
+          className: cn(styles.dropdownInputBaseWrapper, {
+            [styles.dropdownInputBaseWrapper_DropdownCollapsed]: isCollapsed,
+            [styles.dropdownInputBaseWrapper_Disabled]: isDisabled,
+          }),
           onClick: () => setIsCollapsed(is => !is),
         }}
       >

@@ -23,7 +23,7 @@ export interface InputBaseProps extends PropsWithChildren {
  */
 export function InputBase({ label, status, size = InputSize.Default, bottomText, isDisabled, wrapperProps, children }: InputBaseProps) {
   return (
-    <div>
+    <div className={styles.inputBase}>
       {label !== undefined && <span className={styles.inputBaseLabel}>{label}</span>}
       <div
         {...wrapperProps}

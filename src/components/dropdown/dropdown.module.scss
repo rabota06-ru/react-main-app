@@ -11,6 +11,9 @@
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
     }
+    &_Disabled {
+      pointer-events: none;
+    }
   }
   &Placeholder {
     color: var(--textSecondaryColor);
@@ -27,6 +30,7 @@
     border-bottom-right-radius: $inputBaseWrapperBorderRadius;
     border: $inputBaseWrapperBorder;
     border-top: none;
+    z-index: 1;
     &Item {
       padding: 0 20px;
       display: flex;

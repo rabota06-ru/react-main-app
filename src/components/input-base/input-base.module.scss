@@ -1,6 +1,7 @@
 @import '/src/variables';
 
 .inputBase {
+  position: relative;
   &Label {
     display: block;
     color: var(--textColor);
@@ -45,6 +46,7 @@
   }
   &BottomText {
     color: var(--textColor);
+    position: absolute;
     &_SuccessStatus {
       color: var(--greenColor);
     }

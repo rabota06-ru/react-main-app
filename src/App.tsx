@@ -1,7 +1,7 @@
 import { Card } from 'components/card'
 import { CloseButton } from 'components/close-button'
 import { Dropdown } from 'components/dropdown'
-import { Input } from 'components/input'
+import { Input, InputStatus } from 'components/input'
 import { Spinner } from 'components/spinner'
 import { useState } from 'react'
 import './index.scss'
@@ -24,6 +24,9 @@ function App() {
       <Input label='Вакансия' bottomText='testetst' placeholder='testtest' isLoading />
       <Dropdown
         isCollapsed
+        // isDisabled
+        status={InputStatus.Error}
+        bottomText='test'
         items={[
           { id: 1, label: 'тест1' },
           { id: 2, label: 'тест2' },
