@@ -9,8 +9,8 @@ $buttonBorderRadius: 10px;
   justify-content: center;
   padding: 0 10px;
   cursor: pointer;
+  transition: filter 0.2s;
   &:active {
-    transition: filter 0.2s;
     filter: brightness(80%);
   }
   &_PrimaryVariant {
@@ -34,12 +34,13 @@ $buttonBorderRadius: 10px;
     &::after {
       content: '';
       position: absolute;
+      background-color: transparent;
       margin: auto;
       bottom: 0;
       width: 75%;
       height: 18px;
       box-shadow: 0px 10px 20px rgba(69, 72, 236, 0.25);
-      z-index: -1;
+      z-index: -10;
     }
   }
   &_Disabled {
@@ -57,15 +58,15 @@ $buttonBorderRadius: 10px;
       right: -1px;
       background-color: var(--secondaryColor1);
     }
-    &Spinner {
-      position: absolute;
-      z-index: 1;
-    }
+  }
+  &Spinner {
+    position: absolute;
+    z-index: 1;
   }
   &_LargeHeight {
-    height: 60px;
+    height: $buttonLargeSizeHeight;
   }
   &_SmallHeight {
-    height: 50px;
+    height: $buttonSmallSizeHeight;
   }
 }

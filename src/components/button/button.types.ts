@@ -3,7 +3,7 @@ export enum ButtonVariant {
   Outline,
 }
 
-export enum ButtonSizeHeight {
+export enum ButtonSize {
   Large,
   Small,
 }
