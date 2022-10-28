@@ -1,21 +1,17 @@
-@import '/src/variables';
-
 $wrapperBorderRadius: 5px;
 
-
 .textArea {
-padding: 17px 18px;
+  padding: 17px 18px;
 
-width: 54%;
-height: 8%;
+  width: 54%;
 
-background: #FFFFFF;
-border-radius: 5px;
+  background: #ffffff;
+  border-radius: 5px;
 
-font-size: 14px;
-line-height: 21px;
+  font-size: 14px;
+  line-height: 21px;
 
-&Wrapper {
+  &Wrapper {
     border-radius: $wrapperBorderRadius;
     border: 1px solid var(--secondaryColor2);
     margin-bottom: 5px;
@@ -29,7 +25,7 @@ line-height: 21px;
       border-color: var(--yellowColor);
     }
     &_VerticalResize {
-           resize: vertical 
+      resize: vertical;
     }
-}
+  }
 }

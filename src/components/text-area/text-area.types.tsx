@@ -1,5 +1,5 @@
-export enum textAreaStatus {
-    Success,
-    Error,
-    Warning,
-  }
+export enum TextAreaStatus {
+  Success,
+  Error,
+  Warning,
+}
