@@ -1,4 +1,9 @@
 export enum ButtonVariant {
   Primary,
-  Variant,
+  Outline,
+}
+
+export enum ButtonSizeHeight {
+  Large,
+  Small,
 }
