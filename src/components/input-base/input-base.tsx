@@ -27,7 +27,7 @@ export function InputBase({ label, status, size = InputSize.Default, bottomText,
       {label !== undefined && <span className={styles.inputBaseLabel}>{label}</span>}
       <div
         {...wrapperProps}
-        className={cn(styles.inputBaseWrapper, wrapperProps?.className, {
+        className={cn(styles.inputBaseWrapper, {
           [styles.inputBaseWrapper_DefaultSize]: size === InputSize.Default,
           [styles.inputBaseWrapper_LargeSize]: size === InputSize.Large,
           [styles.inputBaseWrapper_SuccessStatus]: status === InputStatus.Success,
