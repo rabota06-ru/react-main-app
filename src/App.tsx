@@ -1,7 +1,9 @@
 import { Card } from 'components/card'
+import { Checkbox } from 'components/checkbox'
 import { CloseButton } from 'components/close-button'
 import { Input } from 'components/input'
 import { Spinner } from 'components/spinner'
+import { TextArea } from 'components/text-area'
 import './index.scss'
 import { Main } from './pages/main/main'
 
@@ -16,6 +18,11 @@ function App() {
           architecto dolores provident laboriosam?
         </div>
       </Card>
+      {/* <TextArea isVerticalResize={true} placeholder='Текс сообщения' /> */}
+      <Checkbox text='Adlan' checked />
+      <Checkbox text='Ruslan' />
+      <Checkbox text='Movsar' />
+
       <CloseButton />
       <Input label='Вакансия' bottomText='testetst' placeholder='testtest' isLoading />
     </div>

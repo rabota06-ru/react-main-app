@@ -1,0 +1,50 @@
+.checkbox {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+
+  &:checked + &Custom::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  // Свечение при выборе (для того чтобы когда через там выбираешь было видно)
+
+  &:focus + &Custom {
+    border: none;
+    box-shadow: 0px 0px 0px 1px var(--primaryColor), 0px 0px 10px var(--primaryColor);
+  }
+
+  &Custom {
+    display: inline-block;
+    min-width: 20px;
+    min-height: 20px;
+    border: 1px solid #d5d8eb;
+    border-radius: 5px;
+    vertical-align: sub;
+    margin-right: 5px;
+    position: relative;
+    &::before {
+      content: '';
+
+      // Рисуем галочку
+      display: inline-block;
+      width: 15px;
+      height: 13px;
+
+      background-image: url('./galochka-checkbox.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      // Выравнивание по центру
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      margin-top: 1px;
+
+      transition: 0.2s ease-in;
+    }
+  }
+}
