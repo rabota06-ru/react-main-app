@@ -3,6 +3,7 @@ import { CloseButton } from 'components/close-button'
 import { Divider, DividerDirection } from 'components/divider'
 import { Dropdown } from 'components/dropdown'
 import { Input, InputStatus } from 'components/input'
+import { PasswordInput } from 'components/password-input'
 import { Spinner } from 'components/spinner'
 import './index.scss'
 import { Main } from './pages/main/main'
@@ -12,6 +13,7 @@ function App() {
   return (
     <div className='app' style={{ padding: 20 }}>
       <Main />
+      <PasswordInput isLoading={false} status={InputStatus.Error}/>
       <Spinner size={30} />
       <Card hoverShadow={{ blurRadius: 50, spreadRadius: 50 }}>
         <div style={{ height: 100 }}>
