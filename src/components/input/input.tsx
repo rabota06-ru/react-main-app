@@ -1,7 +1,6 @@
 import { InputBase, InputBaseProps, InputSize } from 'components/input-base'
-import { FC, forwardRef, InputHTMLAttributes } from 'react'
+import { forwardRef, InputHTMLAttributes } from 'react'
 import cn from 'classnames'
-import { Spinner } from 'components/spinner'
 import styles from './input.module.scss'
 
 export interface InputProps
@@ -9,7 +8,6 @@ export interface InputProps
     Omit<InputBaseProps, 'children'> {
   isDisabled?: boolean
   isLoading?: boolean
-  RightIcon?: FC
 }
 
 /**
@@ -20,10 +18,10 @@ export interface InputProps
  * @param isDisabled заблокирован ли инпут
  * @param wrapperProps пропсы элемента, который оборачивает children
  * @param isLoading флаг загрузки. Если true, то отображается спиннер и инуп заблокирован
- * @param RightIcon иконка справа от инпута
+ * @param RightContent контент справа от инпута
  */
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ bottomText, status, size = InputSize.Default, label, isDisabled, isLoading, className, RightIcon, ...props }, inputRef) => {
+  ({ bottomText, status, size = InputSize.Default, label, isDisabled, isLoading, className, RightContent, ...props }, inputRef) => {
     return (
       <InputBase
         bottomText={bottomText}
@@ -31,7 +29,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         size={size}
         label={label}
         isDisabled={isDisabled || isLoading}
-        wrapperProps={{ className: cn(styles.inputBaseWrapper, { [styles.inputBaseWrapper_RightIconProvided]: RightIcon || isLoading }) }}
+        isLoading={isLoading}
+        RightContent={RightContent}
+        wrapperProps={{
+          className: cn(styles.inputBaseWrapper, { [styles.inputBaseWrapper_RightIconProvided]: RightContent || isLoading }),
+        }}
       >
         <input
           {...props}
@@ -39,16 +41,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           type='text'
           disabled={isDisabled || isLoading}
           className={cn(styles.input, className, {
-            [styles.input_RightIconProvidedDefaultSize]: (RightIcon || isLoading) && size === InputSize.Default,
-            [styles.input_RightIconProvidedLargeSize]: (RightIcon || isLoading) && size === InputSize.Large,
+            [styles.input_RightIconProvidedDefaultSize]: (RightContent || isLoading) && size === InputSize.Default,
+            [styles.input_RightIconProvidedLargeSize]: (RightContent || isLoading) && size === InputSize.Large,
           })}
         />
-        {(RightIcon || isLoading) && (
-          <div className={styles.inputRightIconWrapper}>
-            {RightIcon && !isLoading && <RightIcon />}
-            {isLoading && <Spinner size={25} thickness={4} />}
-          </div>
-        )}
       </InputBase>
     )
   }
