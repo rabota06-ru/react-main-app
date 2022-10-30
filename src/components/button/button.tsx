@@ -27,6 +27,7 @@ export function Button({
   isDisabled = false,
   isLoading = false,
   isShadow = true,
+  children,
   ...props
 }: ButtonProps) {
   return (
@@ -42,7 +43,7 @@ export function Button({
       type='button'
       {...props}
     >
-      Создать резюме
+      {children}
       {isLoading && <Spinner className={cn(styles.buttonSpinner)} size={25} thickness={2} />}
     </button>
   )
