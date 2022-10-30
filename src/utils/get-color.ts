@@ -1,15 +1,16 @@
 import { Color } from 'types'
 
 const colorVariableNames: Record<Color, string> = {
-  [Color.Primary]: '--primaryColor',
+  [Color.PrimaryColor]: '--primaryColor',
   [Color.TextColor]: '--textColor',
   [Color.TextSecondaryColor]: '--textSecondaryColor',
   [Color.ButtonTextColor]: '--buttonTextColor',
   [Color.SecondaryColor1]: '--secondaryColor1',
   [Color.SecondaryColor2]: '--secondaryColor2',
   [Color.RedColor]: '--redColor',
-  [Color.GreenColor]: '--greenColor',
-  [Color.YellowColor]: '--yellowColor',
+  [Color.ErrorColor]: '--errorColor',
+  [Color.SuccessColor]: '--successColor',
+  [Color.WarningColor]: '--warningColor',
 }
 
 /**
