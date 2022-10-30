@@ -11,6 +11,7 @@ $buttonBorderRadius: 10px;
   cursor: pointer;
   transition: filter 0.2s;
   &:active {
+    transform: scale(0.99);
     filter: brightness(80%);
   }
   &_PrimaryVariant {
@@ -31,17 +32,7 @@ $buttonBorderRadius: 10px;
   }
   &_Shadow {
     position: relative;
-    &::after {
-      content: '';
-      position: absolute;
-      background-color: transparent;
-      margin: auto;
-      bottom: 0;
-      width: 75%;
-      height: 18px;
-      box-shadow: 0px 10px 20px rgba(69, 72, 236, 0.25);
-      z-index: -10;
-    }
+    box-shadow: 0px 20px 15px -16px var(--buttonShadowColor);
   }
   &_Disabled {
     position: relative;

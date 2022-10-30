@@ -12,12 +12,21 @@ interface ButtonProps extends Omit<Props<ButtonHTMLAttributes<HTMLButtonElement>
   isDisabled?: boolean
 }
 
+/**
+ * @param variant вариант кнопки
+ * @param size размер кнопки
+ * @param isDisabled заблокирована ли кнопка
+ * @param isLoading флаг загрузки. Если true, то отображается спиннер и кнопка заблокирована
+ * @param isShadow имеется ли тень на кнопки
+ * @example <Button variant=ButtonVariant.Primary, size=ButtonSize.Large />
+ */
+
 export function Button({
   variant = ButtonVariant.Primary,
   size = ButtonSize.Large,
   isDisabled = false,
-  isLoading = true,
-  isShadow = false,
+  isLoading = false,
+  isShadow = true,
   ...props
 }: ButtonProps) {
   return (
