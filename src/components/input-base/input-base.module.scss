@@ -1,8 +1,7 @@
 @import '/src/variables';
 
-$wrapperBorderRadius: 8px;
-
 .inputBase {
+  position: relative;
   &Label {
     display: block;
     color: var(--textColor);
@@ -11,9 +10,10 @@ $wrapperBorderRadius: 8px;
     margin-bottom: 10px;
   }
   &Wrapper {
-    border-radius: $wrapperBorderRadius;
-    border: 1px solid var(--secondaryColor2);
+    border-radius: $inputBaseWrapperBorderRadius;
+    border: $inputBaseWrapperBorder;
     margin-bottom: 5px;
+    background-color: #fff;
     &_DefaultSize {
       height: $inputBaseDefaultSizeHeight;
     }
@@ -21,20 +21,20 @@ $wrapperBorderRadius: 8px;
       height: $inputBaseLargeSizeHeight;
     }
     &_SuccessStatus {
-      border-color: var(--greenColor);
+      border-color: var(--successColor);
     }
     &_ErrorStatus {
-      border-color: var(--redColor);
+      border-color: var(--errorColor);
     }
     &_WarningStatus {
-      border-color: var(--yellowColor);
+      border-color: var(--warningColor);
     }
     &_Disabled {
       position: relative;
       &::after {
         content: '';
         position: absolute;
-        border-radius: $wrapperBorderRadius;
+        border-radius: $inputBaseWrapperBorderRadius;
         top: -1px;
         bottom: -1px;
         left: -1px;
@@ -43,9 +43,22 @@ $wrapperBorderRadius: 8px;
         opacity: 0.5;
       }
     }
+    &_RightIconProvided {
+      position: relative;
+    }
+  }
+  &RightIconWrapper {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    aspect-ratio: 1 / 1;
   }
   &BottomText {
     color: var(--textColor);
+    position: absolute;
     &_SuccessStatus {
       color: var(--greenColor);
     }

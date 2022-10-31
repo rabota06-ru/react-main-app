@@ -5,8 +5,9 @@
   position: absolute;
   z-index: -1;
 
-  &:checked + &Custom::before {
+  &:checked + &Custom > &CustomIcon {
     transform: translate(-50%, -50%) scale(1);
+    transition: 0.2s ease-in;
   }
 
   // Свечение при выборе (для того чтобы когда через там выбираешь было видно)
@@ -25,25 +26,14 @@
     vertical-align: sub;
     margin-right: 5px;
     position: relative;
-    &::before {
-      content: '';
-
-      // Рисуем галочку
-      display: inline-block;
-      width: 15px;
-      height: 13px;
-
-      background-image: url('./galochka-checkbox.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-
-      // Выравнивание по центру
+    &Icon {
+      width: 25px;
+      height: 20px;
+      color: var(--redColor);
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%) scale(0);
-      margin-top: 1px;
-
       transition: 0.2s ease-in;
     }
   }

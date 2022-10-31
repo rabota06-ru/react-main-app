@@ -1,6 +1,7 @@
 import { InputHTMLAttributes, useEffect, useState } from 'react'
 import styles from './checkbox.module.scss'
 import cn from 'classnames'
+import { FiCheck } from 'react-icons/Fi'
 
 interface CheckboxProps extends Omit<Props<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, 'type'> {
   text: string
@@ -20,7 +21,9 @@ export function Checkbox({ text, checked: checkedProp = false, ...props }: Check
   return (
     <label>
       <input {...props} type='checkbox' checked={checked} onChange={handleChange} className={cn(styles.checkbox, props.className)} />
-      <span className={styles.checkboxCustom} />
+      <span className={styles.checkboxCustom}>
+        <FiCheck className={styles.checkboxCustomIcon} />
+      </span>
       {text}
     </label>
   )

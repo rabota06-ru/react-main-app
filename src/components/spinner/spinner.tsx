@@ -14,7 +14,7 @@ interface SpinnerProps {
  * @param color цвет спиннера
  * @example <Spinner size={30} thickness={5} color={Color.Primary} />
  */
-export function Spinner({ size, thickness = 5, color = Color.Primary }: SpinnerProps) {
+export function Spinner({ size, thickness = 5, color = Color.PrimaryColor }: SpinnerProps) {
   return (
     <span className={styles.spinner} style={{ width: size, height: size }}>
       <span
