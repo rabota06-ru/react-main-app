@@ -1,5 +1,6 @@
 export enum Color {
   PrimaryColor,
+  ButtonShadowColor,
   TextColor,
   TextSecondaryColor,
   ButtonTextColor,
