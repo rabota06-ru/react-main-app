@@ -1,12 +1,12 @@
 import { Input, InputProps } from 'components/input'
-import { useRef } from 'react'
+import { useRussianPhoneNumber } from './use-russian-phone-number'
 
 interface PhoneInputProps extends Omit<InputProps, 'onChange'> {
   onChange: (clear: string, dirty: string) => void
 }
 
 export function PhoneInput({ onChange, ...props }: PhoneInputProps) {
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRussianPhoneNumber()
 
   return <Input ref={inputRef} {...props} />
 }
