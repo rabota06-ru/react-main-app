@@ -13,7 +13,7 @@ function App() {
   return (
     <div className='app' style={{ padding: 20 }}>
       <Main />
-      <PasswordInput isLoading={false} status={InputStatus.Error}/>
+      <PasswordInput />
       <Spinner size={30} />
       <Card hoverShadow={{ blurRadius: 50, spreadRadius: 50 }}>
         <div style={{ height: 100 }}>
