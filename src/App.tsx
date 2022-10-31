@@ -17,7 +17,7 @@ function App() {
           architecto dolores provident laboriosam?
         </div>
       </Card>
-      <TextArea VerticalResize={true} placeholder='Текс сообщения'/>
+      <TextArea isVerticalResize={true} placeholder='Текс сообщения' />
       <CloseButton />
       <Input label='Вакансия' bottomText='testetst' placeholder='testtest' isLoading />
     </div>
