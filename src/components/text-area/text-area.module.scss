@@ -10,10 +10,9 @@
   line-height: 21px;
 
   &Wrapper {
-    border-radius: $wrapperBorderRadius;
     border: 1px solid var(--secondaryColor2);
-    margin-bottom: 5px;
     border-radius: 5px;
+    margin-bottom: 5px;
     &_SuccessStatus {
       border-color: var(--greenColor);
     }
