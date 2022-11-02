@@ -3,6 +3,7 @@ import { CloseButton } from 'components/close-button'
 import { Divider, DividerDirection } from 'components/divider'
 import { Dropdown } from 'components/dropdown'
 import { Input, InputStatus } from 'components/input'
+import { PhoneInput } from 'components/phone-input'
 import { PasswordInput } from 'components/password-input'
 import { Spinner } from 'components/spinner'
 import { TextArea } from 'components/text-area'
@@ -16,6 +17,7 @@ function App() {
       <Main />
       <PasswordInput />
       <Spinner size={30} />
+      <PhoneInput />
       <Card hoverShadow={{ blurRadius: 50, spreadRadius: 50 }}>
         <div style={{ height: 100 }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, laborum! Illo, natus dolorem facilis obcaecati doloribus
