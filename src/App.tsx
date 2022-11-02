@@ -4,6 +4,8 @@ import { CloseButton } from 'components/close-button'
 import { Divider, DividerDirection } from 'components/divider'
 import { Dropdown } from 'components/dropdown'
 import { Input, InputStatus } from 'components/input'
+import { PhoneInput } from 'components/phone-input'
+import { PasswordInput } from 'components/password-input'
 import { Spinner } from 'components/spinner'
 import { TextArea } from 'components/text-area'
 import './index.scss'
@@ -14,18 +16,19 @@ function App() {
   return (
     <div className='app' style={{ padding: 20 }}>
       <Main />
+      <PasswordInput />
       <Spinner size={30} />
+      <PhoneInput />
       <Card hoverShadow={{ blurRadius: 50, spreadRadius: 50 }}>
         <div style={{ height: 100 }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, laborum! Illo, natus dolorem facilis obcaecati doloribus
           architecto dolores provident laboriosam?
         </div>
       </Card>
-      {/* <TextArea isVerticalResize={true} placeholder='Текс сообщения' /> */}
+      <TextArea isVerticalResize={true} placeholder='Текс сообщения' />
       <Checkbox text='Adlan' checked />
       <Checkbox text='Ruslan' />
       <Checkbox text='Movsar' />
-
       <CloseButton />
       <Input label='Вакансия' bottomText='testetst' placeholder='testtest' isLoading />
       <Dropdown
