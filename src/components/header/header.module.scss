@@ -1,0 +1,29 @@
+.header {
+  &Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &Logo {
+    min-width: 60px;
+    min-height: 60px;
+    fill: var(--primaryColor);
+  }
+  &Links {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 100px;
+    margin-left: auto;
+    padding-left: 20px;
+    flex: 1;
+    gap: 20px;
+    max-width: 500px;
+  }
+  &Link {
+    text-decoration: none;
+    white-space: nowrap;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
