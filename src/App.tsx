@@ -6,7 +6,7 @@ import { MainPage } from 'pages/main-page'
 
 function App() {
   return (
-    <div className='app' style={{ padding: 20 }}>
+    <div className='app'>
       <UnauthorizedLayout>
         <Routes>
           <Route path={routes.main} element={<MainPage />} />
