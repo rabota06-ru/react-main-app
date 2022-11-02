@@ -1,0 +1,29 @@
+.textArea {
+  padding: 17px 18px;
+
+  width: 54%;
+
+  background: #ffffff;
+  border-radius: 5px;
+
+  font-size: 14px;
+  line-height: 21px;
+
+  &Wrapper {
+    border: 1px solid var(--secondaryColor2);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    &_SuccessStatus {
+      border-color: var(--greenColor);
+    }
+    &_ErrorStatus {
+      border-color: var(--redColor);
+    }
+    &_WarningStatus {
+      border-color: var(--yellowColor);
+    }
+    &_VerticalResize {
+      resize: vertical;
+    }
+  }
+}

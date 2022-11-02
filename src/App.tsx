@@ -4,6 +4,7 @@ import { Divider, DividerDirection } from 'components/divider'
 import { Dropdown } from 'components/dropdown'
 import { Input, InputStatus } from 'components/input'
 import { Spinner } from 'components/spinner'
+import { TextArea } from 'components/text-area'
 import './index.scss'
 import { Main } from './pages/main/main'
 import { Color } from './types'
@@ -19,6 +20,7 @@ function App() {
           architecto dolores provident laboriosam?
         </div>
       </Card>
+      <TextArea isVerticalResize={true} placeholder='Текс сообщения' />
       <CloseButton />
       <Input label='Вакансия' bottomText='testetst' placeholder='testtest' isLoading />
       <Dropdown
