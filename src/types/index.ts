@@ -9,4 +9,6 @@ export enum Color {
   ErrorColor,
   SuccessColor,
   WarningColor,
+  CarouselCardShadowColor,
+  CarouselCardHoveredShadowColor,
 }

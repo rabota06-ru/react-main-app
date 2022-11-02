@@ -1,14 +1,71 @@
 import { Card } from 'components/card'
+import { Carousel, ResumeCard } from 'components/carousel'
 import { CloseButton } from 'components/close-button'
 import { Divider, DividerDirection } from 'components/divider'
 import { Dropdown } from 'components/dropdown'
 import { Input, InputStatus } from 'components/input'
 import { Spinner } from 'components/spinner'
+import { Tabs, TabList, Tab, TabPanel } from 'components/tabs'
+import { useState } from 'react'
 import './index.scss'
 import { Main } from './pages/main/main'
 import { Color } from './types'
 
+export interface CarouselCard {
+  iconUrl: string
+  profession: string
+  name: string
+  location: string
+  fullResumeLink: string
+}
+
 function App() {
+  const [tabIndex, setTabIndex] = useState(0)
+  const [list, setList] = useState<CarouselCard[]>([
+    {
+      iconUrl: '',
+      profession: 'Программист',
+      name: 'Адам Х.',
+      location: 'Галаши',
+      fullResumeLink: '#',
+    },
+    {
+      iconUrl: '',
+      profession: 'Программист',
+      name: 'Адам Х.',
+      location: 'Галаши',
+      fullResumeLink: '#',
+    },
+    {
+      iconUrl: '',
+      profession: 'Программист',
+      name: 'Адам Х.',
+      location: 'Галаши',
+      fullResumeLink: '#',
+    },
+    {
+      iconUrl: '',
+      profession: 'Программист',
+      name: 'Адам Х.',
+      location: 'Галаши',
+      fullResumeLink: '#',
+    },
+    {
+      iconUrl: '',
+      profession: 'Программист',
+      name: 'Адам Х.',
+      location: 'Галаши',
+      fullResumeLink: '#',
+    },
+    {
+      iconUrl: '',
+      profession: 'Программист',
+      name: 'Адам Х.',
+      location: 'Галаши',
+      fullResumeLink: '#',
+    },
+  ])
+
   return (
     <div className='app' style={{ padding: 20 }}>
       <Main />
@@ -21,7 +78,7 @@ function App() {
       </Card>
       <CloseButton />
       <Input label='Вакансия' bottomText='testetst' placeholder='testtest' isLoading />
-      <Dropdown
+      {/* <Dropdown
         // isDisabled
         status={InputStatus.Success}
         bottomText='test'
@@ -39,8 +96,26 @@ function App() {
           { id: 11, label: 'тест2' },
           { id: 12, label: 'тест3' },
         ]}
-      />
+      /> */}
       <Divider direction={DividerDirection.Horizontal} size={4} color={Color.SuccessColor} />
+      <Carousel Item={ResumeCard} items={list} visibleItemsCount={4} skipItemsCount={1} />
+      <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
+        <TabList>
+          <Tab>Title 1</Tab>
+          <Tab>Title 2</Tab>
+          <Tab>Title 3</Tab>
+        </TabList>
+
+        <TabPanel>
+          <h2>Any content 1</h2>
+        </TabPanel>
+        <TabPanel>
+          <h2>Any content 2</h2>
+        </TabPanel>
+        <TabPanel>
+          <h2>Any content 3</h2>
+        </TabPanel>
+      </Tabs>
     </div>
   )
 }

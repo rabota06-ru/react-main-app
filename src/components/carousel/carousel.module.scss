@@ -1,0 +1,36 @@
+.carousel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &Content {
+    display: flex;
+    flex-grow: 1;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &Card {
+    padding: 16px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+  &ButtonLeft,
+  &ButtonRight {
+    background-color: #fff;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    filter: drop-shadow(0px 4px 80px rgba(100, 132, 194, 0.15));
+  }
+  &ButtonDisabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}
