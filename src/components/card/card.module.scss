@@ -1,4 +1,6 @@
+@import '/src/variables';
+
 .card {
-  border-radius: 20px;
+  border-radius: $cardBorderRadius;
   transition: box-shadow 0.3s;
 }

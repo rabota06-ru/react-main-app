@@ -1,0 +1,94 @@
+@import '/src/variables.scss';
+
+.section {
+  position: relative;
+  overflow: hidden;
+  padding-top: 70px;
+  padding-bottom: 50px;
+  $Section: &;
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &Title {
+    margin-bottom: 20px;
+  }
+  &BackgroundLine {
+    &Wrap {
+      position: absolute;
+      top: 200px;
+      width: 300%;
+      height: 250px;
+      perspective: 210px;
+      perspective-origin: 50% 81%;
+      z-index: -1;
+    }
+    height: 100%;
+    animation: gradient 15s ease infinite;
+    background: linear-gradient(-45deg, #f4f9ff, #cfe2f8, #f4f9ff, #cfe2f8, #f4f9ff, #cfe2f8, #f4f9ff, #cfe2f8);
+    background-size: 400% 400%;
+    transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(352deg) rotateZ(355deg) translateX(-876px) translateY(0px)
+      translateZ(0px) skewX(0deg) skewY(0deg);
+  }
+  &Image {
+    width: 60%;
+    object-fit: contain;
+    margin-bottom: 70px;
+  }
+  &Actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 60px;
+    &:hover #{$Section}ActionBackground {
+      transform: translateY(-40px);
+    }
+  }
+  &Action {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 90px;
+    padding-bottom: 50px;
+    background-color: #fff;
+    &Background {
+      position: absolute;
+      z-index: -1;
+      height: 100%;
+      width: 70%;
+      bottom: 0;
+      transform: translateY(40px);
+      background-color: #f0f7fe;
+      border-radius: $cardBorderRadius;
+      transition: all 0.3s;
+      &Left {
+        left: -50px;
+      }
+      &Right {
+        right: -50px;
+      }
+    }
+    &Image {
+      position: absolute;
+      top: 0;
+      transform: translateY(-40%);
+    }
+    &Title {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  70% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

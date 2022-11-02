@@ -8,6 +8,7 @@
 .app {
   height: 100vh;
   width: 100vw;
+  overflow-x: auto;
 }
 
 :root {
@@ -18,7 +19,7 @@
   --textSecondaryColor: #79859e;
   --buttonTextColor: #ffffff;
   --secondaryColor1: #f8fafc;
-  --secondaryColor2: #79859e;
+  --secondaryColor2: #e1e2f0;
   --redColor: #ff0b0b;
   --errorColor: #da3633;
   --successColor: #3fb950;
