@@ -23,7 +23,7 @@ interface ButtonProps extends Omit<Props<ButtonHTMLAttributes<HTMLButtonElement>
 
 export function Button({
   variant = ButtonVariant.Primary,
-  size = ButtonSize.Large,
+  size = ButtonSize.Small,
   isDisabled = false,
   isLoading = false,
   isShadow = true,
