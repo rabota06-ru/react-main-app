@@ -4,8 +4,9 @@ import cn from 'classnames'
 import styles from './input.module.scss'
 
 export interface InputProps
-  extends Omit<Props<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, 'size' | 'type' | 'children'>,
+  extends Omit<Props<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, 'size' | 'value' | 'type' | 'children'>,
     Omit<InputBaseProps, 'children'> {
+  value?: string
   isDisabled?: boolean
   isLoading?: boolean
 }

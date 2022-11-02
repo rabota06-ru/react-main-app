@@ -15,8 +15,8 @@ interface PhoneInputProps extends Omit<InputProps, 'onChange'> {
  * @param isLoading флаг загрузки. Если true, то отображается спиннер и инуп заблокирован
  * @param RightContent контент справа от инпута
  */
-export function PhoneInput({ onChange, ...props }: PhoneInputProps) {
-  const inputRef = useRussianPhoneNumber({ onChange })
+export function PhoneInput({ onChange, value, ...props }: PhoneInputProps) {
+  const inputRef = useRussianPhoneNumber({ onChange, value })
 
   return <Input onChange={inputRef.onChange} value={inputRef.value} ref={inputRef.ref} {...props} />
 }
