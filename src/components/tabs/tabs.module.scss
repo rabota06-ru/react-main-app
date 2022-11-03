@@ -1,0 +1,32 @@
+.tabs {
+  &List {
+    display: flex;
+    position: relative;
+  }
+  &Item {
+    flex-basis: 250px;
+    padding: 15px;
+    text-align: center;
+    color: #9ca4b5;
+    border-bottom: 1px solid #c3cbda;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    user-select: none;
+    cursor: pointer;
+    transition: color 0.3s;
+    &Active {
+      color: var(--primaryColor);
+    }
+  }
+  &Indicator {
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 250px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    background-color: var(--primaryColor);
+  }
+  &Panel {
+  }
+}

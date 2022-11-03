@@ -1,0 +1,69 @@
+.card {
+  position: relative;
+  padding-top: 56px;
+  &IconWrap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #fcfdff 0%, #e9f2ff 100%);
+  }
+  &Icon {
+  }
+  &Profession {
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    color: var(--textColor);
+    margin-bottom: 27px;
+  }
+  &Info {
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    &Item {
+      display: flex;
+      align-items: center;
+    }
+    &Icon {
+      margin-right: 10px;
+    }
+    &Text {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--textColor);
+    }
+  }
+  &Action {
+    padding: 22px 30px;
+    background-color: #f4f9ff;
+    border-radius: 0 0 20px 20px;
+    &Link {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      text-decoration: none;
+      &Text {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        margin-right: 8px;
+        color: var(--primaryColor);
+      }
+      &Icon {
+        flex-shrink: 0;
+        transition: transform 0.3s;
+      }
+      &:hover &Icon {
+        transform: translateX(5px);
+      }
+    }
+  }
+}
