@@ -5,6 +5,7 @@
   overflow: hidden;
   padding-top: 70px;
   padding-bottom: 50px;
+  z-index: 1;
   $Section: &;
   &Container {
     display: flex;
