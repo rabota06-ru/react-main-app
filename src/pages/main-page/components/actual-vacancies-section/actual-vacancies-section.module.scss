@@ -3,7 +3,24 @@
   flex-direction: column;
   align-items: center;
   padding-top: 70px;
+  padding-bottom: 70px;
   &Title {
-    margin-bottom: 70px;
+    margin-bottom: 20px;
+  }
+  &Carousel {
+    position: relative;
+    &Content {
+      padding: 51px 0;
+    }
+    &SlideLeftButton {
+      position: absolute;
+      left: 0;
+      transform: translateX(-150%);
+    }
+    &SlideRightButton {
+      position: absolute;
+      right: 0;
+      transform: translateX(150%);
+    }
   }
 }

@@ -1,6 +1,6 @@
 .card {
   position: relative;
-  padding-top: 56px;
+  padding-top: 50px;
   &IconWrap {
     position: absolute;
     top: 0;
@@ -14,8 +14,6 @@
     border-radius: 50%;
     background: linear-gradient(180deg, #fcfdff 0%, #e9f2ff 100%);
   }
-  &Icon {
-  }
   &Profession {
     font-weight: 700;
     font-size: 20px;
@@ -27,7 +25,7 @@
     padding: 35px 30px;
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    gap: 18px;
     &Item {
       display: flex;
       align-items: center;
@@ -38,32 +36,31 @@
     &Text {
       font-weight: 500;
       font-size: 16px;
+      margin-left: 8px;
       color: var(--textColor);
     }
   }
   &Action {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
     padding: 22px 30px;
     background-color: #f4f9ff;
     border-radius: 0 0 20px 20px;
-    &Link {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      text-decoration: none;
-      &Text {
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 17px;
-        margin-right: 8px;
-        color: var(--primaryColor);
-      }
-      &Icon {
-        flex-shrink: 0;
-        transition: transform 0.3s;
-      }
-      &:hover &Icon {
-        transform: translateX(5px);
-      }
+    cursor: pointer;
+    &:hover &LinkIcon {
+      transform: translateX(5px);
+    }
+    &Text {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+      margin-right: 8px;
+      color: var(--primaryColor);
+    }
+    &Icon {
+      fill: var(--primaryColor);
+      transition: transform 0.3s;
     }
   }
 }

@@ -28,6 +28,9 @@
     border: none;
     cursor: pointer;
     filter: drop-shadow(0px 4px 80px rgba(100, 132, 194, 0.15));
+    &Icon {
+      fill: var(--primaryColor);
+    }
   }
   &ButtonDisabled {
     opacity: 0.3;
