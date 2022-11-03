@@ -4,7 +4,15 @@ import { routes } from 'pages/routes'
 import { UnauthorizedLayout } from 'layouts/unauthorized-layout'
 import { MainPage } from 'pages/main-page'
 
-function App() {
+export interface CarouselCard {
+  iconUrl: string
+  profession: string
+  name: string
+  location: string
+  fullResumeLink: string
+}
+
+export function App() {
   return (
     <div className='app'>
       <UnauthorizedLayout>
@@ -16,5 +24,3 @@ function App() {
     </div>
   )
 }
-
-export default App
