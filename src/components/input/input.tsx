@@ -4,10 +4,12 @@ import cn from 'classnames'
 import styles from './input.module.scss'
 
 export interface InputProps
-  extends Omit<Props<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, 'size' | 'type' | 'children'>,
+  extends Omit<Props<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, 'size' | 'value' | 'type' | 'children'>,
     Omit<InputBaseProps, 'children'> {
+  value?: string
   isDisabled?: boolean
   isLoading?: boolean
+  type?: string
 }
 
 /**
@@ -21,7 +23,10 @@ export interface InputProps
  * @param RightContent контент справа от инпута
  */
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ bottomText, status, size = InputSize.Default, label, isDisabled, isLoading, className, RightContent, ...props }, inputRef) => {
+  (
+    { bottomText, status, size = InputSize.Default, label, isDisabled, isLoading, type = 'text', className, RightContent, ...props },
+    inputRef
+  ) => {
     return (
       <InputBase
         bottomText={bottomText}
@@ -38,7 +43,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           {...props}
           ref={inputRef}
-          type='text'
+          type={type}
           disabled={isDisabled || isLoading}
           className={cn(styles.input, className, {
             [styles.input_RightIconProvidedDefaultSize]: (RightContent || isLoading) && size === InputSize.Default,
