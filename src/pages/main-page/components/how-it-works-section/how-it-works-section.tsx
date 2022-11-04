@@ -20,9 +20,7 @@ export function HowItWorksSection() {
         <div className={styles.sectionCardContainer}>
           <p className={styles.sectionCardContainerTitle}>Если ищу работу</p>
           <Card className={cn(styles.sectionCard, styles.sectionCardLeft)}>
-            <div className={styles.sectionCardImageContainer}>
-              <img className={styles.sectionCardImage} src={searchJobImage} alt='Если ищу работу' />
-            </div>
+            <img className={styles.sectionCardImage} src={searchJobImage} alt='Если ищу работу' />
             <div className={styles.sectionCardStep}>
               <div className={styles.sectionCardStepImageContainer}>
                 <img src={searchJobFirstStepImage} alt='Нажмите «Ищу работу»' />
@@ -48,9 +46,7 @@ export function HowItWorksSection() {
         <div className={styles.sectionCardContainer}>
           <p className={styles.sectionCardContainerTitle}>Если ищу работника</p>
           <Card className={cn(styles.sectionCard, styles.sectionCardRight)}>
-            <div className={styles.sectionCardImageContainer}>
-              <img className={styles.sectionCardImage} src={searchEmployeeImage} alt='Если ищу работника' />
-            </div>
+            <img className={styles.sectionCardImage} src={searchEmployeeImage} alt='Если ищу работника' />
             <div className={styles.sectionCardStep}>
               <div className={styles.sectionCardStepImageContainer}>
                 <img src={searchEmployeeFirstStepImage} alt='Ищу работника' />
