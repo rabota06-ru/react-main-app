@@ -11,6 +11,23 @@ import { TextArea } from 'components/text-area'
 import './index.scss'
 import { Main } from './pages/main/main'
 import { Color } from './types'
+import { ListCardVacancy } from 'components/list-card'
+import { ListCardResume } from 'components/list-card'
+
+const vacancyState = {
+  title: 'UX/UI Дизайнер (удаленно)',
+  date: '18 октября',
+  operator: 'Beeline',
+  text: 'Делать архитектуру продукта в форме чарта. По нему понятны все шаги, которые пользователь может сделать в приложении. Работать над Вайрфреймами каждого экрана. Без использования цветов с фокусом на лэйаут каждого экрана. Наконец рисовать сам дизайн продукта. Продумывать дизайн систему продукта и прорабатывать дизайн, чтобы он подходил конкретной группе пользователей',
+  price: 2500,
+  location: 'Назрань',
+}
+const resumeState = {
+  title: 'UX/UI Дизайнер (удаленно)',
+  name: 'Adlan B.',
+  text: 'Делать архитектуру продукта в форме чарта. По нему понятны все шаги, которые пользователь может сделать в приложении. Работать над Вайрфреймами каждого экрана. Без использования цветов с фокусом на лэйаут каждого экрана. Наконец рисовать сам дизайн продукта. Продумывать дизайн систему продукта и прорабатывать дизайн, чтобы он подходил конкретной группе пользователей',
+  location: 'Назрань',
+}
 
 function App() {
   return (
@@ -25,6 +42,8 @@ function App() {
           architecto dolores provident laboriosam?
         </div>
       </Card>
+      <ListCardResume cardState={resumeState} />
+      <ListCardVacancy cardState={vacancyState} />
       <TextArea isVerticalResize={true} placeholder='Текс сообщения' />
       <Checkbox text='Adlan' checked />
       <Checkbox text='Ruslan' />
