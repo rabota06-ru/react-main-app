@@ -1,4 +1,5 @@
 import { ActualVacanciesSection } from './components/actual-vacancies-section/actual-vacancies-section'
+import { FindYourJobSection } from './components/find-your-job-section/find-your-job-section'
 import { FirstSection } from './components/first-section/first-section'
 import { HowItWorksSection } from './components/how-it-works-section/how-it-works-section'
 import { ResumesSection } from './components/resumes-section/resumes-section'
@@ -11,6 +12,7 @@ export function MainPage() {
       <ActualVacanciesSection />
       <ResumesSection />
       <HowItWorksSection />
+      <FindYourJobSection />
     </div>
   )
 }

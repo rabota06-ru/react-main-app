@@ -1,0 +1,55 @@
+.section {
+  margin-bottom: 240px;
+  &Content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f9ff;
+    border-radius: 50px;
+    padding-top: 146px;
+    padding-bottom: 64px;
+    &Title {
+      margin-bottom: 45px;
+      &Selected {
+        color: var(--primaryColor);
+      }
+    }
+    &Image {
+      position: absolute;
+      border-radius: 50%;
+      background-color: #fff;
+      border: 4px solid #fff;
+      &First {
+        height: 180px;
+        width: 180px;
+        top: -61px;
+        left: 3%;
+      }
+      &Second {
+        height: 120px;
+        width: 120px;
+        bottom: 0;
+        left: 14%;
+      }
+      &Third {
+        width: 100px;
+        height: 100px;
+        top: 23px;
+        left: 46%;
+      }
+      &Fourth {
+        height: 120px;
+        width: 120px;
+        top: 2px;
+        right: 15%;
+      }
+      &Fifth {
+        height: 160px;
+        width: 160px;
+        right: 4%;
+        bottom: -21px;
+      }
+    }
+  }
+}
