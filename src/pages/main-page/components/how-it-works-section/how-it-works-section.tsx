@@ -1,6 +1,6 @@
 import { Card } from 'components/card'
 import { Container } from 'components/container'
-import { HiArrowLongDown } from 'react-icons/hi2'
+import { CgArrowLongDown } from 'react-icons/cg'
 import cn from 'classnames'
 import styles from './how-it-works-section.module.scss'
 import searchJobImage from './search-job.png'
@@ -28,14 +28,14 @@ export function HowItWorksSection() {
                 </div>
                 <p className={styles.sectionCardStepTitle}>Нажмите «Ищу работу»</p>
               </div>
-              <HiArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
+              <CgArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
               <div className={styles.sectionCardStep}>
                 <div className={styles.sectionCardStepImageContainer}>
                   <img src={searchJobSecondStepImage} alt='Заполняете резюме' />
                 </div>
                 <p className={styles.sectionCardStepTitle}>Заполняете резюме</p>
               </div>
-              <HiArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
+              <CgArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
               <div className={styles.sectionCardStep}>
                 <div className={styles.sectionCardStepImageContainer}>
                   <img src={searchJobThirdStepImage} alt='Откликаетесь на все понравившиеся вакансии' />
@@ -54,14 +54,14 @@ export function HowItWorksSection() {
                 </div>
                 <p className={styles.sectionCardStepTitle}>Ищу работника</p>
               </div>
-              <HiArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
+              <CgArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
               <div className={styles.sectionCardStep}>
                 <div className={styles.sectionCardStepImageContainer}>
                   <img src={searchEmployeeSecondStepImage} alt='Заполняете вакансию' />
                 </div>
                 <p className={styles.sectionCardStepTitle}>Заполняете резюме</p>
               </div>
-              <HiArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
+              <CgArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
               <div className={styles.sectionCardStep}>
                 <div className={styles.sectionCardStepImageContainer}>
                   <img src={searchEmployeeThirdStepImage} alt='Получаете отклики от соискателей и доступ ко всей базе резюме' />
