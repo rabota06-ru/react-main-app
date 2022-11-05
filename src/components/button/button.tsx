@@ -35,6 +35,7 @@ export function Button({
       className={cn(styles.button, {
         [styles.button_PrimaryVariant]: variant === ButtonVariant.Primary,
         [styles.button_OutlineVariant]: variant === ButtonVariant.Outline,
+        [styles.button_TextVariant]: variant === ButtonVariant.Text,
         [styles.button_LargeSize]: size === ButtonSize.Large,
         [styles.button_MediumSize]: size === ButtonSize.Medium,
         [styles.button_SmallSize]: size === ButtonSize.Small,

@@ -30,6 +30,11 @@ $buttonBorderRadius: 10px;
     color: var(--primaryColor);
     font-size: 14px;
   }
+  &_TextVariant {
+    color: var(--primaryColor);
+    border: none;
+    background-color: transparent;
+  }
   &_LargeSize {
     height: $buttonLargeSizeHeight;
   }

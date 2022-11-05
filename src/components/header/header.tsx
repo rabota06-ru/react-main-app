@@ -7,8 +7,9 @@ import { useMediaValue } from 'hooks/use-media-value'
 import styles from './header.module.scss'
 
 export function Header() {
-  const buttonVariant = useMediaValue({ xs: ButtonVariant.Outline, md: ButtonVariant.Primary })
+  const buttonVariant = useMediaValue({ xs: ButtonVariant.Text, sm: ButtonVariant.Primary })
   const buttonSize = useMediaValue({ xs: ButtonSize.ExtraSmall, sm: ButtonSize.Small, md: ButtonSize.Medium })
+  const isButtonShadow = useMediaValue({ xs: false, sm: true })
 
   return (
     <Container className={styles.header}>
@@ -24,7 +25,7 @@ export function Header() {
           Как это работает?
         </Link>
       </div>
-      <Button isShadow size={buttonSize} variant={buttonVariant}>
+      <Button isShadow={isButtonShadow} size={buttonSize} variant={buttonVariant}>
         Вход и регистрация
       </Button>
     </Container>
