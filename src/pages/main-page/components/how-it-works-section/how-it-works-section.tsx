@@ -14,7 +14,7 @@ import searchEmployeeThirdStepImage from './search-employee-third-step.png'
 
 export function HowItWorksSection() {
   return (
-    <div className={styles.section}>
+    <div className={styles.section} id='how-it-works'>
       <Container className={styles.sectionContainer}>
         <h2 className={styles.sectionTitle}>Как это работает?</h2>
         <div className={styles.sectionCards}>

@@ -7,9 +7,15 @@ import { useMediaValue } from 'hooks/use-media-value'
 import styles from './header.module.scss'
 
 export function Header() {
-  const buttonVariant = useMediaValue({ xs: ButtonVariant.Text, sm: ButtonVariant.Primary })
+  const buttonVariant = useMediaValue({ xs: ButtonVariant.Outline, sm: ButtonVariant.Primary })
   const buttonSize = useMediaValue({ xs: ButtonSize.ExtraSmall, sm: ButtonSize.Small, md: ButtonSize.Medium })
   const isButtonShadow = useMediaValue({ xs: false, sm: true })
+
+  function scrollToHowItWorksSection() {
+    document.getElementById('how-it-works')?.scrollIntoView({
+      behavior: 'smooth',
+    })
+  }
 
   return (
     <div className={styles.header}>
@@ -22,9 +28,9 @@ export function Header() {
           <Link to={routes.allResumes} className={styles.headerLink}>
             Все резюме
           </Link>
-          <Link to='#how-it-works' className={styles.headerLink}>
+          <span onClick={scrollToHowItWorksSection} className={styles.headerLink}>
             Как это работает?
-          </Link>
+          </span>
         </div>
         <Button isShadow={isButtonShadow} size={buttonSize} variant={buttonVariant}>
           Вход и регистрация
