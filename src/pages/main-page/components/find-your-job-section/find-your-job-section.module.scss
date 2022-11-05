@@ -1,3 +1,5 @@
+@import '/src/variables';
+
 .section {
   margin-bottom: 240px;
   &Content {
@@ -49,6 +51,121 @@
         width: 160px;
         right: 4%;
         bottom: -21px;
+      }
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .section {
+    margin-bottom: 150px;
+    &Content {
+      &Image {
+        &First {
+          width: 130px;
+          height: 130px;
+        }
+        &Second {
+          width: 100px;
+          height: 100px;
+        }
+        &Third {
+          width: 80px;
+          height: 80px;
+        }
+        &Fourth {
+          width: 100px;
+          height: 100px;
+        }
+        &Fifth {
+          width: 130px;
+          height: 130px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .section {
+    &Content {
+      padding-top: 120px;
+      padding-bottom: 20px;
+      &Title {
+        font-size: 20px;
+      }
+      &Image {
+        &First {
+          width: 100px;
+          height: 100px;
+          top: -30px;
+          border-width: 3px;
+        }
+        &Second {
+          width: 80px;
+          height: 80px;
+          border-width: 3px;
+        }
+        &Third {
+          width: 60px;
+          height: 60px;
+          border-width: 3px;
+        }
+        &Fourth {
+          width: 80px;
+          height: 80px;
+          border-width: 3px;
+        }
+        &Fifth {
+          width: 100px;
+          height: 100px;
+          border-width: 3px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $xs) {
+  .section {
+    margin-bottom: 100px;
+    &Content {
+      padding-top: 100px;
+      &Title {
+        font-size: 16px;
+      }
+      &Button {
+        position: absolute;
+        bottom: 0;
+        transform: translateY(20px);
+      }
+      &Image {
+        &First {
+          width: 60px;
+          height: 60px;
+          top: -30px;
+        }
+        &Second {
+          width: 40px;
+          height: 40px;
+          left: 0;
+          bottom: 20px;
+        }
+        &Third {
+          width: 40px;
+          height: 40px;
+          left: 40%;
+        }
+        &Fourth {
+          width: 50px;
+          height: 50px;
+          right: 5%;
+        }
+        &Fifth {
+          width: 60px;
+          height: 60px;
+          bottom: -10px;
+        }
       }
     }
   }

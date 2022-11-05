@@ -123,6 +123,7 @@
 
 @media (max-width: $md) {
   .section {
+    margin-bottom: 150px;
     &Title {
       margin-bottom: 40px;
     }
@@ -155,6 +156,7 @@
 
 @media (max-width: $sm) {
   .section {
+    margin-bottom: 100px;
     &Container {
       width: 100%;
       margin: unset;
