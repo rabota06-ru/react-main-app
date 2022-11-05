@@ -14,62 +14,64 @@ import searchEmployeeThirdStepImage from './search-employee-third-step.png'
 
 export function HowItWorksSection() {
   return (
-    <Container className={styles.section}>
-      <h2 className={styles.sectionTitle}>Как это работает?</h2>
-      <div className={styles.sectionCards}>
-        <div className={styles.sectionCardContainer}>
-          <p className={styles.sectionCardContainerTitle}>Если ищу работу</p>
-          <Card className={cn(styles.sectionCard, styles.sectionCardLeft)}>
-            <img className={styles.sectionCardImage} src={searchJobImage} alt='Если ищу работу' />
-            <div className={styles.sectionCardStep}>
-              <div className={styles.sectionCardStepImageContainer}>
-                <img src={searchJobFirstStepImage} alt='Нажмите «Ищу работу»' />
+    <div className={styles.section}>
+      <Container className={styles.sectionContainer}>
+        <h2 className={styles.sectionTitle}>Как это работает?</h2>
+        <div className={styles.sectionCards}>
+          <div className={styles.sectionCardContainer}>
+            <p className={styles.sectionCardContainerTitle}>Если ищу работу</p>
+            <Card className={cn(styles.sectionCard, styles.sectionCardLeft)}>
+              <img className={styles.sectionCardImage} src={searchJobImage} alt='Если ищу работу' />
+              <div className={styles.sectionCardStep}>
+                <div className={styles.sectionCardStepImageContainer}>
+                  <img src={searchJobFirstStepImage} alt='Нажмите «Ищу работу»' />
+                </div>
+                <p className={styles.sectionCardStepTitle}>Нажмите «Ищу работу»</p>
               </div>
-              <p className={styles.sectionCardStepTitle}>Нажмите «Ищу работу»</p>
-            </div>
-            <HiArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
-            <div className={styles.sectionCardStep}>
-              <div className={styles.sectionCardStepImageContainer}>
-                <img src={searchJobSecondStepImage} alt='Заполняете резюме' />
+              <HiArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
+              <div className={styles.sectionCardStep}>
+                <div className={styles.sectionCardStepImageContainer}>
+                  <img src={searchJobSecondStepImage} alt='Заполняете резюме' />
+                </div>
+                <p className={styles.sectionCardStepTitle}>Заполняете резюме</p>
               </div>
-              <p className={styles.sectionCardStepTitle}>Заполняете резюме</p>
-            </div>
-            <HiArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
-            <div className={styles.sectionCardStep}>
-              <div className={styles.sectionCardStepImageContainer}>
-                <img src={searchJobThirdStepImage} alt='Откликаетесь на все понравившиеся вакансии' />
+              <HiArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
+              <div className={styles.sectionCardStep}>
+                <div className={styles.sectionCardStepImageContainer}>
+                  <img src={searchJobThirdStepImage} alt='Откликаетесь на все понравившиеся вакансии' />
+                </div>
+                <p className={styles.sectionCardStepTitle}>Откликаетесь на все понравившиеся вакансии</p>
               </div>
-              <p className={styles.sectionCardStepTitle}>Откликаетесь на все понравившиеся вакансии</p>
-            </div>
-          </Card>
+            </Card>
+          </div>
+          <div className={styles.sectionCardContainer}>
+            <p className={styles.sectionCardContainerTitle}>Если ищу работника</p>
+            <Card className={cn(styles.sectionCard, styles.sectionCardRight)}>
+              <img className={styles.sectionCardImage} src={searchEmployeeImage} alt='Если ищу работника' />
+              <div className={styles.sectionCardStep}>
+                <div className={styles.sectionCardStepImageContainer}>
+                  <img src={searchEmployeeFirstStepImage} alt='Ищу работника' />
+                </div>
+                <p className={styles.sectionCardStepTitle}>Ищу работника</p>
+              </div>
+              <HiArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
+              <div className={styles.sectionCardStep}>
+                <div className={styles.sectionCardStepImageContainer}>
+                  <img src={searchEmployeeSecondStepImage} alt='Заполняете вакансию' />
+                </div>
+                <p className={styles.sectionCardStepTitle}>Заполняете резюме</p>
+              </div>
+              <HiArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
+              <div className={styles.sectionCardStep}>
+                <div className={styles.sectionCardStepImageContainer}>
+                  <img src={searchEmployeeThirdStepImage} alt='Получаете отклики от соискателей и доступ ко всей базе резюме' />
+                </div>
+                <p className={styles.sectionCardStepTitle}>Получаете отклики от соискателей и доступ ко всей базе резюме</p>
+              </div>
+            </Card>
+          </div>
         </div>
-        <div className={styles.sectionCardContainer}>
-          <p className={styles.sectionCardContainerTitle}>Если ищу работника</p>
-          <Card className={cn(styles.sectionCard, styles.sectionCardRight)}>
-            <img className={styles.sectionCardImage} src={searchEmployeeImage} alt='Если ищу работника' />
-            <div className={styles.sectionCardStep}>
-              <div className={styles.sectionCardStepImageContainer}>
-                <img src={searchEmployeeFirstStepImage} alt='Ищу работника' />
-              </div>
-              <p className={styles.sectionCardStepTitle}>Ищу работника</p>
-            </div>
-            <HiArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
-            <div className={styles.sectionCardStep}>
-              <div className={styles.sectionCardStepImageContainer}>
-                <img src={searchEmployeeSecondStepImage} alt='Заполняете вакансию' />
-              </div>
-              <p className={styles.sectionCardStepTitle}>Заполняете резюме</p>
-            </div>
-            <HiArrowLongDown size={30} className={styles.sectionCardStepToStepArrow} />
-            <div className={styles.sectionCardStep}>
-              <div className={styles.sectionCardStepImageContainer}>
-                <img src={searchEmployeeThirdStepImage} alt='Получаете отклики от соискателей и доступ ко всей базе резюме' />
-              </div>
-              <p className={styles.sectionCardStepTitle}>Получаете отклики от соискателей и доступ ко всей базе резюме</p>
-            </div>
-          </Card>
-        </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   )
 }
