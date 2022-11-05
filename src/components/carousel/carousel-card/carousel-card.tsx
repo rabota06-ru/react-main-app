@@ -18,9 +18,9 @@ export function CarouselCard({ Icon, title, infoItems, url, isHoverShadow = true
       hoverShadow={isHoverShadow ? `0px 10px 50px 10px ${getColorVariable(Color.CarouselCardHoveredShadowColor)}` : undefined}
       className={styles.card}
     >
-      <div className={styles.cardIconWrap}>{Icon}</div>
-      <h3 className={styles.cardProfession}>{title}</h3>
-      <Divider />
+      <div className={styles.cardIconContainer}>{Icon}</div>
+      <h3 className={styles.cardTitle}>{title}</h3>
+      <Divider className={styles.cardDivider} />
       <div className={styles.cardInfo}>
         {infoItems.map((item, index) => (
           <div key={index} className={styles.cardInfoItem}>
