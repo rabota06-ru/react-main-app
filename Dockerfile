@@ -4,7 +4,7 @@ COPY package.json package-lock.json ./
 RUN npm install
 COPY . ./
 ENV NODE_OPTIONS --max_old_space_size=6144
-RUN npm build
+RUN npm run build
 
 FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
