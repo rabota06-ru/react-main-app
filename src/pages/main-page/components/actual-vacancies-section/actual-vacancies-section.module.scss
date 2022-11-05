@@ -1,3 +1,5 @@
+@import '/src/variables';
+
 .section {
   display: flex;
   flex-direction: column;
@@ -22,6 +24,56 @@
       position: absolute;
       right: 0;
       transform: translateX(150%);
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .section {
+    &Carousel {
+      &SlideLeftButton {
+        transform: translateX(-120%);
+      }
+      &SlideRightButton {
+        transform: translateX(120%);
+      }
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .section {
+    padding-top: 30px;
+    &Title {
+      margin-bottom: 0;
+    }
+    &Carousel {
+      &SlideLeftButton {
+        width: 50px;
+        height: 50px;
+      }
+      &SlideRightButton {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .section {
+    &Title {
+      width: 100%;
+      font-size: 16px;
+    }
+    &Carousel {
+      &Content {
+        padding-top: 30px;
+        padding-bottom: 10px;
+      }
+    }
+    &Button {
+      align-self: flex-start;
     }
   }
 }

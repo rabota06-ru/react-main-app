@@ -7,11 +7,13 @@
     display: flex;
     flex-grow: 1;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
     &::-webkit-scrollbar {
       display: none;
+    }
+    &_ScrollSnapping {
+      scroll-snap-type: x mandatory;
     }
   }
   &Card {

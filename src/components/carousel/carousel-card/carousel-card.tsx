@@ -1,27 +1,21 @@
 import { Card } from 'components/card'
 import { Divider } from 'components/divider'
-import { ReactNode } from 'react'
 import { Color } from 'types/index'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 import { getColorVariable } from 'utils/get-color'
 import { Link } from 'react-router-dom'
 import styles from './carousel-card.module.scss'
+import { ICarouselCard } from './carousel-card.types'
 
-export interface CarouselCardProps {
-  Icon: ReactNode
-  title: string
-  infoItems: {
-    Icon: ReactNode
-    label: string
-  }[]
-  url: string
+export interface CarouselCardProps extends ICarouselCard {
+  isHoverShadow: boolean
 }
 
-export function CarouselCard({ Icon, title, infoItems, url }: CarouselCardProps) {
+export function CarouselCard({ Icon, title, infoItems, url, isHoverShadow = true }: CarouselCardProps) {
   return (
     <Card
       shadow={`0px 20px 50px -15px ${getColorVariable(Color.CarouselCardShadowColor)}`}
-      hoverShadow={`0px 10px 50px 10px ${getColorVariable(Color.CarouselCardHoveredShadowColor)}`}
+      hoverShadow={isHoverShadow ? `0px 10px 50px 10px ${getColorVariable(Color.CarouselCardHoveredShadowColor)}` : undefined}
       className={styles.card}
     >
       <div className={styles.cardIconWrap}>{Icon}</div>

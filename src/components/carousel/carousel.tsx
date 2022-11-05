@@ -3,13 +3,17 @@ import cn from 'classnames'
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from 'react-icons/md'
 import styles from './carousel.module.scss'
 
-interface CarouselProps<T extends Record<any, any>> {
-  Item: FC<T>
+interface CarouselProps<T extends Record<any, any>, K extends Record<any, any>> {
+  Item: FC<T & K>
+  itemAdditionalProps?: K
   items: T[]
   visibleItemsCount: number
   skipItemsCount?: number
   onSlideLeft?: (cardsFromStart: number) => void
   onSlideRight?: (cardBeforeEnd: number) => void
+  isScrollSnapping?: boolean
+  slideButtonsHidden?: boolean
+  cardWithCoef?: number
   className?: string
   contentProps?: Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
   slideLeftButtonProps?: Props<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
@@ -19,29 +23,37 @@ interface CarouselProps<T extends Record<any, any>> {
 /**
  * Карусель
  * @param Item компонент (1 карточка), который будет отрисован
+ * @param itemAdditionalProps дополнительные пропсы карточки
  * @param items массив карточек
  * @param visibleItemsCount количество видимых карточек
  * @param skipItemsCount количество карточек, которые надо пропустить
  * @param onSlideLeft функция, которая получает количество карточек до начала
  * @param onSlideRight функция, которая получает количество карточек до конца
+ * @param isScrollSnapping присвоего ли css-свойство scroll-snap-type: x mandatory
+ * @param slideButtonsHidden скрыты ли кнопки прокрутки
+ * @param cardWithCoef коэффициент, на который умножется результирующая ширина карточки. По умолчанию равен 1
  * @param className класс, который назначается обёртке карусели
  * @param contentProps пропсы, которые назначаются для контейнера карточек
  * @param slideLeftButtonProps пропсы, который назначаются для кнопки слайда влево
  * @param slideRightButtonProps пропсы, который назначаются для кнопки слайда вправо
  * @example <Carousel Item={ResumeCard} items={list} visibleItemsCount={4} skipItemsCount={1} />
  */
-export function Carousel<T extends Record<any, any>>({
+export function Carousel<T extends Record<any, any>, K extends Record<any, any>>({
   Item,
+  itemAdditionalProps,
   items,
   visibleItemsCount,
   skipItemsCount = 1,
   onSlideLeft,
   onSlideRight,
+  isScrollSnapping = true,
+  slideButtonsHidden = false,
+  cardWithCoef = 1,
   className,
   contentProps,
   slideLeftButtonProps,
   slideRightButtonProps,
-}: CarouselProps<T>) {
+}: CarouselProps<T, K>) {
   const contentRef = useRef<HTMLDivElement>(null)
   const [currentCardIndex, setCurrentCardIndex] = useState(0)
   const potentialCardIndex = useRef(currentCardIndex)
@@ -95,35 +107,43 @@ export function Carousel<T extends Record<any, any>>({
 
   return (
     <div className={cn(styles.carousel, className)}>
-      <button
-        {...slideLeftButtonProps}
-        className={cn(styles.carouselButtonLeft, slideLeftButtonProps?.className, {
-          [styles.carouselButtonDisabled]: isButtonLeftDisabled,
-        })}
-        disabled={isButtonLeftDisabled}
-        type='button'
-        onClick={handleSlideLeft}
+      {!slideButtonsHidden && (
+        <button
+          {...slideLeftButtonProps}
+          className={cn(styles.carouselButtonLeft, slideLeftButtonProps?.className, {
+            [styles.carouselButtonDisabled]: isButtonLeftDisabled,
+          })}
+          disabled={isButtonLeftDisabled}
+          type='button'
+          onClick={handleSlideLeft}
+        >
+          <MdOutlineArrowBackIos size={30} className={styles.carouselButtonLeftIcon} />
+        </button>
+      )}
+      <div
+        {...contentProps}
+        ref={contentRef}
+        className={cn(styles.carouselContent, contentProps?.className, { [styles.carouselContent_ScrollSnapping]: isScrollSnapping })}
       >
-        <MdOutlineArrowBackIos size={30} className={styles.carouselButtonLeftIcon} />
-      </button>
-      <div {...contentProps} ref={contentRef} className={cn(styles.carouselContent, contentProps?.className)}>
         {items.map((item, index) => (
-          <div key={index} className={styles.carouselCard} style={{ width: `calc(100%/${visibleItemsCount})` }}>
-            <Item {...item} />
+          <div key={index} className={styles.carouselCard} style={{ width: `calc((100%/${visibleItemsCount}) * ${cardWithCoef})` }}>
+            <Item {...item} {...itemAdditionalProps} />
           </div>
         ))}
       </div>
-      <button
-        {...slideRightButtonProps}
-        className={cn(styles.carouselButtonRight, slideRightButtonProps?.className, {
-          [styles.carouselButtonDisabled]: isButtonRightDisabled,
-        })}
-        disabled={isButtonRightDisabled}
-        type='button'
-        onClick={handleSlideRight}
-      >
-        <MdOutlineArrowForwardIos size={30} className={styles.carouselButtonRightIcon} />
-      </button>
+      {!slideButtonsHidden && (
+        <button
+          {...slideRightButtonProps}
+          className={cn(styles.carouselButtonRight, slideRightButtonProps?.className, {
+            [styles.carouselButtonDisabled]: isButtonRightDisabled,
+          })}
+          disabled={isButtonRightDisabled}
+          type='button'
+          onClick={handleSlideRight}
+        >
+          <MdOutlineArrowForwardIos size={30} className={styles.carouselButtonRightIcon} />
+        </button>
+      )}
     </div>
   )
 }
