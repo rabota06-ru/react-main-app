@@ -114,24 +114,26 @@ export function ActualVacanciesSection() {
   const buttonRightArrow = useMediaValue({ xs: <IoIosArrowForward size={20} />, md: undefined })
 
   return (
-    <Container className={styles.section}>
-      <h2 className={styles.sectionTitle}>Актуальные вакансии</h2>
-      <Carousel
-        Item={CarouselCard}
-        itemAdditionalProps={{ isHoverShadow: isCarouselHoverShadow }}
-        items={carouselItems}
-        visibleItemsCount={carouselVisibleItemsCount}
-        slideButtonsHidden={carouselSlideButtonsHidden}
-        isScrollSnapping={isCarouselScrollSnapping}
-        cardWithCoef={carouselCardWidthCoef}
-        className={styles.sectionCarousel}
-        contentProps={{ className: styles.sectionCarouselContent }}
-        slideLeftButtonProps={{ className: styles.sectionCarouselSlideLeftButton }}
-        slideRightButtonProps={{ className: styles.sectionCarouselSlideRightButton }}
-      />
-      <Button variant={buttonVariant} size={buttonSize} isShadow={isButtonShadow} className={styles.sectionButton}>
-        Посмотреть все вакансии {buttonRightArrow}
-      </Button>
-    </Container>
+    <div className={styles.section}>
+      <Container className={styles.sectionContainer}>
+        <h2 className={styles.sectionTitle}>Актуальные вакансии</h2>
+        <Carousel
+          Item={CarouselCard}
+          itemAdditionalProps={{ isHoverShadow: isCarouselHoverShadow }}
+          items={carouselItems}
+          visibleItemsCount={carouselVisibleItemsCount}
+          slideButtonsHidden={carouselSlideButtonsHidden}
+          isScrollSnapping={isCarouselScrollSnapping}
+          cardWithCoef={carouselCardWidthCoef}
+          className={styles.sectionCarousel}
+          contentProps={{ className: styles.sectionCarouselContent }}
+          slideLeftButtonProps={{ className: styles.sectionCarouselSlideLeftButton }}
+          slideRightButtonProps={{ className: styles.sectionCarouselSlideRightButton }}
+        />
+        <Button variant={buttonVariant} size={buttonSize} isShadow={isButtonShadow} className={styles.sectionButton}>
+          Посмотреть все вакансии {buttonRightArrow}
+        </Button>
+      </Container>
+    </div>
   )
 }

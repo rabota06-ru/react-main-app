@@ -96,6 +96,10 @@
 @media (max-width: $sm) {
   .section {
     padding: 20px 0;
+    &Container {
+      width: 100%;
+      margin: unset;
+    }
     &::after {
       border-radius: unset;
     }
@@ -105,16 +109,34 @@
     &Title {
       width: 100%;
       font-size: 16px;
+      padding-left: 5%;
     }
     &Carousel {
       margin-bottom: 0;
       &Content {
-        padding: 0;
-        padding-bottom: 21px;
+        padding: 0 5% 21px;
       }
     }
     &Button {
       align-self: flex-start;
+      margin-left: 5%;
+    }
+  }
+}
+
+@media (max-width: $xs) {
+  .section {
+    &Title {
+      padding-left: 20px;
+    }
+    &Carousel {
+      &Content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+    &Button {
+      margin-left: 20px;
     }
   }
 }

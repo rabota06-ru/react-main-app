@@ -6,6 +6,11 @@
   align-items: center;
   padding-top: 70px;
   padding-bottom: 150px;
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   &Title {
     margin-bottom: 20px;
   }
@@ -63,19 +68,41 @@
 @media (max-width: $sm) {
   .section {
     padding-bottom: 50px;
+    &Container {
+      width: 100%;
+      margin: unset;
+    }
     &Title {
       width: 100%;
       font-size: 16px;
+      padding-left: 5%;
     }
     &Carousel {
       margin-bottom: 0;
       &Content {
-        padding: 0;
-        padding-bottom: 30px;
+        padding: 0 5% 30px;
       }
     }
     &Button {
       align-self: flex-start;
+      margin-left: 5%;
+    }
+  }
+}
+
+@media (max-width: $xs) {
+  .section {
+    &Title {
+      padding-left: 20px;
+    }
+    &Carousel {
+      &Content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+    &Button {
+      margin-left: 20px;
     }
   }
 }
