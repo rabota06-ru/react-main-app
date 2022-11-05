@@ -14,12 +14,13 @@
   }
   &Title {
     margin-bottom: 20px;
+    text-align: center;
   }
   &BackgroundLine {
     &Wrap {
       position: absolute;
       top: 200px;
-      width: 300%;
+      width: 1000%;
       height: 250px;
       perspective: 210px;
       perspective-origin: 50% 81%;
@@ -91,5 +92,120 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@media (max-width: $lg) {
+  .section {
+    padding-top: 40px;
+    &Background {
+      &Line {
+        height: 80%;
+        &Wrap {
+          top: 150px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .section {
+    &Title {
+      font-size: 28px;
+    }
+    $Section: &;
+    &Actions {
+      &:hover #{$Section}ActionBackground {
+        transform: translateY(-20px);
+      }
+    }
+    &Image {
+      width: 75%;
+    }
+    &Action {
+      padding-top: 60px;
+      padding-bottom: 30px;
+      &Image {
+        height: 80px;
+        width: 80px;
+      }
+      &Title {
+        font-size: 20px;
+      }
+      &Background {
+        transform: translateY(20px);
+        &Left {
+          left: -30px;
+        }
+        &Right {
+          right: -30px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .section {
+    &Title {
+      font-size: 25px;
+    }
+    &Image {
+      width: 90%;
+    }
+    &Actions {
+      gap: 20px;
+    }
+    &Action {
+      padding-top: 40px;
+      &Image {
+        width: 60px;
+        height: 60px;
+      }
+      &Title {
+        font-size: 17px;
+      }
+      &Background {
+        &Left {
+          left: -20px;
+        }
+        &Right {
+          right: -20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $xs) {
+  .section {
+    padding-top: 30px;
+    &Title {
+      font-size: 20px;
+    }
+    &Image {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    &BackgroundLine {
+      height: 70%;
+      &Wrap {
+        top: 120px;
+      }
+    }
+    &Action {
+      box-shadow: none;
+      &Title {
+        font-size: 15px;
+        margin-bottom: 15px;
+      }
+      &Button {
+        width: 100%;
+      }
+      &Background {
+        display: none;
+      }
+    }
   }
 }

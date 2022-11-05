@@ -28,11 +28,13 @@ export function Button({
   isLoading = false,
   isShadow = true,
   children,
+  className,
   ...props
 }: ButtonProps) {
   return (
     <button
-      className={cn(styles.button, {
+      {...props}
+      className={cn(styles.button, className, {
         [styles.button_PrimaryVariant]: variant === ButtonVariant.Primary,
         [styles.button_OutlineVariant]: variant === ButtonVariant.Outline,
         [styles.button_TextVariant]: variant === ButtonVariant.Text,
@@ -44,7 +46,6 @@ export function Button({
         [styles.button_Shadow]: isShadow,
       })}
       type='button'
-      {...props}
     >
       {children}
       {isLoading && <Spinner className={cn(styles.buttonSpinner)} size={25} thickness={2} />}
