@@ -2,7 +2,7 @@ import React, { PropsWithChildren, useEffect } from 'react'
 import styles from './tabs.module.scss'
 
 interface TabListProps extends PropsWithChildren {
-  selectedIndex?: number
+  selectedIndex: number
 }
 
 export function TabList({ children, selectedIndex }: TabListProps) {

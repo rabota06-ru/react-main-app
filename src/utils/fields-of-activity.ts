@@ -17,7 +17,7 @@ import ConstructionImage from 'assets/images/fields-of-activity/construction.png
 import TransportAndLogisticsImage from 'assets/images/fields-of-activity/transport-and-logistics.png'
 import TourismRestaurantsImage from 'assets/images/fields-of-activity/tourism-restaurants.png'
 import PersonnelManagementImage from 'assets/images/fields-of-activity/personnel-management.png'
-import FitnessAndBeautySalonsImage from 'assets/images/fields-of-activity/fitness-and-beauty-balons.png'
+import FitnessAndBeautySalonsImage from 'assets/images/fields-of-activity/fitness-and-beauty-salons.png'
 import JurisprudenceImage from 'assets/images/fields-of-activity/jurisprudence.png'
 import OtherImage from 'assets/images/fields-of-activity/other.png'
 import { objectKeys } from './object-keys'
