@@ -29,19 +29,23 @@ function getResultSize() {
 }
 
 function getValue<T>(size: keyof Values<unknown>, values: Values<T>) {
-  const { xs, sm, md, lg, xl } = values
+  const { xs } = values
+
+  function iff(key: keyof Values<unknown>, value: T) {
+    return Object.hasOwn(values, key) ? (values[key] as T) : value
+  }
 
   switch (size) {
     case 'xs':
       return xs
     case 'sm':
-      return sm ?? xs
+      return iff('sm', xs)
     case 'md':
-      return md ?? sm ?? xs
+      return iff('md', iff('sm', xs))
     case 'lg':
-      return lg ?? md ?? sm ?? xs
+      return iff('lg', iff('md', iff('sm', xs)))
     case 'xl':
-      return xl ?? lg ?? md ?? sm ?? xs
+      return iff('xl', iff('lg', iff('md', iff('sm', xs))))
     default:
       return xs
   }
