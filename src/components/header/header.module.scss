@@ -2,10 +2,13 @@
 @import '/src/mixins';
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 10px;
+  width: 100%;
+  &Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+  }
   &Logo {
     width: 60px;
     height: 60px;
@@ -42,10 +45,12 @@
 
 @media (max-width: $md) {
   .header {
-    position: relative;
-    border-bottom: 1px solid var(--secondaryColor2);
-    padding-bottom: 10px;
+    border-bottom: 2px solid var(--secondaryColor2);
     margin-bottom: 30px;
+    &Container {
+      position: relative;
+      padding-bottom: 10px;
+    }
     &Logo {
       width: 50px;
       height: 50px;
@@ -76,7 +81,9 @@
 
 @media (max-width: $xs) {
   .header {
-    padding: 5px 0;
+    &Container {
+      padding: 5px 0;
+    }
     &Logo {
       width: 30px;
       height: 30px;

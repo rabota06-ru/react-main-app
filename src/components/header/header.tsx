@@ -12,22 +12,24 @@ export function Header() {
   const isButtonShadow = useMediaValue({ xs: false, sm: true })
 
   return (
-    <Container className={styles.header}>
-      <Logo className={styles.headerLogo} />
-      <div className={styles.headerLinks}>
-        <Link to={routes.allVacancies} className={styles.headerLink}>
-          Все вакансии
-        </Link>
-        <Link to={routes.allResumes} className={styles.headerLink}>
-          Все резюме
-        </Link>
-        <Link to='#how-it-works' className={styles.headerLink}>
-          Как это работает?
-        </Link>
-      </div>
-      <Button isShadow={isButtonShadow} size={buttonSize} variant={buttonVariant}>
-        Вход и регистрация
-      </Button>
-    </Container>
+    <div className={styles.header}>
+      <Container className={styles.headerContainer}>
+        <Logo className={styles.headerLogo} />
+        <div className={styles.headerLinks}>
+          <Link to={routes.allVacancies} className={styles.headerLink}>
+            Все вакансии
+          </Link>
+          <Link to={routes.allResumes} className={styles.headerLink}>
+            Все резюме
+          </Link>
+          <Link to='#how-it-works' className={styles.headerLink}>
+            Как это работает?
+          </Link>
+        </div>
+        <Button isShadow={isButtonShadow} size={buttonSize} variant={buttonVariant}>
+          Вход и регистрация
+        </Button>
+      </Container>
+    </div>
   )
 }
