@@ -80,6 +80,9 @@
     &Title {
       margin-bottom: 30px;
     }
+    &Button {
+      width: 52%;
+    }
   }
 }
 
@@ -132,6 +135,9 @@
       }
       &Title {
         font-size: 20px;
+      }
+      &Button {
+        width: 70%;
       }
       &Background {
         transform: translateY(20px);
