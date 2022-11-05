@@ -1,10 +1,10 @@
 import { routes } from 'pages/routes'
 import { Link } from 'react-router-dom'
-import { ReactComponent as Logo } from 'assets/logo.svg'
+import { ReactComponent as Logo } from 'assets/images/logo.svg'
+import { ReactComponent as VKIcon } from 'assets/images/vk-icon.svg'
 import { Container } from 'components/container'
 import { FaFacebookF } from 'react-icons/fa'
 import { GrInstagram } from 'react-icons/gr'
-import { ReactComponent as VKIcon } from 'assets/vk-icon.svg'
 import cn from 'classnames'
 import styles from './footer.module.scss'
 
