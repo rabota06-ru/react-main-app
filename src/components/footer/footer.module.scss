@@ -89,6 +89,7 @@
         justify-content: center;
         bottom: 0;
         margin-bottom: unset;
+        padding: 0 10px;
         height: 50px;
         width: 100%;
         text-align: center;
@@ -117,6 +118,19 @@
     }
     &Left {
       margin-bottom: 40px;
+      &Link {
+        font-size: 14px;
+      }
+    }
+    &Center {
+      &CompanyName {
+        font-size: 14px;
+      }
+    }
+    &Right {
+      &Link {
+        font-size: 14px;
+      }
     }
   }
 }
