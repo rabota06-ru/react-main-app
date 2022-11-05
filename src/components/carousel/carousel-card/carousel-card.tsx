@@ -8,7 +8,7 @@ import styles from './carousel-card.module.scss'
 import { ICarouselCard } from './carousel-card.types'
 
 export interface CarouselCardProps extends ICarouselCard {
-  isHoverShadow: boolean
+  isHoverShadow?: boolean
 }
 
 export function CarouselCard({ Icon, title, infoItems, url, isHoverShadow = true }: CarouselCardProps) {

@@ -1,4 +1,4 @@
-import { Button, ButtonVariant } from 'components/button'
+import { Button, ButtonSize, ButtonVariant } from 'components/button'
 import { Carousel, CarouselCard, ICarouselCard } from 'components/carousel'
 import { Container } from 'components/container'
 import { useMediaValue } from 'hooks/use-media-value'
@@ -109,6 +109,7 @@ export function ActualVacanciesSection() {
   const carouselCardWidthCoef = useMediaValue({ xs: 0.8, md: 1 })
   const isCarouselHoverShadow = useMediaValue({ xs: false, md: true })
   const buttonVariant = useMediaValue({ xs: ButtonVariant.Text, md: ButtonVariant.Primary })
+  const buttonSize = useMediaValue({ xs: ButtonSize.ExtraSmall, md: ButtonSize.Medium })
   const isButtonShadow = useMediaValue({ xs: false, md: true })
   const buttonRightArrow = useMediaValue({ xs: <IoIosArrowForward size={20} />, md: undefined })
 
@@ -128,7 +129,7 @@ export function ActualVacanciesSection() {
         slideLeftButtonProps={{ className: styles.sectionCarouselSlideLeftButton }}
         slideRightButtonProps={{ className: styles.sectionCarouselSlideRightButton }}
       />
-      <Button variant={buttonVariant} isShadow={isButtonShadow} className={styles.sectionButton}>
+      <Button variant={buttonVariant} size={buttonSize} isShadow={isButtonShadow} className={styles.sectionButton}>
         Посмотреть все вакансии {buttonRightArrow}
       </Button>
     </Container>

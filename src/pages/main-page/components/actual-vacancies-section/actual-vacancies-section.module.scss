@@ -62,14 +62,16 @@
 
 @media (max-width: $sm) {
   .section {
+    padding-bottom: 50px;
     &Title {
       width: 100%;
       font-size: 16px;
     }
     &Carousel {
+      margin-bottom: 0;
       &Content {
-        padding-top: 30px;
-        padding-bottom: 10px;
+        padding: 0;
+        padding-bottom: 30px;
       }
     }
     &Button {
