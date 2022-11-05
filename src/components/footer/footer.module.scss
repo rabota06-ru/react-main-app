@@ -1,9 +1,11 @@
 @import '/src/variables';
 
 .footer {
+  position: relative;
   height: 320px;
   width: 100%;
   background-color: var(--footerBackgroundColor);
+  z-index: 1;
   &Container {
     height: 100%;
     display: flex;
@@ -77,6 +79,7 @@
       right: 0;
       bottom: 0;
       position: absolute;
+      z-index: -1;
       &Logo {
         position: absolute;
         top: 25px;
