@@ -30,6 +30,18 @@ $buttonBorderRadius: 10px;
     color: var(--primaryColor);
     font-size: 14px;
   }
+  &_LargeSize {
+    height: $buttonLargeSizeHeight;
+  }
+  &_MediumSize {
+    height: $buttonMediumSizeHeight;
+  }
+  &_SmallSize {
+    height: $buttonSmallSizeHeight;
+  }
+  &_ExtraSmallSize {
+    height: $buttonExtraSmallSizeHeight;
+  }
   &_Shadow {
     position: relative;
     box-shadow: 0px 20px 15px -16px var(--buttonShadowColor);
@@ -53,11 +65,5 @@ $buttonBorderRadius: 10px;
   &Spinner {
     position: absolute;
     z-index: 1;
-  }
-  &_LargeHeight {
-    height: $buttonLargeSizeHeight;
-  }
-  &_SmallHeight {
-    height: $buttonSmallSizeHeight;
   }
 }

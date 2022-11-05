@@ -1,11 +1,15 @@
-import { Button } from 'components/button'
+import { Button, ButtonSize, ButtonVariant } from 'components/button'
 import { Container } from 'components/container'
 import { Link } from 'react-router-dom'
 import { routes } from 'pages/routes'
-import { ReactComponent as Logo } from 'assets/logo.svg'
+import { ReactComponent as Logo } from 'assets/images/logo.svg'
+import { useMediaValue } from 'hooks/use-media-value'
 import styles from './header.module.scss'
 
 export function Header() {
+  const buttonVariant = useMediaValue({ xs: ButtonVariant.Outline, md: ButtonVariant.Primary })
+  const buttonSize = useMediaValue({ xs: ButtonSize.ExtraSmall, sm: ButtonSize.Small, md: ButtonSize.Medium })
+
   return (
     <Container className={styles.header}>
       <Logo className={styles.headerLogo} />
@@ -20,7 +24,9 @@ export function Header() {
           Как это работает?
         </Link>
       </div>
-      <Button isShadow>Вход и регистрация</Button>
+      <Button isShadow size={buttonSize} variant={buttonVariant}>
+        Вход и регистрация
+      </Button>
     </Container>
   )
 }

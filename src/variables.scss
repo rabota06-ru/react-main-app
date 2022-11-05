@@ -3,7 +3,14 @@
 $inputBaseDefaultSizeHeight: 50px;
 $inputBaseLargeSizeHeight: 60px;
 $buttonLargeSizeHeight: 60px;
-$buttonSmallSizeHeight: 50px;
+$buttonMediumSizeHeight: 50px;
+$buttonSmallSizeHeight: 40px;
+$buttonExtraSmallSizeHeight: 30px;
 $inputBaseWrapperBorderRadius: 8px;
 $inputBaseWrapperBorder: 1px solid var(--secondaryColor2);
 $cardBorderRadius: 20px;
+
+$lg: 1199px;
+$md: 991px;
+$sm: 767px;
+$xs: 575px;

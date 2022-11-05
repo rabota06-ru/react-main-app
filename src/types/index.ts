@@ -14,6 +14,26 @@ export enum Color {
   CarouselCardHoveredShadowColor,
 }
 
+export enum CssVariable {
+  PrimaryColor,
+  ButtonShadowColor,
+  TextColor,
+  TextSecondaryColor,
+  ButtonTextColor,
+  SecondaryColor1,
+  SecondaryColor2,
+  RedColor,
+  ErrorColor,
+  SuccessColor,
+  WarningColor,
+  CarouselCardShadowColor,
+  CarouselCardHoveredShadowColor,
+  Lg,
+  Md,
+  Sm,
+  Xs,
+}
+
 export enum FieldOfActivity {
   ITAndInternet = 1, // IT, интернет, телеком
   AutomotiveBusiness, // Автомобильный бизнес

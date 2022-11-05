@@ -1,5 +1,21 @@
+@import '/src/variables';
+
 .container {
-  padding: 0 10%;
-  width: 100%;
-  margin: 0 auto;
+  width: 80%;
+  margin: 0 10%;
+  transition: width, margin 0.3s;
+}
+
+@media (max-width: $sm) {
+  .container {
+    width: 90%;
+    margin: 0 5%;
+  }
+}
+
+@media (max-width: $xs) {
+  .container {
+    width: calc(100% - 40px);
+    margin: 0 20px;
+  }
 }
