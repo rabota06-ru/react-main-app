@@ -32,11 +32,11 @@ export function ListCardVacancy({ cardState, ...props }: ListCardProps) {
         <div className={styles.vacancyCardFooter}>
           <div className={styles.vacancyCardFooterDiv1}>
             <p className={styles.vacancyCardFooterDiv1Price}>
-              <BiRuble className={styles.vacancyCardIcon} />
+              <BiRuble className={styles.vacancyCardFooterIcon} />
               <span>{cardState.price}</span>
             </p>
             <p>
-              <TfiLocationPin className={styles.vacancyCardIcon} />
+              <TfiLocationPin className={styles.vacancyCardFooterIcon} />
               <span>{cardState.location}</span>
             </p>
           </div>
