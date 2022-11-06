@@ -6,21 +6,17 @@
     padding-bottom: 15px;
     display: flex;
     justify-content: space-between;
-
     &Icon {
       width: 60px;
       height: 60px;
     }
-
     h3 {
       font-size: 18px;
     }
-
     div {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-
       p {
         color: var(--secondaryColor2);
         font-size: 14px;
@@ -35,22 +31,18 @@
     padding: 20px 0px 26px 0px;
     font-size: 14px;
   }
-
   &Footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     &Div1 {
       p {
         display: flex;
         align-items: center;
       }
-
       span {
         margin-left: 10px;
       }
-
       font-size: 20px;
       &Price {
         padding-bottom: 15px;
@@ -60,7 +52,6 @@
   &Icon {
     color: var(--iconColor);
   }
-
   &Button {
     width: 220px;
     font-size: 14px;
@@ -75,7 +66,6 @@
     padding-bottom: 22px;
     display: flex;
     justify-content: space-between;
-
     p {
       display: flex;
       align-items: center;
@@ -84,23 +74,19 @@
       width: 60px;
       height: 60px;
     }
-
     span {
       padding-left: 10px;
       font-size: 16px;
     }
-
     h3 {
       padding-bottom: 16px;
       font-size: 18px;
     }
   }
-
   &Text {
     padding: 20px 0px 26px 0px;
     font-size: 14px;
   }
-
   &Footer {
     display: flex;
     justify-content: flex-end;
@@ -111,7 +97,6 @@
     height: 20px;
     color: var(--iconColor);
   }
-
   &Button {
     width: 220px;
     font-size: 14px;
