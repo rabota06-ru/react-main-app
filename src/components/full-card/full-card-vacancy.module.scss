@@ -1,0 +1,58 @@
+.fullCard {
+  padding: 20px 50px;
+  max-width: 1140px;
+  margin: auto;
+  &Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    &Icon {
+      display: flex;
+      align-items: center;
+      img {
+        margin-left: -10px;
+      }
+      h2 {
+        font-size: 30px;
+        margin-left: 15px;
+      }
+    }
+    span {
+      color: var(--textSecondaryColor);
+    }
+  }
+  &Salary {
+    padding: 30px 0 24px 0;
+    &Icons {
+      font-size: 19px;
+      color: var(--iconColor);
+      margin-right: 8px;
+    }
+    &InfoPrice {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      & > div {
+        display: flex;
+        align-items: center;
+      }
+      &Text {
+        font-size: 18px;
+      }
+      &View {
+        color: var(--textSecondaryColor);
+      }
+    }
+    &InfoCity {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      align-items: center;
+      & > div {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

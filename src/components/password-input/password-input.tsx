@@ -23,11 +23,6 @@ export function PasswordInput({ className, ...props }: PasswordInputProps) {
   const handleSwitchPassword = () => setIsPasswordVisible(isPasswordVisible => !isPasswordVisible)
 
   return (
-    <Input
-      {...props}
-      className={cn(styles.passwordInput, className)}
-      type={isPasswordVisible ? 'text' : 'password'}
-      RightContent={<HideOrShowPassword onClick={handleSwitchPassword} />}
-    />
+    <Input {...props} type={isPasswordVisible ? 'text' : 'password'} RightContent={<HideOrShowPassword onClick={handleSwitchPassword} />} />
   )
 }

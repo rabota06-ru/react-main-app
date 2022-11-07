@@ -9,12 +9,15 @@ import { PasswordInput } from 'components/password-input'
 import { Spinner } from 'components/spinner'
 import { TextArea } from 'components/text-area'
 import './index.scss'
+import { FullCardResume, FullCardVacancy } from 'components/full-card'
 import { Main } from './pages/main/main'
 import { Color } from './types'
 
 function App() {
   return (
     <div className='app' style={{ padding: 20 }}>
+      <FullCardVacancy title='UX/UI Дизайнер' date='18 октября' price='25 000 руб' operator='Beeline' city='Назрань' />
+      <FullCardResume title='UX/UI Дизайнер' date='18 октября' city='Назрань'/>
       <Main />
       <PasswordInput />
       <Spinner size={30} />
@@ -25,7 +28,7 @@ function App() {
           architecto dolores provident laboriosam?
         </div>
       </Card>
-      <TextArea isVerticalResize={true} placeholder='Текс сообщения' />
+      <TextArea isVerticalResize placeholder='Текс сообщения' />
       <Checkbox text='Adlan' checked />
       <Checkbox text='Ruslan' />
       <Checkbox text='Movsar' />
