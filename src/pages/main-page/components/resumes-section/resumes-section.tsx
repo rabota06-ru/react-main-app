@@ -5,7 +5,7 @@ import { BiMap } from 'react-icons/bi'
 import { routes } from 'pages/routes'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
 import { FieldOfActivity } from 'types/index'
-import { useState } from 'react'
+import { createElement, useState } from 'react'
 import { Container } from 'components/container'
 import { useMediaValue } from 'hooks/use-media-value'
 import { Button, ButtonSize, ButtonVariant } from 'components/button'
@@ -15,7 +15,7 @@ import styles from './resumes-section.module.scss'
 export function ResumesSection() {
   const [carouselItems] = useState<ICarouselCard[]>([
     {
-      Icon: <img src={FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]} alt='' />,
+      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
       title: 'Бухгалтер',
       infoItems: [
         {
@@ -30,7 +30,7 @@ export function ResumesSection() {
       url: routes.allResumes,
     },
     {
-      Icon: <img src={FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]} alt='' />,
+      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
       title: 'Бухгалтер',
       infoItems: [
         {
@@ -45,7 +45,7 @@ export function ResumesSection() {
       url: routes.allResumes,
     },
     {
-      Icon: <img src={FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]} alt='' />,
+      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
       title: 'Бухгалтер',
       infoItems: [
         {
@@ -60,7 +60,7 @@ export function ResumesSection() {
       url: routes.allResumes,
     },
     {
-      Icon: <img src={FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]} alt='' />,
+      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
       title: 'Бухгалтер',
       infoItems: [
         {
@@ -75,7 +75,7 @@ export function ResumesSection() {
       url: routes.allResumes,
     },
     {
-      Icon: <img src={FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]} alt='' />,
+      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
       title: 'Бухгалтер',
       infoItems: [
         {
@@ -90,7 +90,7 @@ export function ResumesSection() {
       url: routes.allResumes,
     },
     {
-      Icon: <img src={FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]} alt='' />,
+      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
       title: 'Бухгалтер',
       infoItems: [
         {

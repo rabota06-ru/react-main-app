@@ -3,7 +3,7 @@ import { Carousel, CarouselCard, ICarouselCard } from 'components/carousel'
 import { Container } from 'components/container'
 import { useMediaValue } from 'hooks/use-media-value'
 import { routes } from 'pages/routes'
-import { useState } from 'react'
+import { createElement, useState } from 'react'
 import { BiRuble, BiMap } from 'react-icons/bi'
 import { IoIosArrowForward } from 'react-icons/io'
 import { FieldOfActivity } from 'types/index'
@@ -13,7 +13,7 @@ import styles from './actual-vacancies-section.module.scss'
 export function ActualVacanciesSection() {
   const [carouselItems] = useState<ICarouselCard[]>([
     {
-      Icon: <img src={FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]} alt='' />,
+      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
       title: 'Бухгалтер',
       infoItems: [
         {
@@ -28,7 +28,7 @@ export function ActualVacanciesSection() {
       url: routes.allVacancies,
     },
     {
-      Icon: <img src={FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]} alt='' />,
+      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
       title: 'Бухгалтер',
       infoItems: [
         {
@@ -43,7 +43,7 @@ export function ActualVacanciesSection() {
       url: routes.allVacancies,
     },
     {
-      Icon: <img src={FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]} alt='' />,
+      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
       title: 'Бухгалтер',
       infoItems: [
         {
@@ -58,7 +58,7 @@ export function ActualVacanciesSection() {
       url: routes.allVacancies,
     },
     {
-      Icon: <img src={FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]} alt='' />,
+      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
       title: 'Бухгалтер',
       infoItems: [
         {
@@ -73,7 +73,7 @@ export function ActualVacanciesSection() {
       url: routes.allVacancies,
     },
     {
-      Icon: <img src={FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]} alt='' />,
+      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
       title: 'Бухгалтер',
       infoItems: [
         {
@@ -88,7 +88,7 @@ export function ActualVacanciesSection() {
       url: routes.allVacancies,
     },
     {
-      Icon: <img src={FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]} alt='' />,
+      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
       title: 'Бухгалтер',
       infoItems: [
         {
