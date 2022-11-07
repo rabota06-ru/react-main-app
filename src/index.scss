@@ -8,18 +8,24 @@
 .app {
   height: 100vh;
   width: 100vw;
+  overflow-x: auto;
 }
 
 :root {
   --buttonShadowColor: rgba(32, 66, 227, 0.25);
+  --footerBackgroundColor: #e5f1ff;
   --primaryColor: #2042e3;
   --textColor: #222222;
   --textSecondaryColor: #79859e;
   --buttonTextColor: #ffffff;
   --secondaryColor1: #f8fafc;
+<<<<<<< HEAD
   --secondaryColor2: #79859e;
   --secondaryColor3: #e1e2f0;
   --iconColor: #04cec0;
+=======
+  --secondaryColor2: #e1e2f0;
+>>>>>>> develop
   --redColor: #ff0b0b;
   --errorColor: #da3633;
   --successColor: #3fb950;

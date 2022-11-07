@@ -1,7 +1,7 @@
 import { InputHTMLAttributes, useEffect, useState } from 'react'
-import styles from './checkbox.module.scss'
 import cn from 'classnames'
-import { FiCheck } from 'react-icons/Fi'
+import { FiCheck } from 'react-icons/fi'
+import styles from './checkbox.module.scss'
 
 interface CheckboxProps extends Omit<Props<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, 'type'> {
   text: string

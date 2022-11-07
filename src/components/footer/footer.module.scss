@@ -1,0 +1,139 @@
+@import '/src/variables';
+
+.footer {
+  position: relative;
+  height: 320px;
+  width: 100%;
+  background-color: var(--footerBackgroundColor);
+  z-index: 1;
+  &Container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &Left {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    &Link {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  &Center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &Logo {
+      width: 40px;
+      height: 40px;
+      fill: var(--primaryColor);
+      margin-bottom: 30px;
+    }
+    &CompanyName {
+      margin-bottom: 20px;
+    }
+    &Social {
+      &Container {
+        display: flex;
+        gap: 20px;
+      }
+      &Vk {
+        padding-right: 1px;
+      }
+      &Instagram {
+        padding: 5px;
+      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      height: 24px;
+      width: 24px;
+      background-color: var(--primaryColor);
+      color: #fff;
+    }
+  }
+  &Right {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    &Link {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .footer {
+    position: relative;
+    &Center {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      z-index: -1;
+      &Logo {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+      }
+      &CompanyName {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 0;
+        margin-bottom: unset;
+        padding: 0 10px;
+        height: 50px;
+        width: 100%;
+        text-align: center;
+        color: var(--primaryColor);
+        border-top: 1px solid var(--secondaryColor2);
+      }
+      &Social {
+        &Container {
+          position: absolute;
+          bottom: 70px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .footer {
+    height: 430px;
+    &Container {
+      padding-top: 25px;
+      padding-left: 25px;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+    }
+    &Left {
+      margin-bottom: 40px;
+      &Link {
+        font-size: 14px;
+      }
+    }
+    &Center {
+      &CompanyName {
+        font-size: 14px;
+      }
+    }
+    &Right {
+      &Link {
+        font-size: 14px;
+      }
+    }
+  }
+}

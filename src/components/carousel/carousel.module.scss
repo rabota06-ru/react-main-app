@@ -7,11 +7,13 @@
     display: flex;
     flex-grow: 1;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
     &::-webkit-scrollbar {
       display: none;
+    }
+    &_ScrollSnapping {
+      scroll-snap-type: x mandatory;
     }
   }
   &Card {
@@ -28,6 +30,9 @@
     border: none;
     cursor: pointer;
     filter: drop-shadow(0px 4px 80px rgba(100, 132, 194, 0.15));
+    &Icon {
+      fill: var(--primaryColor);
+    }
   }
   &ButtonDisabled {
     opacity: 0.3;

@@ -1,17 +1,5 @@
-import { Card } from 'components/card'
-import { Carousel, ResumeCard } from 'components/carousel'
-import { Checkbox } from 'components/checkbox'
-import { CloseButton } from 'components/close-button'
-import { Divider, DividerDirection } from 'components/divider'
-import { Dropdown } from 'components/dropdown'
-import { Input, InputStatus } from 'components/input'
-import { PhoneInput } from 'components/phone-input'
-import { PasswordInput } from 'components/password-input'
-import { Spinner } from 'components/spinner'
-import { Tabs, TabList, Tab, TabPanel } from 'components/tabs'
-import { useState } from 'react'
-import { TextArea } from 'components/text-area'
 import './index.scss'
+<<<<<<< HEAD
 import { Main } from './pages/main/main'
 import { Color } from './types'
 import { ListCardVacancy } from 'components/list-card'
@@ -31,6 +19,12 @@ const resumeState = {
   text: 'Делать архитектуру продукта в форме чарта. По нему понятны все шаги, которые пользователь может сделать в приложении. Работать над Вайрфреймами каждого экрана. Без использования цветов с фокусом на лэйаут каждого экрана. Наконец рисовать сам дизайн продукта. Продумывать дизайн систему продукта и прорабатывать дизайн, чтобы он подходил конкретной группе пользователей',
   location: 'Назрань',
 }
+=======
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { routes } from 'pages/routes'
+import { UnauthorizedLayout } from 'layouts/unauthorized-layout'
+import { MainPage } from 'pages/main-page'
+>>>>>>> develop
 
 export interface CarouselCard {
   iconUrl: string
@@ -40,54 +34,9 @@ export interface CarouselCard {
   fullResumeLink: string
 }
 
-function App() {
-  const [tabIndex, setTabIndex] = useState(0)
-  const [list, setList] = useState<CarouselCard[]>([
-    {
-      iconUrl: '',
-      profession: 'Программист',
-      name: 'Адам Х.',
-      location: 'Галаши',
-      fullResumeLink: '#',
-    },
-    {
-      iconUrl: '',
-      profession: 'Программист',
-      name: 'Адам Х.',
-      location: 'Галаши',
-      fullResumeLink: '#',
-    },
-    {
-      iconUrl: '',
-      profession: 'Программист',
-      name: 'Адам Х.',
-      location: 'Галаши',
-      fullResumeLink: '#',
-    },
-    {
-      iconUrl: '',
-      profession: 'Программист',
-      name: 'Адам Х.',
-      location: 'Галаши',
-      fullResumeLink: '#',
-    },
-    {
-      iconUrl: '',
-      profession: 'Программист',
-      name: 'Адам Х.',
-      location: 'Галаши',
-      fullResumeLink: '#',
-    },
-    {
-      iconUrl: '',
-      profession: 'Программист',
-      name: 'Адам Х.',
-      location: 'Галаши',
-      fullResumeLink: '#',
-    },
-  ])
-
+export function App() {
   return (
+<<<<<<< HEAD
     <div className='app' style={{ padding: 20 }}>
       <Main />
       <PasswordInput />
@@ -145,8 +94,15 @@ function App() {
           <h2>Any content 3</h2>
         </TabPanel>
       </Tabs>
+=======
+    <div className='app'>
+      <UnauthorizedLayout>
+        <Routes>
+          <Route path={routes.main} element={<MainPage />} />
+          <Route path='*' element={<Navigate to={routes.main} />} />
+        </Routes>
+      </UnauthorizedLayout>
+>>>>>>> develop
     </div>
   )
 }
-
-export default App
