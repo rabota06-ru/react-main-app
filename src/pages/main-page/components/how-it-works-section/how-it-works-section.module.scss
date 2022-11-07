@@ -1,0 +1,250 @@
+@import '/src/variables';
+@import '/src/mixins';
+
+.section {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 280px;
+  padding-top: 10px;
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  $Section: &;
+  &Title {
+    margin-bottom: 70px;
+  }
+  &Cards {
+    display: flex;
+    width: calc(100% - 100px);
+    margin: 0 auto;
+    gap: 80px;
+    &:hover #{$Section}CardLeft::after {
+      transform: translateY(calc(25% + 40px));
+    }
+    &:hover #{$Section}CardRight::after {
+      transform: translateY(calc(-25% - 40px));
+    }
+  }
+  &Card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 74px 65px 46px;
+    background-color: #fff;
+    &Left::after {
+      content: '';
+      position: absolute;
+      width: calc(60% + 50px);
+      height: calc(80%);
+      top: 0;
+      left: -50px;
+      transform: translateY(-40px);
+      background-color: #f0f7fe;
+      border-radius: 20px;
+      z-index: -1;
+      transition: transform 0.3s;
+    }
+    &Right::after {
+      content: '';
+      position: absolute;
+      width: calc(60% + 50px);
+      height: calc(80%);
+      bottom: 0;
+      transform: translateY(40px);
+      right: -50px;
+      background-color: #f0f7fe;
+      border-radius: 20px;
+      z-index: -1;
+      transition: all 0.3s;
+    }
+    &Image {
+      position: absolute;
+      height: 120px;
+      width: 120px;
+      top: 0;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      border: 4px solid #fff;
+      background-color: #fff;
+    }
+    &Container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+      &Title {
+        margin-bottom: 86px;
+        font-size: 24px;
+      }
+    }
+    &StepToStepArrow {
+      color: #c6dee5;
+    }
+    &Step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px 0;
+      &Image {
+        &Container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: linear-gradient(180deg, #fcfdff 0%, #e9f2ff 100%);
+          height: 80px;
+          width: 80px;
+          padding: 10px;
+          border-radius: 50%;
+          margin-bottom: 10px;
+          > img {
+            width: 100%;
+          }
+        }
+      }
+      &Title {
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .section {
+    &Cards {
+      gap: 30px;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .section {
+    margin-bottom: 150px;
+    &Title {
+      margin-bottom: 40px;
+    }
+    &Cards {
+      gap: 20px;
+      width: 100%;
+    }
+    &Card {
+      padding: 40px 20px 30px;
+      &Container {
+        &Title {
+          margin-bottom: 60px;
+        }
+      }
+      &Left::after {
+        left: -20px;
+      }
+      &Right::after {
+        right: -20px;
+      }
+      &Image {
+        height: 80px;
+        width: 80px;
+        border-width: 3px;
+        transform: translateY(-45%);
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .section {
+    margin-bottom: 100px;
+    &Container {
+      width: 100%;
+      margin: unset;
+    }
+    &Title {
+      width: 100%;
+      font-size: 16px;
+      margin-bottom: 0;
+      padding-left: 5%;
+    }
+    &Cards {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 20px 5% 30px;
+      scroll-snap-type: x mandatory;
+      @include hideScrollbar;
+    }
+    &Card {
+      width: 100%;
+      padding: 40px 20px 20px;
+      &::after {
+        display: none;
+      }
+      &Container {
+        min-width: 60%;
+        &Title {
+          font-size: 16px;
+        }
+      }
+      &Step {
+        margin: 10px 0;
+        &Image {
+          &Container {
+            width: 60px;
+            height: 60px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $xs) {
+  .section {
+    &Container {
+      width: 100%;
+      margin: unset;
+    }
+    &Title {
+      width: 100%;
+      font-size: 16px;
+      margin-bottom: 0;
+      padding-left: 5%;
+    }
+    &Cards {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 20px 5% 30px;
+      scroll-snap-type: x mandatory;
+      @include hideScrollbar;
+    }
+    &Card {
+      width: 100%;
+      &::after {
+        display: none;
+      }
+      &Container {
+        min-width: 80%;
+        &Title {
+          font-size: 16px;
+        }
+      }
+      &Image {
+        width: 60px;
+        height: 60px;
+      }
+      &Step {
+        &Image {
+          &Container {
+            width: 40px;
+            height: 40px;
+          }
+        }
+        &Title {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

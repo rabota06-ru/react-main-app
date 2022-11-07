@@ -1,12 +1,20 @@
 import React, { PropsWithChildren, createContext } from 'react'
 import styles from './tabs.module.scss'
 
-interface TabsProps extends PropsWithChildren {
+interface ITabContext {
   selectedIndex?: number
   onSelect: (index: number) => void
 }
 
-export const TabContext = createContext<TabsProps | null>(null)
+export const TabContext = createContext<ITabContext>({
+  onSelect: () => {},
+  selectedIndex: 0,
+})
+
+interface TabsProps extends PropsWithChildren {
+  selectedIndex?: number
+  onSelect: (index: number) => void
+}
 
 /**
  * Табы

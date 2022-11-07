@@ -1,0 +1,217 @@
+@import '/src/variables.scss';
+
+.section {
+  position: relative;
+  overflow: hidden;
+  padding-top: 70px;
+  padding-bottom: 50px;
+  z-index: 1;
+  $Section: &;
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &Title {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  &BackgroundLine {
+    &Wrap {
+      position: absolute;
+      top: 200px;
+      width: 1000%;
+      height: 250px;
+      perspective: 210px;
+      perspective-origin: 50% 81%;
+      z-index: -1;
+    }
+    height: 100%;
+    animation: gradient 15s ease infinite;
+    background: linear-gradient(-45deg, #f4f9ff, #cfe2f8, #f4f9ff, #cfe2f8, #f4f9ff, #cfe2f8, #f4f9ff, #cfe2f8);
+    background-size: 400% 400%;
+    transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(352deg) rotateZ(355deg) translateX(-876px) translateY(0px)
+      translateZ(0px) skewX(0deg) skewY(0deg);
+  }
+  &Image {
+    width: 60%;
+    object-fit: contain;
+    margin-bottom: 70px;
+  }
+  &Actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 60px;
+    &:hover #{$Section}ActionBackground {
+      transform: translateY(-40px);
+    }
+  }
+  &Action {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 90px;
+    padding-bottom: 50px;
+    background-color: #fff;
+    &Background {
+      position: absolute;
+      z-index: -1;
+      height: 100%;
+      width: 70%;
+      bottom: 0;
+      transform: translateY(40px);
+      background-color: #f0f7fe;
+      border-radius: $cardBorderRadius;
+      transition: all 0.3s;
+      &Left {
+        left: -50px;
+      }
+      &Right {
+        right: -50px;
+      }
+    }
+    &Image {
+      position: absolute;
+      top: 0;
+      transform: translateY(-40%);
+    }
+    &Title {
+      margin-bottom: 30px;
+    }
+    &Button {
+      width: 52%;
+    }
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  70% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: $lg) {
+  .section {
+    padding-top: 40px;
+    &Background {
+      &Line {
+        height: 80%;
+        &Wrap {
+          top: 150px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .section {
+    &Title {
+      font-size: 28px;
+    }
+    $Section: &;
+    &Actions {
+      &:hover #{$Section}ActionBackground {
+        transform: translateY(-20px);
+      }
+    }
+    &Image {
+      width: 75%;
+    }
+    &Action {
+      padding-top: 60px;
+      padding-bottom: 30px;
+      &Image {
+        height: 80px;
+        width: 80px;
+      }
+      &Title {
+        font-size: 20px;
+      }
+      &Button {
+        width: 70%;
+      }
+      &Background {
+        transform: translateY(20px);
+        &Left {
+          left: -30px;
+        }
+        &Right {
+          right: -30px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .section {
+    &Title {
+      font-size: 25px;
+    }
+    &Image {
+      width: 90%;
+    }
+    &Actions {
+      gap: 20px;
+    }
+    &Action {
+      padding-top: 40px;
+      &Image {
+        width: 60px;
+        height: 60px;
+      }
+      &Title {
+        font-size: 17px;
+      }
+      &Background {
+        &Left {
+          left: -20px;
+        }
+        &Right {
+          right: -20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $xs) {
+  .section {
+    padding-top: 30px;
+    &Title {
+      font-size: 20px;
+    }
+    &Image {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    &BackgroundLine {
+      height: 70%;
+      &Wrap {
+        top: 120px;
+      }
+    }
+    &Action {
+      box-shadow: none;
+      &Title {
+        font-size: 15px;
+        margin-bottom: 15px;
+      }
+      &Button {
+        width: 100%;
+      }
+      &Background {
+        display: none;
+      }
+    }
+  }
+}

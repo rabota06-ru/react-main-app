@@ -4,7 +4,7 @@ import styles from './tabs.module.scss'
 import { TabContext } from './tabs'
 
 interface TabProps extends PropsWithChildren {
-  index?: number
+  index: number
 }
 
 export function Tab({ children, index }: TabProps) {

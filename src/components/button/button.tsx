@@ -23,25 +23,29 @@ interface ButtonProps extends Omit<Props<ButtonHTMLAttributes<HTMLButtonElement>
 
 export function Button({
   variant = ButtonVariant.Primary,
-  size = ButtonSize.Large,
+  size = ButtonSize.Medium,
   isDisabled = false,
   isLoading = false,
   isShadow = true,
   children,
+  className,
   ...props
 }: ButtonProps) {
   return (
     <button
-      className={cn(styles.button, {
+      {...props}
+      className={cn(styles.button, className, {
         [styles.button_PrimaryVariant]: variant === ButtonVariant.Primary,
         [styles.button_OutlineVariant]: variant === ButtonVariant.Outline,
-        [styles.button_LargeHeight]: size === ButtonSize.Large,
-        [styles.button_SmallHeight]: size === ButtonSize.Small,
+        [styles.button_TextVariant]: variant === ButtonVariant.Text,
+        [styles.button_LargeSize]: size === ButtonSize.Large,
+        [styles.button_MediumSize]: size === ButtonSize.Medium,
+        [styles.button_SmallSize]: size === ButtonSize.Small,
+        [styles.button_ExtraSmallSize]: size === ButtonSize.ExtraSmall,
         [styles.button_Disabled]: isLoading || isDisabled,
         [styles.button_Shadow]: isShadow,
       })}
       type='button'
-      {...props}
     >
       {children}
       {isLoading && <Spinner className={cn(styles.buttonSpinner)} size={25} thickness={2} />}
