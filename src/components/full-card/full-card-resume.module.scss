@@ -1,47 +1,74 @@
-
-  .fullCard {
-    padding: 20px 50px;
-    max-width: 1140px;
-    margin: auto;
-    &Header {
+.fullCard {
+  padding: 20px 50px;
+  max-width: 1140px;
+  margin: auto;
+  &Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    &Icon {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding-bottom: 20px;
-      &Icon {
-        display: flex;
-        align-items: center;
-        img {
-          margin-left: -10px;
-        }
-        h2 {
-          font-size: 30px;
-          margin-left: 15px;
-        }
+      img {
+        margin-left: -10px;
       }
-      span {
-        color: var(--textSecondaryColor);
+      h2 {
+        font-size: 30px;
+        margin-left: 15px;
       }
     }
-    &City {
-      padding: 30px 0 24px 0;
+    span {
+      color: var(--textSecondaryColor);
+    }
+  }
+  &City {
+    padding: 30px 0 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & > div {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      & > div {
-        display: flex;
-        align-items: center;
-      }
-      &Icons {
-        font-size: 19px;
-        color: var(--iconColor);
-        margin-right: 8px;
-      }
-      &Info {
-        margin-top: 20px;
-        &View {
-            color: var(--textSecondaryColor);
+    }
+    &Icons {
+      font-size: 19px;
+      color: var(--iconColor);
+      margin-right: 8px;
+    }
+    &Info {
+      margin-top: 20px;
+      &View {
+        color: var(--textSecondaryColor);
+        &Eye {
+          font-size: 19px;
+        }
+        span {
+          margin-left: 5px;
         }
       }
     }
   }
+  &Description {
+    padding: 30px 0 58px 0;
+    font-size: 14px;
+    & > div:not(:last-child) {
+      padding-bottom: 50px;
+    }
+    h3 {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    &Buttons {
+      display: flex;
+      justify-content: center;
+      Button {
+        margin: 0 10px;
+        width: 216px;
+      }
+      img {
+        margin-left: 10px;
+      }
+    }
+  }
+}
