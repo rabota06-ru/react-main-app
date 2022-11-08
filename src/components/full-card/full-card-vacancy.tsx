@@ -13,7 +13,7 @@ import styles from './full-card-vacancy.module.scss'
 interface FullCardVacancyProps {
   title: string
   date: string
-  price: string
+  price: number
   company: string
   city: string
   description: string
@@ -97,7 +97,7 @@ export function FullCardVacancy({
             Откликнуться
           </Button>
           <Button variant={ButtonVariant.Outline} size={ButtonSize.Small} isShadow={false} onClick={handleShowNumber}>
-            Показать телефон
+            {phoneState ? phoneNumber : 'Показать телефон'}
           </Button>
           <img src={favorites} alt='флажок' />
         </div>
