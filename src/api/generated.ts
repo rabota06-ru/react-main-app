@@ -6207,6 +6207,11 @@ export type VerifyAuthCodeOutput = {
   authenticated: Scalars['Boolean'];
 };
 
+export type CheckIsAuthenticatedQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CheckIsAuthenticatedQuery = { __typename?: 'Query', checkIsAuthenticated: { __typename?: 'CheckAuthenticatedOutput', authenticated: boolean, accessToken?: string | null } };
+
 export type CreateAndLoginUserMutationVariables = Exact<{
   authToken: Scalars['String'];
   data: CreateAndLoginUserInputData;
@@ -6245,6 +6250,14 @@ export type VerifyAuthCodeMutationVariables = Exact<{
 export type VerifyAuthCodeMutation = { __typename?: 'Mutation', verifyAuthCode: { __typename?: 'VerifyAuthCodeOutput', authenticated: boolean, authToken?: string | null } };
 
 
+export const CheckIsAuthenticatedDocument = `
+    query CheckIsAuthenticated {
+  checkIsAuthenticated {
+    authenticated
+    accessToken
+  }
+}
+    `;
 export const CreateAndLoginUserDocument = `
     mutation CreateAndLoginUser($authToken: String!, $data: CreateAndLoginUserInputData!) {
   createAndLoginUser(input: {authToken: $authToken, data: $data}) {
@@ -6284,6 +6297,9 @@ export const VerifyAuthCodeDocument = `
 
 const injectedRtkApi = api.injectEndpoints({
   endpoints: (build) => ({
+    CheckIsAuthenticated: build.query<CheckIsAuthenticatedQuery, CheckIsAuthenticatedQueryVariables | void>({
+      query: (variables) => ({ document: CheckIsAuthenticatedDocument, variables })
+    }),
     CreateAndLoginUser: build.mutation<CreateAndLoginUserMutation, CreateAndLoginUserMutationVariables>({
       query: (variables) => ({ document: CreateAndLoginUserDocument, variables })
     }),

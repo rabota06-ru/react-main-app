@@ -10,4 +10,5 @@ export const {
   useLoginUserMutation,
   useSendAuthCodeMessageMutation,
   useVerifyAuthCodeMutation,
+  useLazyCheckIsAuthenticatedQuery,
 } = api
