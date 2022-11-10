@@ -11,7 +11,694 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** The javascript `Date` as string. Type represents date and time as the ISO Date string. */
   DateTime: any;
+  /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
+  JSON: any;
+  /** Represents NULL values */
+  Void: any;
+};
+
+export type AccessTokenOutput = {
+  __typename?: 'AccessTokenOutput';
+  accessToken: Scalars['String'];
+};
+
+export type Admin = {
+  __typename?: 'Admin';
+  createdAt: Scalars['DateTime'];
+  id: Scalars['String'];
+  login: Scalars['String'];
+  password: Scalars['String'];
+  updatedAt: Scalars['DateTime'];
+};
+
+export type AdminChat = {
+  __typename?: 'AdminChat';
+  _count?: Maybe<AdminChatCount>;
+  createdAt: Scalars['DateTime'];
+  id: Scalars['String'];
+  messages: Array<AdminChatMessage>;
+  updatedAt: Scalars['DateTime'];
+  user: User;
+  userId: Scalars['String'];
+  viewedByAdmin: Scalars['Boolean'];
+  viewedByUser: Scalars['Boolean'];
+};
+
+
+export type AdminChatMessagesArgs = {
+  cursor?: InputMaybe<AdminChatMessageWhereUniqueInput>;
+  distinct?: InputMaybe<Array<AdminChatMessageScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<AdminChatMessageOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<AdminChatMessageWhereInput>;
+};
+
+export type AdminChatCount = {
+  __typename?: 'AdminChatCount';
+  messages: Scalars['Int'];
+};
+
+export type AdminChatCountAggregate = {
+  __typename?: 'AdminChatCountAggregate';
+  _all: Scalars['Int'];
+  createdAt: Scalars['Int'];
+  id: Scalars['Int'];
+  updatedAt: Scalars['Int'];
+  userId: Scalars['Int'];
+  viewedByAdmin: Scalars['Int'];
+  viewedByUser: Scalars['Int'];
+};
+
+export type AdminChatCountOrderByAggregateInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  userId?: InputMaybe<SortOrder>;
+  viewedByAdmin?: InputMaybe<SortOrder>;
+  viewedByUser?: InputMaybe<SortOrder>;
+};
+
+export type AdminChatCreateInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  messages?: InputMaybe<AdminChatMessageCreateNestedManyWithoutChatInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  user: UserCreateNestedOneWithoutChatWithAdminInput;
+  viewedByAdmin?: InputMaybe<Scalars['Boolean']>;
+  viewedByUser?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type AdminChatCreateManyInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  userId: Scalars['String'];
+  viewedByAdmin?: InputMaybe<Scalars['Boolean']>;
+  viewedByUser?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type AdminChatCreateNestedOneWithoutMessagesInput = {
+  connect?: InputMaybe<AdminChatWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<AdminChatCreateOrConnectWithoutMessagesInput>;
+  create?: InputMaybe<AdminChatCreateWithoutMessagesInput>;
+};
+
+export type AdminChatCreateNestedOneWithoutUserInput = {
+  connect?: InputMaybe<AdminChatWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<AdminChatCreateOrConnectWithoutUserInput>;
+  create?: InputMaybe<AdminChatCreateWithoutUserInput>;
+};
+
+export type AdminChatCreateOrConnectWithoutMessagesInput = {
+  create: AdminChatCreateWithoutMessagesInput;
+  where: AdminChatWhereUniqueInput;
+};
+
+export type AdminChatCreateOrConnectWithoutUserInput = {
+  create: AdminChatCreateWithoutUserInput;
+  where: AdminChatWhereUniqueInput;
+};
+
+export type AdminChatCreateWithoutMessagesInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  user: UserCreateNestedOneWithoutChatWithAdminInput;
+  viewedByAdmin?: InputMaybe<Scalars['Boolean']>;
+  viewedByUser?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type AdminChatCreateWithoutUserInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  messages?: InputMaybe<AdminChatMessageCreateNestedManyWithoutChatInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  viewedByAdmin?: InputMaybe<Scalars['Boolean']>;
+  viewedByUser?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type AdminChatGroupBy = {
+  __typename?: 'AdminChatGroupBy';
+  _count?: Maybe<AdminChatCountAggregate>;
+  _max?: Maybe<AdminChatMaxAggregate>;
+  _min?: Maybe<AdminChatMinAggregate>;
+  createdAt: Scalars['DateTime'];
+  id: Scalars['String'];
+  updatedAt: Scalars['DateTime'];
+  userId: Scalars['String'];
+  viewedByAdmin: Scalars['Boolean'];
+  viewedByUser: Scalars['Boolean'];
+};
+
+export type AdminChatMaxAggregate = {
+  __typename?: 'AdminChatMaxAggregate';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  userId?: Maybe<Scalars['String']>;
+  viewedByAdmin?: Maybe<Scalars['Boolean']>;
+  viewedByUser?: Maybe<Scalars['Boolean']>;
+};
+
+export type AdminChatMaxOrderByAggregateInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  userId?: InputMaybe<SortOrder>;
+  viewedByAdmin?: InputMaybe<SortOrder>;
+  viewedByUser?: InputMaybe<SortOrder>;
+};
+
+export type AdminChatMessage = {
+  __typename?: 'AdminChatMessage';
+  chat: AdminChat;
+  chatId: Scalars['String'];
+  createdAt: Scalars['DateTime'];
+  id: Scalars['String'];
+  message: Scalars['String'];
+};
+
+export type AdminChatMessageCountAggregate = {
+  __typename?: 'AdminChatMessageCountAggregate';
+  _all: Scalars['Int'];
+  chatId: Scalars['Int'];
+  createdAt: Scalars['Int'];
+  id: Scalars['Int'];
+  message: Scalars['Int'];
+};
+
+export type AdminChatMessageCountOrderByAggregateInput = {
+  chatId?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  message?: InputMaybe<SortOrder>;
+};
+
+export type AdminChatMessageCreateInput = {
+  chat: AdminChatCreateNestedOneWithoutMessagesInput;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  message: Scalars['String'];
+};
+
+export type AdminChatMessageCreateManyChatInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  message: Scalars['String'];
+};
+
+export type AdminChatMessageCreateManyChatInputEnvelope = {
+  data: Array<AdminChatMessageCreateManyChatInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type AdminChatMessageCreateManyInput = {
+  chatId: Scalars['String'];
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  message: Scalars['String'];
+};
+
+export type AdminChatMessageCreateNestedManyWithoutChatInput = {
+  connect?: InputMaybe<Array<AdminChatMessageWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<AdminChatMessageCreateOrConnectWithoutChatInput>>;
+  create?: InputMaybe<Array<AdminChatMessageCreateWithoutChatInput>>;
+  createMany?: InputMaybe<AdminChatMessageCreateManyChatInputEnvelope>;
+};
+
+export type AdminChatMessageCreateOrConnectWithoutChatInput = {
+  create: AdminChatMessageCreateWithoutChatInput;
+  where: AdminChatMessageWhereUniqueInput;
+};
+
+export type AdminChatMessageCreateWithoutChatInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  message: Scalars['String'];
+};
+
+export type AdminChatMessageGroupBy = {
+  __typename?: 'AdminChatMessageGroupBy';
+  _count?: Maybe<AdminChatMessageCountAggregate>;
+  _max?: Maybe<AdminChatMessageMaxAggregate>;
+  _min?: Maybe<AdminChatMessageMinAggregate>;
+  chatId: Scalars['String'];
+  createdAt: Scalars['DateTime'];
+  id: Scalars['String'];
+  message: Scalars['String'];
+};
+
+export type AdminChatMessageListRelationFilter = {
+  every?: InputMaybe<AdminChatMessageWhereInput>;
+  none?: InputMaybe<AdminChatMessageWhereInput>;
+  some?: InputMaybe<AdminChatMessageWhereInput>;
+};
+
+export type AdminChatMessageMaxAggregate = {
+  __typename?: 'AdminChatMessageMaxAggregate';
+  chatId?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+  message?: Maybe<Scalars['String']>;
+};
+
+export type AdminChatMessageMaxOrderByAggregateInput = {
+  chatId?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  message?: InputMaybe<SortOrder>;
+};
+
+export type AdminChatMessageMinAggregate = {
+  __typename?: 'AdminChatMessageMinAggregate';
+  chatId?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+  message?: Maybe<Scalars['String']>;
+};
+
+export type AdminChatMessageMinOrderByAggregateInput = {
+  chatId?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  message?: InputMaybe<SortOrder>;
+};
+
+export type AdminChatMessageOrderByRelationAggregateInput = {
+  _count?: InputMaybe<SortOrder>;
+};
+
+export type AdminChatMessageOrderByWithAggregationInput = {
+  _count?: InputMaybe<AdminChatMessageCountOrderByAggregateInput>;
+  _max?: InputMaybe<AdminChatMessageMaxOrderByAggregateInput>;
+  _min?: InputMaybe<AdminChatMessageMinOrderByAggregateInput>;
+  chatId?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  message?: InputMaybe<SortOrder>;
+};
+
+export type AdminChatMessageOrderByWithRelationInput = {
+  chat?: InputMaybe<AdminChatOrderByWithRelationInput>;
+  chatId?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  message?: InputMaybe<SortOrder>;
+};
+
+export enum AdminChatMessageScalarFieldEnum {
+  ChatId = 'chatId',
+  CreatedAt = 'createdAt',
+  Id = 'id',
+  Message = 'message'
+}
+
+export type AdminChatMessageScalarWhereInput = {
+  AND?: InputMaybe<Array<AdminChatMessageScalarWhereInput>>;
+  NOT?: InputMaybe<Array<AdminChatMessageScalarWhereInput>>;
+  OR?: InputMaybe<Array<AdminChatMessageScalarWhereInput>>;
+  chatId?: InputMaybe<StringFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<StringFilter>;
+  message?: InputMaybe<StringFilter>;
+};
+
+export type AdminChatMessageScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<AdminChatMessageScalarWhereWithAggregatesInput>>;
+  NOT?: InputMaybe<Array<AdminChatMessageScalarWhereWithAggregatesInput>>;
+  OR?: InputMaybe<Array<AdminChatMessageScalarWhereWithAggregatesInput>>;
+  chatId?: InputMaybe<StringWithAggregatesFilter>;
+  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  id?: InputMaybe<StringWithAggregatesFilter>;
+  message?: InputMaybe<StringWithAggregatesFilter>;
+};
+
+export type AdminChatMessageUpdateInput = {
+  chat?: InputMaybe<AdminChatUpdateOneRequiredWithoutMessagesNestedInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  message?: InputMaybe<StringFieldUpdateOperationsInput>;
+};
+
+export type AdminChatMessageUpdateManyMutationInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  message?: InputMaybe<StringFieldUpdateOperationsInput>;
+};
+
+export type AdminChatMessageUpdateManyWithWhereWithoutChatInput = {
+  data: AdminChatMessageUpdateManyMutationInput;
+  where: AdminChatMessageScalarWhereInput;
+};
+
+export type AdminChatMessageUpdateManyWithoutChatNestedInput = {
+  connect?: InputMaybe<Array<AdminChatMessageWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<AdminChatMessageCreateOrConnectWithoutChatInput>>;
+  create?: InputMaybe<Array<AdminChatMessageCreateWithoutChatInput>>;
+  createMany?: InputMaybe<AdminChatMessageCreateManyChatInputEnvelope>;
+  delete?: InputMaybe<Array<AdminChatMessageWhereUniqueInput>>;
+  deleteMany?: InputMaybe<Array<AdminChatMessageScalarWhereInput>>;
+  disconnect?: InputMaybe<Array<AdminChatMessageWhereUniqueInput>>;
+  set?: InputMaybe<Array<AdminChatMessageWhereUniqueInput>>;
+  update?: InputMaybe<Array<AdminChatMessageUpdateWithWhereUniqueWithoutChatInput>>;
+  updateMany?: InputMaybe<Array<AdminChatMessageUpdateManyWithWhereWithoutChatInput>>;
+  upsert?: InputMaybe<Array<AdminChatMessageUpsertWithWhereUniqueWithoutChatInput>>;
+};
+
+export type AdminChatMessageUpdateWithWhereUniqueWithoutChatInput = {
+  data: AdminChatMessageUpdateWithoutChatInput;
+  where: AdminChatMessageWhereUniqueInput;
+};
+
+export type AdminChatMessageUpdateWithoutChatInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  message?: InputMaybe<StringFieldUpdateOperationsInput>;
+};
+
+export type AdminChatMessageUpsertWithWhereUniqueWithoutChatInput = {
+  create: AdminChatMessageCreateWithoutChatInput;
+  update: AdminChatMessageUpdateWithoutChatInput;
+  where: AdminChatMessageWhereUniqueInput;
+};
+
+export type AdminChatMessageWhereInput = {
+  AND?: InputMaybe<Array<AdminChatMessageWhereInput>>;
+  NOT?: InputMaybe<Array<AdminChatMessageWhereInput>>;
+  OR?: InputMaybe<Array<AdminChatMessageWhereInput>>;
+  chat?: InputMaybe<AdminChatRelationFilter>;
+  chatId?: InputMaybe<StringFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<StringFilter>;
+  message?: InputMaybe<StringFilter>;
+};
+
+export type AdminChatMessageWhereUniqueInput = {
+  id?: InputMaybe<Scalars['String']>;
+};
+
+export type AdminChatMinAggregate = {
+  __typename?: 'AdminChatMinAggregate';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  userId?: Maybe<Scalars['String']>;
+  viewedByAdmin?: Maybe<Scalars['Boolean']>;
+  viewedByUser?: Maybe<Scalars['Boolean']>;
+};
+
+export type AdminChatMinOrderByAggregateInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  userId?: InputMaybe<SortOrder>;
+  viewedByAdmin?: InputMaybe<SortOrder>;
+  viewedByUser?: InputMaybe<SortOrder>;
+};
+
+export type AdminChatOrderByWithAggregationInput = {
+  _count?: InputMaybe<AdminChatCountOrderByAggregateInput>;
+  _max?: InputMaybe<AdminChatMaxOrderByAggregateInput>;
+  _min?: InputMaybe<AdminChatMinOrderByAggregateInput>;
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  userId?: InputMaybe<SortOrder>;
+  viewedByAdmin?: InputMaybe<SortOrder>;
+  viewedByUser?: InputMaybe<SortOrder>;
+};
+
+export type AdminChatOrderByWithRelationInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  messages?: InputMaybe<AdminChatMessageOrderByRelationAggregateInput>;
+  updatedAt?: InputMaybe<SortOrder>;
+  user?: InputMaybe<UserOrderByWithRelationInput>;
+  userId?: InputMaybe<SortOrder>;
+  viewedByAdmin?: InputMaybe<SortOrder>;
+  viewedByUser?: InputMaybe<SortOrder>;
+};
+
+export type AdminChatRelationFilter = {
+  is?: InputMaybe<AdminChatWhereInput>;
+  isNot?: InputMaybe<AdminChatWhereInput>;
+};
+
+export enum AdminChatScalarFieldEnum {
+  CreatedAt = 'createdAt',
+  Id = 'id',
+  UpdatedAt = 'updatedAt',
+  UserId = 'userId',
+  ViewedByAdmin = 'viewedByAdmin',
+  ViewedByUser = 'viewedByUser'
+}
+
+export type AdminChatScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<AdminChatScalarWhereWithAggregatesInput>>;
+  NOT?: InputMaybe<Array<AdminChatScalarWhereWithAggregatesInput>>;
+  OR?: InputMaybe<Array<AdminChatScalarWhereWithAggregatesInput>>;
+  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  id?: InputMaybe<StringWithAggregatesFilter>;
+  updatedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  userId?: InputMaybe<StringWithAggregatesFilter>;
+  viewedByAdmin?: InputMaybe<BoolWithAggregatesFilter>;
+  viewedByUser?: InputMaybe<BoolWithAggregatesFilter>;
+};
+
+export type AdminChatUpdateInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  messages?: InputMaybe<AdminChatMessageUpdateManyWithoutChatNestedInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  user?: InputMaybe<UserUpdateOneRequiredWithoutChatWithAdminNestedInput>;
+  viewedByAdmin?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  viewedByUser?: InputMaybe<BoolFieldUpdateOperationsInput>;
+};
+
+export type AdminChatUpdateManyMutationInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  viewedByAdmin?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  viewedByUser?: InputMaybe<BoolFieldUpdateOperationsInput>;
+};
+
+export type AdminChatUpdateOneRequiredWithoutMessagesNestedInput = {
+  connect?: InputMaybe<AdminChatWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<AdminChatCreateOrConnectWithoutMessagesInput>;
+  create?: InputMaybe<AdminChatCreateWithoutMessagesInput>;
+  update?: InputMaybe<AdminChatUpdateWithoutMessagesInput>;
+  upsert?: InputMaybe<AdminChatUpsertWithoutMessagesInput>;
+};
+
+export type AdminChatUpdateOneWithoutUserNestedInput = {
+  connect?: InputMaybe<AdminChatWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<AdminChatCreateOrConnectWithoutUserInput>;
+  create?: InputMaybe<AdminChatCreateWithoutUserInput>;
+  delete?: InputMaybe<Scalars['Boolean']>;
+  disconnect?: InputMaybe<Scalars['Boolean']>;
+  update?: InputMaybe<AdminChatUpdateWithoutUserInput>;
+  upsert?: InputMaybe<AdminChatUpsertWithoutUserInput>;
+};
+
+export type AdminChatUpdateWithoutMessagesInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  user?: InputMaybe<UserUpdateOneRequiredWithoutChatWithAdminNestedInput>;
+  viewedByAdmin?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  viewedByUser?: InputMaybe<BoolFieldUpdateOperationsInput>;
+};
+
+export type AdminChatUpdateWithoutUserInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  messages?: InputMaybe<AdminChatMessageUpdateManyWithoutChatNestedInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  viewedByAdmin?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  viewedByUser?: InputMaybe<BoolFieldUpdateOperationsInput>;
+};
+
+export type AdminChatUpsertWithoutMessagesInput = {
+  create: AdminChatCreateWithoutMessagesInput;
+  update: AdminChatUpdateWithoutMessagesInput;
+};
+
+export type AdminChatUpsertWithoutUserInput = {
+  create: AdminChatCreateWithoutUserInput;
+  update: AdminChatUpdateWithoutUserInput;
+};
+
+export type AdminChatWhereInput = {
+  AND?: InputMaybe<Array<AdminChatWhereInput>>;
+  NOT?: InputMaybe<Array<AdminChatWhereInput>>;
+  OR?: InputMaybe<Array<AdminChatWhereInput>>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<StringFilter>;
+  messages?: InputMaybe<AdminChatMessageListRelationFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  user?: InputMaybe<UserRelationFilter>;
+  userId?: InputMaybe<StringFilter>;
+  viewedByAdmin?: InputMaybe<BoolFilter>;
+  viewedByUser?: InputMaybe<BoolFilter>;
+};
+
+export type AdminChatWhereUniqueInput = {
+  id?: InputMaybe<Scalars['String']>;
+  userId?: InputMaybe<Scalars['String']>;
+};
+
+export type AdminCountAggregate = {
+  __typename?: 'AdminCountAggregate';
+  _all: Scalars['Int'];
+  createdAt: Scalars['Int'];
+  id: Scalars['Int'];
+  login: Scalars['Int'];
+  password: Scalars['Int'];
+  updatedAt: Scalars['Int'];
+};
+
+export type AdminCountOrderByAggregateInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  login?: InputMaybe<SortOrder>;
+  password?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+};
+
+export type AdminCreateInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  login: Scalars['String'];
+  password: Scalars['String'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type AdminCreateManyInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  login: Scalars['String'];
+  password: Scalars['String'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type AdminGroupBy = {
+  __typename?: 'AdminGroupBy';
+  _count?: Maybe<AdminCountAggregate>;
+  _max?: Maybe<AdminMaxAggregate>;
+  _min?: Maybe<AdminMinAggregate>;
+  createdAt: Scalars['DateTime'];
+  id: Scalars['String'];
+  login: Scalars['String'];
+  password: Scalars['String'];
+  updatedAt: Scalars['DateTime'];
+};
+
+export type AdminMaxAggregate = {
+  __typename?: 'AdminMaxAggregate';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+  login?: Maybe<Scalars['String']>;
+  password?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type AdminMaxOrderByAggregateInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  login?: InputMaybe<SortOrder>;
+  password?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+};
+
+export type AdminMinAggregate = {
+  __typename?: 'AdminMinAggregate';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+  login?: Maybe<Scalars['String']>;
+  password?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type AdminMinOrderByAggregateInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  login?: InputMaybe<SortOrder>;
+  password?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+};
+
+export type AdminOrderByWithAggregationInput = {
+  _count?: InputMaybe<AdminCountOrderByAggregateInput>;
+  _max?: InputMaybe<AdminMaxOrderByAggregateInput>;
+  _min?: InputMaybe<AdminMinOrderByAggregateInput>;
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  login?: InputMaybe<SortOrder>;
+  password?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+};
+
+export type AdminOrderByWithRelationInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  login?: InputMaybe<SortOrder>;
+  password?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+};
+
+export enum AdminScalarFieldEnum {
+  CreatedAt = 'createdAt',
+  Id = 'id',
+  Login = 'login',
+  Password = 'password',
+  UpdatedAt = 'updatedAt'
+}
+
+export type AdminScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<AdminScalarWhereWithAggregatesInput>>;
+  NOT?: InputMaybe<Array<AdminScalarWhereWithAggregatesInput>>;
+  OR?: InputMaybe<Array<AdminScalarWhereWithAggregatesInput>>;
+  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  id?: InputMaybe<StringWithAggregatesFilter>;
+  login?: InputMaybe<StringWithAggregatesFilter>;
+  password?: InputMaybe<StringWithAggregatesFilter>;
+  updatedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+};
+
+export type AdminUpdateInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  login?: InputMaybe<StringFieldUpdateOperationsInput>;
+  password?: InputMaybe<StringFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type AdminUpdateManyMutationInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  login?: InputMaybe<StringFieldUpdateOperationsInput>;
+  password?: InputMaybe<StringFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type AdminWhereInput = {
+  AND?: InputMaybe<Array<AdminWhereInput>>;
+  NOT?: InputMaybe<Array<AdminWhereInput>>;
+  OR?: InputMaybe<Array<AdminWhereInput>>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<StringFilter>;
+  login?: InputMaybe<StringFilter>;
+  password?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+};
+
+export type AdminWhereUniqueInput = {
+  id?: InputMaybe<Scalars['String']>;
+  login?: InputMaybe<Scalars['String']>;
 };
 
 export type AffectedRowsOutput = {
@@ -19,808 +706,1239 @@ export type AffectedRowsOutput = {
   count: Scalars['Int'];
 };
 
-export type AggregateAppUpdate = {
-  __typename?: 'AggregateAppUpdate';
-  _count?: Maybe<AppUpdateCountAggregate>;
-  _max?: Maybe<AppUpdateMaxAggregate>;
-  _min?: Maybe<AppUpdateMinAggregate>;
+export type AggregateAdmin = {
+  __typename?: 'AggregateAdmin';
+  _count?: Maybe<AdminCountAggregate>;
+  _max?: Maybe<AdminMaxAggregate>;
+  _min?: Maybe<AdminMinAggregate>;
 };
 
-export type AggregateAppUpdateFeature = {
-  __typename?: 'AggregateAppUpdateFeature';
-  _count?: Maybe<AppUpdateFeatureCountAggregate>;
-  _max?: Maybe<AppUpdateFeatureMaxAggregate>;
-  _min?: Maybe<AppUpdateFeatureMinAggregate>;
+export type AggregateAdminChat = {
+  __typename?: 'AggregateAdminChat';
+  _count?: Maybe<AdminChatCountAggregate>;
+  _max?: Maybe<AdminChatMaxAggregate>;
+  _min?: Maybe<AdminChatMinAggregate>;
 };
 
-export type AggregateCallSchedule = {
-  __typename?: 'AggregateCallSchedule';
-  _avg?: Maybe<CallScheduleAvgAggregate>;
-  _count?: Maybe<CallScheduleCountAggregate>;
-  _max?: Maybe<CallScheduleMaxAggregate>;
-  _min?: Maybe<CallScheduleMinAggregate>;
-  _sum?: Maybe<CallScheduleSumAggregate>;
+export type AggregateAdminChatMessage = {
+  __typename?: 'AggregateAdminChatMessage';
+  _count?: Maybe<AdminChatMessageCountAggregate>;
+  _max?: Maybe<AdminChatMessageMaxAggregate>;
+  _min?: Maybe<AdminChatMessageMinAggregate>;
 };
 
-export type AggregateFaculty = {
-  __typename?: 'AggregateFaculty';
-  _count?: Maybe<FacultyCountAggregate>;
-  _max?: Maybe<FacultyMaxAggregate>;
-  _min?: Maybe<FacultyMinAggregate>;
+export type AggregateApplicantProfile = {
+  __typename?: 'AggregateApplicantProfile';
+  _count?: Maybe<ApplicantProfileCountAggregate>;
+  _max?: Maybe<ApplicantProfileMaxAggregate>;
+  _min?: Maybe<ApplicantProfileMinAggregate>;
 };
 
-export type AggregateGroup = {
-  __typename?: 'AggregateGroup';
-  _avg?: Maybe<GroupAvgAggregate>;
-  _count?: Maybe<GroupCountAggregate>;
-  _max?: Maybe<GroupMaxAggregate>;
-  _min?: Maybe<GroupMinAggregate>;
-  _sum?: Maybe<GroupSumAggregate>;
+export type AggregateApplication = {
+  __typename?: 'AggregateApplication';
+  _count?: Maybe<ApplicationCountAggregate>;
+  _max?: Maybe<ApplicationMaxAggregate>;
+  _min?: Maybe<ApplicationMinAggregate>;
 };
 
-export type AggregateLesson = {
-  __typename?: 'AggregateLesson';
-  _avg?: Maybe<LessonAvgAggregate>;
-  _count?: Maybe<LessonCountAggregate>;
-  _max?: Maybe<LessonMaxAggregate>;
-  _min?: Maybe<LessonMinAggregate>;
-  _sum?: Maybe<LessonSumAggregate>;
+export type AggregateChat = {
+  __typename?: 'AggregateChat';
+  _count?: Maybe<ChatCountAggregate>;
+  _max?: Maybe<ChatMaxAggregate>;
+  _min?: Maybe<ChatMinAggregate>;
 };
 
-export type AggregateLessonNote = {
-  __typename?: 'AggregateLessonNote';
-  _avg?: Maybe<LessonNoteAvgAggregate>;
-  _count?: Maybe<LessonNoteCountAggregate>;
-  _max?: Maybe<LessonNoteMaxAggregate>;
-  _min?: Maybe<LessonNoteMinAggregate>;
-  _sum?: Maybe<LessonNoteSumAggregate>;
+export type AggregateChatMessage = {
+  __typename?: 'AggregateChatMessage';
+  _count?: Maybe<ChatMessageCountAggregate>;
+  _max?: Maybe<ChatMessageMaxAggregate>;
+  _min?: Maybe<ChatMessageMinAggregate>;
 };
 
-export type AggregatePeriod = {
-  __typename?: 'AggregatePeriod';
-  _count?: Maybe<PeriodCountAggregate>;
-  _max?: Maybe<PeriodMaxAggregate>;
-  _min?: Maybe<PeriodMinAggregate>;
+export type AggregateEmployerProfile = {
+  __typename?: 'AggregateEmployerProfile';
+  _count?: Maybe<EmployerProfileCountAggregate>;
+  _max?: Maybe<EmployerProfileMaxAggregate>;
+  _min?: Maybe<EmployerProfileMinAggregate>;
 };
 
-export type AggregateSecretLabel = {
-  __typename?: 'AggregateSecretLabel';
-  _count?: Maybe<SecretLabelCountAggregate>;
-  _max?: Maybe<SecretLabelMaxAggregate>;
-  _min?: Maybe<SecretLabelMinAggregate>;
+export type AggregateResume = {
+  __typename?: 'AggregateResume';
+  _avg?: Maybe<ResumeAvgAggregate>;
+  _count?: Maybe<ResumeCountAggregate>;
+  _max?: Maybe<ResumeMaxAggregate>;
+  _min?: Maybe<ResumeMinAggregate>;
+  _sum?: Maybe<ResumeSumAggregate>;
 };
 
-export type AppUpdate = {
-  __typename?: 'AppUpdate';
-  _count?: Maybe<AppUpdateCount>;
+export type AggregateResumeSavedByEmployer = {
+  __typename?: 'AggregateResumeSavedByEmployer';
+  _count?: Maybe<ResumeSavedByEmployerCountAggregate>;
+  _max?: Maybe<ResumeSavedByEmployerMaxAggregate>;
+  _min?: Maybe<ResumeSavedByEmployerMinAggregate>;
+};
+
+export type AggregateUser = {
+  __typename?: 'AggregateUser';
+  _count?: Maybe<UserCountAggregate>;
+  _max?: Maybe<UserMaxAggregate>;
+  _min?: Maybe<UserMinAggregate>;
+};
+
+export type AggregateVacancy = {
+  __typename?: 'AggregateVacancy';
+  _avg?: Maybe<VacancyAvgAggregate>;
+  _count?: Maybe<VacancyCountAggregate>;
+  _max?: Maybe<VacancyMaxAggregate>;
+  _min?: Maybe<VacancyMinAggregate>;
+  _sum?: Maybe<VacancySumAggregate>;
+};
+
+export type AggregateVacancySavedByApplicant = {
+  __typename?: 'AggregateVacancySavedByApplicant';
+  _count?: Maybe<VacancySavedByApplicantCountAggregate>;
+  _max?: Maybe<VacancySavedByApplicantMaxAggregate>;
+  _min?: Maybe<VacancySavedByApplicantMinAggregate>;
+};
+
+export type ApplicantProfile = {
+  __typename?: 'ApplicantProfile';
+  _count?: Maybe<ApplicantProfileCount>;
   createdAt: Scalars['DateTime'];
-  features: Array<AppUpdateFeature>;
   id: Scalars['String'];
-  os: AppUpdateOs;
+  resume?: Maybe<Resume>;
+  savedVacancies: Array<VacancySavedByApplicant>;
   updatedAt: Scalars['DateTime'];
-  version: Scalars['String'];
+  user: User;
+  userId: Scalars['String'];
 };
 
 
-export type AppUpdateFeaturesArgs = {
-  cursor?: InputMaybe<AppUpdateFeatureWhereUniqueInput>;
-  distinct?: InputMaybe<Array<AppUpdateFeatureScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<AppUpdateFeatureOrderByWithRelationInput>>;
+export type ApplicantProfileSavedVacanciesArgs = {
+  cursor?: InputMaybe<VacancySavedByApplicantWhereUniqueInput>;
+  distinct?: InputMaybe<Array<VacancySavedByApplicantScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<VacancySavedByApplicantOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<AppUpdateFeatureWhereInput>;
+  where?: InputMaybe<VacancySavedByApplicantWhereInput>;
 };
 
-export type AppUpdateCount = {
-  __typename?: 'AppUpdateCount';
-  features: Scalars['Int'];
+export type ApplicantProfileCount = {
+  __typename?: 'ApplicantProfileCount';
+  savedVacancies: Scalars['Int'];
 };
 
-export type AppUpdateCountAggregate = {
-  __typename?: 'AppUpdateCountAggregate';
+export type ApplicantProfileCountAggregate = {
+  __typename?: 'ApplicantProfileCountAggregate';
   _all: Scalars['Int'];
   createdAt: Scalars['Int'];
   id: Scalars['Int'];
-  os: Scalars['Int'];
   updatedAt: Scalars['Int'];
-  version: Scalars['Int'];
+  userId: Scalars['Int'];
 };
 
-export type AppUpdateCountOrderByAggregateInput = {
+export type ApplicantProfileCountOrderByAggregateInput = {
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  os?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
-  version?: InputMaybe<SortOrder>;
+  userId?: InputMaybe<SortOrder>;
 };
 
-export type AppUpdateCreateInput = {
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  features?: InputMaybe<AppUpdateFeatureCreateNestedManyWithoutAppUpdateInput>;
-  id?: InputMaybe<Scalars['String']>;
-  os: AppUpdateOs;
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-  version: Scalars['String'];
-};
-
-export type AppUpdateCreateManyInput = {
+export type ApplicantProfileCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
-  os: AppUpdateOs;
+  resume?: InputMaybe<ResumeCreateNestedOneWithoutApplicantProfileInput>;
+  savedVacancies?: InputMaybe<VacancySavedByApplicantCreateNestedManyWithoutApplicantProfileInput>;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
-  version: Scalars['String'];
+  user: UserCreateNestedOneWithoutApplicantProfileInput;
 };
 
-export type AppUpdateCreateNestedOneWithoutFeaturesInput = {
-  connect?: InputMaybe<AppUpdateWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<AppUpdateCreateOrConnectWithoutFeaturesInput>;
-  create?: InputMaybe<AppUpdateCreateWithoutFeaturesInput>;
-};
-
-export type AppUpdateCreateOrConnectWithoutFeaturesInput = {
-  create: AppUpdateCreateWithoutFeaturesInput;
-  where: AppUpdateWhereUniqueInput;
-};
-
-export type AppUpdateCreateWithoutFeaturesInput = {
+export type ApplicantProfileCreateManyInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
-  os: AppUpdateOs;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
-  version: Scalars['String'];
+  userId: Scalars['String'];
 };
 
-export type AppUpdateFeature = {
-  __typename?: 'AppUpdateFeature';
-  appUpdate: AppUpdate;
-  appUpdateId: Scalars['String'];
-  features: Array<Scalars['String']>;
-  id: Scalars['String'];
-  title: Scalars['String'];
+export type ApplicantProfileCreateNestedOneWithoutResumeInput = {
+  connect?: InputMaybe<ApplicantProfileWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<ApplicantProfileCreateOrConnectWithoutResumeInput>;
+  create?: InputMaybe<ApplicantProfileCreateWithoutResumeInput>;
 };
 
-export type AppUpdateFeatureCountAggregate = {
-  __typename?: 'AppUpdateFeatureCountAggregate';
-  _all: Scalars['Int'];
-  appUpdateId: Scalars['Int'];
-  features: Scalars['Int'];
-  id: Scalars['Int'];
-  title: Scalars['Int'];
+export type ApplicantProfileCreateNestedOneWithoutSavedVacanciesInput = {
+  connect?: InputMaybe<ApplicantProfileWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<ApplicantProfileCreateOrConnectWithoutSavedVacanciesInput>;
+  create?: InputMaybe<ApplicantProfileCreateWithoutSavedVacanciesInput>;
 };
 
-export type AppUpdateFeatureCountOrderByAggregateInput = {
-  appUpdateId?: InputMaybe<SortOrder>;
-  features?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
+export type ApplicantProfileCreateNestedOneWithoutUserInput = {
+  connect?: InputMaybe<ApplicantProfileWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<ApplicantProfileCreateOrConnectWithoutUserInput>;
+  create?: InputMaybe<ApplicantProfileCreateWithoutUserInput>;
 };
 
-export type AppUpdateFeatureCreateInput = {
-  appUpdate: AppUpdateCreateNestedOneWithoutFeaturesInput;
-  features?: InputMaybe<AppUpdateFeatureCreatefeaturesInput>;
+export type ApplicantProfileCreateOrConnectWithoutResumeInput = {
+  create: ApplicantProfileCreateWithoutResumeInput;
+  where: ApplicantProfileWhereUniqueInput;
+};
+
+export type ApplicantProfileCreateOrConnectWithoutSavedVacanciesInput = {
+  create: ApplicantProfileCreateWithoutSavedVacanciesInput;
+  where: ApplicantProfileWhereUniqueInput;
+};
+
+export type ApplicantProfileCreateOrConnectWithoutUserInput = {
+  create: ApplicantProfileCreateWithoutUserInput;
+  where: ApplicantProfileWhereUniqueInput;
+};
+
+export type ApplicantProfileCreateWithoutResumeInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
-  title: Scalars['String'];
+  savedVacancies?: InputMaybe<VacancySavedByApplicantCreateNestedManyWithoutApplicantProfileInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  user: UserCreateNestedOneWithoutApplicantProfileInput;
 };
 
-export type AppUpdateFeatureCreateManyAppUpdateInput = {
-  features?: InputMaybe<AppUpdateFeatureCreatefeaturesInput>;
+export type ApplicantProfileCreateWithoutSavedVacanciesInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
-  title: Scalars['String'];
+  resume?: InputMaybe<ResumeCreateNestedOneWithoutApplicantProfileInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  user: UserCreateNestedOneWithoutApplicantProfileInput;
 };
 
-export type AppUpdateFeatureCreateManyAppUpdateInputEnvelope = {
-  data: Array<AppUpdateFeatureCreateManyAppUpdateInput>;
-  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
-};
-
-export type AppUpdateFeatureCreateManyInput = {
-  appUpdateId: Scalars['String'];
-  features?: InputMaybe<AppUpdateFeatureCreatefeaturesInput>;
+export type ApplicantProfileCreateWithoutUserInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
-  title: Scalars['String'];
+  resume?: InputMaybe<ResumeCreateNestedOneWithoutApplicantProfileInput>;
+  savedVacancies?: InputMaybe<VacancySavedByApplicantCreateNestedManyWithoutApplicantProfileInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type AppUpdateFeatureCreateNestedManyWithoutAppUpdateInput = {
-  connect?: InputMaybe<Array<AppUpdateFeatureWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<AppUpdateFeatureCreateOrConnectWithoutAppUpdateInput>>;
-  create?: InputMaybe<Array<AppUpdateFeatureCreateWithoutAppUpdateInput>>;
-  createMany?: InputMaybe<AppUpdateFeatureCreateManyAppUpdateInputEnvelope>;
-};
-
-export type AppUpdateFeatureCreateOrConnectWithoutAppUpdateInput = {
-  create: AppUpdateFeatureCreateWithoutAppUpdateInput;
-  where: AppUpdateFeatureWhereUniqueInput;
-};
-
-export type AppUpdateFeatureCreateWithoutAppUpdateInput = {
-  features?: InputMaybe<AppUpdateFeatureCreatefeaturesInput>;
-  id?: InputMaybe<Scalars['String']>;
-  title: Scalars['String'];
-};
-
-export type AppUpdateFeatureCreatefeaturesInput = {
-  set: Array<Scalars['String']>;
-};
-
-export type AppUpdateFeatureGroupBy = {
-  __typename?: 'AppUpdateFeatureGroupBy';
-  _count?: Maybe<AppUpdateFeatureCountAggregate>;
-  _max?: Maybe<AppUpdateFeatureMaxAggregate>;
-  _min?: Maybe<AppUpdateFeatureMinAggregate>;
-  appUpdateId: Scalars['String'];
-  features?: Maybe<Array<Scalars['String']>>;
-  id: Scalars['String'];
-  title: Scalars['String'];
-};
-
-export type AppUpdateFeatureListRelationFilter = {
-  every?: InputMaybe<AppUpdateFeatureWhereInput>;
-  none?: InputMaybe<AppUpdateFeatureWhereInput>;
-  some?: InputMaybe<AppUpdateFeatureWhereInput>;
-};
-
-export type AppUpdateFeatureMaxAggregate = {
-  __typename?: 'AppUpdateFeatureMaxAggregate';
-  appUpdateId?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-};
-
-export type AppUpdateFeatureMaxOrderByAggregateInput = {
-  appUpdateId?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-};
-
-export type AppUpdateFeatureMinAggregate = {
-  __typename?: 'AppUpdateFeatureMinAggregate';
-  appUpdateId?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-};
-
-export type AppUpdateFeatureMinOrderByAggregateInput = {
-  appUpdateId?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-};
-
-export type AppUpdateFeatureOrderByRelationAggregateInput = {
-  _count?: InputMaybe<SortOrder>;
-};
-
-export type AppUpdateFeatureOrderByWithAggregationInput = {
-  _count?: InputMaybe<AppUpdateFeatureCountOrderByAggregateInput>;
-  _max?: InputMaybe<AppUpdateFeatureMaxOrderByAggregateInput>;
-  _min?: InputMaybe<AppUpdateFeatureMinOrderByAggregateInput>;
-  appUpdateId?: InputMaybe<SortOrder>;
-  features?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-};
-
-export type AppUpdateFeatureOrderByWithRelationInput = {
-  appUpdate?: InputMaybe<AppUpdateOrderByWithRelationInput>;
-  appUpdateId?: InputMaybe<SortOrder>;
-  features?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-};
-
-export enum AppUpdateFeatureScalarFieldEnum {
-  AppUpdateId = 'appUpdateId',
-  Features = 'features',
-  Id = 'id',
-  Title = 'title'
-}
-
-export type AppUpdateFeatureScalarWhereInput = {
-  AND?: InputMaybe<Array<AppUpdateFeatureScalarWhereInput>>;
-  NOT?: InputMaybe<Array<AppUpdateFeatureScalarWhereInput>>;
-  OR?: InputMaybe<Array<AppUpdateFeatureScalarWhereInput>>;
-  appUpdateId?: InputMaybe<StringFilter>;
-  features?: InputMaybe<StringNullableListFilter>;
-  id?: InputMaybe<StringFilter>;
-  title?: InputMaybe<StringFilter>;
-};
-
-export type AppUpdateFeatureScalarWhereWithAggregatesInput = {
-  AND?: InputMaybe<Array<AppUpdateFeatureScalarWhereWithAggregatesInput>>;
-  NOT?: InputMaybe<Array<AppUpdateFeatureScalarWhereWithAggregatesInput>>;
-  OR?: InputMaybe<Array<AppUpdateFeatureScalarWhereWithAggregatesInput>>;
-  appUpdateId?: InputMaybe<StringWithAggregatesFilter>;
-  features?: InputMaybe<StringNullableListFilter>;
-  id?: InputMaybe<StringWithAggregatesFilter>;
-  title?: InputMaybe<StringWithAggregatesFilter>;
-};
-
-export type AppUpdateFeatureUpdateInput = {
-  appUpdate?: InputMaybe<AppUpdateUpdateOneRequiredWithoutFeaturesNestedInput>;
-  features?: InputMaybe<AppUpdateFeatureUpdatefeaturesInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-};
-
-export type AppUpdateFeatureUpdateManyMutationInput = {
-  features?: InputMaybe<AppUpdateFeatureUpdatefeaturesInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-};
-
-export type AppUpdateFeatureUpdateManyWithWhereWithoutAppUpdateInput = {
-  data: AppUpdateFeatureUpdateManyMutationInput;
-  where: AppUpdateFeatureScalarWhereInput;
-};
-
-export type AppUpdateFeatureUpdateManyWithoutAppUpdateNestedInput = {
-  connect?: InputMaybe<Array<AppUpdateFeatureWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<AppUpdateFeatureCreateOrConnectWithoutAppUpdateInput>>;
-  create?: InputMaybe<Array<AppUpdateFeatureCreateWithoutAppUpdateInput>>;
-  createMany?: InputMaybe<AppUpdateFeatureCreateManyAppUpdateInputEnvelope>;
-  delete?: InputMaybe<Array<AppUpdateFeatureWhereUniqueInput>>;
-  deleteMany?: InputMaybe<Array<AppUpdateFeatureScalarWhereInput>>;
-  disconnect?: InputMaybe<Array<AppUpdateFeatureWhereUniqueInput>>;
-  set?: InputMaybe<Array<AppUpdateFeatureWhereUniqueInput>>;
-  update?: InputMaybe<Array<AppUpdateFeatureUpdateWithWhereUniqueWithoutAppUpdateInput>>;
-  updateMany?: InputMaybe<Array<AppUpdateFeatureUpdateManyWithWhereWithoutAppUpdateInput>>;
-  upsert?: InputMaybe<Array<AppUpdateFeatureUpsertWithWhereUniqueWithoutAppUpdateInput>>;
-};
-
-export type AppUpdateFeatureUpdateWithWhereUniqueWithoutAppUpdateInput = {
-  data: AppUpdateFeatureUpdateWithoutAppUpdateInput;
-  where: AppUpdateFeatureWhereUniqueInput;
-};
-
-export type AppUpdateFeatureUpdateWithoutAppUpdateInput = {
-  features?: InputMaybe<AppUpdateFeatureUpdatefeaturesInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-};
-
-export type AppUpdateFeatureUpdatefeaturesInput = {
-  push?: InputMaybe<Array<Scalars['String']>>;
-  set?: InputMaybe<Array<Scalars['String']>>;
-};
-
-export type AppUpdateFeatureUpsertWithWhereUniqueWithoutAppUpdateInput = {
-  create: AppUpdateFeatureCreateWithoutAppUpdateInput;
-  update: AppUpdateFeatureUpdateWithoutAppUpdateInput;
-  where: AppUpdateFeatureWhereUniqueInput;
-};
-
-export type AppUpdateFeatureWhereInput = {
-  AND?: InputMaybe<Array<AppUpdateFeatureWhereInput>>;
-  NOT?: InputMaybe<Array<AppUpdateFeatureWhereInput>>;
-  OR?: InputMaybe<Array<AppUpdateFeatureWhereInput>>;
-  appUpdate?: InputMaybe<AppUpdateRelationFilter>;
-  appUpdateId?: InputMaybe<StringFilter>;
-  features?: InputMaybe<StringNullableListFilter>;
-  id?: InputMaybe<StringFilter>;
-  title?: InputMaybe<StringFilter>;
-};
-
-export type AppUpdateFeatureWhereUniqueInput = {
-  id?: InputMaybe<Scalars['String']>;
-};
-
-export type AppUpdateGroupBy = {
-  __typename?: 'AppUpdateGroupBy';
-  _count?: Maybe<AppUpdateCountAggregate>;
-  _max?: Maybe<AppUpdateMaxAggregate>;
-  _min?: Maybe<AppUpdateMinAggregate>;
+export type ApplicantProfileGroupBy = {
+  __typename?: 'ApplicantProfileGroupBy';
+  _count?: Maybe<ApplicantProfileCountAggregate>;
+  _max?: Maybe<ApplicantProfileMaxAggregate>;
+  _min?: Maybe<ApplicantProfileMinAggregate>;
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
-  os: AppUpdateOs;
   updatedAt: Scalars['DateTime'];
-  version: Scalars['String'];
+  userId: Scalars['String'];
 };
 
-export type AppUpdateMaxAggregate = {
-  __typename?: 'AppUpdateMaxAggregate';
+export type ApplicantProfileMaxAggregate = {
+  __typename?: 'ApplicantProfileMaxAggregate';
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['String']>;
-  os?: Maybe<AppUpdateOs>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  version?: Maybe<Scalars['String']>;
+  userId?: Maybe<Scalars['String']>;
 };
 
-export type AppUpdateMaxOrderByAggregateInput = {
+export type ApplicantProfileMaxOrderByAggregateInput = {
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  os?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
-  version?: InputMaybe<SortOrder>;
+  userId?: InputMaybe<SortOrder>;
 };
 
-export type AppUpdateMinAggregate = {
-  __typename?: 'AppUpdateMinAggregate';
+export type ApplicantProfileMinAggregate = {
+  __typename?: 'ApplicantProfileMinAggregate';
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['String']>;
-  os?: Maybe<AppUpdateOs>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  version?: Maybe<Scalars['String']>;
+  userId?: Maybe<Scalars['String']>;
 };
 
-export type AppUpdateMinOrderByAggregateInput = {
+export type ApplicantProfileMinOrderByAggregateInput = {
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  os?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
-  version?: InputMaybe<SortOrder>;
+  userId?: InputMaybe<SortOrder>;
 };
 
-export enum AppUpdateOs {
-  Android = 'android',
-  Ios = 'ios'
-}
-
-export type AppUpdateOrderByWithAggregationInput = {
-  _count?: InputMaybe<AppUpdateCountOrderByAggregateInput>;
-  _max?: InputMaybe<AppUpdateMaxOrderByAggregateInput>;
-  _min?: InputMaybe<AppUpdateMinOrderByAggregateInput>;
+export type ApplicantProfileOrderByWithAggregationInput = {
+  _count?: InputMaybe<ApplicantProfileCountOrderByAggregateInput>;
+  _max?: InputMaybe<ApplicantProfileMaxOrderByAggregateInput>;
+  _min?: InputMaybe<ApplicantProfileMinOrderByAggregateInput>;
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  os?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
-  version?: InputMaybe<SortOrder>;
+  userId?: InputMaybe<SortOrder>;
 };
 
-export type AppUpdateOrderByWithRelationInput = {
+export type ApplicantProfileOrderByWithRelationInput = {
   createdAt?: InputMaybe<SortOrder>;
-  features?: InputMaybe<AppUpdateFeatureOrderByRelationAggregateInput>;
   id?: InputMaybe<SortOrder>;
-  os?: InputMaybe<SortOrder>;
+  resume?: InputMaybe<ResumeOrderByWithRelationInput>;
+  savedVacancies?: InputMaybe<VacancySavedByApplicantOrderByRelationAggregateInput>;
   updatedAt?: InputMaybe<SortOrder>;
-  version?: InputMaybe<SortOrder>;
+  user?: InputMaybe<UserOrderByWithRelationInput>;
+  userId?: InputMaybe<SortOrder>;
 };
 
-export type AppUpdateRelationFilter = {
-  is?: InputMaybe<AppUpdateWhereInput>;
-  isNot?: InputMaybe<AppUpdateWhereInput>;
+export type ApplicantProfileRelationFilter = {
+  is?: InputMaybe<ApplicantProfileWhereInput>;
+  isNot?: InputMaybe<ApplicantProfileWhereInput>;
 };
 
-export enum AppUpdateScalarFieldEnum {
+export enum ApplicantProfileScalarFieldEnum {
   CreatedAt = 'createdAt',
   Id = 'id',
-  Os = 'os',
   UpdatedAt = 'updatedAt',
-  Version = 'version'
+  UserId = 'userId'
 }
 
-export type AppUpdateScalarWhereWithAggregatesInput = {
-  AND?: InputMaybe<Array<AppUpdateScalarWhereWithAggregatesInput>>;
-  NOT?: InputMaybe<Array<AppUpdateScalarWhereWithAggregatesInput>>;
-  OR?: InputMaybe<Array<AppUpdateScalarWhereWithAggregatesInput>>;
+export type ApplicantProfileScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<ApplicantProfileScalarWhereWithAggregatesInput>>;
+  NOT?: InputMaybe<Array<ApplicantProfileScalarWhereWithAggregatesInput>>;
+  OR?: InputMaybe<Array<ApplicantProfileScalarWhereWithAggregatesInput>>;
   createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
   id?: InputMaybe<StringWithAggregatesFilter>;
-  os?: InputMaybe<EnumAppUpdateOsWithAggregatesFilter>;
   updatedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
-  version?: InputMaybe<StringWithAggregatesFilter>;
+  userId?: InputMaybe<StringWithAggregatesFilter>;
 };
 
-export type AppUpdateUpdateInput = {
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  features?: InputMaybe<AppUpdateFeatureUpdateManyWithoutAppUpdateNestedInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  os?: InputMaybe<EnumAppUpdateOsFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  version?: InputMaybe<StringFieldUpdateOperationsInput>;
-};
-
-export type AppUpdateUpdateManyMutationInput = {
+export type ApplicantProfileUpdateInput = {
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  os?: InputMaybe<EnumAppUpdateOsFieldUpdateOperationsInput>;
+  resume?: InputMaybe<ResumeUpdateOneWithoutApplicantProfileNestedInput>;
+  savedVacancies?: InputMaybe<VacancySavedByApplicantUpdateManyWithoutApplicantProfileNestedInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  version?: InputMaybe<StringFieldUpdateOperationsInput>;
+  user?: InputMaybe<UserUpdateOneRequiredWithoutApplicantProfileNestedInput>;
 };
 
-export type AppUpdateUpdateOneRequiredWithoutFeaturesNestedInput = {
-  connect?: InputMaybe<AppUpdateWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<AppUpdateCreateOrConnectWithoutFeaturesInput>;
-  create?: InputMaybe<AppUpdateCreateWithoutFeaturesInput>;
-  update?: InputMaybe<AppUpdateUpdateWithoutFeaturesInput>;
-  upsert?: InputMaybe<AppUpdateUpsertWithoutFeaturesInput>;
-};
-
-export type AppUpdateUpdateWithoutFeaturesInput = {
+export type ApplicantProfileUpdateManyMutationInput = {
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  os?: InputMaybe<EnumAppUpdateOsFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  version?: InputMaybe<StringFieldUpdateOperationsInput>;
 };
 
-export type AppUpdateUpsertWithoutFeaturesInput = {
-  create: AppUpdateCreateWithoutFeaturesInput;
-  update: AppUpdateUpdateWithoutFeaturesInput;
+export type ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput = {
+  connect?: InputMaybe<ApplicantProfileWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<ApplicantProfileCreateOrConnectWithoutResumeInput>;
+  create?: InputMaybe<ApplicantProfileCreateWithoutResumeInput>;
+  update?: InputMaybe<ApplicantProfileUpdateWithoutResumeInput>;
+  upsert?: InputMaybe<ApplicantProfileUpsertWithoutResumeInput>;
 };
 
-export type AppUpdateWhereInput = {
-  AND?: InputMaybe<Array<AppUpdateWhereInput>>;
-  NOT?: InputMaybe<Array<AppUpdateWhereInput>>;
-  OR?: InputMaybe<Array<AppUpdateWhereInput>>;
+export type ApplicantProfileUpdateOneRequiredWithoutSavedVacanciesNestedInput = {
+  connect?: InputMaybe<ApplicantProfileWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<ApplicantProfileCreateOrConnectWithoutSavedVacanciesInput>;
+  create?: InputMaybe<ApplicantProfileCreateWithoutSavedVacanciesInput>;
+  update?: InputMaybe<ApplicantProfileUpdateWithoutSavedVacanciesInput>;
+  upsert?: InputMaybe<ApplicantProfileUpsertWithoutSavedVacanciesInput>;
+};
+
+export type ApplicantProfileUpdateOneWithoutUserNestedInput = {
+  connect?: InputMaybe<ApplicantProfileWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<ApplicantProfileCreateOrConnectWithoutUserInput>;
+  create?: InputMaybe<ApplicantProfileCreateWithoutUserInput>;
+  delete?: InputMaybe<Scalars['Boolean']>;
+  disconnect?: InputMaybe<Scalars['Boolean']>;
+  update?: InputMaybe<ApplicantProfileUpdateWithoutUserInput>;
+  upsert?: InputMaybe<ApplicantProfileUpsertWithoutUserInput>;
+};
+
+export type ApplicantProfileUpdateWithoutResumeInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  savedVacancies?: InputMaybe<VacancySavedByApplicantUpdateManyWithoutApplicantProfileNestedInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  user?: InputMaybe<UserUpdateOneRequiredWithoutApplicantProfileNestedInput>;
+};
+
+export type ApplicantProfileUpdateWithoutSavedVacanciesInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  resume?: InputMaybe<ResumeUpdateOneWithoutApplicantProfileNestedInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  user?: InputMaybe<UserUpdateOneRequiredWithoutApplicantProfileNestedInput>;
+};
+
+export type ApplicantProfileUpdateWithoutUserInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  resume?: InputMaybe<ResumeUpdateOneWithoutApplicantProfileNestedInput>;
+  savedVacancies?: InputMaybe<VacancySavedByApplicantUpdateManyWithoutApplicantProfileNestedInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type ApplicantProfileUpsertWithoutResumeInput = {
+  create: ApplicantProfileCreateWithoutResumeInput;
+  update: ApplicantProfileUpdateWithoutResumeInput;
+};
+
+export type ApplicantProfileUpsertWithoutSavedVacanciesInput = {
+  create: ApplicantProfileCreateWithoutSavedVacanciesInput;
+  update: ApplicantProfileUpdateWithoutSavedVacanciesInput;
+};
+
+export type ApplicantProfileUpsertWithoutUserInput = {
+  create: ApplicantProfileCreateWithoutUserInput;
+  update: ApplicantProfileUpdateWithoutUserInput;
+};
+
+export type ApplicantProfileWhereInput = {
+  AND?: InputMaybe<Array<ApplicantProfileWhereInput>>;
+  NOT?: InputMaybe<Array<ApplicantProfileWhereInput>>;
+  OR?: InputMaybe<Array<ApplicantProfileWhereInput>>;
   createdAt?: InputMaybe<DateTimeFilter>;
-  features?: InputMaybe<AppUpdateFeatureListRelationFilter>;
   id?: InputMaybe<StringFilter>;
-  os?: InputMaybe<EnumAppUpdateOsFilter>;
+  resume?: InputMaybe<ResumeRelationFilter>;
+  savedVacancies?: InputMaybe<VacancySavedByApplicantListRelationFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
-  version?: InputMaybe<StringFilter>;
+  user?: InputMaybe<UserRelationFilter>;
+  userId?: InputMaybe<StringFilter>;
 };
 
-export type AppUpdateWhereUniqueInput = {
+export type ApplicantProfileWhereUniqueInput = {
   id?: InputMaybe<Scalars['String']>;
+  userId?: InputMaybe<Scalars['String']>;
 };
 
-export type CallSchedule = {
-  __typename?: 'CallSchedule';
-  end: Scalars['String'];
+export type Application = {
+  __typename?: 'Application';
+  addition: Scalars['JSON'];
+  createdAt: Scalars['DateTime'];
   id: Scalars['String'];
-  lessonNumber: Scalars['Int'];
-  period: Period;
-  periodId: Scalars['String'];
-  start: Scalars['String'];
+  type: ApplicationType;
 };
 
-export type CallScheduleAvgAggregate = {
-  __typename?: 'CallScheduleAvgAggregate';
-  lessonNumber?: Maybe<Scalars['Float']>;
-};
-
-export type CallScheduleAvgOrderByAggregateInput = {
-  lessonNumber?: InputMaybe<SortOrder>;
-};
-
-export type CallScheduleCountAggregate = {
-  __typename?: 'CallScheduleCountAggregate';
+export type ApplicationCountAggregate = {
+  __typename?: 'ApplicationCountAggregate';
   _all: Scalars['Int'];
-  end: Scalars['Int'];
+  addition: Scalars['Int'];
+  createdAt: Scalars['Int'];
   id: Scalars['Int'];
-  lessonNumber: Scalars['Int'];
-  periodId: Scalars['Int'];
-  start: Scalars['Int'];
+  type: Scalars['Int'];
 };
 
-export type CallScheduleCountOrderByAggregateInput = {
-  end?: InputMaybe<SortOrder>;
+export type ApplicationCountOrderByAggregateInput = {
+  addition?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  lessonNumber?: InputMaybe<SortOrder>;
-  periodId?: InputMaybe<SortOrder>;
-  start?: InputMaybe<SortOrder>;
+  type?: InputMaybe<SortOrder>;
 };
 
-export type CallScheduleCreateInput = {
-  end: Scalars['String'];
+export type ApplicationCreateInput = {
+  addition?: InputMaybe<Scalars['JSON']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
-  lessonNumber: Scalars['Int'];
-  period: PeriodCreateNestedOneWithoutCallScheduleInput;
-  start: Scalars['String'];
+  type: ApplicationType;
 };
 
-export type CallScheduleCreateManyInput = {
-  end: Scalars['String'];
+export type ApplicationCreateManyInput = {
+  addition?: InputMaybe<Scalars['JSON']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
-  lessonNumber: Scalars['Int'];
-  periodId: Scalars['String'];
-  start: Scalars['String'];
+  type: ApplicationType;
 };
 
-export type CallScheduleCreateManyPeriodInput = {
-  end: Scalars['String'];
+export type ApplicationGroupBy = {
+  __typename?: 'ApplicationGroupBy';
+  _count?: Maybe<ApplicationCountAggregate>;
+  _max?: Maybe<ApplicationMaxAggregate>;
+  _min?: Maybe<ApplicationMinAggregate>;
+  addition: Scalars['JSON'];
+  createdAt: Scalars['DateTime'];
+  id: Scalars['String'];
+  type: ApplicationType;
+};
+
+export type ApplicationMaxAggregate = {
+  __typename?: 'ApplicationMaxAggregate';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+  type?: Maybe<ApplicationType>;
+};
+
+export type ApplicationMaxOrderByAggregateInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  type?: InputMaybe<SortOrder>;
+};
+
+export type ApplicationMinAggregate = {
+  __typename?: 'ApplicationMinAggregate';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+  type?: Maybe<ApplicationType>;
+};
+
+export type ApplicationMinOrderByAggregateInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  type?: InputMaybe<SortOrder>;
+};
+
+export type ApplicationOrderByWithAggregationInput = {
+  _count?: InputMaybe<ApplicationCountOrderByAggregateInput>;
+  _max?: InputMaybe<ApplicationMaxOrderByAggregateInput>;
+  _min?: InputMaybe<ApplicationMinOrderByAggregateInput>;
+  addition?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  type?: InputMaybe<SortOrder>;
+};
+
+export type ApplicationOrderByWithRelationInput = {
+  addition?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  type?: InputMaybe<SortOrder>;
+};
+
+export enum ApplicationScalarFieldEnum {
+  Addition = 'addition',
+  CreatedAt = 'createdAt',
+  Id = 'id',
+  Type = 'type'
+}
+
+export type ApplicationScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<ApplicationScalarWhereWithAggregatesInput>>;
+  NOT?: InputMaybe<Array<ApplicationScalarWhereWithAggregatesInput>>;
+  OR?: InputMaybe<Array<ApplicationScalarWhereWithAggregatesInput>>;
+  addition?: InputMaybe<JsonWithAggregatesFilter>;
+  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  id?: InputMaybe<StringWithAggregatesFilter>;
+  type?: InputMaybe<EnumApplicationTypeWithAggregatesFilter>;
+};
+
+export enum ApplicationType {
+  FindApplicant = 'findApplicant',
+  HelpToMakeResume = 'helpToMakeResume'
+}
+
+export type ApplicationUpdateInput = {
+  addition?: InputMaybe<Scalars['JSON']>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  type?: InputMaybe<EnumApplicationTypeFieldUpdateOperationsInput>;
+};
+
+export type ApplicationUpdateManyMutationInput = {
+  addition?: InputMaybe<Scalars['JSON']>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  type?: InputMaybe<EnumApplicationTypeFieldUpdateOperationsInput>;
+};
+
+export type ApplicationWhereInput = {
+  AND?: InputMaybe<Array<ApplicationWhereInput>>;
+  NOT?: InputMaybe<Array<ApplicationWhereInput>>;
+  OR?: InputMaybe<Array<ApplicationWhereInput>>;
+  addition?: InputMaybe<JsonFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<StringFilter>;
+  type?: InputMaybe<EnumApplicationTypeFilter>;
+};
+
+export type ApplicationWhereUniqueInput = {
   id?: InputMaybe<Scalars['String']>;
-  lessonNumber: Scalars['Int'];
-  start: Scalars['String'];
 };
 
-export type CallScheduleCreateManyPeriodInputEnvelope = {
-  data: Array<CallScheduleCreateManyPeriodInput>;
+export type BoolFieldUpdateOperationsInput = {
+  set?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type BoolFilter = {
+  equals?: InputMaybe<Scalars['Boolean']>;
+  not?: InputMaybe<NestedBoolFilter>;
+};
+
+export type BoolWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntFilter>;
+  _max?: InputMaybe<NestedBoolFilter>;
+  _min?: InputMaybe<NestedBoolFilter>;
+  equals?: InputMaybe<Scalars['Boolean']>;
+  not?: InputMaybe<NestedBoolWithAggregatesFilter>;
+};
+
+export type Chat = {
+  __typename?: 'Chat';
+  _count?: Maybe<ChatCount>;
+  createdAt: Scalars['DateTime'];
+  firstUser: User;
+  firstUserId: Scalars['String'];
+  id: Scalars['String'];
+  messages: Array<ChatMessage>;
+  secondUser: User;
+  secondUserId: Scalars['String'];
+  updatedAt: Scalars['DateTime'];
+  viewedByFirst: Scalars['Boolean'];
+  viewedBySecond: Scalars['Boolean'];
+};
+
+
+export type ChatMessagesArgs = {
+  cursor?: InputMaybe<ChatMessageWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ChatMessageScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ChatMessageOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ChatMessageWhereInput>;
+};
+
+export type ChatCount = {
+  __typename?: 'ChatCount';
+  messages: Scalars['Int'];
+};
+
+export type ChatCountAggregate = {
+  __typename?: 'ChatCountAggregate';
+  _all: Scalars['Int'];
+  createdAt: Scalars['Int'];
+  firstUserId: Scalars['Int'];
+  id: Scalars['Int'];
+  secondUserId: Scalars['Int'];
+  updatedAt: Scalars['Int'];
+  viewedByFirst: Scalars['Int'];
+  viewedBySecond: Scalars['Int'];
+};
+
+export type ChatCountOrderByAggregateInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  firstUserId?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  secondUserId?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  viewedByFirst?: InputMaybe<SortOrder>;
+  viewedBySecond?: InputMaybe<SortOrder>;
+};
+
+export type ChatCreateInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  firstUser: UserCreateNestedOneWithoutChatsWithFirstUsersInput;
+  id?: InputMaybe<Scalars['String']>;
+  messages?: InputMaybe<ChatMessageCreateNestedManyWithoutChatInput>;
+  secondUser: UserCreateNestedOneWithoutChatsWithSecondUsersInput;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  viewedByFirst?: InputMaybe<Scalars['Boolean']>;
+  viewedBySecond?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type ChatCreateManyFirstUserInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  secondUserId: Scalars['String'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  viewedByFirst?: InputMaybe<Scalars['Boolean']>;
+  viewedBySecond?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type ChatCreateManyFirstUserInputEnvelope = {
+  data: Array<ChatCreateManyFirstUserInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
-export type CallScheduleCreateNestedManyWithoutPeriodInput = {
-  connect?: InputMaybe<Array<CallScheduleWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<CallScheduleCreateOrConnectWithoutPeriodInput>>;
-  create?: InputMaybe<Array<CallScheduleCreateWithoutPeriodInput>>;
-  createMany?: InputMaybe<CallScheduleCreateManyPeriodInputEnvelope>;
-};
-
-export type CallScheduleCreateOrConnectWithoutPeriodInput = {
-  create: CallScheduleCreateWithoutPeriodInput;
-  where: CallScheduleWhereUniqueInput;
-};
-
-export type CallScheduleCreateWithoutPeriodInput = {
-  end: Scalars['String'];
+export type ChatCreateManyInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  firstUserId: Scalars['String'];
   id?: InputMaybe<Scalars['String']>;
-  lessonNumber: Scalars['Int'];
-  start: Scalars['String'];
+  secondUserId: Scalars['String'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  viewedByFirst?: InputMaybe<Scalars['Boolean']>;
+  viewedBySecond?: InputMaybe<Scalars['Boolean']>;
 };
 
-export type CallScheduleGroupBy = {
-  __typename?: 'CallScheduleGroupBy';
-  _avg?: Maybe<CallScheduleAvgAggregate>;
-  _count?: Maybe<CallScheduleCountAggregate>;
-  _max?: Maybe<CallScheduleMaxAggregate>;
-  _min?: Maybe<CallScheduleMinAggregate>;
-  _sum?: Maybe<CallScheduleSumAggregate>;
-  end: Scalars['String'];
+export type ChatCreateManySecondUserInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  firstUserId: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  viewedByFirst?: InputMaybe<Scalars['Boolean']>;
+  viewedBySecond?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type ChatCreateManySecondUserInputEnvelope = {
+  data: Array<ChatCreateManySecondUserInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type ChatCreateNestedManyWithoutFirstUserInput = {
+  connect?: InputMaybe<Array<ChatWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<ChatCreateOrConnectWithoutFirstUserInput>>;
+  create?: InputMaybe<Array<ChatCreateWithoutFirstUserInput>>;
+  createMany?: InputMaybe<ChatCreateManyFirstUserInputEnvelope>;
+};
+
+export type ChatCreateNestedManyWithoutSecondUserInput = {
+  connect?: InputMaybe<Array<ChatWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<ChatCreateOrConnectWithoutSecondUserInput>>;
+  create?: InputMaybe<Array<ChatCreateWithoutSecondUserInput>>;
+  createMany?: InputMaybe<ChatCreateManySecondUserInputEnvelope>;
+};
+
+export type ChatCreateNestedOneWithoutMessagesInput = {
+  connect?: InputMaybe<ChatWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<ChatCreateOrConnectWithoutMessagesInput>;
+  create?: InputMaybe<ChatCreateWithoutMessagesInput>;
+};
+
+export type ChatCreateOrConnectWithoutFirstUserInput = {
+  create: ChatCreateWithoutFirstUserInput;
+  where: ChatWhereUniqueInput;
+};
+
+export type ChatCreateOrConnectWithoutMessagesInput = {
+  create: ChatCreateWithoutMessagesInput;
+  where: ChatWhereUniqueInput;
+};
+
+export type ChatCreateOrConnectWithoutSecondUserInput = {
+  create: ChatCreateWithoutSecondUserInput;
+  where: ChatWhereUniqueInput;
+};
+
+export type ChatCreateWithoutFirstUserInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  messages?: InputMaybe<ChatMessageCreateNestedManyWithoutChatInput>;
+  secondUser: UserCreateNestedOneWithoutChatsWithSecondUsersInput;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  viewedByFirst?: InputMaybe<Scalars['Boolean']>;
+  viewedBySecond?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type ChatCreateWithoutMessagesInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  firstUser: UserCreateNestedOneWithoutChatsWithFirstUsersInput;
+  id?: InputMaybe<Scalars['String']>;
+  secondUser: UserCreateNestedOneWithoutChatsWithSecondUsersInput;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  viewedByFirst?: InputMaybe<Scalars['Boolean']>;
+  viewedBySecond?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type ChatCreateWithoutSecondUserInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  firstUser: UserCreateNestedOneWithoutChatsWithFirstUsersInput;
+  id?: InputMaybe<Scalars['String']>;
+  messages?: InputMaybe<ChatMessageCreateNestedManyWithoutChatInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  viewedByFirst?: InputMaybe<Scalars['Boolean']>;
+  viewedBySecond?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type ChatGroupBy = {
+  __typename?: 'ChatGroupBy';
+  _count?: Maybe<ChatCountAggregate>;
+  _max?: Maybe<ChatMaxAggregate>;
+  _min?: Maybe<ChatMinAggregate>;
+  createdAt: Scalars['DateTime'];
+  firstUserId: Scalars['String'];
   id: Scalars['String'];
-  lessonNumber: Scalars['Int'];
-  periodId: Scalars['String'];
-  start: Scalars['String'];
+  secondUserId: Scalars['String'];
+  updatedAt: Scalars['DateTime'];
+  viewedByFirst: Scalars['Boolean'];
+  viewedBySecond: Scalars['Boolean'];
 };
 
-export type CallScheduleListRelationFilter = {
-  every?: InputMaybe<CallScheduleWhereInput>;
-  none?: InputMaybe<CallScheduleWhereInput>;
-  some?: InputMaybe<CallScheduleWhereInput>;
+export type ChatListRelationFilter = {
+  every?: InputMaybe<ChatWhereInput>;
+  none?: InputMaybe<ChatWhereInput>;
+  some?: InputMaybe<ChatWhereInput>;
 };
 
-export type CallScheduleMaxAggregate = {
-  __typename?: 'CallScheduleMaxAggregate';
-  end?: Maybe<Scalars['String']>;
+export type ChatMaxAggregate = {
+  __typename?: 'ChatMaxAggregate';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  firstUserId?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
-  lessonNumber?: Maybe<Scalars['Int']>;
-  periodId?: Maybe<Scalars['String']>;
-  start?: Maybe<Scalars['String']>;
+  secondUserId?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  viewedByFirst?: Maybe<Scalars['Boolean']>;
+  viewedBySecond?: Maybe<Scalars['Boolean']>;
 };
 
-export type CallScheduleMaxOrderByAggregateInput = {
-  end?: InputMaybe<SortOrder>;
+export type ChatMaxOrderByAggregateInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  firstUserId?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  lessonNumber?: InputMaybe<SortOrder>;
-  periodId?: InputMaybe<SortOrder>;
-  start?: InputMaybe<SortOrder>;
+  secondUserId?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  viewedByFirst?: InputMaybe<SortOrder>;
+  viewedBySecond?: InputMaybe<SortOrder>;
 };
 
-export type CallScheduleMinAggregate = {
-  __typename?: 'CallScheduleMinAggregate';
-  end?: Maybe<Scalars['String']>;
+export type ChatMessage = {
+  __typename?: 'ChatMessage';
+  chat: Chat;
+  chatId: Scalars['String'];
+  createdAt: Scalars['DateTime'];
+  id: Scalars['String'];
+  message: Scalars['String'];
+};
+
+export type ChatMessageCountAggregate = {
+  __typename?: 'ChatMessageCountAggregate';
+  _all: Scalars['Int'];
+  chatId: Scalars['Int'];
+  createdAt: Scalars['Int'];
+  id: Scalars['Int'];
+  message: Scalars['Int'];
+};
+
+export type ChatMessageCountOrderByAggregateInput = {
+  chatId?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  message?: InputMaybe<SortOrder>;
+};
+
+export type ChatMessageCreateInput = {
+  chat: ChatCreateNestedOneWithoutMessagesInput;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  message: Scalars['String'];
+};
+
+export type ChatMessageCreateManyChatInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  message: Scalars['String'];
+};
+
+export type ChatMessageCreateManyChatInputEnvelope = {
+  data: Array<ChatMessageCreateManyChatInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type ChatMessageCreateManyInput = {
+  chatId: Scalars['String'];
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  message: Scalars['String'];
+};
+
+export type ChatMessageCreateNestedManyWithoutChatInput = {
+  connect?: InputMaybe<Array<ChatMessageWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<ChatMessageCreateOrConnectWithoutChatInput>>;
+  create?: InputMaybe<Array<ChatMessageCreateWithoutChatInput>>;
+  createMany?: InputMaybe<ChatMessageCreateManyChatInputEnvelope>;
+};
+
+export type ChatMessageCreateOrConnectWithoutChatInput = {
+  create: ChatMessageCreateWithoutChatInput;
+  where: ChatMessageWhereUniqueInput;
+};
+
+export type ChatMessageCreateWithoutChatInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  message: Scalars['String'];
+};
+
+export type ChatMessageGroupBy = {
+  __typename?: 'ChatMessageGroupBy';
+  _count?: Maybe<ChatMessageCountAggregate>;
+  _max?: Maybe<ChatMessageMaxAggregate>;
+  _min?: Maybe<ChatMessageMinAggregate>;
+  chatId: Scalars['String'];
+  createdAt: Scalars['DateTime'];
+  id: Scalars['String'];
+  message: Scalars['String'];
+};
+
+export type ChatMessageListRelationFilter = {
+  every?: InputMaybe<ChatMessageWhereInput>;
+  none?: InputMaybe<ChatMessageWhereInput>;
+  some?: InputMaybe<ChatMessageWhereInput>;
+};
+
+export type ChatMessageMaxAggregate = {
+  __typename?: 'ChatMessageMaxAggregate';
+  chatId?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['String']>;
-  lessonNumber?: Maybe<Scalars['Int']>;
-  periodId?: Maybe<Scalars['String']>;
-  start?: Maybe<Scalars['String']>;
+  message?: Maybe<Scalars['String']>;
 };
 
-export type CallScheduleMinOrderByAggregateInput = {
-  end?: InputMaybe<SortOrder>;
+export type ChatMessageMaxOrderByAggregateInput = {
+  chatId?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  lessonNumber?: InputMaybe<SortOrder>;
-  periodId?: InputMaybe<SortOrder>;
-  start?: InputMaybe<SortOrder>;
+  message?: InputMaybe<SortOrder>;
 };
 
-export type CallScheduleOrderByRelationAggregateInput = {
+export type ChatMessageMinAggregate = {
+  __typename?: 'ChatMessageMinAggregate';
+  chatId?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+  message?: Maybe<Scalars['String']>;
+};
+
+export type ChatMessageMinOrderByAggregateInput = {
+  chatId?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  message?: InputMaybe<SortOrder>;
+};
+
+export type ChatMessageOrderByRelationAggregateInput = {
   _count?: InputMaybe<SortOrder>;
 };
 
-export type CallScheduleOrderByWithAggregationInput = {
-  _avg?: InputMaybe<CallScheduleAvgOrderByAggregateInput>;
-  _count?: InputMaybe<CallScheduleCountOrderByAggregateInput>;
-  _max?: InputMaybe<CallScheduleMaxOrderByAggregateInput>;
-  _min?: InputMaybe<CallScheduleMinOrderByAggregateInput>;
-  _sum?: InputMaybe<CallScheduleSumOrderByAggregateInput>;
-  end?: InputMaybe<SortOrder>;
+export type ChatMessageOrderByWithAggregationInput = {
+  _count?: InputMaybe<ChatMessageCountOrderByAggregateInput>;
+  _max?: InputMaybe<ChatMessageMaxOrderByAggregateInput>;
+  _min?: InputMaybe<ChatMessageMinOrderByAggregateInput>;
+  chatId?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  lessonNumber?: InputMaybe<SortOrder>;
-  periodId?: InputMaybe<SortOrder>;
-  start?: InputMaybe<SortOrder>;
+  message?: InputMaybe<SortOrder>;
 };
 
-export type CallScheduleOrderByWithRelationInput = {
-  end?: InputMaybe<SortOrder>;
+export type ChatMessageOrderByWithRelationInput = {
+  chat?: InputMaybe<ChatOrderByWithRelationInput>;
+  chatId?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  lessonNumber?: InputMaybe<SortOrder>;
-  period?: InputMaybe<PeriodOrderByWithRelationInput>;
-  periodId?: InputMaybe<SortOrder>;
-  start?: InputMaybe<SortOrder>;
+  message?: InputMaybe<SortOrder>;
 };
 
-export enum CallScheduleScalarFieldEnum {
-  End = 'end',
+export enum ChatMessageScalarFieldEnum {
+  ChatId = 'chatId',
+  CreatedAt = 'createdAt',
   Id = 'id',
-  LessonNumber = 'lessonNumber',
-  PeriodId = 'periodId',
-  Start = 'start'
+  Message = 'message'
 }
 
-export type CallScheduleScalarWhereInput = {
-  AND?: InputMaybe<Array<CallScheduleScalarWhereInput>>;
-  NOT?: InputMaybe<Array<CallScheduleScalarWhereInput>>;
-  OR?: InputMaybe<Array<CallScheduleScalarWhereInput>>;
-  end?: InputMaybe<StringFilter>;
+export type ChatMessageScalarWhereInput = {
+  AND?: InputMaybe<Array<ChatMessageScalarWhereInput>>;
+  NOT?: InputMaybe<Array<ChatMessageScalarWhereInput>>;
+  OR?: InputMaybe<Array<ChatMessageScalarWhereInput>>;
+  chatId?: InputMaybe<StringFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
   id?: InputMaybe<StringFilter>;
-  lessonNumber?: InputMaybe<IntFilter>;
-  periodId?: InputMaybe<StringFilter>;
-  start?: InputMaybe<StringFilter>;
+  message?: InputMaybe<StringFilter>;
 };
 
-export type CallScheduleScalarWhereWithAggregatesInput = {
-  AND?: InputMaybe<Array<CallScheduleScalarWhereWithAggregatesInput>>;
-  NOT?: InputMaybe<Array<CallScheduleScalarWhereWithAggregatesInput>>;
-  OR?: InputMaybe<Array<CallScheduleScalarWhereWithAggregatesInput>>;
-  end?: InputMaybe<StringWithAggregatesFilter>;
+export type ChatMessageScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<ChatMessageScalarWhereWithAggregatesInput>>;
+  NOT?: InputMaybe<Array<ChatMessageScalarWhereWithAggregatesInput>>;
+  OR?: InputMaybe<Array<ChatMessageScalarWhereWithAggregatesInput>>;
+  chatId?: InputMaybe<StringWithAggregatesFilter>;
+  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
   id?: InputMaybe<StringWithAggregatesFilter>;
-  lessonNumber?: InputMaybe<IntWithAggregatesFilter>;
-  periodId?: InputMaybe<StringWithAggregatesFilter>;
-  start?: InputMaybe<StringWithAggregatesFilter>;
+  message?: InputMaybe<StringWithAggregatesFilter>;
 };
 
-export type CallScheduleSumAggregate = {
-  __typename?: 'CallScheduleSumAggregate';
-  lessonNumber?: Maybe<Scalars['Int']>;
-};
-
-export type CallScheduleSumOrderByAggregateInput = {
-  lessonNumber?: InputMaybe<SortOrder>;
-};
-
-export type CallScheduleUpdateInput = {
-  end?: InputMaybe<StringFieldUpdateOperationsInput>;
+export type ChatMessageUpdateInput = {
+  chat?: InputMaybe<ChatUpdateOneRequiredWithoutMessagesNestedInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  lessonNumber?: InputMaybe<IntFieldUpdateOperationsInput>;
-  period?: InputMaybe<PeriodUpdateOneRequiredWithoutCallScheduleNestedInput>;
-  start?: InputMaybe<StringFieldUpdateOperationsInput>;
+  message?: InputMaybe<StringFieldUpdateOperationsInput>;
 };
 
-export type CallScheduleUpdateManyMutationInput = {
-  end?: InputMaybe<StringFieldUpdateOperationsInput>;
+export type ChatMessageUpdateManyMutationInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  lessonNumber?: InputMaybe<IntFieldUpdateOperationsInput>;
-  start?: InputMaybe<StringFieldUpdateOperationsInput>;
+  message?: InputMaybe<StringFieldUpdateOperationsInput>;
 };
 
-export type CallScheduleUpdateManyWithWhereWithoutPeriodInput = {
-  data: CallScheduleUpdateManyMutationInput;
-  where: CallScheduleScalarWhereInput;
+export type ChatMessageUpdateManyWithWhereWithoutChatInput = {
+  data: ChatMessageUpdateManyMutationInput;
+  where: ChatMessageScalarWhereInput;
 };
 
-export type CallScheduleUpdateManyWithoutPeriodNestedInput = {
-  connect?: InputMaybe<Array<CallScheduleWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<CallScheduleCreateOrConnectWithoutPeriodInput>>;
-  create?: InputMaybe<Array<CallScheduleCreateWithoutPeriodInput>>;
-  createMany?: InputMaybe<CallScheduleCreateManyPeriodInputEnvelope>;
-  delete?: InputMaybe<Array<CallScheduleWhereUniqueInput>>;
-  deleteMany?: InputMaybe<Array<CallScheduleScalarWhereInput>>;
-  disconnect?: InputMaybe<Array<CallScheduleWhereUniqueInput>>;
-  set?: InputMaybe<Array<CallScheduleWhereUniqueInput>>;
-  update?: InputMaybe<Array<CallScheduleUpdateWithWhereUniqueWithoutPeriodInput>>;
-  updateMany?: InputMaybe<Array<CallScheduleUpdateManyWithWhereWithoutPeriodInput>>;
-  upsert?: InputMaybe<Array<CallScheduleUpsertWithWhereUniqueWithoutPeriodInput>>;
+export type ChatMessageUpdateManyWithoutChatNestedInput = {
+  connect?: InputMaybe<Array<ChatMessageWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<ChatMessageCreateOrConnectWithoutChatInput>>;
+  create?: InputMaybe<Array<ChatMessageCreateWithoutChatInput>>;
+  createMany?: InputMaybe<ChatMessageCreateManyChatInputEnvelope>;
+  delete?: InputMaybe<Array<ChatMessageWhereUniqueInput>>;
+  deleteMany?: InputMaybe<Array<ChatMessageScalarWhereInput>>;
+  disconnect?: InputMaybe<Array<ChatMessageWhereUniqueInput>>;
+  set?: InputMaybe<Array<ChatMessageWhereUniqueInput>>;
+  update?: InputMaybe<Array<ChatMessageUpdateWithWhereUniqueWithoutChatInput>>;
+  updateMany?: InputMaybe<Array<ChatMessageUpdateManyWithWhereWithoutChatInput>>;
+  upsert?: InputMaybe<Array<ChatMessageUpsertWithWhereUniqueWithoutChatInput>>;
 };
 
-export type CallScheduleUpdateWithWhereUniqueWithoutPeriodInput = {
-  data: CallScheduleUpdateWithoutPeriodInput;
-  where: CallScheduleWhereUniqueInput;
+export type ChatMessageUpdateWithWhereUniqueWithoutChatInput = {
+  data: ChatMessageUpdateWithoutChatInput;
+  where: ChatMessageWhereUniqueInput;
 };
 
-export type CallScheduleUpdateWithoutPeriodInput = {
-  end?: InputMaybe<StringFieldUpdateOperationsInput>;
+export type ChatMessageUpdateWithoutChatInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  lessonNumber?: InputMaybe<IntFieldUpdateOperationsInput>;
-  start?: InputMaybe<StringFieldUpdateOperationsInput>;
+  message?: InputMaybe<StringFieldUpdateOperationsInput>;
 };
 
-export type CallScheduleUpsertWithWhereUniqueWithoutPeriodInput = {
-  create: CallScheduleCreateWithoutPeriodInput;
-  update: CallScheduleUpdateWithoutPeriodInput;
-  where: CallScheduleWhereUniqueInput;
+export type ChatMessageUpsertWithWhereUniqueWithoutChatInput = {
+  create: ChatMessageCreateWithoutChatInput;
+  update: ChatMessageUpdateWithoutChatInput;
+  where: ChatMessageWhereUniqueInput;
 };
 
-export type CallScheduleWhereInput = {
-  AND?: InputMaybe<Array<CallScheduleWhereInput>>;
-  NOT?: InputMaybe<Array<CallScheduleWhereInput>>;
-  OR?: InputMaybe<Array<CallScheduleWhereInput>>;
-  end?: InputMaybe<StringFilter>;
+export type ChatMessageWhereInput = {
+  AND?: InputMaybe<Array<ChatMessageWhereInput>>;
+  NOT?: InputMaybe<Array<ChatMessageWhereInput>>;
+  OR?: InputMaybe<Array<ChatMessageWhereInput>>;
+  chat?: InputMaybe<ChatRelationFilter>;
+  chatId?: InputMaybe<StringFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
   id?: InputMaybe<StringFilter>;
-  lessonNumber?: InputMaybe<IntFilter>;
-  period?: InputMaybe<PeriodRelationFilter>;
-  periodId?: InputMaybe<StringFilter>;
-  start?: InputMaybe<StringFilter>;
+  message?: InputMaybe<StringFilter>;
 };
 
-export type CallScheduleWhereUniqueInput = {
+export type ChatMessageWhereUniqueInput = {
   id?: InputMaybe<Scalars['String']>;
+};
+
+export type ChatMinAggregate = {
+  __typename?: 'ChatMinAggregate';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  firstUserId?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  secondUserId?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  viewedByFirst?: Maybe<Scalars['Boolean']>;
+  viewedBySecond?: Maybe<Scalars['Boolean']>;
+};
+
+export type ChatMinOrderByAggregateInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  firstUserId?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  secondUserId?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  viewedByFirst?: InputMaybe<SortOrder>;
+  viewedBySecond?: InputMaybe<SortOrder>;
+};
+
+export type ChatOrderByRelationAggregateInput = {
+  _count?: InputMaybe<SortOrder>;
+};
+
+export type ChatOrderByWithAggregationInput = {
+  _count?: InputMaybe<ChatCountOrderByAggregateInput>;
+  _max?: InputMaybe<ChatMaxOrderByAggregateInput>;
+  _min?: InputMaybe<ChatMinOrderByAggregateInput>;
+  createdAt?: InputMaybe<SortOrder>;
+  firstUserId?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  secondUserId?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  viewedByFirst?: InputMaybe<SortOrder>;
+  viewedBySecond?: InputMaybe<SortOrder>;
+};
+
+export type ChatOrderByWithRelationInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  firstUser?: InputMaybe<UserOrderByWithRelationInput>;
+  firstUserId?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  messages?: InputMaybe<ChatMessageOrderByRelationAggregateInput>;
+  secondUser?: InputMaybe<UserOrderByWithRelationInput>;
+  secondUserId?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  viewedByFirst?: InputMaybe<SortOrder>;
+  viewedBySecond?: InputMaybe<SortOrder>;
+};
+
+export type ChatRelationFilter = {
+  is?: InputMaybe<ChatWhereInput>;
+  isNot?: InputMaybe<ChatWhereInput>;
+};
+
+export enum ChatScalarFieldEnum {
+  CreatedAt = 'createdAt',
+  FirstUserId = 'firstUserId',
+  Id = 'id',
+  SecondUserId = 'secondUserId',
+  UpdatedAt = 'updatedAt',
+  ViewedByFirst = 'viewedByFirst',
+  ViewedBySecond = 'viewedBySecond'
+}
+
+export type ChatScalarWhereInput = {
+  AND?: InputMaybe<Array<ChatScalarWhereInput>>;
+  NOT?: InputMaybe<Array<ChatScalarWhereInput>>;
+  OR?: InputMaybe<Array<ChatScalarWhereInput>>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  firstUserId?: InputMaybe<StringFilter>;
+  id?: InputMaybe<StringFilter>;
+  secondUserId?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  viewedByFirst?: InputMaybe<BoolFilter>;
+  viewedBySecond?: InputMaybe<BoolFilter>;
+};
+
+export type ChatScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<ChatScalarWhereWithAggregatesInput>>;
+  NOT?: InputMaybe<Array<ChatScalarWhereWithAggregatesInput>>;
+  OR?: InputMaybe<Array<ChatScalarWhereWithAggregatesInput>>;
+  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  firstUserId?: InputMaybe<StringWithAggregatesFilter>;
+  id?: InputMaybe<StringWithAggregatesFilter>;
+  secondUserId?: InputMaybe<StringWithAggregatesFilter>;
+  updatedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  viewedByFirst?: InputMaybe<BoolWithAggregatesFilter>;
+  viewedBySecond?: InputMaybe<BoolWithAggregatesFilter>;
+};
+
+export type ChatUpdateInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  firstUser?: InputMaybe<UserUpdateOneRequiredWithoutChatsWithFirstUsersNestedInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  messages?: InputMaybe<ChatMessageUpdateManyWithoutChatNestedInput>;
+  secondUser?: InputMaybe<UserUpdateOneRequiredWithoutChatsWithSecondUsersNestedInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  viewedByFirst?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  viewedBySecond?: InputMaybe<BoolFieldUpdateOperationsInput>;
+};
+
+export type ChatUpdateManyMutationInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  viewedByFirst?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  viewedBySecond?: InputMaybe<BoolFieldUpdateOperationsInput>;
+};
+
+export type ChatUpdateManyWithWhereWithoutFirstUserInput = {
+  data: ChatUpdateManyMutationInput;
+  where: ChatScalarWhereInput;
+};
+
+export type ChatUpdateManyWithWhereWithoutSecondUserInput = {
+  data: ChatUpdateManyMutationInput;
+  where: ChatScalarWhereInput;
+};
+
+export type ChatUpdateManyWithoutFirstUserNestedInput = {
+  connect?: InputMaybe<Array<ChatWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<ChatCreateOrConnectWithoutFirstUserInput>>;
+  create?: InputMaybe<Array<ChatCreateWithoutFirstUserInput>>;
+  createMany?: InputMaybe<ChatCreateManyFirstUserInputEnvelope>;
+  delete?: InputMaybe<Array<ChatWhereUniqueInput>>;
+  deleteMany?: InputMaybe<Array<ChatScalarWhereInput>>;
+  disconnect?: InputMaybe<Array<ChatWhereUniqueInput>>;
+  set?: InputMaybe<Array<ChatWhereUniqueInput>>;
+  update?: InputMaybe<Array<ChatUpdateWithWhereUniqueWithoutFirstUserInput>>;
+  updateMany?: InputMaybe<Array<ChatUpdateManyWithWhereWithoutFirstUserInput>>;
+  upsert?: InputMaybe<Array<ChatUpsertWithWhereUniqueWithoutFirstUserInput>>;
+};
+
+export type ChatUpdateManyWithoutSecondUserNestedInput = {
+  connect?: InputMaybe<Array<ChatWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<ChatCreateOrConnectWithoutSecondUserInput>>;
+  create?: InputMaybe<Array<ChatCreateWithoutSecondUserInput>>;
+  createMany?: InputMaybe<ChatCreateManySecondUserInputEnvelope>;
+  delete?: InputMaybe<Array<ChatWhereUniqueInput>>;
+  deleteMany?: InputMaybe<Array<ChatScalarWhereInput>>;
+  disconnect?: InputMaybe<Array<ChatWhereUniqueInput>>;
+  set?: InputMaybe<Array<ChatWhereUniqueInput>>;
+  update?: InputMaybe<Array<ChatUpdateWithWhereUniqueWithoutSecondUserInput>>;
+  updateMany?: InputMaybe<Array<ChatUpdateManyWithWhereWithoutSecondUserInput>>;
+  upsert?: InputMaybe<Array<ChatUpsertWithWhereUniqueWithoutSecondUserInput>>;
+};
+
+export type ChatUpdateOneRequiredWithoutMessagesNestedInput = {
+  connect?: InputMaybe<ChatWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<ChatCreateOrConnectWithoutMessagesInput>;
+  create?: InputMaybe<ChatCreateWithoutMessagesInput>;
+  update?: InputMaybe<ChatUpdateWithoutMessagesInput>;
+  upsert?: InputMaybe<ChatUpsertWithoutMessagesInput>;
+};
+
+export type ChatUpdateWithWhereUniqueWithoutFirstUserInput = {
+  data: ChatUpdateWithoutFirstUserInput;
+  where: ChatWhereUniqueInput;
+};
+
+export type ChatUpdateWithWhereUniqueWithoutSecondUserInput = {
+  data: ChatUpdateWithoutSecondUserInput;
+  where: ChatWhereUniqueInput;
+};
+
+export type ChatUpdateWithoutFirstUserInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  messages?: InputMaybe<ChatMessageUpdateManyWithoutChatNestedInput>;
+  secondUser?: InputMaybe<UserUpdateOneRequiredWithoutChatsWithSecondUsersNestedInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  viewedByFirst?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  viewedBySecond?: InputMaybe<BoolFieldUpdateOperationsInput>;
+};
+
+export type ChatUpdateWithoutMessagesInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  firstUser?: InputMaybe<UserUpdateOneRequiredWithoutChatsWithFirstUsersNestedInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  secondUser?: InputMaybe<UserUpdateOneRequiredWithoutChatsWithSecondUsersNestedInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  viewedByFirst?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  viewedBySecond?: InputMaybe<BoolFieldUpdateOperationsInput>;
+};
+
+export type ChatUpdateWithoutSecondUserInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  firstUser?: InputMaybe<UserUpdateOneRequiredWithoutChatsWithFirstUsersNestedInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  messages?: InputMaybe<ChatMessageUpdateManyWithoutChatNestedInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  viewedByFirst?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  viewedBySecond?: InputMaybe<BoolFieldUpdateOperationsInput>;
+};
+
+export type ChatUpsertWithWhereUniqueWithoutFirstUserInput = {
+  create: ChatCreateWithoutFirstUserInput;
+  update: ChatUpdateWithoutFirstUserInput;
+  where: ChatWhereUniqueInput;
+};
+
+export type ChatUpsertWithWhereUniqueWithoutSecondUserInput = {
+  create: ChatCreateWithoutSecondUserInput;
+  update: ChatUpdateWithoutSecondUserInput;
+  where: ChatWhereUniqueInput;
+};
+
+export type ChatUpsertWithoutMessagesInput = {
+  create: ChatCreateWithoutMessagesInput;
+  update: ChatUpdateWithoutMessagesInput;
+};
+
+export type ChatWhereInput = {
+  AND?: InputMaybe<Array<ChatWhereInput>>;
+  NOT?: InputMaybe<Array<ChatWhereInput>>;
+  OR?: InputMaybe<Array<ChatWhereInput>>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  firstUser?: InputMaybe<UserRelationFilter>;
+  firstUserId?: InputMaybe<StringFilter>;
+  id?: InputMaybe<StringFilter>;
+  messages?: InputMaybe<ChatMessageListRelationFilter>;
+  secondUser?: InputMaybe<UserRelationFilter>;
+  secondUserId?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  viewedByFirst?: InputMaybe<BoolFilter>;
+  viewedBySecond?: InputMaybe<BoolFilter>;
+};
+
+export type ChatWhereUniqueInput = {
+  id?: InputMaybe<Scalars['String']>;
+};
+
+export type CheckAuthenticatedOutput = {
+  __typename?: 'CheckAuthenticatedOutput';
+  accessToken?: Maybe<Scalars['String']>;
+  authenticated: Scalars['Boolean'];
+};
+
+export type CreateAndLoginUserInput = {
+  authToken: Scalars['String'];
+  data: CreateAndLoginUserInputData;
+};
+
+export type CreateAndLoginUserInputData = {
+  role: Scalars['String'];
 };
 
 export type DateTimeFieldUpdateOperationsInput = {
@@ -838,31 +1956,6 @@ export type DateTimeFilter = {
   notIn?: InputMaybe<Array<Scalars['DateTime']>>;
 };
 
-export type DateTimeNullableFilter = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  gt?: InputMaybe<Scalars['DateTime']>;
-  gte?: InputMaybe<Scalars['DateTime']>;
-  in?: InputMaybe<Array<Scalars['DateTime']>>;
-  lt?: InputMaybe<Scalars['DateTime']>;
-  lte?: InputMaybe<Scalars['DateTime']>;
-  not?: InputMaybe<NestedDateTimeNullableFilter>;
-  notIn?: InputMaybe<Array<Scalars['DateTime']>>;
-};
-
-export type DateTimeNullableWithAggregatesFilter = {
-  _count?: InputMaybe<NestedIntNullableFilter>;
-  _max?: InputMaybe<NestedDateTimeNullableFilter>;
-  _min?: InputMaybe<NestedDateTimeNullableFilter>;
-  equals?: InputMaybe<Scalars['DateTime']>;
-  gt?: InputMaybe<Scalars['DateTime']>;
-  gte?: InputMaybe<Scalars['DateTime']>;
-  in?: InputMaybe<Array<Scalars['DateTime']>>;
-  lt?: InputMaybe<Scalars['DateTime']>;
-  lte?: InputMaybe<Scalars['DateTime']>;
-  not?: InputMaybe<NestedDateTimeNullableWithAggregatesFilter>;
-  notIn?: InputMaybe<Array<Scalars['DateTime']>>;
-};
-
 export type DateTimeWithAggregatesFilter = {
   _count?: InputMaybe<NestedIntFilter>;
   _max?: InputMaybe<NestedDateTimeFilter>;
@@ -877,676 +1970,400 @@ export type DateTimeWithAggregatesFilter = {
   notIn?: InputMaybe<Array<Scalars['DateTime']>>;
 };
 
-export type EnumAppUpdateOsFieldUpdateOperationsInput = {
-  set?: InputMaybe<AppUpdateOs>;
-};
-
-export type EnumAppUpdateOsFilter = {
-  equals?: InputMaybe<AppUpdateOs>;
-  in?: InputMaybe<Array<AppUpdateOs>>;
-  not?: InputMaybe<NestedEnumAppUpdateOsFilter>;
-  notIn?: InputMaybe<Array<AppUpdateOs>>;
-};
-
-export type EnumAppUpdateOsWithAggregatesFilter = {
-  _count?: InputMaybe<NestedIntFilter>;
-  _max?: InputMaybe<NestedEnumAppUpdateOsFilter>;
-  _min?: InputMaybe<NestedEnumAppUpdateOsFilter>;
-  equals?: InputMaybe<AppUpdateOs>;
-  in?: InputMaybe<Array<AppUpdateOs>>;
-  not?: InputMaybe<NestedEnumAppUpdateOsWithAggregatesFilter>;
-  notIn?: InputMaybe<Array<AppUpdateOs>>;
-};
-
-export type EnumPeriodTypeFieldUpdateOperationsInput = {
-  set?: InputMaybe<PeriodType>;
-};
-
-export type EnumPeriodTypeFilter = {
-  equals?: InputMaybe<PeriodType>;
-  in?: InputMaybe<Array<PeriodType>>;
-  not?: InputMaybe<NestedEnumPeriodTypeFilter>;
-  notIn?: InputMaybe<Array<PeriodType>>;
-};
-
-export type EnumPeriodTypeWithAggregatesFilter = {
-  _count?: InputMaybe<NestedIntFilter>;
-  _max?: InputMaybe<NestedEnumPeriodTypeFilter>;
-  _min?: InputMaybe<NestedEnumPeriodTypeFilter>;
-  equals?: InputMaybe<PeriodType>;
-  in?: InputMaybe<Array<PeriodType>>;
-  not?: InputMaybe<NestedEnumPeriodTypeWithAggregatesFilter>;
-  notIn?: InputMaybe<Array<PeriodType>>;
-};
-
-export type EnumSubgroupFieldUpdateOperationsInput = {
-  set?: InputMaybe<Subgroup>;
-};
-
-export type EnumSubgroupFilter = {
-  equals?: InputMaybe<Subgroup>;
-  in?: InputMaybe<Array<Subgroup>>;
-  not?: InputMaybe<NestedEnumSubgroupFilter>;
-  notIn?: InputMaybe<Array<Subgroup>>;
-};
-
-export type EnumSubgroupWithAggregatesFilter = {
-  _count?: InputMaybe<NestedIntFilter>;
-  _max?: InputMaybe<NestedEnumSubgroupFilter>;
-  _min?: InputMaybe<NestedEnumSubgroupFilter>;
-  equals?: InputMaybe<Subgroup>;
-  in?: InputMaybe<Array<Subgroup>>;
-  not?: InputMaybe<NestedEnumSubgroupWithAggregatesFilter>;
-  notIn?: InputMaybe<Array<Subgroup>>;
-};
-
-export type EnumWeekDayFieldUpdateOperationsInput = {
-  set?: InputMaybe<WeekDay>;
-};
-
-export type EnumWeekDayFilter = {
-  equals?: InputMaybe<WeekDay>;
-  in?: InputMaybe<Array<WeekDay>>;
-  not?: InputMaybe<NestedEnumWeekDayFilter>;
-  notIn?: InputMaybe<Array<WeekDay>>;
-};
-
-export type EnumWeekDayWithAggregatesFilter = {
-  _count?: InputMaybe<NestedIntFilter>;
-  _max?: InputMaybe<NestedEnumWeekDayFilter>;
-  _min?: InputMaybe<NestedEnumWeekDayFilter>;
-  equals?: InputMaybe<WeekDay>;
-  in?: InputMaybe<Array<WeekDay>>;
-  not?: InputMaybe<NestedEnumWeekDayWithAggregatesFilter>;
-  notIn?: InputMaybe<Array<WeekDay>>;
-};
-
-export type EnumWeeksTypeFieldUpdateOperationsInput = {
-  set?: InputMaybe<WeeksType>;
-};
-
-export type EnumWeeksTypeFilter = {
-  equals?: InputMaybe<WeeksType>;
-  in?: InputMaybe<Array<WeeksType>>;
-  not?: InputMaybe<NestedEnumWeeksTypeFilter>;
-  notIn?: InputMaybe<Array<WeeksType>>;
-};
-
-export type EnumWeeksTypeWithAggregatesFilter = {
-  _count?: InputMaybe<NestedIntFilter>;
-  _max?: InputMaybe<NestedEnumWeeksTypeFilter>;
-  _min?: InputMaybe<NestedEnumWeeksTypeFilter>;
-  equals?: InputMaybe<WeeksType>;
-  in?: InputMaybe<Array<WeeksType>>;
-  not?: InputMaybe<NestedEnumWeeksTypeWithAggregatesFilter>;
-  notIn?: InputMaybe<Array<WeeksType>>;
-};
-
-export type Faculty = {
-  __typename?: 'Faculty';
-  _count?: Maybe<FacultyCount>;
+export type EmployerProfile = {
+  __typename?: 'EmployerProfile';
+  _count?: Maybe<EmployerProfileCount>;
+  companyName: Scalars['String'];
   createdAt: Scalars['DateTime'];
-  groups: Array<Group>;
+  description: Scalars['String'];
   id: Scalars['String'];
-  title: Scalars['String'];
+  savedResumes: Array<ResumeSavedByEmployer>;
   updatedAt: Scalars['DateTime'];
+  user: User;
+  userId: Scalars['String'];
+  vacancies: Array<Vacancy>;
 };
 
 
-export type FacultyGroupsArgs = {
-  cursor?: InputMaybe<GroupWhereUniqueInput>;
-  distinct?: InputMaybe<Array<GroupScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<GroupOrderByWithRelationInput>>;
+export type EmployerProfileSavedResumesArgs = {
+  cursor?: InputMaybe<ResumeSavedByEmployerWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ResumeSavedByEmployerScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ResumeSavedByEmployerOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<GroupWhereInput>;
-};
-
-export type FacultyCount = {
-  __typename?: 'FacultyCount';
-  groups: Scalars['Int'];
-};
-
-export type FacultyCountAggregate = {
-  __typename?: 'FacultyCountAggregate';
-  _all: Scalars['Int'];
-  createdAt: Scalars['Int'];
-  id: Scalars['Int'];
-  title: Scalars['Int'];
-  updatedAt: Scalars['Int'];
-};
-
-export type FacultyCountOrderByAggregateInput = {
-  createdAt?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-};
-
-export type FacultyCreateInput = {
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  groups?: InputMaybe<GroupCreateNestedManyWithoutFacultyInput>;
-  id?: InputMaybe<Scalars['String']>;
-  title: Scalars['String'];
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type FacultyCreateManyInput = {
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  id?: InputMaybe<Scalars['String']>;
-  title: Scalars['String'];
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type FacultyCreateNestedOneWithoutGroupsInput = {
-  connect?: InputMaybe<FacultyWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<FacultyCreateOrConnectWithoutGroupsInput>;
-  create?: InputMaybe<FacultyCreateWithoutGroupsInput>;
-};
-
-export type FacultyCreateOrConnectWithoutGroupsInput = {
-  create: FacultyCreateWithoutGroupsInput;
-  where: FacultyWhereUniqueInput;
-};
-
-export type FacultyCreateWithoutGroupsInput = {
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  id?: InputMaybe<Scalars['String']>;
-  title: Scalars['String'];
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type FacultyGroupBy = {
-  __typename?: 'FacultyGroupBy';
-  _count?: Maybe<FacultyCountAggregate>;
-  _max?: Maybe<FacultyMaxAggregate>;
-  _min?: Maybe<FacultyMinAggregate>;
-  createdAt: Scalars['DateTime'];
-  id: Scalars['String'];
-  title: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
-};
-
-export type FacultyMaxAggregate = {
-  __typename?: 'FacultyMaxAggregate';
-  createdAt?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-export type FacultyMaxOrderByAggregateInput = {
-  createdAt?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-};
-
-export type FacultyMinAggregate = {
-  __typename?: 'FacultyMinAggregate';
-  createdAt?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-export type FacultyMinOrderByAggregateInput = {
-  createdAt?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-};
-
-export type FacultyOrderByWithAggregationInput = {
-  _count?: InputMaybe<FacultyCountOrderByAggregateInput>;
-  _max?: InputMaybe<FacultyMaxOrderByAggregateInput>;
-  _min?: InputMaybe<FacultyMinOrderByAggregateInput>;
-  createdAt?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-};
-
-export type FacultyOrderByWithRelationInput = {
-  createdAt?: InputMaybe<SortOrder>;
-  groups?: InputMaybe<GroupOrderByRelationAggregateInput>;
-  id?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-};
-
-export type FacultyRelationFilter = {
-  is?: InputMaybe<FacultyWhereInput>;
-  isNot?: InputMaybe<FacultyWhereInput>;
-};
-
-export enum FacultyScalarFieldEnum {
-  CreatedAt = 'createdAt',
-  Id = 'id',
-  Title = 'title',
-  UpdatedAt = 'updatedAt'
-}
-
-export type FacultyScalarWhereWithAggregatesInput = {
-  AND?: InputMaybe<Array<FacultyScalarWhereWithAggregatesInput>>;
-  NOT?: InputMaybe<Array<FacultyScalarWhereWithAggregatesInput>>;
-  OR?: InputMaybe<Array<FacultyScalarWhereWithAggregatesInput>>;
-  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
-  id?: InputMaybe<StringWithAggregatesFilter>;
-  title?: InputMaybe<StringWithAggregatesFilter>;
-  updatedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
-};
-
-export type FacultyUpdateInput = {
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  groups?: InputMaybe<GroupUpdateManyWithoutFacultyNestedInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-};
-
-export type FacultyUpdateManyMutationInput = {
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-};
-
-export type FacultyUpdateOneRequiredWithoutGroupsNestedInput = {
-  connect?: InputMaybe<FacultyWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<FacultyCreateOrConnectWithoutGroupsInput>;
-  create?: InputMaybe<FacultyCreateWithoutGroupsInput>;
-  update?: InputMaybe<FacultyUpdateWithoutGroupsInput>;
-  upsert?: InputMaybe<FacultyUpsertWithoutGroupsInput>;
-};
-
-export type FacultyUpdateWithoutGroupsInput = {
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-};
-
-export type FacultyUpsertWithoutGroupsInput = {
-  create: FacultyCreateWithoutGroupsInput;
-  update: FacultyUpdateWithoutGroupsInput;
-};
-
-export type FacultyWhereInput = {
-  AND?: InputMaybe<Array<FacultyWhereInput>>;
-  NOT?: InputMaybe<Array<FacultyWhereInput>>;
-  OR?: InputMaybe<Array<FacultyWhereInput>>;
-  createdAt?: InputMaybe<DateTimeFilter>;
-  groups?: InputMaybe<GroupListRelationFilter>;
-  id?: InputMaybe<StringFilter>;
-  title?: InputMaybe<StringFilter>;
-  updatedAt?: InputMaybe<DateTimeFilter>;
-};
-
-export type FacultyWhereUniqueInput = {
-  id?: InputMaybe<Scalars['String']>;
-};
-
-export type Group = {
-  __typename?: 'Group';
-  _count?: Maybe<GroupCount>;
-  course: Scalars['Int'];
-  createdAt: Scalars['DateTime'];
-  faculty: Faculty;
-  facultyId: Scalars['String'];
-  id: Scalars['String'];
-  periods: Array<Period>;
-  title: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  where?: InputMaybe<ResumeSavedByEmployerWhereInput>;
 };
 
 
-export type GroupPeriodsArgs = {
-  cursor?: InputMaybe<PeriodWhereUniqueInput>;
-  distinct?: InputMaybe<Array<PeriodScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<PeriodOrderByWithRelationInput>>;
+export type EmployerProfileVacanciesArgs = {
+  cursor?: InputMaybe<VacancyWhereUniqueInput>;
+  distinct?: InputMaybe<Array<VacancyScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<VacancyOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<PeriodWhereInput>;
+  where?: InputMaybe<VacancyWhereInput>;
 };
 
-export type GroupAvgAggregate = {
-  __typename?: 'GroupAvgAggregate';
-  course?: Maybe<Scalars['Float']>;
+export type EmployerProfileCount = {
+  __typename?: 'EmployerProfileCount';
+  savedResumes: Scalars['Int'];
+  vacancies: Scalars['Int'];
 };
 
-export type GroupAvgOrderByAggregateInput = {
-  course?: InputMaybe<SortOrder>;
-};
-
-export type GroupCount = {
-  __typename?: 'GroupCount';
-  periods: Scalars['Int'];
-};
-
-export type GroupCountAggregate = {
-  __typename?: 'GroupCountAggregate';
+export type EmployerProfileCountAggregate = {
+  __typename?: 'EmployerProfileCountAggregate';
   _all: Scalars['Int'];
-  course: Scalars['Int'];
+  companyName: Scalars['Int'];
   createdAt: Scalars['Int'];
-  facultyId: Scalars['Int'];
+  description: Scalars['Int'];
   id: Scalars['Int'];
-  title: Scalars['Int'];
   updatedAt: Scalars['Int'];
+  userId: Scalars['Int'];
 };
 
-export type GroupCountOrderByAggregateInput = {
-  course?: InputMaybe<SortOrder>;
+export type EmployerProfileCountOrderByAggregateInput = {
+  companyName?: InputMaybe<SortOrder>;
   createdAt?: InputMaybe<SortOrder>;
-  facultyId?: InputMaybe<SortOrder>;
+  description?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
+  userId?: InputMaybe<SortOrder>;
 };
 
-export type GroupCreateInput = {
-  course: Scalars['Int'];
+export type EmployerProfileCreateInput = {
+  companyName: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  faculty: FacultyCreateNestedOneWithoutGroupsInput;
+  description: Scalars['String'];
   id?: InputMaybe<Scalars['String']>;
-  periods?: InputMaybe<PeriodCreateNestedManyWithoutGroupInput>;
-  title: Scalars['String'];
+  savedResumes?: InputMaybe<ResumeSavedByEmployerCreateNestedManyWithoutEmployerProfileInput>;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
+  user: UserCreateNestedOneWithoutEmployerProfileInput;
+  vacancies?: InputMaybe<VacancyCreateNestedManyWithoutEmployerInput>;
 };
 
-export type GroupCreateManyFacultyInput = {
-  course: Scalars['Int'];
+export type EmployerProfileCreateManyInput = {
+  companyName: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
+  description: Scalars['String'];
   id?: InputMaybe<Scalars['String']>;
-  title: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
+  userId: Scalars['String'];
 };
 
-export type GroupCreateManyFacultyInputEnvelope = {
-  data: Array<GroupCreateManyFacultyInput>;
-  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
+export type EmployerProfileCreateNestedOneWithoutSavedResumesInput = {
+  connect?: InputMaybe<EmployerProfileWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<EmployerProfileCreateOrConnectWithoutSavedResumesInput>;
+  create?: InputMaybe<EmployerProfileCreateWithoutSavedResumesInput>;
 };
 
-export type GroupCreateManyInput = {
-  course: Scalars['Int'];
+export type EmployerProfileCreateNestedOneWithoutUserInput = {
+  connect?: InputMaybe<EmployerProfileWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<EmployerProfileCreateOrConnectWithoutUserInput>;
+  create?: InputMaybe<EmployerProfileCreateWithoutUserInput>;
+};
+
+export type EmployerProfileCreateNestedOneWithoutVacanciesInput = {
+  connect?: InputMaybe<EmployerProfileWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<EmployerProfileCreateOrConnectWithoutVacanciesInput>;
+  create?: InputMaybe<EmployerProfileCreateWithoutVacanciesInput>;
+};
+
+export type EmployerProfileCreateOrConnectWithoutSavedResumesInput = {
+  create: EmployerProfileCreateWithoutSavedResumesInput;
+  where: EmployerProfileWhereUniqueInput;
+};
+
+export type EmployerProfileCreateOrConnectWithoutUserInput = {
+  create: EmployerProfileCreateWithoutUserInput;
+  where: EmployerProfileWhereUniqueInput;
+};
+
+export type EmployerProfileCreateOrConnectWithoutVacanciesInput = {
+  create: EmployerProfileCreateWithoutVacanciesInput;
+  where: EmployerProfileWhereUniqueInput;
+};
+
+export type EmployerProfileCreateWithoutSavedResumesInput = {
+  companyName: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  facultyId: Scalars['String'];
+  description: Scalars['String'];
   id?: InputMaybe<Scalars['String']>;
-  title: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
+  user: UserCreateNestedOneWithoutEmployerProfileInput;
+  vacancies?: InputMaybe<VacancyCreateNestedManyWithoutEmployerInput>;
 };
 
-export type GroupCreateNestedManyWithoutFacultyInput = {
-  connect?: InputMaybe<Array<GroupWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<GroupCreateOrConnectWithoutFacultyInput>>;
-  create?: InputMaybe<Array<GroupCreateWithoutFacultyInput>>;
-  createMany?: InputMaybe<GroupCreateManyFacultyInputEnvelope>;
-};
-
-export type GroupCreateNestedOneWithoutPeriodsInput = {
-  connect?: InputMaybe<GroupWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<GroupCreateOrConnectWithoutPeriodsInput>;
-  create?: InputMaybe<GroupCreateWithoutPeriodsInput>;
-};
-
-export type GroupCreateOrConnectWithoutFacultyInput = {
-  create: GroupCreateWithoutFacultyInput;
-  where: GroupWhereUniqueInput;
-};
-
-export type GroupCreateOrConnectWithoutPeriodsInput = {
-  create: GroupCreateWithoutPeriodsInput;
-  where: GroupWhereUniqueInput;
-};
-
-export type GroupCreateWithoutFacultyInput = {
-  course: Scalars['Int'];
+export type EmployerProfileCreateWithoutUserInput = {
+  companyName: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
+  description: Scalars['String'];
   id?: InputMaybe<Scalars['String']>;
-  periods?: InputMaybe<PeriodCreateNestedManyWithoutGroupInput>;
-  title: Scalars['String'];
+  savedResumes?: InputMaybe<ResumeSavedByEmployerCreateNestedManyWithoutEmployerProfileInput>;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
+  vacancies?: InputMaybe<VacancyCreateNestedManyWithoutEmployerInput>;
 };
 
-export type GroupCreateWithoutPeriodsInput = {
-  course: Scalars['Int'];
+export type EmployerProfileCreateWithoutVacanciesInput = {
+  companyName: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  faculty: FacultyCreateNestedOneWithoutGroupsInput;
+  description: Scalars['String'];
   id?: InputMaybe<Scalars['String']>;
-  title: Scalars['String'];
+  savedResumes?: InputMaybe<ResumeSavedByEmployerCreateNestedManyWithoutEmployerProfileInput>;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
+  user: UserCreateNestedOneWithoutEmployerProfileInput;
 };
 
-export type GroupGroupBy = {
-  __typename?: 'GroupGroupBy';
-  _avg?: Maybe<GroupAvgAggregate>;
-  _count?: Maybe<GroupCountAggregate>;
-  _max?: Maybe<GroupMaxAggregate>;
-  _min?: Maybe<GroupMinAggregate>;
-  _sum?: Maybe<GroupSumAggregate>;
-  course: Scalars['Int'];
+export type EmployerProfileGroupBy = {
+  __typename?: 'EmployerProfileGroupBy';
+  _count?: Maybe<EmployerProfileCountAggregate>;
+  _max?: Maybe<EmployerProfileMaxAggregate>;
+  _min?: Maybe<EmployerProfileMinAggregate>;
+  companyName: Scalars['String'];
   createdAt: Scalars['DateTime'];
-  facultyId: Scalars['String'];
+  description: Scalars['String'];
   id: Scalars['String'];
-  title: Scalars['String'];
   updatedAt: Scalars['DateTime'];
+  userId: Scalars['String'];
 };
 
-export type GroupListRelationFilter = {
-  every?: InputMaybe<GroupWhereInput>;
-  none?: InputMaybe<GroupWhereInput>;
-  some?: InputMaybe<GroupWhereInput>;
-};
-
-export type GroupMaxAggregate = {
-  __typename?: 'GroupMaxAggregate';
-  course?: Maybe<Scalars['Int']>;
+export type EmployerProfileMaxAggregate = {
+  __typename?: 'EmployerProfileMaxAggregate';
+  companyName?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  facultyId?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+  userId?: Maybe<Scalars['String']>;
 };
 
-export type GroupMaxOrderByAggregateInput = {
-  course?: InputMaybe<SortOrder>;
+export type EmployerProfileMaxOrderByAggregateInput = {
+  companyName?: InputMaybe<SortOrder>;
   createdAt?: InputMaybe<SortOrder>;
-  facultyId?: InputMaybe<SortOrder>;
+  description?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
+  userId?: InputMaybe<SortOrder>;
 };
 
-export type GroupMinAggregate = {
-  __typename?: 'GroupMinAggregate';
-  course?: Maybe<Scalars['Int']>;
+export type EmployerProfileMinAggregate = {
+  __typename?: 'EmployerProfileMinAggregate';
+  companyName?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  facultyId?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+  userId?: Maybe<Scalars['String']>;
 };
 
-export type GroupMinOrderByAggregateInput = {
-  course?: InputMaybe<SortOrder>;
+export type EmployerProfileMinOrderByAggregateInput = {
+  companyName?: InputMaybe<SortOrder>;
   createdAt?: InputMaybe<SortOrder>;
-  facultyId?: InputMaybe<SortOrder>;
+  description?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
+  userId?: InputMaybe<SortOrder>;
 };
 
-export type GroupOrderByRelationAggregateInput = {
-  _count?: InputMaybe<SortOrder>;
-};
-
-export type GroupOrderByWithAggregationInput = {
-  _avg?: InputMaybe<GroupAvgOrderByAggregateInput>;
-  _count?: InputMaybe<GroupCountOrderByAggregateInput>;
-  _max?: InputMaybe<GroupMaxOrderByAggregateInput>;
-  _min?: InputMaybe<GroupMinOrderByAggregateInput>;
-  _sum?: InputMaybe<GroupSumOrderByAggregateInput>;
-  course?: InputMaybe<SortOrder>;
+export type EmployerProfileOrderByWithAggregationInput = {
+  _count?: InputMaybe<EmployerProfileCountOrderByAggregateInput>;
+  _max?: InputMaybe<EmployerProfileMaxOrderByAggregateInput>;
+  _min?: InputMaybe<EmployerProfileMinOrderByAggregateInput>;
+  companyName?: InputMaybe<SortOrder>;
   createdAt?: InputMaybe<SortOrder>;
-  facultyId?: InputMaybe<SortOrder>;
+  description?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
+  userId?: InputMaybe<SortOrder>;
 };
 
-export type GroupOrderByWithRelationInput = {
-  course?: InputMaybe<SortOrder>;
+export type EmployerProfileOrderByWithRelationInput = {
+  companyName?: InputMaybe<SortOrder>;
   createdAt?: InputMaybe<SortOrder>;
-  faculty?: InputMaybe<FacultyOrderByWithRelationInput>;
-  facultyId?: InputMaybe<SortOrder>;
+  description?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  periods?: InputMaybe<PeriodOrderByRelationAggregateInput>;
-  title?: InputMaybe<SortOrder>;
+  savedResumes?: InputMaybe<ResumeSavedByEmployerOrderByRelationAggregateInput>;
   updatedAt?: InputMaybe<SortOrder>;
+  user?: InputMaybe<UserOrderByWithRelationInput>;
+  userId?: InputMaybe<SortOrder>;
+  vacancies?: InputMaybe<VacancyOrderByRelationAggregateInput>;
 };
 
-export type GroupRelationFilter = {
-  is?: InputMaybe<GroupWhereInput>;
-  isNot?: InputMaybe<GroupWhereInput>;
+export type EmployerProfileRelationFilter = {
+  is?: InputMaybe<EmployerProfileWhereInput>;
+  isNot?: InputMaybe<EmployerProfileWhereInput>;
 };
 
-export enum GroupScalarFieldEnum {
-  Course = 'course',
+export enum EmployerProfileScalarFieldEnum {
+  CompanyName = 'companyName',
   CreatedAt = 'createdAt',
-  FacultyId = 'facultyId',
+  Description = 'description',
   Id = 'id',
-  Title = 'title',
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = 'updatedAt',
+  UserId = 'userId'
 }
 
-export type GroupScalarWhereInput = {
-  AND?: InputMaybe<Array<GroupScalarWhereInput>>;
-  NOT?: InputMaybe<Array<GroupScalarWhereInput>>;
-  OR?: InputMaybe<Array<GroupScalarWhereInput>>;
-  course?: InputMaybe<IntFilter>;
-  createdAt?: InputMaybe<DateTimeFilter>;
-  facultyId?: InputMaybe<StringFilter>;
-  id?: InputMaybe<StringFilter>;
-  title?: InputMaybe<StringFilter>;
-  updatedAt?: InputMaybe<DateTimeFilter>;
-};
-
-export type GroupScalarWhereWithAggregatesInput = {
-  AND?: InputMaybe<Array<GroupScalarWhereWithAggregatesInput>>;
-  NOT?: InputMaybe<Array<GroupScalarWhereWithAggregatesInput>>;
-  OR?: InputMaybe<Array<GroupScalarWhereWithAggregatesInput>>;
-  course?: InputMaybe<IntWithAggregatesFilter>;
+export type EmployerProfileScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<EmployerProfileScalarWhereWithAggregatesInput>>;
+  NOT?: InputMaybe<Array<EmployerProfileScalarWhereWithAggregatesInput>>;
+  OR?: InputMaybe<Array<EmployerProfileScalarWhereWithAggregatesInput>>;
+  companyName?: InputMaybe<StringWithAggregatesFilter>;
   createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
-  facultyId?: InputMaybe<StringWithAggregatesFilter>;
+  description?: InputMaybe<StringWithAggregatesFilter>;
   id?: InputMaybe<StringWithAggregatesFilter>;
-  title?: InputMaybe<StringWithAggregatesFilter>;
   updatedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  userId?: InputMaybe<StringWithAggregatesFilter>;
 };
 
-export type GroupSumAggregate = {
-  __typename?: 'GroupSumAggregate';
-  course?: Maybe<Scalars['Int']>;
-};
-
-export type GroupSumOrderByAggregateInput = {
-  course?: InputMaybe<SortOrder>;
-};
-
-export type GroupUpdateInput = {
-  course?: InputMaybe<IntFieldUpdateOperationsInput>;
+export type EmployerProfileUpdateInput = {
+  companyName?: InputMaybe<StringFieldUpdateOperationsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  faculty?: InputMaybe<FacultyUpdateOneRequiredWithoutGroupsNestedInput>;
+  description?: InputMaybe<StringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  periods?: InputMaybe<PeriodUpdateManyWithoutGroupNestedInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
+  savedResumes?: InputMaybe<ResumeSavedByEmployerUpdateManyWithoutEmployerProfileNestedInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  user?: InputMaybe<UserUpdateOneRequiredWithoutEmployerProfileNestedInput>;
+  vacancies?: InputMaybe<VacancyUpdateManyWithoutEmployerNestedInput>;
+};
+
+export type EmployerProfileUpdateManyMutationInput = {
+  companyName?: InputMaybe<StringFieldUpdateOperationsInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  description?: InputMaybe<StringFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type GroupUpdateManyMutationInput = {
-  course?: InputMaybe<IntFieldUpdateOperationsInput>;
+export type EmployerProfileUpdateOneRequiredWithoutSavedResumesNestedInput = {
+  connect?: InputMaybe<EmployerProfileWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<EmployerProfileCreateOrConnectWithoutSavedResumesInput>;
+  create?: InputMaybe<EmployerProfileCreateWithoutSavedResumesInput>;
+  update?: InputMaybe<EmployerProfileUpdateWithoutSavedResumesInput>;
+  upsert?: InputMaybe<EmployerProfileUpsertWithoutSavedResumesInput>;
+};
+
+export type EmployerProfileUpdateOneRequiredWithoutVacanciesNestedInput = {
+  connect?: InputMaybe<EmployerProfileWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<EmployerProfileCreateOrConnectWithoutVacanciesInput>;
+  create?: InputMaybe<EmployerProfileCreateWithoutVacanciesInput>;
+  update?: InputMaybe<EmployerProfileUpdateWithoutVacanciesInput>;
+  upsert?: InputMaybe<EmployerProfileUpsertWithoutVacanciesInput>;
+};
+
+export type EmployerProfileUpdateOneWithoutUserNestedInput = {
+  connect?: InputMaybe<EmployerProfileWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<EmployerProfileCreateOrConnectWithoutUserInput>;
+  create?: InputMaybe<EmployerProfileCreateWithoutUserInput>;
+  delete?: InputMaybe<Scalars['Boolean']>;
+  disconnect?: InputMaybe<Scalars['Boolean']>;
+  update?: InputMaybe<EmployerProfileUpdateWithoutUserInput>;
+  upsert?: InputMaybe<EmployerProfileUpsertWithoutUserInput>;
+};
+
+export type EmployerProfileUpdateWithoutSavedResumesInput = {
+  companyName?: InputMaybe<StringFieldUpdateOperationsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  description?: InputMaybe<StringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  user?: InputMaybe<UserUpdateOneRequiredWithoutEmployerProfileNestedInput>;
+  vacancies?: InputMaybe<VacancyUpdateManyWithoutEmployerNestedInput>;
 };
 
-export type GroupUpdateManyWithWhereWithoutFacultyInput = {
-  data: GroupUpdateManyMutationInput;
-  where: GroupScalarWhereInput;
-};
-
-export type GroupUpdateManyWithoutFacultyNestedInput = {
-  connect?: InputMaybe<Array<GroupWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<GroupCreateOrConnectWithoutFacultyInput>>;
-  create?: InputMaybe<Array<GroupCreateWithoutFacultyInput>>;
-  createMany?: InputMaybe<GroupCreateManyFacultyInputEnvelope>;
-  delete?: InputMaybe<Array<GroupWhereUniqueInput>>;
-  deleteMany?: InputMaybe<Array<GroupScalarWhereInput>>;
-  disconnect?: InputMaybe<Array<GroupWhereUniqueInput>>;
-  set?: InputMaybe<Array<GroupWhereUniqueInput>>;
-  update?: InputMaybe<Array<GroupUpdateWithWhereUniqueWithoutFacultyInput>>;
-  updateMany?: InputMaybe<Array<GroupUpdateManyWithWhereWithoutFacultyInput>>;
-  upsert?: InputMaybe<Array<GroupUpsertWithWhereUniqueWithoutFacultyInput>>;
-};
-
-export type GroupUpdateOneRequiredWithoutPeriodsNestedInput = {
-  connect?: InputMaybe<GroupWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<GroupCreateOrConnectWithoutPeriodsInput>;
-  create?: InputMaybe<GroupCreateWithoutPeriodsInput>;
-  update?: InputMaybe<GroupUpdateWithoutPeriodsInput>;
-  upsert?: InputMaybe<GroupUpsertWithoutPeriodsInput>;
-};
-
-export type GroupUpdateWithWhereUniqueWithoutFacultyInput = {
-  data: GroupUpdateWithoutFacultyInput;
-  where: GroupWhereUniqueInput;
-};
-
-export type GroupUpdateWithoutFacultyInput = {
-  course?: InputMaybe<IntFieldUpdateOperationsInput>;
+export type EmployerProfileUpdateWithoutUserInput = {
+  companyName?: InputMaybe<StringFieldUpdateOperationsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  description?: InputMaybe<StringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  periods?: InputMaybe<PeriodUpdateManyWithoutGroupNestedInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
+  savedResumes?: InputMaybe<ResumeSavedByEmployerUpdateManyWithoutEmployerProfileNestedInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  vacancies?: InputMaybe<VacancyUpdateManyWithoutEmployerNestedInput>;
 };
 
-export type GroupUpdateWithoutPeriodsInput = {
-  course?: InputMaybe<IntFieldUpdateOperationsInput>;
+export type EmployerProfileUpdateWithoutVacanciesInput = {
+  companyName?: InputMaybe<StringFieldUpdateOperationsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  faculty?: InputMaybe<FacultyUpdateOneRequiredWithoutGroupsNestedInput>;
+  description?: InputMaybe<StringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
+  savedResumes?: InputMaybe<ResumeSavedByEmployerUpdateManyWithoutEmployerProfileNestedInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  user?: InputMaybe<UserUpdateOneRequiredWithoutEmployerProfileNestedInput>;
 };
 
-export type GroupUpsertWithWhereUniqueWithoutFacultyInput = {
-  create: GroupCreateWithoutFacultyInput;
-  update: GroupUpdateWithoutFacultyInput;
-  where: GroupWhereUniqueInput;
+export type EmployerProfileUpsertWithoutSavedResumesInput = {
+  create: EmployerProfileCreateWithoutSavedResumesInput;
+  update: EmployerProfileUpdateWithoutSavedResumesInput;
 };
 
-export type GroupUpsertWithoutPeriodsInput = {
-  create: GroupCreateWithoutPeriodsInput;
-  update: GroupUpdateWithoutPeriodsInput;
+export type EmployerProfileUpsertWithoutUserInput = {
+  create: EmployerProfileCreateWithoutUserInput;
+  update: EmployerProfileUpdateWithoutUserInput;
 };
 
-export type GroupWhereInput = {
-  AND?: InputMaybe<Array<GroupWhereInput>>;
-  NOT?: InputMaybe<Array<GroupWhereInput>>;
-  OR?: InputMaybe<Array<GroupWhereInput>>;
-  course?: InputMaybe<IntFilter>;
+export type EmployerProfileUpsertWithoutVacanciesInput = {
+  create: EmployerProfileCreateWithoutVacanciesInput;
+  update: EmployerProfileUpdateWithoutVacanciesInput;
+};
+
+export type EmployerProfileWhereInput = {
+  AND?: InputMaybe<Array<EmployerProfileWhereInput>>;
+  NOT?: InputMaybe<Array<EmployerProfileWhereInput>>;
+  OR?: InputMaybe<Array<EmployerProfileWhereInput>>;
+  companyName?: InputMaybe<StringFilter>;
   createdAt?: InputMaybe<DateTimeFilter>;
-  faculty?: InputMaybe<FacultyRelationFilter>;
-  facultyId?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
   id?: InputMaybe<StringFilter>;
-  periods?: InputMaybe<PeriodListRelationFilter>;
-  title?: InputMaybe<StringFilter>;
+  savedResumes?: InputMaybe<ResumeSavedByEmployerListRelationFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
+  user?: InputMaybe<UserRelationFilter>;
+  userId?: InputMaybe<StringFilter>;
+  vacancies?: InputMaybe<VacancyListRelationFilter>;
 };
 
-export type GroupWhereUniqueInput = {
+export type EmployerProfileWhereUniqueInput = {
   id?: InputMaybe<Scalars['String']>;
+  userId?: InputMaybe<Scalars['String']>;
+};
+
+export type EnumApplicationTypeFieldUpdateOperationsInput = {
+  set?: InputMaybe<ApplicationType>;
+};
+
+export type EnumApplicationTypeFilter = {
+  equals?: InputMaybe<ApplicationType>;
+  in?: InputMaybe<Array<ApplicationType>>;
+  not?: InputMaybe<NestedEnumApplicationTypeFilter>;
+  notIn?: InputMaybe<Array<ApplicationType>>;
+};
+
+export type EnumApplicationTypeWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntFilter>;
+  _max?: InputMaybe<NestedEnumApplicationTypeFilter>;
+  _min?: InputMaybe<NestedEnumApplicationTypeFilter>;
+  equals?: InputMaybe<ApplicationType>;
+  in?: InputMaybe<Array<ApplicationType>>;
+  not?: InputMaybe<NestedEnumApplicationTypeWithAggregatesFilter>;
+  notIn?: InputMaybe<Array<ApplicationType>>;
+};
+
+export type EnumUserRoleFieldUpdateOperationsInput = {
+  set?: InputMaybe<UserRole>;
+};
+
+export type EnumUserRoleFilter = {
+  equals?: InputMaybe<UserRole>;
+  in?: InputMaybe<Array<UserRole>>;
+  not?: InputMaybe<NestedEnumUserRoleFilter>;
+  notIn?: InputMaybe<Array<UserRole>>;
+};
+
+export type EnumUserRoleWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntFilter>;
+  _max?: InputMaybe<NestedEnumUserRoleFilter>;
+  _min?: InputMaybe<NestedEnumUserRoleFilter>;
+  equals?: InputMaybe<UserRole>;
+  in?: InputMaybe<Array<UserRole>>;
+  not?: InputMaybe<NestedEnumUserRoleWithAggregatesFilter>;
+  notIn?: InputMaybe<Array<UserRole>>;
 };
 
 export type IntFieldUpdateOperationsInput = {
@@ -1568,14 +2385,6 @@ export type IntFilter = {
   notIn?: InputMaybe<Array<Scalars['Int']>>;
 };
 
-export type IntNullableListFilter = {
-  equals?: InputMaybe<Array<Scalars['Int']>>;
-  has?: InputMaybe<Scalars['Int']>;
-  hasEvery?: InputMaybe<Array<Scalars['Int']>>;
-  hasSome?: InputMaybe<Array<Scalars['Int']>>;
-  isEmpty?: InputMaybe<Scalars['Boolean']>;
-};
-
 export type IntWithAggregatesFilter = {
   _avg?: InputMaybe<NestedFloatFilter>;
   _count?: InputMaybe<NestedIntFilter>;
@@ -1592,1276 +2401,708 @@ export type IntWithAggregatesFilter = {
   notIn?: InputMaybe<Array<Scalars['Int']>>;
 };
 
-export type Lesson = {
-  __typename?: 'Lesson';
-  _count?: Maybe<LessonCount>;
-  classroom: Scalars['String'];
-  createdAt: Scalars['DateTime'];
-  id: Scalars['String'];
-  notes: Array<LessonNote>;
-  number: Scalars['Int'];
-  semester: Period;
-  semesterId: Scalars['String'];
-  subgroup: Subgroup;
-  teacher: Scalars['String'];
-  title: Scalars['String'];
-  type: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
-  weekDay: WeekDay;
-  weeks: Array<Scalars['Int']>;
-  weeksType: WeeksType;
-};
-
-
-export type LessonNotesArgs = {
-  cursor?: InputMaybe<LessonNoteWhereUniqueInput>;
-  distinct?: InputMaybe<Array<LessonNoteScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<LessonNoteOrderByWithRelationInput>>;
-  skip?: InputMaybe<Scalars['Int']>;
-  take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<LessonNoteWhereInput>;
-};
-
-export type LessonAvgAggregate = {
-  __typename?: 'LessonAvgAggregate';
-  number?: Maybe<Scalars['Float']>;
-  weeks?: Maybe<Scalars['Float']>;
-};
-
-export type LessonAvgOrderByAggregateInput = {
-  number?: InputMaybe<SortOrder>;
-  weeks?: InputMaybe<SortOrder>;
-};
-
-export type LessonCount = {
-  __typename?: 'LessonCount';
-  notes: Scalars['Int'];
-};
-
-export type LessonCountAggregate = {
-  __typename?: 'LessonCountAggregate';
-  _all: Scalars['Int'];
-  classroom: Scalars['Int'];
-  createdAt: Scalars['Int'];
-  id: Scalars['Int'];
-  number: Scalars['Int'];
-  semesterId: Scalars['Int'];
-  subgroup: Scalars['Int'];
-  teacher: Scalars['Int'];
-  title: Scalars['Int'];
-  type: Scalars['Int'];
-  updatedAt: Scalars['Int'];
-  weekDay: Scalars['Int'];
-  weeks: Scalars['Int'];
-  weeksType: Scalars['Int'];
-};
-
-export type LessonCountOrderByAggregateInput = {
-  classroom?: InputMaybe<SortOrder>;
-  createdAt?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  number?: InputMaybe<SortOrder>;
-  semesterId?: InputMaybe<SortOrder>;
-  subgroup?: InputMaybe<SortOrder>;
-  teacher?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  type?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-  weekDay?: InputMaybe<SortOrder>;
-  weeks?: InputMaybe<SortOrder>;
-  weeksType?: InputMaybe<SortOrder>;
-};
-
-export type LessonCreateInput = {
-  classroom: Scalars['String'];
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  id?: InputMaybe<Scalars['String']>;
-  notes?: InputMaybe<LessonNoteCreateNestedManyWithoutLessonInput>;
-  number: Scalars['Int'];
-  semester: PeriodCreateNestedOneWithoutLessonsInput;
-  subgroup: Subgroup;
-  teacher: Scalars['String'];
-  title: Scalars['String'];
-  type: Scalars['String'];
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-  weekDay: WeekDay;
-  weeks?: InputMaybe<LessonCreateweeksInput>;
-  weeksType: WeeksType;
-};
-
-export type LessonCreateManyInput = {
-  classroom: Scalars['String'];
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  id?: InputMaybe<Scalars['String']>;
-  number: Scalars['Int'];
-  semesterId: Scalars['String'];
-  subgroup: Subgroup;
-  teacher: Scalars['String'];
-  title: Scalars['String'];
-  type: Scalars['String'];
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-  weekDay: WeekDay;
-  weeks?: InputMaybe<LessonCreateweeksInput>;
-  weeksType: WeeksType;
-};
-
-export type LessonCreateManySemesterInput = {
-  classroom: Scalars['String'];
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  id?: InputMaybe<Scalars['String']>;
-  number: Scalars['Int'];
-  subgroup: Subgroup;
-  teacher: Scalars['String'];
-  title: Scalars['String'];
-  type: Scalars['String'];
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-  weekDay: WeekDay;
-  weeks?: InputMaybe<LessonCreateweeksInput>;
-  weeksType: WeeksType;
-};
-
-export type LessonCreateManySemesterInputEnvelope = {
-  data: Array<LessonCreateManySemesterInput>;
-  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
-};
-
-export type LessonCreateNestedManyWithoutSemesterInput = {
-  connect?: InputMaybe<Array<LessonWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<LessonCreateOrConnectWithoutSemesterInput>>;
-  create?: InputMaybe<Array<LessonCreateWithoutSemesterInput>>;
-  createMany?: InputMaybe<LessonCreateManySemesterInputEnvelope>;
-};
-
-export type LessonCreateNestedOneWithoutNotesInput = {
-  connect?: InputMaybe<LessonWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<LessonCreateOrConnectWithoutNotesInput>;
-  create?: InputMaybe<LessonCreateWithoutNotesInput>;
-};
-
-export type LessonCreateOrConnectWithoutNotesInput = {
-  create: LessonCreateWithoutNotesInput;
-  where: LessonWhereUniqueInput;
-};
-
-export type LessonCreateOrConnectWithoutSemesterInput = {
-  create: LessonCreateWithoutSemesterInput;
-  where: LessonWhereUniqueInput;
-};
-
-export type LessonCreateWithoutNotesInput = {
-  classroom: Scalars['String'];
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  id?: InputMaybe<Scalars['String']>;
-  number: Scalars['Int'];
-  semester: PeriodCreateNestedOneWithoutLessonsInput;
-  subgroup: Subgroup;
-  teacher: Scalars['String'];
-  title: Scalars['String'];
-  type: Scalars['String'];
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-  weekDay: WeekDay;
-  weeks?: InputMaybe<LessonCreateweeksInput>;
-  weeksType: WeeksType;
-};
-
-export type LessonCreateWithoutSemesterInput = {
-  classroom: Scalars['String'];
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  id?: InputMaybe<Scalars['String']>;
-  notes?: InputMaybe<LessonNoteCreateNestedManyWithoutLessonInput>;
-  number: Scalars['Int'];
-  subgroup: Subgroup;
-  teacher: Scalars['String'];
-  title: Scalars['String'];
-  type: Scalars['String'];
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-  weekDay: WeekDay;
-  weeks?: InputMaybe<LessonCreateweeksInput>;
-  weeksType: WeeksType;
-};
-
-export type LessonCreateweeksInput = {
-  set: Array<Scalars['Int']>;
-};
-
-export type LessonGroupBy = {
-  __typename?: 'LessonGroupBy';
-  _avg?: Maybe<LessonAvgAggregate>;
-  _count?: Maybe<LessonCountAggregate>;
-  _max?: Maybe<LessonMaxAggregate>;
-  _min?: Maybe<LessonMinAggregate>;
-  _sum?: Maybe<LessonSumAggregate>;
-  classroom: Scalars['String'];
-  createdAt: Scalars['DateTime'];
-  id: Scalars['String'];
-  number: Scalars['Int'];
-  semesterId: Scalars['String'];
-  subgroup: Subgroup;
-  teacher: Scalars['String'];
-  title: Scalars['String'];
-  type: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
-  weekDay: WeekDay;
-  weeks?: Maybe<Array<Scalars['Int']>>;
-  weeksType: WeeksType;
-};
-
-export type LessonListRelationFilter = {
-  every?: InputMaybe<LessonWhereInput>;
-  none?: InputMaybe<LessonWhereInput>;
-  some?: InputMaybe<LessonWhereInput>;
-};
-
-export type LessonMaxAggregate = {
-  __typename?: 'LessonMaxAggregate';
-  classroom?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['String']>;
-  number?: Maybe<Scalars['Int']>;
-  semesterId?: Maybe<Scalars['String']>;
-  subgroup?: Maybe<Subgroup>;
-  teacher?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-  weekDay?: Maybe<WeekDay>;
-  weeksType?: Maybe<WeeksType>;
-};
-
-export type LessonMaxOrderByAggregateInput = {
-  classroom?: InputMaybe<SortOrder>;
-  createdAt?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  number?: InputMaybe<SortOrder>;
-  semesterId?: InputMaybe<SortOrder>;
-  subgroup?: InputMaybe<SortOrder>;
-  teacher?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  type?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-  weekDay?: InputMaybe<SortOrder>;
-  weeksType?: InputMaybe<SortOrder>;
-};
-
-export type LessonMinAggregate = {
-  __typename?: 'LessonMinAggregate';
-  classroom?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['String']>;
-  number?: Maybe<Scalars['Int']>;
-  semesterId?: Maybe<Scalars['String']>;
-  subgroup?: Maybe<Subgroup>;
-  teacher?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-  weekDay?: Maybe<WeekDay>;
-  weeksType?: Maybe<WeeksType>;
-};
-
-export type LessonMinOrderByAggregateInput = {
-  classroom?: InputMaybe<SortOrder>;
-  createdAt?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  number?: InputMaybe<SortOrder>;
-  semesterId?: InputMaybe<SortOrder>;
-  subgroup?: InputMaybe<SortOrder>;
-  teacher?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  type?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-  weekDay?: InputMaybe<SortOrder>;
-  weeksType?: InputMaybe<SortOrder>;
-};
-
-export type LessonNote = {
-  __typename?: 'LessonNote';
-  content: Scalars['String'];
-  createdAt: Scalars['DateTime'];
-  deviceId: Scalars['String'];
-  id: Scalars['String'];
-  lesson: Lesson;
-  lessonId: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
-  week: Scalars['Int'];
-};
-
-export type LessonNoteAvgAggregate = {
-  __typename?: 'LessonNoteAvgAggregate';
-  week?: Maybe<Scalars['Float']>;
-};
-
-export type LessonNoteAvgOrderByAggregateInput = {
-  week?: InputMaybe<SortOrder>;
-};
-
-export type LessonNoteCountAggregate = {
-  __typename?: 'LessonNoteCountAggregate';
-  _all: Scalars['Int'];
-  content: Scalars['Int'];
-  createdAt: Scalars['Int'];
-  deviceId: Scalars['Int'];
-  id: Scalars['Int'];
-  lessonId: Scalars['Int'];
-  updatedAt: Scalars['Int'];
-  week: Scalars['Int'];
-};
-
-export type LessonNoteCountOrderByAggregateInput = {
-  content?: InputMaybe<SortOrder>;
-  createdAt?: InputMaybe<SortOrder>;
-  deviceId?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  lessonId?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-  week?: InputMaybe<SortOrder>;
-};
-
-export type LessonNoteCreateInput = {
-  content: Scalars['String'];
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  deviceId: Scalars['String'];
-  id?: InputMaybe<Scalars['String']>;
-  lesson: LessonCreateNestedOneWithoutNotesInput;
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-  week: Scalars['Int'];
-};
-
-export type LessonNoteCreateManyInput = {
-  content: Scalars['String'];
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  deviceId: Scalars['String'];
-  id?: InputMaybe<Scalars['String']>;
-  lessonId: Scalars['String'];
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-  week: Scalars['Int'];
-};
-
-export type LessonNoteCreateManyLessonInput = {
-  content: Scalars['String'];
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  deviceId: Scalars['String'];
-  id?: InputMaybe<Scalars['String']>;
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-  week: Scalars['Int'];
-};
-
-export type LessonNoteCreateManyLessonInputEnvelope = {
-  data: Array<LessonNoteCreateManyLessonInput>;
-  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
-};
-
-export type LessonNoteCreateNestedManyWithoutLessonInput = {
-  connect?: InputMaybe<Array<LessonNoteWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<LessonNoteCreateOrConnectWithoutLessonInput>>;
-  create?: InputMaybe<Array<LessonNoteCreateWithoutLessonInput>>;
-  createMany?: InputMaybe<LessonNoteCreateManyLessonInputEnvelope>;
-};
-
-export type LessonNoteCreateOrConnectWithoutLessonInput = {
-  create: LessonNoteCreateWithoutLessonInput;
-  where: LessonNoteWhereUniqueInput;
-};
-
-export type LessonNoteCreateWithoutLessonInput = {
-  content: Scalars['String'];
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  deviceId: Scalars['String'];
-  id?: InputMaybe<Scalars['String']>;
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-  week: Scalars['Int'];
-};
-
-export type LessonNoteGroupBy = {
-  __typename?: 'LessonNoteGroupBy';
-  _avg?: Maybe<LessonNoteAvgAggregate>;
-  _count?: Maybe<LessonNoteCountAggregate>;
-  _max?: Maybe<LessonNoteMaxAggregate>;
-  _min?: Maybe<LessonNoteMinAggregate>;
-  _sum?: Maybe<LessonNoteSumAggregate>;
-  content: Scalars['String'];
-  createdAt: Scalars['DateTime'];
-  deviceId: Scalars['String'];
-  id: Scalars['String'];
-  lessonId: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
-  week: Scalars['Int'];
-};
-
-export type LessonNoteListRelationFilter = {
-  every?: InputMaybe<LessonNoteWhereInput>;
-  none?: InputMaybe<LessonNoteWhereInput>;
-  some?: InputMaybe<LessonNoteWhereInput>;
-};
-
-export type LessonNoteMaxAggregate = {
-  __typename?: 'LessonNoteMaxAggregate';
-  content?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['DateTime']>;
-  deviceId?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  lessonId?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-  week?: Maybe<Scalars['Int']>;
-};
-
-export type LessonNoteMaxOrderByAggregateInput = {
-  content?: InputMaybe<SortOrder>;
-  createdAt?: InputMaybe<SortOrder>;
-  deviceId?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  lessonId?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-  week?: InputMaybe<SortOrder>;
-};
-
-export type LessonNoteMinAggregate = {
-  __typename?: 'LessonNoteMinAggregate';
-  content?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['DateTime']>;
-  deviceId?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  lessonId?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-  week?: Maybe<Scalars['Int']>;
-};
-
-export type LessonNoteMinOrderByAggregateInput = {
-  content?: InputMaybe<SortOrder>;
-  createdAt?: InputMaybe<SortOrder>;
-  deviceId?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  lessonId?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-  week?: InputMaybe<SortOrder>;
-};
-
-export type LessonNoteOrderByRelationAggregateInput = {
-  _count?: InputMaybe<SortOrder>;
-};
-
-export type LessonNoteOrderByWithAggregationInput = {
-  _avg?: InputMaybe<LessonNoteAvgOrderByAggregateInput>;
-  _count?: InputMaybe<LessonNoteCountOrderByAggregateInput>;
-  _max?: InputMaybe<LessonNoteMaxOrderByAggregateInput>;
-  _min?: InputMaybe<LessonNoteMinOrderByAggregateInput>;
-  _sum?: InputMaybe<LessonNoteSumOrderByAggregateInput>;
-  content?: InputMaybe<SortOrder>;
-  createdAt?: InputMaybe<SortOrder>;
-  deviceId?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  lessonId?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-  week?: InputMaybe<SortOrder>;
-};
-
-export type LessonNoteOrderByWithRelationInput = {
-  content?: InputMaybe<SortOrder>;
-  createdAt?: InputMaybe<SortOrder>;
-  deviceId?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  lesson?: InputMaybe<LessonOrderByWithRelationInput>;
-  lessonId?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-  week?: InputMaybe<SortOrder>;
-};
-
-export enum LessonNoteScalarFieldEnum {
-  Content = 'content',
-  CreatedAt = 'createdAt',
-  DeviceId = 'deviceId',
-  Id = 'id',
-  LessonId = 'lessonId',
-  UpdatedAt = 'updatedAt',
-  Week = 'week'
-}
-
-export type LessonNoteScalarWhereInput = {
-  AND?: InputMaybe<Array<LessonNoteScalarWhereInput>>;
-  NOT?: InputMaybe<Array<LessonNoteScalarWhereInput>>;
-  OR?: InputMaybe<Array<LessonNoteScalarWhereInput>>;
-  content?: InputMaybe<StringFilter>;
-  createdAt?: InputMaybe<DateTimeFilter>;
-  deviceId?: InputMaybe<StringFilter>;
-  id?: InputMaybe<StringFilter>;
-  lessonId?: InputMaybe<StringFilter>;
-  updatedAt?: InputMaybe<DateTimeFilter>;
-  week?: InputMaybe<IntFilter>;
-};
-
-export type LessonNoteScalarWhereWithAggregatesInput = {
-  AND?: InputMaybe<Array<LessonNoteScalarWhereWithAggregatesInput>>;
-  NOT?: InputMaybe<Array<LessonNoteScalarWhereWithAggregatesInput>>;
-  OR?: InputMaybe<Array<LessonNoteScalarWhereWithAggregatesInput>>;
-  content?: InputMaybe<StringWithAggregatesFilter>;
-  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
-  deviceId?: InputMaybe<StringWithAggregatesFilter>;
-  id?: InputMaybe<StringWithAggregatesFilter>;
-  lessonId?: InputMaybe<StringWithAggregatesFilter>;
-  updatedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
-  week?: InputMaybe<IntWithAggregatesFilter>;
-};
-
-export type LessonNoteSumAggregate = {
-  __typename?: 'LessonNoteSumAggregate';
-  week?: Maybe<Scalars['Int']>;
-};
-
-export type LessonNoteSumOrderByAggregateInput = {
-  week?: InputMaybe<SortOrder>;
-};
-
-export type LessonNoteUpdateInput = {
-  content?: InputMaybe<StringFieldUpdateOperationsInput>;
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  deviceId?: InputMaybe<StringFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  lesson?: InputMaybe<LessonUpdateOneRequiredWithoutNotesNestedInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  week?: InputMaybe<IntFieldUpdateOperationsInput>;
-};
-
-export type LessonNoteUpdateManyMutationInput = {
-  content?: InputMaybe<StringFieldUpdateOperationsInput>;
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  deviceId?: InputMaybe<StringFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  week?: InputMaybe<IntFieldUpdateOperationsInput>;
-};
-
-export type LessonNoteUpdateManyWithWhereWithoutLessonInput = {
-  data: LessonNoteUpdateManyMutationInput;
-  where: LessonNoteScalarWhereInput;
-};
-
-export type LessonNoteUpdateManyWithoutLessonNestedInput = {
-  connect?: InputMaybe<Array<LessonNoteWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<LessonNoteCreateOrConnectWithoutLessonInput>>;
-  create?: InputMaybe<Array<LessonNoteCreateWithoutLessonInput>>;
-  createMany?: InputMaybe<LessonNoteCreateManyLessonInputEnvelope>;
-  delete?: InputMaybe<Array<LessonNoteWhereUniqueInput>>;
-  deleteMany?: InputMaybe<Array<LessonNoteScalarWhereInput>>;
-  disconnect?: InputMaybe<Array<LessonNoteWhereUniqueInput>>;
-  set?: InputMaybe<Array<LessonNoteWhereUniqueInput>>;
-  update?: InputMaybe<Array<LessonNoteUpdateWithWhereUniqueWithoutLessonInput>>;
-  updateMany?: InputMaybe<Array<LessonNoteUpdateManyWithWhereWithoutLessonInput>>;
-  upsert?: InputMaybe<Array<LessonNoteUpsertWithWhereUniqueWithoutLessonInput>>;
-};
-
-export type LessonNoteUpdateWithWhereUniqueWithoutLessonInput = {
-  data: LessonNoteUpdateWithoutLessonInput;
-  where: LessonNoteWhereUniqueInput;
-};
-
-export type LessonNoteUpdateWithoutLessonInput = {
-  content?: InputMaybe<StringFieldUpdateOperationsInput>;
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  deviceId?: InputMaybe<StringFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  week?: InputMaybe<IntFieldUpdateOperationsInput>;
-};
-
-export type LessonNoteUpsertWithWhereUniqueWithoutLessonInput = {
-  create: LessonNoteCreateWithoutLessonInput;
-  update: LessonNoteUpdateWithoutLessonInput;
-  where: LessonNoteWhereUniqueInput;
-};
-
-export type LessonNoteWhereInput = {
-  AND?: InputMaybe<Array<LessonNoteWhereInput>>;
-  NOT?: InputMaybe<Array<LessonNoteWhereInput>>;
-  OR?: InputMaybe<Array<LessonNoteWhereInput>>;
-  content?: InputMaybe<StringFilter>;
-  createdAt?: InputMaybe<DateTimeFilter>;
-  deviceId?: InputMaybe<StringFilter>;
-  id?: InputMaybe<StringFilter>;
-  lesson?: InputMaybe<LessonRelationFilter>;
-  lessonId?: InputMaybe<StringFilter>;
-  updatedAt?: InputMaybe<DateTimeFilter>;
-  week?: InputMaybe<IntFilter>;
-};
-
-export type LessonNoteWhereUniqueInput = {
-  id?: InputMaybe<Scalars['String']>;
-};
-
-export type LessonOrderByRelationAggregateInput = {
-  _count?: InputMaybe<SortOrder>;
-};
-
-export type LessonOrderByWithAggregationInput = {
-  _avg?: InputMaybe<LessonAvgOrderByAggregateInput>;
-  _count?: InputMaybe<LessonCountOrderByAggregateInput>;
-  _max?: InputMaybe<LessonMaxOrderByAggregateInput>;
-  _min?: InputMaybe<LessonMinOrderByAggregateInput>;
-  _sum?: InputMaybe<LessonSumOrderByAggregateInput>;
-  classroom?: InputMaybe<SortOrder>;
-  createdAt?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  number?: InputMaybe<SortOrder>;
-  semesterId?: InputMaybe<SortOrder>;
-  subgroup?: InputMaybe<SortOrder>;
-  teacher?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  type?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-  weekDay?: InputMaybe<SortOrder>;
-  weeks?: InputMaybe<SortOrder>;
-  weeksType?: InputMaybe<SortOrder>;
-};
-
-export type LessonOrderByWithRelationInput = {
-  classroom?: InputMaybe<SortOrder>;
-  createdAt?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  notes?: InputMaybe<LessonNoteOrderByRelationAggregateInput>;
-  number?: InputMaybe<SortOrder>;
-  semester?: InputMaybe<PeriodOrderByWithRelationInput>;
-  semesterId?: InputMaybe<SortOrder>;
-  subgroup?: InputMaybe<SortOrder>;
-  teacher?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  type?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-  weekDay?: InputMaybe<SortOrder>;
-  weeks?: InputMaybe<SortOrder>;
-  weeksType?: InputMaybe<SortOrder>;
-};
-
-export type LessonRelationFilter = {
-  is?: InputMaybe<LessonWhereInput>;
-  isNot?: InputMaybe<LessonWhereInput>;
-};
-
-export enum LessonScalarFieldEnum {
-  Classroom = 'classroom',
-  CreatedAt = 'createdAt',
-  Id = 'id',
-  Number = 'number',
-  SemesterId = 'semesterId',
-  Subgroup = 'subgroup',
-  Teacher = 'teacher',
-  Title = 'title',
-  Type = 'type',
-  UpdatedAt = 'updatedAt',
-  WeekDay = 'weekDay',
-  Weeks = 'weeks',
-  WeeksType = 'weeksType'
-}
-
-export type LessonScalarWhereInput = {
-  AND?: InputMaybe<Array<LessonScalarWhereInput>>;
-  NOT?: InputMaybe<Array<LessonScalarWhereInput>>;
-  OR?: InputMaybe<Array<LessonScalarWhereInput>>;
-  classroom?: InputMaybe<StringFilter>;
-  createdAt?: InputMaybe<DateTimeFilter>;
-  id?: InputMaybe<StringFilter>;
-  number?: InputMaybe<IntFilter>;
-  semesterId?: InputMaybe<StringFilter>;
-  subgroup?: InputMaybe<EnumSubgroupFilter>;
-  teacher?: InputMaybe<StringFilter>;
-  title?: InputMaybe<StringFilter>;
-  type?: InputMaybe<StringFilter>;
-  updatedAt?: InputMaybe<DateTimeFilter>;
-  weekDay?: InputMaybe<EnumWeekDayFilter>;
-  weeks?: InputMaybe<IntNullableListFilter>;
-  weeksType?: InputMaybe<EnumWeeksTypeFilter>;
-};
-
-export type LessonScalarWhereWithAggregatesInput = {
-  AND?: InputMaybe<Array<LessonScalarWhereWithAggregatesInput>>;
-  NOT?: InputMaybe<Array<LessonScalarWhereWithAggregatesInput>>;
-  OR?: InputMaybe<Array<LessonScalarWhereWithAggregatesInput>>;
-  classroom?: InputMaybe<StringWithAggregatesFilter>;
-  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
-  id?: InputMaybe<StringWithAggregatesFilter>;
-  number?: InputMaybe<IntWithAggregatesFilter>;
-  semesterId?: InputMaybe<StringWithAggregatesFilter>;
-  subgroup?: InputMaybe<EnumSubgroupWithAggregatesFilter>;
-  teacher?: InputMaybe<StringWithAggregatesFilter>;
-  title?: InputMaybe<StringWithAggregatesFilter>;
-  type?: InputMaybe<StringWithAggregatesFilter>;
-  updatedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
-  weekDay?: InputMaybe<EnumWeekDayWithAggregatesFilter>;
-  weeks?: InputMaybe<IntNullableListFilter>;
-  weeksType?: InputMaybe<EnumWeeksTypeWithAggregatesFilter>;
-};
-
-export type LessonSumAggregate = {
-  __typename?: 'LessonSumAggregate';
-  number?: Maybe<Scalars['Int']>;
-  weeks?: Maybe<Array<Scalars['Int']>>;
-};
-
-export type LessonSumOrderByAggregateInput = {
-  number?: InputMaybe<SortOrder>;
-  weeks?: InputMaybe<SortOrder>;
-};
-
-export type LessonUpdateInput = {
-  classroom?: InputMaybe<StringFieldUpdateOperationsInput>;
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  notes?: InputMaybe<LessonNoteUpdateManyWithoutLessonNestedInput>;
-  number?: InputMaybe<IntFieldUpdateOperationsInput>;
-  semester?: InputMaybe<PeriodUpdateOneRequiredWithoutLessonsNestedInput>;
-  subgroup?: InputMaybe<EnumSubgroupFieldUpdateOperationsInput>;
-  teacher?: InputMaybe<StringFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-  type?: InputMaybe<StringFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  weekDay?: InputMaybe<EnumWeekDayFieldUpdateOperationsInput>;
-  weeks?: InputMaybe<LessonUpdateweeksInput>;
-  weeksType?: InputMaybe<EnumWeeksTypeFieldUpdateOperationsInput>;
-};
-
-export type LessonUpdateManyMutationInput = {
-  classroom?: InputMaybe<StringFieldUpdateOperationsInput>;
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  number?: InputMaybe<IntFieldUpdateOperationsInput>;
-  subgroup?: InputMaybe<EnumSubgroupFieldUpdateOperationsInput>;
-  teacher?: InputMaybe<StringFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-  type?: InputMaybe<StringFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  weekDay?: InputMaybe<EnumWeekDayFieldUpdateOperationsInput>;
-  weeks?: InputMaybe<LessonUpdateweeksInput>;
-  weeksType?: InputMaybe<EnumWeeksTypeFieldUpdateOperationsInput>;
-};
-
-export type LessonUpdateManyWithWhereWithoutSemesterInput = {
-  data: LessonUpdateManyMutationInput;
-  where: LessonScalarWhereInput;
-};
-
-export type LessonUpdateManyWithoutSemesterNestedInput = {
-  connect?: InputMaybe<Array<LessonWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<LessonCreateOrConnectWithoutSemesterInput>>;
-  create?: InputMaybe<Array<LessonCreateWithoutSemesterInput>>;
-  createMany?: InputMaybe<LessonCreateManySemesterInputEnvelope>;
-  delete?: InputMaybe<Array<LessonWhereUniqueInput>>;
-  deleteMany?: InputMaybe<Array<LessonScalarWhereInput>>;
-  disconnect?: InputMaybe<Array<LessonWhereUniqueInput>>;
-  set?: InputMaybe<Array<LessonWhereUniqueInput>>;
-  update?: InputMaybe<Array<LessonUpdateWithWhereUniqueWithoutSemesterInput>>;
-  updateMany?: InputMaybe<Array<LessonUpdateManyWithWhereWithoutSemesterInput>>;
-  upsert?: InputMaybe<Array<LessonUpsertWithWhereUniqueWithoutSemesterInput>>;
-};
-
-export type LessonUpdateOneRequiredWithoutNotesNestedInput = {
-  connect?: InputMaybe<LessonWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<LessonCreateOrConnectWithoutNotesInput>;
-  create?: InputMaybe<LessonCreateWithoutNotesInput>;
-  update?: InputMaybe<LessonUpdateWithoutNotesInput>;
-  upsert?: InputMaybe<LessonUpsertWithoutNotesInput>;
-};
-
-export type LessonUpdateWithWhereUniqueWithoutSemesterInput = {
-  data: LessonUpdateWithoutSemesterInput;
-  where: LessonWhereUniqueInput;
-};
-
-export type LessonUpdateWithoutNotesInput = {
-  classroom?: InputMaybe<StringFieldUpdateOperationsInput>;
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  number?: InputMaybe<IntFieldUpdateOperationsInput>;
-  semester?: InputMaybe<PeriodUpdateOneRequiredWithoutLessonsNestedInput>;
-  subgroup?: InputMaybe<EnumSubgroupFieldUpdateOperationsInput>;
-  teacher?: InputMaybe<StringFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-  type?: InputMaybe<StringFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  weekDay?: InputMaybe<EnumWeekDayFieldUpdateOperationsInput>;
-  weeks?: InputMaybe<LessonUpdateweeksInput>;
-  weeksType?: InputMaybe<EnumWeeksTypeFieldUpdateOperationsInput>;
-};
-
-export type LessonUpdateWithoutSemesterInput = {
-  classroom?: InputMaybe<StringFieldUpdateOperationsInput>;
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  notes?: InputMaybe<LessonNoteUpdateManyWithoutLessonNestedInput>;
-  number?: InputMaybe<IntFieldUpdateOperationsInput>;
-  subgroup?: InputMaybe<EnumSubgroupFieldUpdateOperationsInput>;
-  teacher?: InputMaybe<StringFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-  type?: InputMaybe<StringFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  weekDay?: InputMaybe<EnumWeekDayFieldUpdateOperationsInput>;
-  weeks?: InputMaybe<LessonUpdateweeksInput>;
-  weeksType?: InputMaybe<EnumWeeksTypeFieldUpdateOperationsInput>;
-};
-
-export type LessonUpdateweeksInput = {
-  push?: InputMaybe<Array<Scalars['Int']>>;
-  set?: InputMaybe<Array<Scalars['Int']>>;
-};
-
-export type LessonUpsertWithWhereUniqueWithoutSemesterInput = {
-  create: LessonCreateWithoutSemesterInput;
-  update: LessonUpdateWithoutSemesterInput;
-  where: LessonWhereUniqueInput;
-};
-
-export type LessonUpsertWithoutNotesInput = {
-  create: LessonCreateWithoutNotesInput;
-  update: LessonUpdateWithoutNotesInput;
-};
-
-export type LessonWhereInput = {
-  AND?: InputMaybe<Array<LessonWhereInput>>;
-  NOT?: InputMaybe<Array<LessonWhereInput>>;
-  OR?: InputMaybe<Array<LessonWhereInput>>;
-  classroom?: InputMaybe<StringFilter>;
-  createdAt?: InputMaybe<DateTimeFilter>;
-  id?: InputMaybe<StringFilter>;
-  notes?: InputMaybe<LessonNoteListRelationFilter>;
-  number?: InputMaybe<IntFilter>;
-  semester?: InputMaybe<PeriodRelationFilter>;
-  semesterId?: InputMaybe<StringFilter>;
-  subgroup?: InputMaybe<EnumSubgroupFilter>;
-  teacher?: InputMaybe<StringFilter>;
-  title?: InputMaybe<StringFilter>;
-  type?: InputMaybe<StringFilter>;
-  updatedAt?: InputMaybe<DateTimeFilter>;
-  weekDay?: InputMaybe<EnumWeekDayFilter>;
-  weeks?: InputMaybe<IntNullableListFilter>;
-  weeksType?: InputMaybe<EnumWeeksTypeFilter>;
-};
-
-export type LessonWhereUniqueInput = {
-  id?: InputMaybe<Scalars['String']>;
+export type JsonFilter = {
+  array_contains?: InputMaybe<Scalars['JSON']>;
+  array_ends_with?: InputMaybe<Scalars['JSON']>;
+  array_starts_with?: InputMaybe<Scalars['JSON']>;
+  equals?: InputMaybe<Scalars['JSON']>;
+  gt?: InputMaybe<Scalars['JSON']>;
+  gte?: InputMaybe<Scalars['JSON']>;
+  lt?: InputMaybe<Scalars['JSON']>;
+  lte?: InputMaybe<Scalars['JSON']>;
+  not?: InputMaybe<Scalars['JSON']>;
+  path?: InputMaybe<Array<Scalars['String']>>;
+  string_contains?: InputMaybe<Scalars['String']>;
+  string_ends_with?: InputMaybe<Scalars['String']>;
+  string_starts_with?: InputMaybe<Scalars['String']>;
+};
+
+export type JsonWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntFilter>;
+  _max?: InputMaybe<NestedJsonFilter>;
+  _min?: InputMaybe<NestedJsonFilter>;
+  array_contains?: InputMaybe<Scalars['JSON']>;
+  array_ends_with?: InputMaybe<Scalars['JSON']>;
+  array_starts_with?: InputMaybe<Scalars['JSON']>;
+  equals?: InputMaybe<Scalars['JSON']>;
+  gt?: InputMaybe<Scalars['JSON']>;
+  gte?: InputMaybe<Scalars['JSON']>;
+  lt?: InputMaybe<Scalars['JSON']>;
+  lte?: InputMaybe<Scalars['JSON']>;
+  not?: InputMaybe<Scalars['JSON']>;
+  path?: InputMaybe<Array<Scalars['String']>>;
+  string_contains?: InputMaybe<Scalars['String']>;
+  string_ends_with?: InputMaybe<Scalars['String']>;
+  string_starts_with?: InputMaybe<Scalars['String']>;
+};
+
+export type LoginAdminInput = {
+  login: Scalars['String'];
+  password: Scalars['String'];
+};
+
+export type LoginUserInput = {
+  authToken: Scalars['String'];
 };
 
 export type Mutation = {
   __typename?: 'Mutation';
-  createManyAppUpdate: AffectedRowsOutput;
-  createManyAppUpdateFeature: AffectedRowsOutput;
-  createManyCallSchedule: AffectedRowsOutput;
-  createManyFaculty: AffectedRowsOutput;
-  createManyGroup: AffectedRowsOutput;
-  createManyLesson: AffectedRowsOutput;
-  createManyLessonNote: AffectedRowsOutput;
-  createManyPeriod: AffectedRowsOutput;
-  createManySecretLabel: AffectedRowsOutput;
-  createOneAppUpdate: AppUpdate;
-  createOneAppUpdateFeature: AppUpdateFeature;
-  createOneCallSchedule: CallSchedule;
-  createOneFaculty: Faculty;
-  createOneGroup: Group;
-  createOneLesson: Lesson;
-  createOneLessonNote: LessonNote;
-  createOnePeriod: Period;
-  createOneSecretLabel: SecretLabel;
-  deleteManyAppUpdate: AffectedRowsOutput;
-  deleteManyAppUpdateFeature: AffectedRowsOutput;
-  deleteManyCallSchedule: AffectedRowsOutput;
-  deleteManyFaculty: AffectedRowsOutput;
-  deleteManyGroup: AffectedRowsOutput;
-  deleteManyLesson: AffectedRowsOutput;
-  deleteManyLessonNote: AffectedRowsOutput;
-  deleteManyPeriod: AffectedRowsOutput;
-  deleteManySecretLabel: AffectedRowsOutput;
-  deleteOneAppUpdate?: Maybe<AppUpdate>;
-  deleteOneAppUpdateFeature?: Maybe<AppUpdateFeature>;
-  deleteOneCallSchedule?: Maybe<CallSchedule>;
-  deleteOneFaculty?: Maybe<Faculty>;
-  deleteOneGroup?: Maybe<Group>;
-  deleteOneLesson?: Maybe<Lesson>;
-  deleteOneLessonNote?: Maybe<LessonNote>;
-  deleteOnePeriod?: Maybe<Period>;
-  deleteOneSecretLabel?: Maybe<SecretLabel>;
-  updateManyAppUpdate: AffectedRowsOutput;
-  updateManyAppUpdateFeature: AffectedRowsOutput;
-  updateManyCallSchedule: AffectedRowsOutput;
-  updateManyFaculty: AffectedRowsOutput;
-  updateManyGroup: AffectedRowsOutput;
-  updateManyLesson: AffectedRowsOutput;
-  updateManyLessonNote: AffectedRowsOutput;
-  updateManyPeriod: AffectedRowsOutput;
-  updateManySecretLabel: AffectedRowsOutput;
-  updateOneAppUpdate?: Maybe<AppUpdate>;
-  updateOneAppUpdateFeature?: Maybe<AppUpdateFeature>;
-  updateOneCallSchedule?: Maybe<CallSchedule>;
-  updateOneFaculty?: Maybe<Faculty>;
-  updateOneGroup?: Maybe<Group>;
-  updateOneLesson?: Maybe<Lesson>;
-  updateOneLessonNote?: Maybe<LessonNote>;
-  updateOnePeriod?: Maybe<Period>;
-  updateOneSecretLabel?: Maybe<SecretLabel>;
-  upsertOneAppUpdate: AppUpdate;
-  upsertOneAppUpdateFeature: AppUpdateFeature;
-  upsertOneCallSchedule: CallSchedule;
-  upsertOneFaculty: Faculty;
-  upsertOneGroup: Group;
-  upsertOneLesson: Lesson;
-  upsertOneLessonNote: LessonNote;
-  upsertOnePeriod: Period;
-  upsertOneSecretLabel: SecretLabel;
+  createAndLoginUser: AccessTokenOutput;
+  createManyAdmin: AffectedRowsOutput;
+  createManyAdminChat: AffectedRowsOutput;
+  createManyAdminChatMessage: AffectedRowsOutput;
+  createManyApplicantProfile: AffectedRowsOutput;
+  createManyApplication: AffectedRowsOutput;
+  createManyChat: AffectedRowsOutput;
+  createManyChatMessage: AffectedRowsOutput;
+  createManyEmployerProfile: AffectedRowsOutput;
+  createManyResume: AffectedRowsOutput;
+  createManyResumeSavedByEmployer: AffectedRowsOutput;
+  createManyUser: AffectedRowsOutput;
+  createManyVacancy: AffectedRowsOutput;
+  createManyVacancySavedByApplicant: AffectedRowsOutput;
+  createOneAdmin: Admin;
+  createOneAdminChat: AdminChat;
+  createOneAdminChatMessage: AdminChatMessage;
+  createOneApplicantProfile: ApplicantProfile;
+  createOneApplication: Application;
+  createOneChat: Chat;
+  createOneChatMessage: ChatMessage;
+  createOneEmployerProfile: EmployerProfile;
+  createOneResume: Resume;
+  createOneResumeSavedByEmployer: ResumeSavedByEmployer;
+  createOneUser: User;
+  createOneVacancy: Vacancy;
+  createOneVacancySavedByApplicant: VacancySavedByApplicant;
+  deleteManyAdmin: AffectedRowsOutput;
+  deleteManyAdminChat: AffectedRowsOutput;
+  deleteManyAdminChatMessage: AffectedRowsOutput;
+  deleteManyApplicantProfile: AffectedRowsOutput;
+  deleteManyApplication: AffectedRowsOutput;
+  deleteManyChat: AffectedRowsOutput;
+  deleteManyChatMessage: AffectedRowsOutput;
+  deleteManyEmployerProfile: AffectedRowsOutput;
+  deleteManyResume: AffectedRowsOutput;
+  deleteManyResumeSavedByEmployer: AffectedRowsOutput;
+  deleteManyUser: AffectedRowsOutput;
+  deleteManyVacancy: AffectedRowsOutput;
+  deleteManyVacancySavedByApplicant: AffectedRowsOutput;
+  deleteOneAdmin?: Maybe<Admin>;
+  deleteOneAdminChat?: Maybe<AdminChat>;
+  deleteOneAdminChatMessage?: Maybe<AdminChatMessage>;
+  deleteOneApplicantProfile?: Maybe<ApplicantProfile>;
+  deleteOneApplication?: Maybe<Application>;
+  deleteOneChat?: Maybe<Chat>;
+  deleteOneChatMessage?: Maybe<ChatMessage>;
+  deleteOneEmployerProfile?: Maybe<EmployerProfile>;
+  deleteOneResume?: Maybe<Resume>;
+  deleteOneResumeSavedByEmployer?: Maybe<ResumeSavedByEmployer>;
+  deleteOneUser?: Maybe<User>;
+  deleteOneVacancy?: Maybe<Vacancy>;
+  deleteOneVacancySavedByApplicant?: Maybe<VacancySavedByApplicant>;
+  loginAdmin: AccessTokenOutput;
+  loginUser: AccessTokenOutput;
+  logout?: Maybe<Scalars['Void']>;
+  refreshAccessToken: AccessTokenOutput;
+  sendAuthCodeMessage: SendMessageOutput;
+  updateManyAdmin: AffectedRowsOutput;
+  updateManyAdminChat: AffectedRowsOutput;
+  updateManyAdminChatMessage: AffectedRowsOutput;
+  updateManyApplicantProfile: AffectedRowsOutput;
+  updateManyApplication: AffectedRowsOutput;
+  updateManyChat: AffectedRowsOutput;
+  updateManyChatMessage: AffectedRowsOutput;
+  updateManyEmployerProfile: AffectedRowsOutput;
+  updateManyResume: AffectedRowsOutput;
+  updateManyResumeSavedByEmployer: AffectedRowsOutput;
+  updateManyUser: AffectedRowsOutput;
+  updateManyVacancy: AffectedRowsOutput;
+  updateManyVacancySavedByApplicant: AffectedRowsOutput;
+  updateOneAdmin?: Maybe<Admin>;
+  updateOneAdminChat?: Maybe<AdminChat>;
+  updateOneAdminChatMessage?: Maybe<AdminChatMessage>;
+  updateOneApplicantProfile?: Maybe<ApplicantProfile>;
+  updateOneApplication?: Maybe<Application>;
+  updateOneChat?: Maybe<Chat>;
+  updateOneChatMessage?: Maybe<ChatMessage>;
+  updateOneEmployerProfile?: Maybe<EmployerProfile>;
+  updateOneResume?: Maybe<Resume>;
+  updateOneResumeSavedByEmployer?: Maybe<ResumeSavedByEmployer>;
+  updateOneUser?: Maybe<User>;
+  updateOneVacancy?: Maybe<Vacancy>;
+  updateOneVacancySavedByApplicant?: Maybe<VacancySavedByApplicant>;
+  upsertOneAdmin: Admin;
+  upsertOneAdminChat: AdminChat;
+  upsertOneAdminChatMessage: AdminChatMessage;
+  upsertOneApplicantProfile: ApplicantProfile;
+  upsertOneApplication: Application;
+  upsertOneChat: Chat;
+  upsertOneChatMessage: ChatMessage;
+  upsertOneEmployerProfile: EmployerProfile;
+  upsertOneResume: Resume;
+  upsertOneResumeSavedByEmployer: ResumeSavedByEmployer;
+  upsertOneUser: User;
+  upsertOneVacancy: Vacancy;
+  upsertOneVacancySavedByApplicant: VacancySavedByApplicant;
+  verifyAuthCode: VerifyAuthCodeOutput;
 };
 
 
-export type MutationCreateManyAppUpdateArgs = {
-  data: Array<AppUpdateCreateManyInput>;
+export type MutationCreateAndLoginUserArgs = {
+  input: CreateAndLoginUserInput;
+};
+
+
+export type MutationCreateManyAdminArgs = {
+  data: Array<AdminCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type MutationCreateManyAppUpdateFeatureArgs = {
-  data: Array<AppUpdateFeatureCreateManyInput>;
+export type MutationCreateManyAdminChatArgs = {
+  data: Array<AdminChatCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type MutationCreateManyCallScheduleArgs = {
-  data: Array<CallScheduleCreateManyInput>;
+export type MutationCreateManyAdminChatMessageArgs = {
+  data: Array<AdminChatMessageCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type MutationCreateManyFacultyArgs = {
-  data: Array<FacultyCreateManyInput>;
+export type MutationCreateManyApplicantProfileArgs = {
+  data: Array<ApplicantProfileCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type MutationCreateManyGroupArgs = {
-  data: Array<GroupCreateManyInput>;
+export type MutationCreateManyApplicationArgs = {
+  data: Array<ApplicationCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type MutationCreateManyLessonArgs = {
-  data: Array<LessonCreateManyInput>;
+export type MutationCreateManyChatArgs = {
+  data: Array<ChatCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type MutationCreateManyLessonNoteArgs = {
-  data: Array<LessonNoteCreateManyInput>;
+export type MutationCreateManyChatMessageArgs = {
+  data: Array<ChatMessageCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type MutationCreateManyPeriodArgs = {
-  data: Array<PeriodCreateManyInput>;
+export type MutationCreateManyEmployerProfileArgs = {
+  data: Array<EmployerProfileCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type MutationCreateManySecretLabelArgs = {
-  data: Array<SecretLabelCreateManyInput>;
+export type MutationCreateManyResumeArgs = {
+  data: Array<ResumeCreateManyInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type MutationCreateOneAppUpdateArgs = {
-  data: AppUpdateCreateInput;
+export type MutationCreateManyResumeSavedByEmployerArgs = {
+  data: Array<ResumeSavedByEmployerCreateManyInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type MutationCreateOneAppUpdateFeatureArgs = {
-  data: AppUpdateFeatureCreateInput;
+export type MutationCreateManyUserArgs = {
+  data: Array<UserCreateManyInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type MutationCreateOneCallScheduleArgs = {
-  data: CallScheduleCreateInput;
+export type MutationCreateManyVacancyArgs = {
+  data: Array<VacancyCreateManyInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type MutationCreateOneFacultyArgs = {
-  data: FacultyCreateInput;
+export type MutationCreateManyVacancySavedByApplicantArgs = {
+  data: Array<VacancySavedByApplicantCreateManyInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-export type MutationCreateOneGroupArgs = {
-  data: GroupCreateInput;
+export type MutationCreateOneAdminArgs = {
+  data: AdminCreateInput;
 };
 
 
-export type MutationCreateOneLessonArgs = {
-  data: LessonCreateInput;
+export type MutationCreateOneAdminChatArgs = {
+  data: AdminChatCreateInput;
 };
 
 
-export type MutationCreateOneLessonNoteArgs = {
-  data: LessonNoteCreateInput;
+export type MutationCreateOneAdminChatMessageArgs = {
+  data: AdminChatMessageCreateInput;
 };
 
 
-export type MutationCreateOnePeriodArgs = {
-  data: PeriodCreateInput;
+export type MutationCreateOneApplicantProfileArgs = {
+  data: ApplicantProfileCreateInput;
 };
 
 
-export type MutationCreateOneSecretLabelArgs = {
-  data: SecretLabelCreateInput;
+export type MutationCreateOneApplicationArgs = {
+  data: ApplicationCreateInput;
 };
 
 
-export type MutationDeleteManyAppUpdateArgs = {
-  where?: InputMaybe<AppUpdateWhereInput>;
+export type MutationCreateOneChatArgs = {
+  data: ChatCreateInput;
 };
 
 
-export type MutationDeleteManyAppUpdateFeatureArgs = {
-  where?: InputMaybe<AppUpdateFeatureWhereInput>;
+export type MutationCreateOneChatMessageArgs = {
+  data: ChatMessageCreateInput;
 };
 
 
-export type MutationDeleteManyCallScheduleArgs = {
-  where?: InputMaybe<CallScheduleWhereInput>;
+export type MutationCreateOneEmployerProfileArgs = {
+  data: EmployerProfileCreateInput;
 };
 
 
-export type MutationDeleteManyFacultyArgs = {
-  where?: InputMaybe<FacultyWhereInput>;
+export type MutationCreateOneResumeArgs = {
+  data: ResumeCreateInput;
 };
 
 
-export type MutationDeleteManyGroupArgs = {
-  where?: InputMaybe<GroupWhereInput>;
+export type MutationCreateOneResumeSavedByEmployerArgs = {
+  data: ResumeSavedByEmployerCreateInput;
 };
 
 
-export type MutationDeleteManyLessonArgs = {
-  where?: InputMaybe<LessonWhereInput>;
+export type MutationCreateOneUserArgs = {
+  data: UserCreateInput;
 };
 
 
-export type MutationDeleteManyLessonNoteArgs = {
-  where?: InputMaybe<LessonNoteWhereInput>;
+export type MutationCreateOneVacancyArgs = {
+  data: VacancyCreateInput;
 };
 
 
-export type MutationDeleteManyPeriodArgs = {
-  where?: InputMaybe<PeriodWhereInput>;
+export type MutationCreateOneVacancySavedByApplicantArgs = {
+  data: VacancySavedByApplicantCreateInput;
 };
 
 
-export type MutationDeleteManySecretLabelArgs = {
-  where?: InputMaybe<SecretLabelWhereInput>;
+export type MutationDeleteManyAdminArgs = {
+  where?: InputMaybe<AdminWhereInput>;
 };
 
 
-export type MutationDeleteOneAppUpdateArgs = {
-  where: AppUpdateWhereUniqueInput;
+export type MutationDeleteManyAdminChatArgs = {
+  where?: InputMaybe<AdminChatWhereInput>;
 };
 
 
-export type MutationDeleteOneAppUpdateFeatureArgs = {
-  where: AppUpdateFeatureWhereUniqueInput;
+export type MutationDeleteManyAdminChatMessageArgs = {
+  where?: InputMaybe<AdminChatMessageWhereInput>;
 };
 
 
-export type MutationDeleteOneCallScheduleArgs = {
-  where: CallScheduleWhereUniqueInput;
+export type MutationDeleteManyApplicantProfileArgs = {
+  where?: InputMaybe<ApplicantProfileWhereInput>;
 };
 
 
-export type MutationDeleteOneFacultyArgs = {
-  where: FacultyWhereUniqueInput;
+export type MutationDeleteManyApplicationArgs = {
+  where?: InputMaybe<ApplicationWhereInput>;
 };
 
 
-export type MutationDeleteOneGroupArgs = {
-  where: GroupWhereUniqueInput;
+export type MutationDeleteManyChatArgs = {
+  where?: InputMaybe<ChatWhereInput>;
 };
 
 
-export type MutationDeleteOneLessonArgs = {
-  where: LessonWhereUniqueInput;
+export type MutationDeleteManyChatMessageArgs = {
+  where?: InputMaybe<ChatMessageWhereInput>;
 };
 
 
-export type MutationDeleteOneLessonNoteArgs = {
-  where: LessonNoteWhereUniqueInput;
+export type MutationDeleteManyEmployerProfileArgs = {
+  where?: InputMaybe<EmployerProfileWhereInput>;
 };
 
 
-export type MutationDeleteOnePeriodArgs = {
-  where: PeriodWhereUniqueInput;
+export type MutationDeleteManyResumeArgs = {
+  where?: InputMaybe<ResumeWhereInput>;
 };
 
 
-export type MutationDeleteOneSecretLabelArgs = {
-  where: SecretLabelWhereUniqueInput;
+export type MutationDeleteManyResumeSavedByEmployerArgs = {
+  where?: InputMaybe<ResumeSavedByEmployerWhereInput>;
 };
 
 
-export type MutationUpdateManyAppUpdateArgs = {
-  data: AppUpdateUpdateManyMutationInput;
-  where?: InputMaybe<AppUpdateWhereInput>;
+export type MutationDeleteManyUserArgs = {
+  where?: InputMaybe<UserWhereInput>;
 };
 
 
-export type MutationUpdateManyAppUpdateFeatureArgs = {
-  data: AppUpdateFeatureUpdateManyMutationInput;
-  where?: InputMaybe<AppUpdateFeatureWhereInput>;
+export type MutationDeleteManyVacancyArgs = {
+  where?: InputMaybe<VacancyWhereInput>;
 };
 
 
-export type MutationUpdateManyCallScheduleArgs = {
-  data: CallScheduleUpdateManyMutationInput;
-  where?: InputMaybe<CallScheduleWhereInput>;
+export type MutationDeleteManyVacancySavedByApplicantArgs = {
+  where?: InputMaybe<VacancySavedByApplicantWhereInput>;
 };
 
 
-export type MutationUpdateManyFacultyArgs = {
-  data: FacultyUpdateManyMutationInput;
-  where?: InputMaybe<FacultyWhereInput>;
+export type MutationDeleteOneAdminArgs = {
+  where: AdminWhereUniqueInput;
 };
 
 
-export type MutationUpdateManyGroupArgs = {
-  data: GroupUpdateManyMutationInput;
-  where?: InputMaybe<GroupWhereInput>;
+export type MutationDeleteOneAdminChatArgs = {
+  where: AdminChatWhereUniqueInput;
 };
 
 
-export type MutationUpdateManyLessonArgs = {
-  data: LessonUpdateManyMutationInput;
-  where?: InputMaybe<LessonWhereInput>;
+export type MutationDeleteOneAdminChatMessageArgs = {
+  where: AdminChatMessageWhereUniqueInput;
 };
 
 
-export type MutationUpdateManyLessonNoteArgs = {
-  data: LessonNoteUpdateManyMutationInput;
-  where?: InputMaybe<LessonNoteWhereInput>;
+export type MutationDeleteOneApplicantProfileArgs = {
+  where: ApplicantProfileWhereUniqueInput;
 };
 
 
-export type MutationUpdateManyPeriodArgs = {
-  data: PeriodUpdateManyMutationInput;
-  where?: InputMaybe<PeriodWhereInput>;
+export type MutationDeleteOneApplicationArgs = {
+  where: ApplicationWhereUniqueInput;
 };
 
 
-export type MutationUpdateManySecretLabelArgs = {
-  data: SecretLabelUpdateManyMutationInput;
-  where?: InputMaybe<SecretLabelWhereInput>;
+export type MutationDeleteOneChatArgs = {
+  where: ChatWhereUniqueInput;
 };
 
 
-export type MutationUpdateOneAppUpdateArgs = {
-  data: AppUpdateUpdateInput;
-  where: AppUpdateWhereUniqueInput;
+export type MutationDeleteOneChatMessageArgs = {
+  where: ChatMessageWhereUniqueInput;
 };
 
 
-export type MutationUpdateOneAppUpdateFeatureArgs = {
-  data: AppUpdateFeatureUpdateInput;
-  where: AppUpdateFeatureWhereUniqueInput;
+export type MutationDeleteOneEmployerProfileArgs = {
+  where: EmployerProfileWhereUniqueInput;
 };
 
 
-export type MutationUpdateOneCallScheduleArgs = {
-  data: CallScheduleUpdateInput;
-  where: CallScheduleWhereUniqueInput;
+export type MutationDeleteOneResumeArgs = {
+  where: ResumeWhereUniqueInput;
 };
 
 
-export type MutationUpdateOneFacultyArgs = {
-  data: FacultyUpdateInput;
-  where: FacultyWhereUniqueInput;
+export type MutationDeleteOneResumeSavedByEmployerArgs = {
+  where: ResumeSavedByEmployerWhereUniqueInput;
 };
 
 
-export type MutationUpdateOneGroupArgs = {
-  data: GroupUpdateInput;
-  where: GroupWhereUniqueInput;
+export type MutationDeleteOneUserArgs = {
+  where: UserWhereUniqueInput;
 };
 
 
-export type MutationUpdateOneLessonArgs = {
-  data: LessonUpdateInput;
-  where: LessonWhereUniqueInput;
+export type MutationDeleteOneVacancyArgs = {
+  where: VacancyWhereUniqueInput;
 };
 
 
-export type MutationUpdateOneLessonNoteArgs = {
-  data: LessonNoteUpdateInput;
-  where: LessonNoteWhereUniqueInput;
+export type MutationDeleteOneVacancySavedByApplicantArgs = {
+  where: VacancySavedByApplicantWhereUniqueInput;
 };
 
 
-export type MutationUpdateOnePeriodArgs = {
-  data: PeriodUpdateInput;
-  where: PeriodWhereUniqueInput;
+export type MutationLoginAdminArgs = {
+  input: LoginAdminInput;
 };
 
 
-export type MutationUpdateOneSecretLabelArgs = {
-  data: SecretLabelUpdateInput;
-  where: SecretLabelWhereUniqueInput;
+export type MutationLoginUserArgs = {
+  input: LoginUserInput;
 };
 
 
-export type MutationUpsertOneAppUpdateArgs = {
-  create: AppUpdateCreateInput;
-  update: AppUpdateUpdateInput;
-  where: AppUpdateWhereUniqueInput;
+export type MutationSendAuthCodeMessageArgs = {
+  input: SendMessageInput;
 };
 
 
-export type MutationUpsertOneAppUpdateFeatureArgs = {
-  create: AppUpdateFeatureCreateInput;
-  update: AppUpdateFeatureUpdateInput;
-  where: AppUpdateFeatureWhereUniqueInput;
+export type MutationUpdateManyAdminArgs = {
+  data: AdminUpdateManyMutationInput;
+  where?: InputMaybe<AdminWhereInput>;
 };
 
 
-export type MutationUpsertOneCallScheduleArgs = {
-  create: CallScheduleCreateInput;
-  update: CallScheduleUpdateInput;
-  where: CallScheduleWhereUniqueInput;
+export type MutationUpdateManyAdminChatArgs = {
+  data: AdminChatUpdateManyMutationInput;
+  where?: InputMaybe<AdminChatWhereInput>;
 };
 
 
-export type MutationUpsertOneFacultyArgs = {
-  create: FacultyCreateInput;
-  update: FacultyUpdateInput;
-  where: FacultyWhereUniqueInput;
+export type MutationUpdateManyAdminChatMessageArgs = {
+  data: AdminChatMessageUpdateManyMutationInput;
+  where?: InputMaybe<AdminChatMessageWhereInput>;
 };
 
 
-export type MutationUpsertOneGroupArgs = {
-  create: GroupCreateInput;
-  update: GroupUpdateInput;
-  where: GroupWhereUniqueInput;
+export type MutationUpdateManyApplicantProfileArgs = {
+  data: ApplicantProfileUpdateManyMutationInput;
+  where?: InputMaybe<ApplicantProfileWhereInput>;
 };
 
 
-export type MutationUpsertOneLessonArgs = {
-  create: LessonCreateInput;
-  update: LessonUpdateInput;
-  where: LessonWhereUniqueInput;
+export type MutationUpdateManyApplicationArgs = {
+  data: ApplicationUpdateManyMutationInput;
+  where?: InputMaybe<ApplicationWhereInput>;
 };
 
 
-export type MutationUpsertOneLessonNoteArgs = {
-  create: LessonNoteCreateInput;
-  update: LessonNoteUpdateInput;
-  where: LessonNoteWhereUniqueInput;
+export type MutationUpdateManyChatArgs = {
+  data: ChatUpdateManyMutationInput;
+  where?: InputMaybe<ChatWhereInput>;
 };
 
 
-export type MutationUpsertOnePeriodArgs = {
-  create: PeriodCreateInput;
-  update: PeriodUpdateInput;
-  where: PeriodWhereUniqueInput;
+export type MutationUpdateManyChatMessageArgs = {
+  data: ChatMessageUpdateManyMutationInput;
+  where?: InputMaybe<ChatMessageWhereInput>;
 };
 
 
-export type MutationUpsertOneSecretLabelArgs = {
-  create: SecretLabelCreateInput;
-  update: SecretLabelUpdateInput;
-  where: SecretLabelWhereUniqueInput;
+export type MutationUpdateManyEmployerProfileArgs = {
+  data: EmployerProfileUpdateManyMutationInput;
+  where?: InputMaybe<EmployerProfileWhereInput>;
+};
+
+
+export type MutationUpdateManyResumeArgs = {
+  data: ResumeUpdateManyMutationInput;
+  where?: InputMaybe<ResumeWhereInput>;
+};
+
+
+export type MutationUpdateManyResumeSavedByEmployerArgs = {
+  data: ResumeSavedByEmployerUpdateManyMutationInput;
+  where?: InputMaybe<ResumeSavedByEmployerWhereInput>;
+};
+
+
+export type MutationUpdateManyUserArgs = {
+  data: UserUpdateManyMutationInput;
+  where?: InputMaybe<UserWhereInput>;
+};
+
+
+export type MutationUpdateManyVacancyArgs = {
+  data: VacancyUpdateManyMutationInput;
+  where?: InputMaybe<VacancyWhereInput>;
+};
+
+
+export type MutationUpdateManyVacancySavedByApplicantArgs = {
+  data: VacancySavedByApplicantUpdateManyMutationInput;
+  where?: InputMaybe<VacancySavedByApplicantWhereInput>;
+};
+
+
+export type MutationUpdateOneAdminArgs = {
+  data: AdminUpdateInput;
+  where: AdminWhereUniqueInput;
+};
+
+
+export type MutationUpdateOneAdminChatArgs = {
+  data: AdminChatUpdateInput;
+  where: AdminChatWhereUniqueInput;
+};
+
+
+export type MutationUpdateOneAdminChatMessageArgs = {
+  data: AdminChatMessageUpdateInput;
+  where: AdminChatMessageWhereUniqueInput;
+};
+
+
+export type MutationUpdateOneApplicantProfileArgs = {
+  data: ApplicantProfileUpdateInput;
+  where: ApplicantProfileWhereUniqueInput;
+};
+
+
+export type MutationUpdateOneApplicationArgs = {
+  data: ApplicationUpdateInput;
+  where: ApplicationWhereUniqueInput;
+};
+
+
+export type MutationUpdateOneChatArgs = {
+  data: ChatUpdateInput;
+  where: ChatWhereUniqueInput;
+};
+
+
+export type MutationUpdateOneChatMessageArgs = {
+  data: ChatMessageUpdateInput;
+  where: ChatMessageWhereUniqueInput;
+};
+
+
+export type MutationUpdateOneEmployerProfileArgs = {
+  data: EmployerProfileUpdateInput;
+  where: EmployerProfileWhereUniqueInput;
+};
+
+
+export type MutationUpdateOneResumeArgs = {
+  data: ResumeUpdateInput;
+  where: ResumeWhereUniqueInput;
+};
+
+
+export type MutationUpdateOneResumeSavedByEmployerArgs = {
+  data: ResumeSavedByEmployerUpdateInput;
+  where: ResumeSavedByEmployerWhereUniqueInput;
+};
+
+
+export type MutationUpdateOneUserArgs = {
+  data: UserUpdateInput;
+  where: UserWhereUniqueInput;
+};
+
+
+export type MutationUpdateOneVacancyArgs = {
+  data: VacancyUpdateInput;
+  where: VacancyWhereUniqueInput;
+};
+
+
+export type MutationUpdateOneVacancySavedByApplicantArgs = {
+  data: VacancySavedByApplicantUpdateInput;
+  where: VacancySavedByApplicantWhereUniqueInput;
+};
+
+
+export type MutationUpsertOneAdminArgs = {
+  create: AdminCreateInput;
+  update: AdminUpdateInput;
+  where: AdminWhereUniqueInput;
+};
+
+
+export type MutationUpsertOneAdminChatArgs = {
+  create: AdminChatCreateInput;
+  update: AdminChatUpdateInput;
+  where: AdminChatWhereUniqueInput;
+};
+
+
+export type MutationUpsertOneAdminChatMessageArgs = {
+  create: AdminChatMessageCreateInput;
+  update: AdminChatMessageUpdateInput;
+  where: AdminChatMessageWhereUniqueInput;
+};
+
+
+export type MutationUpsertOneApplicantProfileArgs = {
+  create: ApplicantProfileCreateInput;
+  update: ApplicantProfileUpdateInput;
+  where: ApplicantProfileWhereUniqueInput;
+};
+
+
+export type MutationUpsertOneApplicationArgs = {
+  create: ApplicationCreateInput;
+  update: ApplicationUpdateInput;
+  where: ApplicationWhereUniqueInput;
+};
+
+
+export type MutationUpsertOneChatArgs = {
+  create: ChatCreateInput;
+  update: ChatUpdateInput;
+  where: ChatWhereUniqueInput;
+};
+
+
+export type MutationUpsertOneChatMessageArgs = {
+  create: ChatMessageCreateInput;
+  update: ChatMessageUpdateInput;
+  where: ChatMessageWhereUniqueInput;
+};
+
+
+export type MutationUpsertOneEmployerProfileArgs = {
+  create: EmployerProfileCreateInput;
+  update: EmployerProfileUpdateInput;
+  where: EmployerProfileWhereUniqueInput;
+};
+
+
+export type MutationUpsertOneResumeArgs = {
+  create: ResumeCreateInput;
+  update: ResumeUpdateInput;
+  where: ResumeWhereUniqueInput;
+};
+
+
+export type MutationUpsertOneResumeSavedByEmployerArgs = {
+  create: ResumeSavedByEmployerCreateInput;
+  update: ResumeSavedByEmployerUpdateInput;
+  where: ResumeSavedByEmployerWhereUniqueInput;
+};
+
+
+export type MutationUpsertOneUserArgs = {
+  create: UserCreateInput;
+  update: UserUpdateInput;
+  where: UserWhereUniqueInput;
+};
+
+
+export type MutationUpsertOneVacancyArgs = {
+  create: VacancyCreateInput;
+  update: VacancyUpdateInput;
+  where: VacancyWhereUniqueInput;
+};
+
+
+export type MutationUpsertOneVacancySavedByApplicantArgs = {
+  create: VacancySavedByApplicantCreateInput;
+  update: VacancySavedByApplicantUpdateInput;
+  where: VacancySavedByApplicantWhereUniqueInput;
+};
+
+
+export type MutationVerifyAuthCodeArgs = {
+  input: VerifyAuthCodeInput;
+};
+
+export type NestedBoolFilter = {
+  equals?: InputMaybe<Scalars['Boolean']>;
+  not?: InputMaybe<NestedBoolFilter>;
+};
+
+export type NestedBoolWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntFilter>;
+  _max?: InputMaybe<NestedBoolFilter>;
+  _min?: InputMaybe<NestedBoolFilter>;
+  equals?: InputMaybe<Scalars['Boolean']>;
+  not?: InputMaybe<NestedBoolWithAggregatesFilter>;
 };
 
 export type NestedDateTimeFilter = {
@@ -2872,31 +3113,6 @@ export type NestedDateTimeFilter = {
   lt?: InputMaybe<Scalars['DateTime']>;
   lte?: InputMaybe<Scalars['DateTime']>;
   not?: InputMaybe<NestedDateTimeFilter>;
-  notIn?: InputMaybe<Array<Scalars['DateTime']>>;
-};
-
-export type NestedDateTimeNullableFilter = {
-  equals?: InputMaybe<Scalars['DateTime']>;
-  gt?: InputMaybe<Scalars['DateTime']>;
-  gte?: InputMaybe<Scalars['DateTime']>;
-  in?: InputMaybe<Array<Scalars['DateTime']>>;
-  lt?: InputMaybe<Scalars['DateTime']>;
-  lte?: InputMaybe<Scalars['DateTime']>;
-  not?: InputMaybe<NestedDateTimeNullableFilter>;
-  notIn?: InputMaybe<Array<Scalars['DateTime']>>;
-};
-
-export type NestedDateTimeNullableWithAggregatesFilter = {
-  _count?: InputMaybe<NestedIntNullableFilter>;
-  _max?: InputMaybe<NestedDateTimeNullableFilter>;
-  _min?: InputMaybe<NestedDateTimeNullableFilter>;
-  equals?: InputMaybe<Scalars['DateTime']>;
-  gt?: InputMaybe<Scalars['DateTime']>;
-  gte?: InputMaybe<Scalars['DateTime']>;
-  in?: InputMaybe<Array<Scalars['DateTime']>>;
-  lt?: InputMaybe<Scalars['DateTime']>;
-  lte?: InputMaybe<Scalars['DateTime']>;
-  not?: InputMaybe<NestedDateTimeNullableWithAggregatesFilter>;
   notIn?: InputMaybe<Array<Scalars['DateTime']>>;
 };
 
@@ -2914,89 +3130,38 @@ export type NestedDateTimeWithAggregatesFilter = {
   notIn?: InputMaybe<Array<Scalars['DateTime']>>;
 };
 
-export type NestedEnumAppUpdateOsFilter = {
-  equals?: InputMaybe<AppUpdateOs>;
-  in?: InputMaybe<Array<AppUpdateOs>>;
-  not?: InputMaybe<NestedEnumAppUpdateOsFilter>;
-  notIn?: InputMaybe<Array<AppUpdateOs>>;
+export type NestedEnumApplicationTypeFilter = {
+  equals?: InputMaybe<ApplicationType>;
+  in?: InputMaybe<Array<ApplicationType>>;
+  not?: InputMaybe<NestedEnumApplicationTypeFilter>;
+  notIn?: InputMaybe<Array<ApplicationType>>;
 };
 
-export type NestedEnumAppUpdateOsWithAggregatesFilter = {
+export type NestedEnumApplicationTypeWithAggregatesFilter = {
   _count?: InputMaybe<NestedIntFilter>;
-  _max?: InputMaybe<NestedEnumAppUpdateOsFilter>;
-  _min?: InputMaybe<NestedEnumAppUpdateOsFilter>;
-  equals?: InputMaybe<AppUpdateOs>;
-  in?: InputMaybe<Array<AppUpdateOs>>;
-  not?: InputMaybe<NestedEnumAppUpdateOsWithAggregatesFilter>;
-  notIn?: InputMaybe<Array<AppUpdateOs>>;
+  _max?: InputMaybe<NestedEnumApplicationTypeFilter>;
+  _min?: InputMaybe<NestedEnumApplicationTypeFilter>;
+  equals?: InputMaybe<ApplicationType>;
+  in?: InputMaybe<Array<ApplicationType>>;
+  not?: InputMaybe<NestedEnumApplicationTypeWithAggregatesFilter>;
+  notIn?: InputMaybe<Array<ApplicationType>>;
 };
 
-export type NestedEnumPeriodTypeFilter = {
-  equals?: InputMaybe<PeriodType>;
-  in?: InputMaybe<Array<PeriodType>>;
-  not?: InputMaybe<NestedEnumPeriodTypeFilter>;
-  notIn?: InputMaybe<Array<PeriodType>>;
+export type NestedEnumUserRoleFilter = {
+  equals?: InputMaybe<UserRole>;
+  in?: InputMaybe<Array<UserRole>>;
+  not?: InputMaybe<NestedEnumUserRoleFilter>;
+  notIn?: InputMaybe<Array<UserRole>>;
 };
 
-export type NestedEnumPeriodTypeWithAggregatesFilter = {
+export type NestedEnumUserRoleWithAggregatesFilter = {
   _count?: InputMaybe<NestedIntFilter>;
-  _max?: InputMaybe<NestedEnumPeriodTypeFilter>;
-  _min?: InputMaybe<NestedEnumPeriodTypeFilter>;
-  equals?: InputMaybe<PeriodType>;
-  in?: InputMaybe<Array<PeriodType>>;
-  not?: InputMaybe<NestedEnumPeriodTypeWithAggregatesFilter>;
-  notIn?: InputMaybe<Array<PeriodType>>;
-};
-
-export type NestedEnumSubgroupFilter = {
-  equals?: InputMaybe<Subgroup>;
-  in?: InputMaybe<Array<Subgroup>>;
-  not?: InputMaybe<NestedEnumSubgroupFilter>;
-  notIn?: InputMaybe<Array<Subgroup>>;
-};
-
-export type NestedEnumSubgroupWithAggregatesFilter = {
-  _count?: InputMaybe<NestedIntFilter>;
-  _max?: InputMaybe<NestedEnumSubgroupFilter>;
-  _min?: InputMaybe<NestedEnumSubgroupFilter>;
-  equals?: InputMaybe<Subgroup>;
-  in?: InputMaybe<Array<Subgroup>>;
-  not?: InputMaybe<NestedEnumSubgroupWithAggregatesFilter>;
-  notIn?: InputMaybe<Array<Subgroup>>;
-};
-
-export type NestedEnumWeekDayFilter = {
-  equals?: InputMaybe<WeekDay>;
-  in?: InputMaybe<Array<WeekDay>>;
-  not?: InputMaybe<NestedEnumWeekDayFilter>;
-  notIn?: InputMaybe<Array<WeekDay>>;
-};
-
-export type NestedEnumWeekDayWithAggregatesFilter = {
-  _count?: InputMaybe<NestedIntFilter>;
-  _max?: InputMaybe<NestedEnumWeekDayFilter>;
-  _min?: InputMaybe<NestedEnumWeekDayFilter>;
-  equals?: InputMaybe<WeekDay>;
-  in?: InputMaybe<Array<WeekDay>>;
-  not?: InputMaybe<NestedEnumWeekDayWithAggregatesFilter>;
-  notIn?: InputMaybe<Array<WeekDay>>;
-};
-
-export type NestedEnumWeeksTypeFilter = {
-  equals?: InputMaybe<WeeksType>;
-  in?: InputMaybe<Array<WeeksType>>;
-  not?: InputMaybe<NestedEnumWeeksTypeFilter>;
-  notIn?: InputMaybe<Array<WeeksType>>;
-};
-
-export type NestedEnumWeeksTypeWithAggregatesFilter = {
-  _count?: InputMaybe<NestedIntFilter>;
-  _max?: InputMaybe<NestedEnumWeeksTypeFilter>;
-  _min?: InputMaybe<NestedEnumWeeksTypeFilter>;
-  equals?: InputMaybe<WeeksType>;
-  in?: InputMaybe<Array<WeeksType>>;
-  not?: InputMaybe<NestedEnumWeeksTypeWithAggregatesFilter>;
-  notIn?: InputMaybe<Array<WeeksType>>;
+  _max?: InputMaybe<NestedEnumUserRoleFilter>;
+  _min?: InputMaybe<NestedEnumUserRoleFilter>;
+  equals?: InputMaybe<UserRole>;
+  in?: InputMaybe<Array<UserRole>>;
+  not?: InputMaybe<NestedEnumUserRoleWithAggregatesFilter>;
+  notIn?: InputMaybe<Array<UserRole>>;
 };
 
 export type NestedFloatFilter = {
@@ -3048,6 +3213,22 @@ export type NestedIntWithAggregatesFilter = {
   notIn?: InputMaybe<Array<Scalars['Int']>>;
 };
 
+export type NestedJsonFilter = {
+  array_contains?: InputMaybe<Scalars['JSON']>;
+  array_ends_with?: InputMaybe<Scalars['JSON']>;
+  array_starts_with?: InputMaybe<Scalars['JSON']>;
+  equals?: InputMaybe<Scalars['JSON']>;
+  gt?: InputMaybe<Scalars['JSON']>;
+  gte?: InputMaybe<Scalars['JSON']>;
+  lt?: InputMaybe<Scalars['JSON']>;
+  lte?: InputMaybe<Scalars['JSON']>;
+  not?: InputMaybe<Scalars['JSON']>;
+  path?: InputMaybe<Array<Scalars['String']>>;
+  string_contains?: InputMaybe<Scalars['String']>;
+  string_ends_with?: InputMaybe<Scalars['String']>;
+  string_starts_with?: InputMaybe<Scalars['String']>;
+};
+
 export type NestedStringFilter = {
   contains?: InputMaybe<Scalars['String']>;
   endsWith?: InputMaybe<Scalars['String']>;
@@ -3058,6 +3239,37 @@ export type NestedStringFilter = {
   lt?: InputMaybe<Scalars['String']>;
   lte?: InputMaybe<Scalars['String']>;
   not?: InputMaybe<NestedStringFilter>;
+  notIn?: InputMaybe<Array<Scalars['String']>>;
+  startsWith?: InputMaybe<Scalars['String']>;
+};
+
+export type NestedStringNullableFilter = {
+  contains?: InputMaybe<Scalars['String']>;
+  endsWith?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  gt?: InputMaybe<Scalars['String']>;
+  gte?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<Scalars['String']>>;
+  lt?: InputMaybe<Scalars['String']>;
+  lte?: InputMaybe<Scalars['String']>;
+  not?: InputMaybe<NestedStringNullableFilter>;
+  notIn?: InputMaybe<Array<Scalars['String']>>;
+  startsWith?: InputMaybe<Scalars['String']>;
+};
+
+export type NestedStringNullableWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntNullableFilter>;
+  _max?: InputMaybe<NestedStringNullableFilter>;
+  _min?: InputMaybe<NestedStringNullableFilter>;
+  contains?: InputMaybe<Scalars['String']>;
+  endsWith?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  gt?: InputMaybe<Scalars['String']>;
+  gte?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<Scalars['String']>>;
+  lt?: InputMaybe<Scalars['String']>;
+  lte?: InputMaybe<Scalars['String']>;
+  not?: InputMaybe<NestedStringNullableWithAggregatesFilter>;
   notIn?: InputMaybe<Array<Scalars['String']>>;
   startsWith?: InputMaybe<Scalars['String']>;
 };
@@ -3079,938 +3291,650 @@ export type NestedStringWithAggregatesFilter = {
   startsWith?: InputMaybe<Scalars['String']>;
 };
 
-export type NullableDateTimeFieldUpdateOperationsInput = {
-  set?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type Period = {
-  __typename?: 'Period';
-  _count?: Maybe<PeriodCount>;
-  callSchedule: Array<CallSchedule>;
-  createdAt: Scalars['DateTime'];
-  end: Scalars['DateTime'];
-  group: Group;
-  groupId: Scalars['String'];
-  id: Scalars['String'];
-  lastScheduleUpdate?: Maybe<Scalars['DateTime']>;
-  lessons: Array<Lesson>;
-  start: Scalars['DateTime'];
-  title: Scalars['String'];
-  type: PeriodType;
-  updatedAt: Scalars['DateTime'];
-};
-
-
-export type PeriodCallScheduleArgs = {
-  cursor?: InputMaybe<CallScheduleWhereUniqueInput>;
-  distinct?: InputMaybe<Array<CallScheduleScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<CallScheduleOrderByWithRelationInput>>;
-  skip?: InputMaybe<Scalars['Int']>;
-  take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<CallScheduleWhereInput>;
-};
-
-
-export type PeriodLessonsArgs = {
-  cursor?: InputMaybe<LessonWhereUniqueInput>;
-  distinct?: InputMaybe<Array<LessonScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<LessonOrderByWithRelationInput>>;
-  skip?: InputMaybe<Scalars['Int']>;
-  take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<LessonWhereInput>;
-};
-
-export type PeriodCount = {
-  __typename?: 'PeriodCount';
-  callSchedule: Scalars['Int'];
-  lessons: Scalars['Int'];
-};
-
-export type PeriodCountAggregate = {
-  __typename?: 'PeriodCountAggregate';
-  _all: Scalars['Int'];
-  createdAt: Scalars['Int'];
-  end: Scalars['Int'];
-  groupId: Scalars['Int'];
-  id: Scalars['Int'];
-  lastScheduleUpdate: Scalars['Int'];
-  start: Scalars['Int'];
-  title: Scalars['Int'];
-  type: Scalars['Int'];
-  updatedAt: Scalars['Int'];
-};
-
-export type PeriodCountOrderByAggregateInput = {
-  createdAt?: InputMaybe<SortOrder>;
-  end?: InputMaybe<SortOrder>;
-  groupId?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  lastScheduleUpdate?: InputMaybe<SortOrder>;
-  start?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  type?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-};
-
-export type PeriodCreateInput = {
-  callSchedule?: InputMaybe<CallScheduleCreateNestedManyWithoutPeriodInput>;
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  end: Scalars['DateTime'];
-  group: GroupCreateNestedOneWithoutPeriodsInput;
-  id?: InputMaybe<Scalars['String']>;
-  lastScheduleUpdate?: InputMaybe<Scalars['DateTime']>;
-  lessons?: InputMaybe<LessonCreateNestedManyWithoutSemesterInput>;
-  start: Scalars['DateTime'];
-  title: Scalars['String'];
-  type: PeriodType;
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type PeriodCreateManyGroupInput = {
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  end: Scalars['DateTime'];
-  id?: InputMaybe<Scalars['String']>;
-  lastScheduleUpdate?: InputMaybe<Scalars['DateTime']>;
-  start: Scalars['DateTime'];
-  title: Scalars['String'];
-  type: PeriodType;
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type PeriodCreateManyGroupInputEnvelope = {
-  data: Array<PeriodCreateManyGroupInput>;
-  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
-};
-
-export type PeriodCreateManyInput = {
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  end: Scalars['DateTime'];
-  groupId: Scalars['String'];
-  id?: InputMaybe<Scalars['String']>;
-  lastScheduleUpdate?: InputMaybe<Scalars['DateTime']>;
-  start: Scalars['DateTime'];
-  title: Scalars['String'];
-  type: PeriodType;
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type PeriodCreateNestedManyWithoutGroupInput = {
-  connect?: InputMaybe<Array<PeriodWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<PeriodCreateOrConnectWithoutGroupInput>>;
-  create?: InputMaybe<Array<PeriodCreateWithoutGroupInput>>;
-  createMany?: InputMaybe<PeriodCreateManyGroupInputEnvelope>;
-};
-
-export type PeriodCreateNestedOneWithoutCallScheduleInput = {
-  connect?: InputMaybe<PeriodWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<PeriodCreateOrConnectWithoutCallScheduleInput>;
-  create?: InputMaybe<PeriodCreateWithoutCallScheduleInput>;
-};
-
-export type PeriodCreateNestedOneWithoutLessonsInput = {
-  connect?: InputMaybe<PeriodWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<PeriodCreateOrConnectWithoutLessonsInput>;
-  create?: InputMaybe<PeriodCreateWithoutLessonsInput>;
-};
-
-export type PeriodCreateOrConnectWithoutCallScheduleInput = {
-  create: PeriodCreateWithoutCallScheduleInput;
-  where: PeriodWhereUniqueInput;
-};
-
-export type PeriodCreateOrConnectWithoutGroupInput = {
-  create: PeriodCreateWithoutGroupInput;
-  where: PeriodWhereUniqueInput;
-};
-
-export type PeriodCreateOrConnectWithoutLessonsInput = {
-  create: PeriodCreateWithoutLessonsInput;
-  where: PeriodWhereUniqueInput;
-};
-
-export type PeriodCreateWithoutCallScheduleInput = {
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  end: Scalars['DateTime'];
-  group: GroupCreateNestedOneWithoutPeriodsInput;
-  id?: InputMaybe<Scalars['String']>;
-  lastScheduleUpdate?: InputMaybe<Scalars['DateTime']>;
-  lessons?: InputMaybe<LessonCreateNestedManyWithoutSemesterInput>;
-  start: Scalars['DateTime'];
-  title: Scalars['String'];
-  type: PeriodType;
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type PeriodCreateWithoutGroupInput = {
-  callSchedule?: InputMaybe<CallScheduleCreateNestedManyWithoutPeriodInput>;
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  end: Scalars['DateTime'];
-  id?: InputMaybe<Scalars['String']>;
-  lastScheduleUpdate?: InputMaybe<Scalars['DateTime']>;
-  lessons?: InputMaybe<LessonCreateNestedManyWithoutSemesterInput>;
-  start: Scalars['DateTime'];
-  title: Scalars['String'];
-  type: PeriodType;
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type PeriodCreateWithoutLessonsInput = {
-  callSchedule?: InputMaybe<CallScheduleCreateNestedManyWithoutPeriodInput>;
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  end: Scalars['DateTime'];
-  group: GroupCreateNestedOneWithoutPeriodsInput;
-  id?: InputMaybe<Scalars['String']>;
-  lastScheduleUpdate?: InputMaybe<Scalars['DateTime']>;
-  start: Scalars['DateTime'];
-  title: Scalars['String'];
-  type: PeriodType;
-  updatedAt?: InputMaybe<Scalars['DateTime']>;
-};
-
-export type PeriodGroupBy = {
-  __typename?: 'PeriodGroupBy';
-  _count?: Maybe<PeriodCountAggregate>;
-  _max?: Maybe<PeriodMaxAggregate>;
-  _min?: Maybe<PeriodMinAggregate>;
-  createdAt: Scalars['DateTime'];
-  end: Scalars['DateTime'];
-  groupId: Scalars['String'];
-  id: Scalars['String'];
-  lastScheduleUpdate?: Maybe<Scalars['DateTime']>;
-  start: Scalars['DateTime'];
-  title: Scalars['String'];
-  type: PeriodType;
-  updatedAt: Scalars['DateTime'];
-};
-
-export type PeriodListRelationFilter = {
-  every?: InputMaybe<PeriodWhereInput>;
-  none?: InputMaybe<PeriodWhereInput>;
-  some?: InputMaybe<PeriodWhereInput>;
-};
-
-export type PeriodMaxAggregate = {
-  __typename?: 'PeriodMaxAggregate';
-  createdAt?: Maybe<Scalars['DateTime']>;
-  end?: Maybe<Scalars['DateTime']>;
-  groupId?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  lastScheduleUpdate?: Maybe<Scalars['DateTime']>;
-  start?: Maybe<Scalars['DateTime']>;
-  title?: Maybe<Scalars['String']>;
-  type?: Maybe<PeriodType>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-export type PeriodMaxOrderByAggregateInput = {
-  createdAt?: InputMaybe<SortOrder>;
-  end?: InputMaybe<SortOrder>;
-  groupId?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  lastScheduleUpdate?: InputMaybe<SortOrder>;
-  start?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  type?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-};
-
-export type PeriodMinAggregate = {
-  __typename?: 'PeriodMinAggregate';
-  createdAt?: Maybe<Scalars['DateTime']>;
-  end?: Maybe<Scalars['DateTime']>;
-  groupId?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  lastScheduleUpdate?: Maybe<Scalars['DateTime']>;
-  start?: Maybe<Scalars['DateTime']>;
-  title?: Maybe<Scalars['String']>;
-  type?: Maybe<PeriodType>;
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-export type PeriodMinOrderByAggregateInput = {
-  createdAt?: InputMaybe<SortOrder>;
-  end?: InputMaybe<SortOrder>;
-  groupId?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  lastScheduleUpdate?: InputMaybe<SortOrder>;
-  start?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  type?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-};
-
-export type PeriodOrderByRelationAggregateInput = {
-  _count?: InputMaybe<SortOrder>;
-};
-
-export type PeriodOrderByWithAggregationInput = {
-  _count?: InputMaybe<PeriodCountOrderByAggregateInput>;
-  _max?: InputMaybe<PeriodMaxOrderByAggregateInput>;
-  _min?: InputMaybe<PeriodMinOrderByAggregateInput>;
-  createdAt?: InputMaybe<SortOrder>;
-  end?: InputMaybe<SortOrder>;
-  groupId?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  lastScheduleUpdate?: InputMaybe<SortOrder>;
-  start?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  type?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-};
-
-export type PeriodOrderByWithRelationInput = {
-  callSchedule?: InputMaybe<CallScheduleOrderByRelationAggregateInput>;
-  createdAt?: InputMaybe<SortOrder>;
-  end?: InputMaybe<SortOrder>;
-  group?: InputMaybe<GroupOrderByWithRelationInput>;
-  groupId?: InputMaybe<SortOrder>;
-  id?: InputMaybe<SortOrder>;
-  lastScheduleUpdate?: InputMaybe<SortOrder>;
-  lessons?: InputMaybe<LessonOrderByRelationAggregateInput>;
-  start?: InputMaybe<SortOrder>;
-  title?: InputMaybe<SortOrder>;
-  type?: InputMaybe<SortOrder>;
-  updatedAt?: InputMaybe<SortOrder>;
-};
-
-export type PeriodRelationFilter = {
-  is?: InputMaybe<PeriodWhereInput>;
-  isNot?: InputMaybe<PeriodWhereInput>;
-};
-
-export enum PeriodScalarFieldEnum {
-  CreatedAt = 'createdAt',
-  End = 'end',
-  GroupId = 'groupId',
-  Id = 'id',
-  LastScheduleUpdate = 'lastScheduleUpdate',
-  Start = 'start',
-  Title = 'title',
-  Type = 'type',
-  UpdatedAt = 'updatedAt'
-}
-
-export type PeriodScalarWhereInput = {
-  AND?: InputMaybe<Array<PeriodScalarWhereInput>>;
-  NOT?: InputMaybe<Array<PeriodScalarWhereInput>>;
-  OR?: InputMaybe<Array<PeriodScalarWhereInput>>;
-  createdAt?: InputMaybe<DateTimeFilter>;
-  end?: InputMaybe<DateTimeFilter>;
-  groupId?: InputMaybe<StringFilter>;
-  id?: InputMaybe<StringFilter>;
-  lastScheduleUpdate?: InputMaybe<DateTimeNullableFilter>;
-  start?: InputMaybe<DateTimeFilter>;
-  title?: InputMaybe<StringFilter>;
-  type?: InputMaybe<EnumPeriodTypeFilter>;
-  updatedAt?: InputMaybe<DateTimeFilter>;
-};
-
-export type PeriodScalarWhereWithAggregatesInput = {
-  AND?: InputMaybe<Array<PeriodScalarWhereWithAggregatesInput>>;
-  NOT?: InputMaybe<Array<PeriodScalarWhereWithAggregatesInput>>;
-  OR?: InputMaybe<Array<PeriodScalarWhereWithAggregatesInput>>;
-  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
-  end?: InputMaybe<DateTimeWithAggregatesFilter>;
-  groupId?: InputMaybe<StringWithAggregatesFilter>;
-  id?: InputMaybe<StringWithAggregatesFilter>;
-  lastScheduleUpdate?: InputMaybe<DateTimeNullableWithAggregatesFilter>;
-  start?: InputMaybe<DateTimeWithAggregatesFilter>;
-  title?: InputMaybe<StringWithAggregatesFilter>;
-  type?: InputMaybe<EnumPeriodTypeWithAggregatesFilter>;
-  updatedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
-};
-
-export enum PeriodType {
-  Learning = 'learning',
-  Session = 'session',
-  Vacation = 'vacation'
-}
-
-export type PeriodUpdateInput = {
-  callSchedule?: InputMaybe<CallScheduleUpdateManyWithoutPeriodNestedInput>;
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  end?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  group?: InputMaybe<GroupUpdateOneRequiredWithoutPeriodsNestedInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  lastScheduleUpdate?: InputMaybe<NullableDateTimeFieldUpdateOperationsInput>;
-  lessons?: InputMaybe<LessonUpdateManyWithoutSemesterNestedInput>;
-  start?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-  type?: InputMaybe<EnumPeriodTypeFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-};
-
-export type PeriodUpdateManyMutationInput = {
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  end?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  lastScheduleUpdate?: InputMaybe<NullableDateTimeFieldUpdateOperationsInput>;
-  start?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-  type?: InputMaybe<EnumPeriodTypeFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-};
-
-export type PeriodUpdateManyWithWhereWithoutGroupInput = {
-  data: PeriodUpdateManyMutationInput;
-  where: PeriodScalarWhereInput;
-};
-
-export type PeriodUpdateManyWithoutGroupNestedInput = {
-  connect?: InputMaybe<Array<PeriodWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<PeriodCreateOrConnectWithoutGroupInput>>;
-  create?: InputMaybe<Array<PeriodCreateWithoutGroupInput>>;
-  createMany?: InputMaybe<PeriodCreateManyGroupInputEnvelope>;
-  delete?: InputMaybe<Array<PeriodWhereUniqueInput>>;
-  deleteMany?: InputMaybe<Array<PeriodScalarWhereInput>>;
-  disconnect?: InputMaybe<Array<PeriodWhereUniqueInput>>;
-  set?: InputMaybe<Array<PeriodWhereUniqueInput>>;
-  update?: InputMaybe<Array<PeriodUpdateWithWhereUniqueWithoutGroupInput>>;
-  updateMany?: InputMaybe<Array<PeriodUpdateManyWithWhereWithoutGroupInput>>;
-  upsert?: InputMaybe<Array<PeriodUpsertWithWhereUniqueWithoutGroupInput>>;
-};
-
-export type PeriodUpdateOneRequiredWithoutCallScheduleNestedInput = {
-  connect?: InputMaybe<PeriodWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<PeriodCreateOrConnectWithoutCallScheduleInput>;
-  create?: InputMaybe<PeriodCreateWithoutCallScheduleInput>;
-  update?: InputMaybe<PeriodUpdateWithoutCallScheduleInput>;
-  upsert?: InputMaybe<PeriodUpsertWithoutCallScheduleInput>;
-};
-
-export type PeriodUpdateOneRequiredWithoutLessonsNestedInput = {
-  connect?: InputMaybe<PeriodWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<PeriodCreateOrConnectWithoutLessonsInput>;
-  create?: InputMaybe<PeriodCreateWithoutLessonsInput>;
-  update?: InputMaybe<PeriodUpdateWithoutLessonsInput>;
-  upsert?: InputMaybe<PeriodUpsertWithoutLessonsInput>;
-};
-
-export type PeriodUpdateWithWhereUniqueWithoutGroupInput = {
-  data: PeriodUpdateWithoutGroupInput;
-  where: PeriodWhereUniqueInput;
-};
-
-export type PeriodUpdateWithoutCallScheduleInput = {
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  end?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  group?: InputMaybe<GroupUpdateOneRequiredWithoutPeriodsNestedInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  lastScheduleUpdate?: InputMaybe<NullableDateTimeFieldUpdateOperationsInput>;
-  lessons?: InputMaybe<LessonUpdateManyWithoutSemesterNestedInput>;
-  start?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-  type?: InputMaybe<EnumPeriodTypeFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-};
-
-export type PeriodUpdateWithoutGroupInput = {
-  callSchedule?: InputMaybe<CallScheduleUpdateManyWithoutPeriodNestedInput>;
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  end?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  lastScheduleUpdate?: InputMaybe<NullableDateTimeFieldUpdateOperationsInput>;
-  lessons?: InputMaybe<LessonUpdateManyWithoutSemesterNestedInput>;
-  start?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-  type?: InputMaybe<EnumPeriodTypeFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-};
-
-export type PeriodUpdateWithoutLessonsInput = {
-  callSchedule?: InputMaybe<CallScheduleUpdateManyWithoutPeriodNestedInput>;
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  end?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  group?: InputMaybe<GroupUpdateOneRequiredWithoutPeriodsNestedInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  lastScheduleUpdate?: InputMaybe<NullableDateTimeFieldUpdateOperationsInput>;
-  start?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-  type?: InputMaybe<EnumPeriodTypeFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-};
-
-export type PeriodUpsertWithWhereUniqueWithoutGroupInput = {
-  create: PeriodCreateWithoutGroupInput;
-  update: PeriodUpdateWithoutGroupInput;
-  where: PeriodWhereUniqueInput;
-};
-
-export type PeriodUpsertWithoutCallScheduleInput = {
-  create: PeriodCreateWithoutCallScheduleInput;
-  update: PeriodUpdateWithoutCallScheduleInput;
-};
-
-export type PeriodUpsertWithoutLessonsInput = {
-  create: PeriodCreateWithoutLessonsInput;
-  update: PeriodUpdateWithoutLessonsInput;
-};
-
-export type PeriodWhereInput = {
-  AND?: InputMaybe<Array<PeriodWhereInput>>;
-  NOT?: InputMaybe<Array<PeriodWhereInput>>;
-  OR?: InputMaybe<Array<PeriodWhereInput>>;
-  callSchedule?: InputMaybe<CallScheduleListRelationFilter>;
-  createdAt?: InputMaybe<DateTimeFilter>;
-  end?: InputMaybe<DateTimeFilter>;
-  group?: InputMaybe<GroupRelationFilter>;
-  groupId?: InputMaybe<StringFilter>;
-  id?: InputMaybe<StringFilter>;
-  lastScheduleUpdate?: InputMaybe<DateTimeNullableFilter>;
-  lessons?: InputMaybe<LessonListRelationFilter>;
-  start?: InputMaybe<DateTimeFilter>;
-  title?: InputMaybe<StringFilter>;
-  type?: InputMaybe<EnumPeriodTypeFilter>;
-  updatedAt?: InputMaybe<DateTimeFilter>;
-};
-
-export type PeriodWhereUniqueInput = {
-  id?: InputMaybe<Scalars['String']>;
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: InputMaybe<Scalars['String']>;
 };
 
 export type Query = {
   __typename?: 'Query';
-  aggregateAppUpdate: AggregateAppUpdate;
-  aggregateAppUpdateFeature: AggregateAppUpdateFeature;
-  aggregateCallSchedule: AggregateCallSchedule;
-  aggregateFaculty: AggregateFaculty;
-  aggregateGroup: AggregateGroup;
-  aggregateLesson: AggregateLesson;
-  aggregateLessonNote: AggregateLessonNote;
-  aggregatePeriod: AggregatePeriod;
-  aggregateSecretLabel: AggregateSecretLabel;
-  appUpdate?: Maybe<AppUpdate>;
-  appUpdateFeature?: Maybe<AppUpdateFeature>;
-  appUpdateFeatures: Array<AppUpdateFeature>;
-  appUpdates: Array<AppUpdate>;
-  callSchedule?: Maybe<CallSchedule>;
-  callSchedules: Array<CallSchedule>;
-  faculties: Array<Faculty>;
-  faculty?: Maybe<Faculty>;
-  findFirstAppUpdate?: Maybe<AppUpdate>;
-  findFirstAppUpdateFeature?: Maybe<AppUpdateFeature>;
-  findFirstCallSchedule?: Maybe<CallSchedule>;
-  findFirstFaculty?: Maybe<Faculty>;
-  findFirstGroup?: Maybe<Group>;
-  findFirstLesson?: Maybe<Lesson>;
-  findFirstLessonNote?: Maybe<LessonNote>;
-  findFirstPeriod?: Maybe<Period>;
-  findFirstSecretLabel?: Maybe<SecretLabel>;
-  group?: Maybe<Group>;
-  groupByAppUpdate: Array<AppUpdateGroupBy>;
-  groupByAppUpdateFeature: Array<AppUpdateFeatureGroupBy>;
-  groupByCallSchedule: Array<CallScheduleGroupBy>;
-  groupByFaculty: Array<FacultyGroupBy>;
-  groupByGroup: Array<GroupGroupBy>;
-  groupByLesson: Array<LessonGroupBy>;
-  groupByLessonNote: Array<LessonNoteGroupBy>;
-  groupByPeriod: Array<PeriodGroupBy>;
-  groupBySecretLabel: Array<SecretLabelGroupBy>;
-  groups: Array<Group>;
-  lesson?: Maybe<Lesson>;
-  lessonNote?: Maybe<LessonNote>;
-  lessonNotes: Array<LessonNote>;
-  lessons: Array<Lesson>;
-  period?: Maybe<Period>;
-  periods: Array<Period>;
-  secretLabel?: Maybe<SecretLabel>;
-  secretLabels: Array<SecretLabel>;
+  admin?: Maybe<Admin>;
+  adminChat?: Maybe<AdminChat>;
+  adminChatMessage?: Maybe<AdminChatMessage>;
+  adminChatMessages: Array<AdminChatMessage>;
+  adminChats: Array<AdminChat>;
+  admins: Array<Admin>;
+  aggregateAdmin: AggregateAdmin;
+  aggregateAdminChat: AggregateAdminChat;
+  aggregateAdminChatMessage: AggregateAdminChatMessage;
+  aggregateApplicantProfile: AggregateApplicantProfile;
+  aggregateApplication: AggregateApplication;
+  aggregateChat: AggregateChat;
+  aggregateChatMessage: AggregateChatMessage;
+  aggregateEmployerProfile: AggregateEmployerProfile;
+  aggregateResume: AggregateResume;
+  aggregateResumeSavedByEmployer: AggregateResumeSavedByEmployer;
+  aggregateUser: AggregateUser;
+  aggregateVacancy: AggregateVacancy;
+  aggregateVacancySavedByApplicant: AggregateVacancySavedByApplicant;
+  applicantProfile?: Maybe<ApplicantProfile>;
+  applicantProfiles: Array<ApplicantProfile>;
+  application?: Maybe<Application>;
+  applications: Array<Application>;
+  chat?: Maybe<Chat>;
+  chatMessage?: Maybe<ChatMessage>;
+  chatMessages: Array<ChatMessage>;
+  chats: Array<Chat>;
+  checkIsAuthenticated: CheckAuthenticatedOutput;
+  employerProfile?: Maybe<EmployerProfile>;
+  employerProfiles: Array<EmployerProfile>;
+  findFirstAdmin?: Maybe<Admin>;
+  findFirstAdminChat?: Maybe<AdminChat>;
+  findFirstAdminChatMessage?: Maybe<AdminChatMessage>;
+  findFirstApplicantProfile?: Maybe<ApplicantProfile>;
+  findFirstApplication?: Maybe<Application>;
+  findFirstChat?: Maybe<Chat>;
+  findFirstChatMessage?: Maybe<ChatMessage>;
+  findFirstEmployerProfile?: Maybe<EmployerProfile>;
+  findFirstResume?: Maybe<Resume>;
+  findFirstResumeSavedByEmployer?: Maybe<ResumeSavedByEmployer>;
+  findFirstUser?: Maybe<User>;
+  findFirstVacancy?: Maybe<Vacancy>;
+  findFirstVacancySavedByApplicant?: Maybe<VacancySavedByApplicant>;
+  groupByAdmin: Array<AdminGroupBy>;
+  groupByAdminChat: Array<AdminChatGroupBy>;
+  groupByAdminChatMessage: Array<AdminChatMessageGroupBy>;
+  groupByApplicantProfile: Array<ApplicantProfileGroupBy>;
+  groupByApplication: Array<ApplicationGroupBy>;
+  groupByChat: Array<ChatGroupBy>;
+  groupByChatMessage: Array<ChatMessageGroupBy>;
+  groupByEmployerProfile: Array<EmployerProfileGroupBy>;
+  groupByResume: Array<ResumeGroupBy>;
+  groupByResumeSavedByEmployer: Array<ResumeSavedByEmployerGroupBy>;
+  groupByUser: Array<UserGroupBy>;
+  groupByVacancy: Array<VacancyGroupBy>;
+  groupByVacancySavedByApplicant: Array<VacancySavedByApplicantGroupBy>;
+  resume?: Maybe<Resume>;
+  resumeSavedByEmployer?: Maybe<ResumeSavedByEmployer>;
+  resumeSavedByEmployers: Array<ResumeSavedByEmployer>;
+  resumes: Array<Resume>;
+  user?: Maybe<User>;
+  users: Array<User>;
+  vacancies: Array<Vacancy>;
+  vacancy?: Maybe<Vacancy>;
+  vacancySavedByApplicant?: Maybe<VacancySavedByApplicant>;
+  vacancySavedByApplicants: Array<VacancySavedByApplicant>;
 };
 
 
-export type QueryAggregateAppUpdateArgs = {
-  cursor?: InputMaybe<AppUpdateWhereUniqueInput>;
-  orderBy?: InputMaybe<Array<AppUpdateOrderByWithRelationInput>>;
+export type QueryAdminArgs = {
+  where: AdminWhereUniqueInput;
+};
+
+
+export type QueryAdminChatArgs = {
+  where: AdminChatWhereUniqueInput;
+};
+
+
+export type QueryAdminChatMessageArgs = {
+  where: AdminChatMessageWhereUniqueInput;
+};
+
+
+export type QueryAdminChatMessagesArgs = {
+  cursor?: InputMaybe<AdminChatMessageWhereUniqueInput>;
+  distinct?: InputMaybe<Array<AdminChatMessageScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<AdminChatMessageOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<AppUpdateWhereInput>;
+  where?: InputMaybe<AdminChatMessageWhereInput>;
 };
 
 
-export type QueryAggregateAppUpdateFeatureArgs = {
-  cursor?: InputMaybe<AppUpdateFeatureWhereUniqueInput>;
-  orderBy?: InputMaybe<Array<AppUpdateFeatureOrderByWithRelationInput>>;
+export type QueryAdminChatsArgs = {
+  cursor?: InputMaybe<AdminChatWhereUniqueInput>;
+  distinct?: InputMaybe<Array<AdminChatScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<AdminChatOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<AppUpdateFeatureWhereInput>;
+  where?: InputMaybe<AdminChatWhereInput>;
 };
 
 
-export type QueryAggregateCallScheduleArgs = {
-  cursor?: InputMaybe<CallScheduleWhereUniqueInput>;
-  orderBy?: InputMaybe<Array<CallScheduleOrderByWithRelationInput>>;
+export type QueryAdminsArgs = {
+  cursor?: InputMaybe<AdminWhereUniqueInput>;
+  distinct?: InputMaybe<Array<AdminScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<AdminOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<CallScheduleWhereInput>;
+  where?: InputMaybe<AdminWhereInput>;
 };
 
 
-export type QueryAggregateFacultyArgs = {
-  cursor?: InputMaybe<FacultyWhereUniqueInput>;
-  orderBy?: InputMaybe<Array<FacultyOrderByWithRelationInput>>;
+export type QueryAggregateAdminArgs = {
+  cursor?: InputMaybe<AdminWhereUniqueInput>;
+  orderBy?: InputMaybe<Array<AdminOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<FacultyWhereInput>;
+  where?: InputMaybe<AdminWhereInput>;
 };
 
 
-export type QueryAggregateGroupArgs = {
-  cursor?: InputMaybe<GroupWhereUniqueInput>;
-  orderBy?: InputMaybe<Array<GroupOrderByWithRelationInput>>;
+export type QueryAggregateAdminChatArgs = {
+  cursor?: InputMaybe<AdminChatWhereUniqueInput>;
+  orderBy?: InputMaybe<Array<AdminChatOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<GroupWhereInput>;
+  where?: InputMaybe<AdminChatWhereInput>;
 };
 
 
-export type QueryAggregateLessonArgs = {
-  cursor?: InputMaybe<LessonWhereUniqueInput>;
-  orderBy?: InputMaybe<Array<LessonOrderByWithRelationInput>>;
+export type QueryAggregateAdminChatMessageArgs = {
+  cursor?: InputMaybe<AdminChatMessageWhereUniqueInput>;
+  orderBy?: InputMaybe<Array<AdminChatMessageOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<LessonWhereInput>;
+  where?: InputMaybe<AdminChatMessageWhereInput>;
 };
 
 
-export type QueryAggregateLessonNoteArgs = {
-  cursor?: InputMaybe<LessonNoteWhereUniqueInput>;
-  orderBy?: InputMaybe<Array<LessonNoteOrderByWithRelationInput>>;
+export type QueryAggregateApplicantProfileArgs = {
+  cursor?: InputMaybe<ApplicantProfileWhereUniqueInput>;
+  orderBy?: InputMaybe<Array<ApplicantProfileOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<LessonNoteWhereInput>;
+  where?: InputMaybe<ApplicantProfileWhereInput>;
 };
 
 
-export type QueryAggregatePeriodArgs = {
-  cursor?: InputMaybe<PeriodWhereUniqueInput>;
-  orderBy?: InputMaybe<Array<PeriodOrderByWithRelationInput>>;
+export type QueryAggregateApplicationArgs = {
+  cursor?: InputMaybe<ApplicationWhereUniqueInput>;
+  orderBy?: InputMaybe<Array<ApplicationOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<PeriodWhereInput>;
+  where?: InputMaybe<ApplicationWhereInput>;
 };
 
 
-export type QueryAggregateSecretLabelArgs = {
-  cursor?: InputMaybe<SecretLabelWhereUniqueInput>;
-  orderBy?: InputMaybe<Array<SecretLabelOrderByWithRelationInput>>;
+export type QueryAggregateChatArgs = {
+  cursor?: InputMaybe<ChatWhereUniqueInput>;
+  orderBy?: InputMaybe<Array<ChatOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<SecretLabelWhereInput>;
+  where?: InputMaybe<ChatWhereInput>;
 };
 
 
-export type QueryAppUpdateArgs = {
-  where: AppUpdateWhereUniqueInput;
-};
-
-
-export type QueryAppUpdateFeatureArgs = {
-  where: AppUpdateFeatureWhereUniqueInput;
-};
-
-
-export type QueryAppUpdateFeaturesArgs = {
-  cursor?: InputMaybe<AppUpdateFeatureWhereUniqueInput>;
-  distinct?: InputMaybe<Array<AppUpdateFeatureScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<AppUpdateFeatureOrderByWithRelationInput>>;
+export type QueryAggregateChatMessageArgs = {
+  cursor?: InputMaybe<ChatMessageWhereUniqueInput>;
+  orderBy?: InputMaybe<Array<ChatMessageOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<AppUpdateFeatureWhereInput>;
+  where?: InputMaybe<ChatMessageWhereInput>;
 };
 
 
-export type QueryAppUpdatesArgs = {
-  cursor?: InputMaybe<AppUpdateWhereUniqueInput>;
-  distinct?: InputMaybe<Array<AppUpdateScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<AppUpdateOrderByWithRelationInput>>;
+export type QueryAggregateEmployerProfileArgs = {
+  cursor?: InputMaybe<EmployerProfileWhereUniqueInput>;
+  orderBy?: InputMaybe<Array<EmployerProfileOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<AppUpdateWhereInput>;
+  where?: InputMaybe<EmployerProfileWhereInput>;
 };
 
 
-export type QueryCallScheduleArgs = {
-  where: CallScheduleWhereUniqueInput;
-};
-
-
-export type QueryCallSchedulesArgs = {
-  cursor?: InputMaybe<CallScheduleWhereUniqueInput>;
-  distinct?: InputMaybe<Array<CallScheduleScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<CallScheduleOrderByWithRelationInput>>;
+export type QueryAggregateResumeArgs = {
+  cursor?: InputMaybe<ResumeWhereUniqueInput>;
+  orderBy?: InputMaybe<Array<ResumeOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<CallScheduleWhereInput>;
+  where?: InputMaybe<ResumeWhereInput>;
 };
 
 
-export type QueryFacultiesArgs = {
-  cursor?: InputMaybe<FacultyWhereUniqueInput>;
-  distinct?: InputMaybe<Array<FacultyScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<FacultyOrderByWithRelationInput>>;
+export type QueryAggregateResumeSavedByEmployerArgs = {
+  cursor?: InputMaybe<ResumeSavedByEmployerWhereUniqueInput>;
+  orderBy?: InputMaybe<Array<ResumeSavedByEmployerOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<FacultyWhereInput>;
+  where?: InputMaybe<ResumeSavedByEmployerWhereInput>;
 };
 
 
-export type QueryFacultyArgs = {
-  where: FacultyWhereUniqueInput;
-};
-
-
-export type QueryFindFirstAppUpdateArgs = {
-  cursor?: InputMaybe<AppUpdateWhereUniqueInput>;
-  distinct?: InputMaybe<Array<AppUpdateScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<AppUpdateOrderByWithRelationInput>>;
+export type QueryAggregateUserArgs = {
+  cursor?: InputMaybe<UserWhereUniqueInput>;
+  orderBy?: InputMaybe<Array<UserOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<AppUpdateWhereInput>;
+  where?: InputMaybe<UserWhereInput>;
 };
 
 
-export type QueryFindFirstAppUpdateFeatureArgs = {
-  cursor?: InputMaybe<AppUpdateFeatureWhereUniqueInput>;
-  distinct?: InputMaybe<Array<AppUpdateFeatureScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<AppUpdateFeatureOrderByWithRelationInput>>;
+export type QueryAggregateVacancyArgs = {
+  cursor?: InputMaybe<VacancyWhereUniqueInput>;
+  orderBy?: InputMaybe<Array<VacancyOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<AppUpdateFeatureWhereInput>;
+  where?: InputMaybe<VacancyWhereInput>;
 };
 
 
-export type QueryFindFirstCallScheduleArgs = {
-  cursor?: InputMaybe<CallScheduleWhereUniqueInput>;
-  distinct?: InputMaybe<Array<CallScheduleScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<CallScheduleOrderByWithRelationInput>>;
+export type QueryAggregateVacancySavedByApplicantArgs = {
+  cursor?: InputMaybe<VacancySavedByApplicantWhereUniqueInput>;
+  orderBy?: InputMaybe<Array<VacancySavedByApplicantOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<CallScheduleWhereInput>;
+  where?: InputMaybe<VacancySavedByApplicantWhereInput>;
 };
 
 
-export type QueryFindFirstFacultyArgs = {
-  cursor?: InputMaybe<FacultyWhereUniqueInput>;
-  distinct?: InputMaybe<Array<FacultyScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<FacultyOrderByWithRelationInput>>;
+export type QueryApplicantProfileArgs = {
+  where: ApplicantProfileWhereUniqueInput;
+};
+
+
+export type QueryApplicantProfilesArgs = {
+  cursor?: InputMaybe<ApplicantProfileWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ApplicantProfileScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ApplicantProfileOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<FacultyWhereInput>;
+  where?: InputMaybe<ApplicantProfileWhereInput>;
 };
 
 
-export type QueryFindFirstGroupArgs = {
-  cursor?: InputMaybe<GroupWhereUniqueInput>;
-  distinct?: InputMaybe<Array<GroupScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<GroupOrderByWithRelationInput>>;
+export type QueryApplicationArgs = {
+  where: ApplicationWhereUniqueInput;
+};
+
+
+export type QueryApplicationsArgs = {
+  cursor?: InputMaybe<ApplicationWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ApplicationScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ApplicationOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<GroupWhereInput>;
+  where?: InputMaybe<ApplicationWhereInput>;
 };
 
 
-export type QueryFindFirstLessonArgs = {
-  cursor?: InputMaybe<LessonWhereUniqueInput>;
-  distinct?: InputMaybe<Array<LessonScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<LessonOrderByWithRelationInput>>;
+export type QueryChatArgs = {
+  where: ChatWhereUniqueInput;
+};
+
+
+export type QueryChatMessageArgs = {
+  where: ChatMessageWhereUniqueInput;
+};
+
+
+export type QueryChatMessagesArgs = {
+  cursor?: InputMaybe<ChatMessageWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ChatMessageScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ChatMessageOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<LessonWhereInput>;
+  where?: InputMaybe<ChatMessageWhereInput>;
 };
 
 
-export type QueryFindFirstLessonNoteArgs = {
-  cursor?: InputMaybe<LessonNoteWhereUniqueInput>;
-  distinct?: InputMaybe<Array<LessonNoteScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<LessonNoteOrderByWithRelationInput>>;
+export type QueryChatsArgs = {
+  cursor?: InputMaybe<ChatWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ChatScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ChatOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<LessonNoteWhereInput>;
+  where?: InputMaybe<ChatWhereInput>;
 };
 
 
-export type QueryFindFirstPeriodArgs = {
-  cursor?: InputMaybe<PeriodWhereUniqueInput>;
-  distinct?: InputMaybe<Array<PeriodScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<PeriodOrderByWithRelationInput>>;
+export type QueryEmployerProfileArgs = {
+  where: EmployerProfileWhereUniqueInput;
+};
+
+
+export type QueryEmployerProfilesArgs = {
+  cursor?: InputMaybe<EmployerProfileWhereUniqueInput>;
+  distinct?: InputMaybe<Array<EmployerProfileScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<EmployerProfileOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<PeriodWhereInput>;
+  where?: InputMaybe<EmployerProfileWhereInput>;
 };
 
 
-export type QueryFindFirstSecretLabelArgs = {
-  cursor?: InputMaybe<SecretLabelWhereUniqueInput>;
-  distinct?: InputMaybe<Array<SecretLabelScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<SecretLabelOrderByWithRelationInput>>;
+export type QueryFindFirstAdminArgs = {
+  cursor?: InputMaybe<AdminWhereUniqueInput>;
+  distinct?: InputMaybe<Array<AdminScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<AdminOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<SecretLabelWhereInput>;
+  where?: InputMaybe<AdminWhereInput>;
 };
 
 
-export type QueryGroupArgs = {
-  where: GroupWhereUniqueInput;
-};
-
-
-export type QueryGroupByAppUpdateArgs = {
-  by: Array<AppUpdateScalarFieldEnum>;
-  having?: InputMaybe<AppUpdateScalarWhereWithAggregatesInput>;
-  orderBy?: InputMaybe<Array<AppUpdateOrderByWithAggregationInput>>;
+export type QueryFindFirstAdminChatArgs = {
+  cursor?: InputMaybe<AdminChatWhereUniqueInput>;
+  distinct?: InputMaybe<Array<AdminChatScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<AdminChatOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<AppUpdateWhereInput>;
+  where?: InputMaybe<AdminChatWhereInput>;
 };
 
 
-export type QueryGroupByAppUpdateFeatureArgs = {
-  by: Array<AppUpdateFeatureScalarFieldEnum>;
-  having?: InputMaybe<AppUpdateFeatureScalarWhereWithAggregatesInput>;
-  orderBy?: InputMaybe<Array<AppUpdateFeatureOrderByWithAggregationInput>>;
+export type QueryFindFirstAdminChatMessageArgs = {
+  cursor?: InputMaybe<AdminChatMessageWhereUniqueInput>;
+  distinct?: InputMaybe<Array<AdminChatMessageScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<AdminChatMessageOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<AppUpdateFeatureWhereInput>;
+  where?: InputMaybe<AdminChatMessageWhereInput>;
 };
 
 
-export type QueryGroupByCallScheduleArgs = {
-  by: Array<CallScheduleScalarFieldEnum>;
-  having?: InputMaybe<CallScheduleScalarWhereWithAggregatesInput>;
-  orderBy?: InputMaybe<Array<CallScheduleOrderByWithAggregationInput>>;
+export type QueryFindFirstApplicantProfileArgs = {
+  cursor?: InputMaybe<ApplicantProfileWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ApplicantProfileScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ApplicantProfileOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<CallScheduleWhereInput>;
+  where?: InputMaybe<ApplicantProfileWhereInput>;
 };
 
 
-export type QueryGroupByFacultyArgs = {
-  by: Array<FacultyScalarFieldEnum>;
-  having?: InputMaybe<FacultyScalarWhereWithAggregatesInput>;
-  orderBy?: InputMaybe<Array<FacultyOrderByWithAggregationInput>>;
+export type QueryFindFirstApplicationArgs = {
+  cursor?: InputMaybe<ApplicationWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ApplicationScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ApplicationOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<FacultyWhereInput>;
+  where?: InputMaybe<ApplicationWhereInput>;
 };
 
 
-export type QueryGroupByGroupArgs = {
-  by: Array<GroupScalarFieldEnum>;
-  having?: InputMaybe<GroupScalarWhereWithAggregatesInput>;
-  orderBy?: InputMaybe<Array<GroupOrderByWithAggregationInput>>;
+export type QueryFindFirstChatArgs = {
+  cursor?: InputMaybe<ChatWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ChatScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ChatOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<GroupWhereInput>;
+  where?: InputMaybe<ChatWhereInput>;
 };
 
 
-export type QueryGroupByLessonArgs = {
-  by: Array<LessonScalarFieldEnum>;
-  having?: InputMaybe<LessonScalarWhereWithAggregatesInput>;
-  orderBy?: InputMaybe<Array<LessonOrderByWithAggregationInput>>;
+export type QueryFindFirstChatMessageArgs = {
+  cursor?: InputMaybe<ChatMessageWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ChatMessageScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ChatMessageOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<LessonWhereInput>;
+  where?: InputMaybe<ChatMessageWhereInput>;
 };
 
 
-export type QueryGroupByLessonNoteArgs = {
-  by: Array<LessonNoteScalarFieldEnum>;
-  having?: InputMaybe<LessonNoteScalarWhereWithAggregatesInput>;
-  orderBy?: InputMaybe<Array<LessonNoteOrderByWithAggregationInput>>;
+export type QueryFindFirstEmployerProfileArgs = {
+  cursor?: InputMaybe<EmployerProfileWhereUniqueInput>;
+  distinct?: InputMaybe<Array<EmployerProfileScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<EmployerProfileOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<LessonNoteWhereInput>;
+  where?: InputMaybe<EmployerProfileWhereInput>;
 };
 
 
-export type QueryGroupByPeriodArgs = {
-  by: Array<PeriodScalarFieldEnum>;
-  having?: InputMaybe<PeriodScalarWhereWithAggregatesInput>;
-  orderBy?: InputMaybe<Array<PeriodOrderByWithAggregationInput>>;
+export type QueryFindFirstResumeArgs = {
+  cursor?: InputMaybe<ResumeWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ResumeScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ResumeOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<PeriodWhereInput>;
+  where?: InputMaybe<ResumeWhereInput>;
 };
 
 
-export type QueryGroupBySecretLabelArgs = {
-  by: Array<SecretLabelScalarFieldEnum>;
-  having?: InputMaybe<SecretLabelScalarWhereWithAggregatesInput>;
-  orderBy?: InputMaybe<Array<SecretLabelOrderByWithAggregationInput>>;
+export type QueryFindFirstResumeSavedByEmployerArgs = {
+  cursor?: InputMaybe<ResumeSavedByEmployerWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ResumeSavedByEmployerScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ResumeSavedByEmployerOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<SecretLabelWhereInput>;
+  where?: InputMaybe<ResumeSavedByEmployerWhereInput>;
 };
 
 
-export type QueryGroupsArgs = {
-  cursor?: InputMaybe<GroupWhereUniqueInput>;
-  distinct?: InputMaybe<Array<GroupScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<GroupOrderByWithRelationInput>>;
+export type QueryFindFirstUserArgs = {
+  cursor?: InputMaybe<UserWhereUniqueInput>;
+  distinct?: InputMaybe<Array<UserScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<UserOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<GroupWhereInput>;
+  where?: InputMaybe<UserWhereInput>;
 };
 
 
-export type QueryLessonArgs = {
-  where: LessonWhereUniqueInput;
-};
-
-
-export type QueryLessonNoteArgs = {
-  where: LessonNoteWhereUniqueInput;
-};
-
-
-export type QueryLessonNotesArgs = {
-  cursor?: InputMaybe<LessonNoteWhereUniqueInput>;
-  distinct?: InputMaybe<Array<LessonNoteScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<LessonNoteOrderByWithRelationInput>>;
+export type QueryFindFirstVacancyArgs = {
+  cursor?: InputMaybe<VacancyWhereUniqueInput>;
+  distinct?: InputMaybe<Array<VacancyScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<VacancyOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<LessonNoteWhereInput>;
+  where?: InputMaybe<VacancyWhereInput>;
 };
 
 
-export type QueryLessonsArgs = {
-  cursor?: InputMaybe<LessonWhereUniqueInput>;
-  distinct?: InputMaybe<Array<LessonScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<LessonOrderByWithRelationInput>>;
+export type QueryFindFirstVacancySavedByApplicantArgs = {
+  cursor?: InputMaybe<VacancySavedByApplicantWhereUniqueInput>;
+  distinct?: InputMaybe<Array<VacancySavedByApplicantScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<VacancySavedByApplicantOrderByWithRelationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<LessonWhereInput>;
+  where?: InputMaybe<VacancySavedByApplicantWhereInput>;
 };
 
 
-export type QueryPeriodArgs = {
-  where: PeriodWhereUniqueInput;
-};
-
-
-export type QueryPeriodsArgs = {
-  cursor?: InputMaybe<PeriodWhereUniqueInput>;
-  distinct?: InputMaybe<Array<PeriodScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<PeriodOrderByWithRelationInput>>;
+export type QueryGroupByAdminArgs = {
+  by: Array<AdminScalarFieldEnum>;
+  having?: InputMaybe<AdminScalarWhereWithAggregatesInput>;
+  orderBy?: InputMaybe<Array<AdminOrderByWithAggregationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<PeriodWhereInput>;
+  where?: InputMaybe<AdminWhereInput>;
 };
 
 
-export type QuerySecretLabelArgs = {
-  where: SecretLabelWhereUniqueInput;
-};
-
-
-export type QuerySecretLabelsArgs = {
-  cursor?: InputMaybe<SecretLabelWhereUniqueInput>;
-  distinct?: InputMaybe<Array<SecretLabelScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<SecretLabelOrderByWithRelationInput>>;
+export type QueryGroupByAdminChatArgs = {
+  by: Array<AdminChatScalarFieldEnum>;
+  having?: InputMaybe<AdminChatScalarWhereWithAggregatesInput>;
+  orderBy?: InputMaybe<Array<AdminChatOrderByWithAggregationInput>>;
   skip?: InputMaybe<Scalars['Int']>;
   take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<SecretLabelWhereInput>;
+  where?: InputMaybe<AdminChatWhereInput>;
+};
+
+
+export type QueryGroupByAdminChatMessageArgs = {
+  by: Array<AdminChatMessageScalarFieldEnum>;
+  having?: InputMaybe<AdminChatMessageScalarWhereWithAggregatesInput>;
+  orderBy?: InputMaybe<Array<AdminChatMessageOrderByWithAggregationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<AdminChatMessageWhereInput>;
+};
+
+
+export type QueryGroupByApplicantProfileArgs = {
+  by: Array<ApplicantProfileScalarFieldEnum>;
+  having?: InputMaybe<ApplicantProfileScalarWhereWithAggregatesInput>;
+  orderBy?: InputMaybe<Array<ApplicantProfileOrderByWithAggregationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ApplicantProfileWhereInput>;
+};
+
+
+export type QueryGroupByApplicationArgs = {
+  by: Array<ApplicationScalarFieldEnum>;
+  having?: InputMaybe<ApplicationScalarWhereWithAggregatesInput>;
+  orderBy?: InputMaybe<Array<ApplicationOrderByWithAggregationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ApplicationWhereInput>;
+};
+
+
+export type QueryGroupByChatArgs = {
+  by: Array<ChatScalarFieldEnum>;
+  having?: InputMaybe<ChatScalarWhereWithAggregatesInput>;
+  orderBy?: InputMaybe<Array<ChatOrderByWithAggregationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ChatWhereInput>;
+};
+
+
+export type QueryGroupByChatMessageArgs = {
+  by: Array<ChatMessageScalarFieldEnum>;
+  having?: InputMaybe<ChatMessageScalarWhereWithAggregatesInput>;
+  orderBy?: InputMaybe<Array<ChatMessageOrderByWithAggregationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ChatMessageWhereInput>;
+};
+
+
+export type QueryGroupByEmployerProfileArgs = {
+  by: Array<EmployerProfileScalarFieldEnum>;
+  having?: InputMaybe<EmployerProfileScalarWhereWithAggregatesInput>;
+  orderBy?: InputMaybe<Array<EmployerProfileOrderByWithAggregationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<EmployerProfileWhereInput>;
+};
+
+
+export type QueryGroupByResumeArgs = {
+  by: Array<ResumeScalarFieldEnum>;
+  having?: InputMaybe<ResumeScalarWhereWithAggregatesInput>;
+  orderBy?: InputMaybe<Array<ResumeOrderByWithAggregationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ResumeWhereInput>;
+};
+
+
+export type QueryGroupByResumeSavedByEmployerArgs = {
+  by: Array<ResumeSavedByEmployerScalarFieldEnum>;
+  having?: InputMaybe<ResumeSavedByEmployerScalarWhereWithAggregatesInput>;
+  orderBy?: InputMaybe<Array<ResumeSavedByEmployerOrderByWithAggregationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ResumeSavedByEmployerWhereInput>;
+};
+
+
+export type QueryGroupByUserArgs = {
+  by: Array<UserScalarFieldEnum>;
+  having?: InputMaybe<UserScalarWhereWithAggregatesInput>;
+  orderBy?: InputMaybe<Array<UserOrderByWithAggregationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<UserWhereInput>;
+};
+
+
+export type QueryGroupByVacancyArgs = {
+  by: Array<VacancyScalarFieldEnum>;
+  having?: InputMaybe<VacancyScalarWhereWithAggregatesInput>;
+  orderBy?: InputMaybe<Array<VacancyOrderByWithAggregationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<VacancyWhereInput>;
+};
+
+
+export type QueryGroupByVacancySavedByApplicantArgs = {
+  by: Array<VacancySavedByApplicantScalarFieldEnum>;
+  having?: InputMaybe<VacancySavedByApplicantScalarWhereWithAggregatesInput>;
+  orderBy?: InputMaybe<Array<VacancySavedByApplicantOrderByWithAggregationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<VacancySavedByApplicantWhereInput>;
+};
+
+
+export type QueryResumeArgs = {
+  where: ResumeWhereUniqueInput;
+};
+
+
+export type QueryResumeSavedByEmployerArgs = {
+  where: ResumeSavedByEmployerWhereUniqueInput;
+};
+
+
+export type QueryResumeSavedByEmployersArgs = {
+  cursor?: InputMaybe<ResumeSavedByEmployerWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ResumeSavedByEmployerScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ResumeSavedByEmployerOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ResumeSavedByEmployerWhereInput>;
+};
+
+
+export type QueryResumesArgs = {
+  cursor?: InputMaybe<ResumeWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ResumeScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ResumeOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ResumeWhereInput>;
+};
+
+
+export type QueryUserArgs = {
+  where: UserWhereUniqueInput;
+};
+
+
+export type QueryUsersArgs = {
+  cursor?: InputMaybe<UserWhereUniqueInput>;
+  distinct?: InputMaybe<Array<UserScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<UserOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<UserWhereInput>;
+};
+
+
+export type QueryVacanciesArgs = {
+  cursor?: InputMaybe<VacancyWhereUniqueInput>;
+  distinct?: InputMaybe<Array<VacancyScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<VacancyOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<VacancyWhereInput>;
+};
+
+
+export type QueryVacancyArgs = {
+  where: VacancyWhereUniqueInput;
+};
+
+
+export type QueryVacancySavedByApplicantArgs = {
+  where: VacancySavedByApplicantWhereUniqueInput;
+};
+
+
+export type QueryVacancySavedByApplicantsArgs = {
+  cursor?: InputMaybe<VacancySavedByApplicantWhereUniqueInput>;
+  distinct?: InputMaybe<Array<VacancySavedByApplicantScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<VacancySavedByApplicantOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<VacancySavedByApplicantWhereInput>;
 };
 
 export enum QueryMode {
@@ -4018,111 +3942,819 @@ export enum QueryMode {
   Insensitive = 'insensitive'
 }
 
-export type SecretLabel = {
-  __typename?: 'SecretLabel';
+export type Resume = {
+  __typename?: 'Resume';
+  _count?: Maybe<ResumeCount>;
+  aboutMe?: Maybe<Scalars['String']>;
+  applicantProfile: ApplicantProfile;
+  applicantProfileId: Scalars['String'];
+  birthday: Scalars['DateTime'];
+  createdAt: Scalars['DateTime'];
+  desiredPost?: Maybe<Scalars['String']>;
+  education?: Maybe<Scalars['String']>;
+  experience?: Maybe<Scalars['String']>;
+  fieldOfActivity: Scalars['Int'];
+  firstname: Scalars['String'];
   id: Scalars['String'];
-  label: Scalars['String'];
+  lastname?: Maybe<Scalars['String']>;
+  phone: Scalars['String'];
+  phoneHidden: Scalars['Boolean'];
+  placeOfResidence: Scalars['Int'];
+  savedBy: Array<ResumeSavedByEmployer>;
+  updatedAt: Scalars['DateTime'];
+  views: Scalars['Int'];
 };
 
-export type SecretLabelCountAggregate = {
-  __typename?: 'SecretLabelCountAggregate';
+
+export type ResumeSavedByArgs = {
+  cursor?: InputMaybe<ResumeSavedByEmployerWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ResumeSavedByEmployerScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ResumeSavedByEmployerOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ResumeSavedByEmployerWhereInput>;
+};
+
+export type ResumeAvgAggregate = {
+  __typename?: 'ResumeAvgAggregate';
+  fieldOfActivity?: Maybe<Scalars['Float']>;
+  placeOfResidence?: Maybe<Scalars['Float']>;
+  views?: Maybe<Scalars['Float']>;
+};
+
+export type ResumeAvgOrderByAggregateInput = {
+  fieldOfActivity?: InputMaybe<SortOrder>;
+  placeOfResidence?: InputMaybe<SortOrder>;
+  views?: InputMaybe<SortOrder>;
+};
+
+export type ResumeCount = {
+  __typename?: 'ResumeCount';
+  savedBy: Scalars['Int'];
+};
+
+export type ResumeCountAggregate = {
+  __typename?: 'ResumeCountAggregate';
   _all: Scalars['Int'];
+  aboutMe: Scalars['Int'];
+  applicantProfileId: Scalars['Int'];
+  birthday: Scalars['Int'];
+  createdAt: Scalars['Int'];
+  desiredPost: Scalars['Int'];
+  education: Scalars['Int'];
+  experience: Scalars['Int'];
+  fieldOfActivity: Scalars['Int'];
+  firstname: Scalars['Int'];
   id: Scalars['Int'];
-  label: Scalars['Int'];
+  lastname: Scalars['Int'];
+  phone: Scalars['Int'];
+  phoneHidden: Scalars['Int'];
+  placeOfResidence: Scalars['Int'];
+  updatedAt: Scalars['Int'];
+  views: Scalars['Int'];
 };
 
-export type SecretLabelCountOrderByAggregateInput = {
+export type ResumeCountOrderByAggregateInput = {
+  aboutMe?: InputMaybe<SortOrder>;
+  applicantProfileId?: InputMaybe<SortOrder>;
+  birthday?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  desiredPost?: InputMaybe<SortOrder>;
+  education?: InputMaybe<SortOrder>;
+  experience?: InputMaybe<SortOrder>;
+  fieldOfActivity?: InputMaybe<SortOrder>;
+  firstname?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  label?: InputMaybe<SortOrder>;
+  lastname?: InputMaybe<SortOrder>;
+  phone?: InputMaybe<SortOrder>;
+  phoneHidden?: InputMaybe<SortOrder>;
+  placeOfResidence?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  views?: InputMaybe<SortOrder>;
 };
 
-export type SecretLabelCreateInput = {
+export type ResumeCreateInput = {
+  aboutMe?: InputMaybe<Scalars['String']>;
+  applicantProfile: ApplicantProfileCreateNestedOneWithoutResumeInput;
+  birthday: Scalars['DateTime'];
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  desiredPost?: InputMaybe<Scalars['String']>;
+  education?: InputMaybe<Scalars['String']>;
+  experience?: InputMaybe<Scalars['String']>;
+  fieldOfActivity: Scalars['Int'];
+  firstname: Scalars['String'];
   id?: InputMaybe<Scalars['String']>;
-  label: Scalars['String'];
+  lastname?: InputMaybe<Scalars['String']>;
+  phone: Scalars['String'];
+  phoneHidden: Scalars['Boolean'];
+  placeOfResidence: Scalars['Int'];
+  savedBy?: InputMaybe<ResumeSavedByEmployerCreateNestedManyWithoutResumeInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  views?: InputMaybe<Scalars['Int']>;
 };
 
-export type SecretLabelCreateManyInput = {
+export type ResumeCreateManyInput = {
+  aboutMe?: InputMaybe<Scalars['String']>;
+  applicantProfileId: Scalars['String'];
+  birthday: Scalars['DateTime'];
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  desiredPost?: InputMaybe<Scalars['String']>;
+  education?: InputMaybe<Scalars['String']>;
+  experience?: InputMaybe<Scalars['String']>;
+  fieldOfActivity: Scalars['Int'];
+  firstname: Scalars['String'];
   id?: InputMaybe<Scalars['String']>;
-  label: Scalars['String'];
+  lastname?: InputMaybe<Scalars['String']>;
+  phone: Scalars['String'];
+  phoneHidden: Scalars['Boolean'];
+  placeOfResidence: Scalars['Int'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  views?: InputMaybe<Scalars['Int']>;
 };
 
-export type SecretLabelGroupBy = {
-  __typename?: 'SecretLabelGroupBy';
-  _count?: Maybe<SecretLabelCountAggregate>;
-  _max?: Maybe<SecretLabelMaxAggregate>;
-  _min?: Maybe<SecretLabelMinAggregate>;
+export type ResumeCreateNestedOneWithoutApplicantProfileInput = {
+  connect?: InputMaybe<ResumeWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<ResumeCreateOrConnectWithoutApplicantProfileInput>;
+  create?: InputMaybe<ResumeCreateWithoutApplicantProfileInput>;
+};
+
+export type ResumeCreateNestedOneWithoutSavedByInput = {
+  connect?: InputMaybe<ResumeWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<ResumeCreateOrConnectWithoutSavedByInput>;
+  create?: InputMaybe<ResumeCreateWithoutSavedByInput>;
+};
+
+export type ResumeCreateOrConnectWithoutApplicantProfileInput = {
+  create: ResumeCreateWithoutApplicantProfileInput;
+  where: ResumeWhereUniqueInput;
+};
+
+export type ResumeCreateOrConnectWithoutSavedByInput = {
+  create: ResumeCreateWithoutSavedByInput;
+  where: ResumeWhereUniqueInput;
+};
+
+export type ResumeCreateWithoutApplicantProfileInput = {
+  aboutMe?: InputMaybe<Scalars['String']>;
+  birthday: Scalars['DateTime'];
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  desiredPost?: InputMaybe<Scalars['String']>;
+  education?: InputMaybe<Scalars['String']>;
+  experience?: InputMaybe<Scalars['String']>;
+  fieldOfActivity: Scalars['Int'];
+  firstname: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  lastname?: InputMaybe<Scalars['String']>;
+  phone: Scalars['String'];
+  phoneHidden: Scalars['Boolean'];
+  placeOfResidence: Scalars['Int'];
+  savedBy?: InputMaybe<ResumeSavedByEmployerCreateNestedManyWithoutResumeInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  views?: InputMaybe<Scalars['Int']>;
+};
+
+export type ResumeCreateWithoutSavedByInput = {
+  aboutMe?: InputMaybe<Scalars['String']>;
+  applicantProfile: ApplicantProfileCreateNestedOneWithoutResumeInput;
+  birthday: Scalars['DateTime'];
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  desiredPost?: InputMaybe<Scalars['String']>;
+  education?: InputMaybe<Scalars['String']>;
+  experience?: InputMaybe<Scalars['String']>;
+  fieldOfActivity: Scalars['Int'];
+  firstname: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  lastname?: InputMaybe<Scalars['String']>;
+  phone: Scalars['String'];
+  phoneHidden: Scalars['Boolean'];
+  placeOfResidence: Scalars['Int'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  views?: InputMaybe<Scalars['Int']>;
+};
+
+export type ResumeGroupBy = {
+  __typename?: 'ResumeGroupBy';
+  _avg?: Maybe<ResumeAvgAggregate>;
+  _count?: Maybe<ResumeCountAggregate>;
+  _max?: Maybe<ResumeMaxAggregate>;
+  _min?: Maybe<ResumeMinAggregate>;
+  _sum?: Maybe<ResumeSumAggregate>;
+  aboutMe?: Maybe<Scalars['String']>;
+  applicantProfileId: Scalars['String'];
+  birthday: Scalars['DateTime'];
+  createdAt: Scalars['DateTime'];
+  desiredPost?: Maybe<Scalars['String']>;
+  education?: Maybe<Scalars['String']>;
+  experience?: Maybe<Scalars['String']>;
+  fieldOfActivity: Scalars['Int'];
+  firstname: Scalars['String'];
   id: Scalars['String'];
-  label: Scalars['String'];
+  lastname?: Maybe<Scalars['String']>;
+  phone: Scalars['String'];
+  phoneHidden: Scalars['Boolean'];
+  placeOfResidence: Scalars['Int'];
+  updatedAt: Scalars['DateTime'];
+  views: Scalars['Int'];
 };
 
-export type SecretLabelMaxAggregate = {
-  __typename?: 'SecretLabelMaxAggregate';
+export type ResumeMaxAggregate = {
+  __typename?: 'ResumeMaxAggregate';
+  aboutMe?: Maybe<Scalars['String']>;
+  applicantProfileId?: Maybe<Scalars['String']>;
+  birthday?: Maybe<Scalars['DateTime']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  desiredPost?: Maybe<Scalars['String']>;
+  education?: Maybe<Scalars['String']>;
+  experience?: Maybe<Scalars['String']>;
+  fieldOfActivity?: Maybe<Scalars['Int']>;
+  firstname?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
-  label?: Maybe<Scalars['String']>;
+  lastname?: Maybe<Scalars['String']>;
+  phone?: Maybe<Scalars['String']>;
+  phoneHidden?: Maybe<Scalars['Boolean']>;
+  placeOfResidence?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  views?: Maybe<Scalars['Int']>;
 };
 
-export type SecretLabelMaxOrderByAggregateInput = {
+export type ResumeMaxOrderByAggregateInput = {
+  aboutMe?: InputMaybe<SortOrder>;
+  applicantProfileId?: InputMaybe<SortOrder>;
+  birthday?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  desiredPost?: InputMaybe<SortOrder>;
+  education?: InputMaybe<SortOrder>;
+  experience?: InputMaybe<SortOrder>;
+  fieldOfActivity?: InputMaybe<SortOrder>;
+  firstname?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  label?: InputMaybe<SortOrder>;
+  lastname?: InputMaybe<SortOrder>;
+  phone?: InputMaybe<SortOrder>;
+  phoneHidden?: InputMaybe<SortOrder>;
+  placeOfResidence?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  views?: InputMaybe<SortOrder>;
 };
 
-export type SecretLabelMinAggregate = {
-  __typename?: 'SecretLabelMinAggregate';
+export type ResumeMinAggregate = {
+  __typename?: 'ResumeMinAggregate';
+  aboutMe?: Maybe<Scalars['String']>;
+  applicantProfileId?: Maybe<Scalars['String']>;
+  birthday?: Maybe<Scalars['DateTime']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  desiredPost?: Maybe<Scalars['String']>;
+  education?: Maybe<Scalars['String']>;
+  experience?: Maybe<Scalars['String']>;
+  fieldOfActivity?: Maybe<Scalars['Int']>;
+  firstname?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
-  label?: Maybe<Scalars['String']>;
+  lastname?: Maybe<Scalars['String']>;
+  phone?: Maybe<Scalars['String']>;
+  phoneHidden?: Maybe<Scalars['Boolean']>;
+  placeOfResidence?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  views?: Maybe<Scalars['Int']>;
 };
 
-export type SecretLabelMinOrderByAggregateInput = {
+export type ResumeMinOrderByAggregateInput = {
+  aboutMe?: InputMaybe<SortOrder>;
+  applicantProfileId?: InputMaybe<SortOrder>;
+  birthday?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  desiredPost?: InputMaybe<SortOrder>;
+  education?: InputMaybe<SortOrder>;
+  experience?: InputMaybe<SortOrder>;
+  fieldOfActivity?: InputMaybe<SortOrder>;
+  firstname?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  label?: InputMaybe<SortOrder>;
+  lastname?: InputMaybe<SortOrder>;
+  phone?: InputMaybe<SortOrder>;
+  phoneHidden?: InputMaybe<SortOrder>;
+  placeOfResidence?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  views?: InputMaybe<SortOrder>;
 };
 
-export type SecretLabelOrderByWithAggregationInput = {
-  _count?: InputMaybe<SecretLabelCountOrderByAggregateInput>;
-  _max?: InputMaybe<SecretLabelMaxOrderByAggregateInput>;
-  _min?: InputMaybe<SecretLabelMinOrderByAggregateInput>;
+export type ResumeOrderByWithAggregationInput = {
+  _avg?: InputMaybe<ResumeAvgOrderByAggregateInput>;
+  _count?: InputMaybe<ResumeCountOrderByAggregateInput>;
+  _max?: InputMaybe<ResumeMaxOrderByAggregateInput>;
+  _min?: InputMaybe<ResumeMinOrderByAggregateInput>;
+  _sum?: InputMaybe<ResumeSumOrderByAggregateInput>;
+  aboutMe?: InputMaybe<SortOrder>;
+  applicantProfileId?: InputMaybe<SortOrder>;
+  birthday?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  desiredPost?: InputMaybe<SortOrder>;
+  education?: InputMaybe<SortOrder>;
+  experience?: InputMaybe<SortOrder>;
+  fieldOfActivity?: InputMaybe<SortOrder>;
+  firstname?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  label?: InputMaybe<SortOrder>;
+  lastname?: InputMaybe<SortOrder>;
+  phone?: InputMaybe<SortOrder>;
+  phoneHidden?: InputMaybe<SortOrder>;
+  placeOfResidence?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  views?: InputMaybe<SortOrder>;
 };
 
-export type SecretLabelOrderByWithRelationInput = {
+export type ResumeOrderByWithRelationInput = {
+  aboutMe?: InputMaybe<SortOrder>;
+  applicantProfile?: InputMaybe<ApplicantProfileOrderByWithRelationInput>;
+  applicantProfileId?: InputMaybe<SortOrder>;
+  birthday?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  desiredPost?: InputMaybe<SortOrder>;
+  education?: InputMaybe<SortOrder>;
+  experience?: InputMaybe<SortOrder>;
+  fieldOfActivity?: InputMaybe<SortOrder>;
+  firstname?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
-  label?: InputMaybe<SortOrder>;
+  lastname?: InputMaybe<SortOrder>;
+  phone?: InputMaybe<SortOrder>;
+  phoneHidden?: InputMaybe<SortOrder>;
+  placeOfResidence?: InputMaybe<SortOrder>;
+  savedBy?: InputMaybe<ResumeSavedByEmployerOrderByRelationAggregateInput>;
+  updatedAt?: InputMaybe<SortOrder>;
+  views?: InputMaybe<SortOrder>;
 };
 
-export enum SecretLabelScalarFieldEnum {
-  Id = 'id',
-  Label = 'label'
+export type ResumeRelationFilter = {
+  is?: InputMaybe<ResumeWhereInput>;
+  isNot?: InputMaybe<ResumeWhereInput>;
+};
+
+export type ResumeSavedByEmployer = {
+  __typename?: 'ResumeSavedByEmployer';
+  assignedAt: Scalars['DateTime'];
+  employerProfile: EmployerProfile;
+  employerProfileId: Scalars['String'];
+  resume: Resume;
+  resumeId: Scalars['String'];
+};
+
+export type ResumeSavedByEmployerCountAggregate = {
+  __typename?: 'ResumeSavedByEmployerCountAggregate';
+  _all: Scalars['Int'];
+  assignedAt: Scalars['Int'];
+  employerProfileId: Scalars['Int'];
+  resumeId: Scalars['Int'];
+};
+
+export type ResumeSavedByEmployerCountOrderByAggregateInput = {
+  assignedAt?: InputMaybe<SortOrder>;
+  employerProfileId?: InputMaybe<SortOrder>;
+  resumeId?: InputMaybe<SortOrder>;
+};
+
+export type ResumeSavedByEmployerCreateInput = {
+  assignedAt?: InputMaybe<Scalars['DateTime']>;
+  employerProfile: EmployerProfileCreateNestedOneWithoutSavedResumesInput;
+  resume: ResumeCreateNestedOneWithoutSavedByInput;
+};
+
+export type ResumeSavedByEmployerCreateManyEmployerProfileInput = {
+  assignedAt?: InputMaybe<Scalars['DateTime']>;
+  resumeId: Scalars['String'];
+};
+
+export type ResumeSavedByEmployerCreateManyEmployerProfileInputEnvelope = {
+  data: Array<ResumeSavedByEmployerCreateManyEmployerProfileInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type ResumeSavedByEmployerCreateManyInput = {
+  assignedAt?: InputMaybe<Scalars['DateTime']>;
+  employerProfileId: Scalars['String'];
+  resumeId: Scalars['String'];
+};
+
+export type ResumeSavedByEmployerCreateManyResumeInput = {
+  assignedAt?: InputMaybe<Scalars['DateTime']>;
+  employerProfileId: Scalars['String'];
+};
+
+export type ResumeSavedByEmployerCreateManyResumeInputEnvelope = {
+  data: Array<ResumeSavedByEmployerCreateManyResumeInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type ResumeSavedByEmployerCreateNestedManyWithoutEmployerProfileInput = {
+  connect?: InputMaybe<Array<ResumeSavedByEmployerWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<ResumeSavedByEmployerCreateOrConnectWithoutEmployerProfileInput>>;
+  create?: InputMaybe<Array<ResumeSavedByEmployerCreateWithoutEmployerProfileInput>>;
+  createMany?: InputMaybe<ResumeSavedByEmployerCreateManyEmployerProfileInputEnvelope>;
+};
+
+export type ResumeSavedByEmployerCreateNestedManyWithoutResumeInput = {
+  connect?: InputMaybe<Array<ResumeSavedByEmployerWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<ResumeSavedByEmployerCreateOrConnectWithoutResumeInput>>;
+  create?: InputMaybe<Array<ResumeSavedByEmployerCreateWithoutResumeInput>>;
+  createMany?: InputMaybe<ResumeSavedByEmployerCreateManyResumeInputEnvelope>;
+};
+
+export type ResumeSavedByEmployerCreateOrConnectWithoutEmployerProfileInput = {
+  create: ResumeSavedByEmployerCreateWithoutEmployerProfileInput;
+  where: ResumeSavedByEmployerWhereUniqueInput;
+};
+
+export type ResumeSavedByEmployerCreateOrConnectWithoutResumeInput = {
+  create: ResumeSavedByEmployerCreateWithoutResumeInput;
+  where: ResumeSavedByEmployerWhereUniqueInput;
+};
+
+export type ResumeSavedByEmployerCreateWithoutEmployerProfileInput = {
+  assignedAt?: InputMaybe<Scalars['DateTime']>;
+  resume: ResumeCreateNestedOneWithoutSavedByInput;
+};
+
+export type ResumeSavedByEmployerCreateWithoutResumeInput = {
+  assignedAt?: InputMaybe<Scalars['DateTime']>;
+  employerProfile: EmployerProfileCreateNestedOneWithoutSavedResumesInput;
+};
+
+export type ResumeSavedByEmployerEmployerProfileIdResumeIdCompoundUniqueInput = {
+  employerProfileId: Scalars['String'];
+  resumeId: Scalars['String'];
+};
+
+export type ResumeSavedByEmployerGroupBy = {
+  __typename?: 'ResumeSavedByEmployerGroupBy';
+  _count?: Maybe<ResumeSavedByEmployerCountAggregate>;
+  _max?: Maybe<ResumeSavedByEmployerMaxAggregate>;
+  _min?: Maybe<ResumeSavedByEmployerMinAggregate>;
+  assignedAt: Scalars['DateTime'];
+  employerProfileId: Scalars['String'];
+  resumeId: Scalars['String'];
+};
+
+export type ResumeSavedByEmployerListRelationFilter = {
+  every?: InputMaybe<ResumeSavedByEmployerWhereInput>;
+  none?: InputMaybe<ResumeSavedByEmployerWhereInput>;
+  some?: InputMaybe<ResumeSavedByEmployerWhereInput>;
+};
+
+export type ResumeSavedByEmployerMaxAggregate = {
+  __typename?: 'ResumeSavedByEmployerMaxAggregate';
+  assignedAt?: Maybe<Scalars['DateTime']>;
+  employerProfileId?: Maybe<Scalars['String']>;
+  resumeId?: Maybe<Scalars['String']>;
+};
+
+export type ResumeSavedByEmployerMaxOrderByAggregateInput = {
+  assignedAt?: InputMaybe<SortOrder>;
+  employerProfileId?: InputMaybe<SortOrder>;
+  resumeId?: InputMaybe<SortOrder>;
+};
+
+export type ResumeSavedByEmployerMinAggregate = {
+  __typename?: 'ResumeSavedByEmployerMinAggregate';
+  assignedAt?: Maybe<Scalars['DateTime']>;
+  employerProfileId?: Maybe<Scalars['String']>;
+  resumeId?: Maybe<Scalars['String']>;
+};
+
+export type ResumeSavedByEmployerMinOrderByAggregateInput = {
+  assignedAt?: InputMaybe<SortOrder>;
+  employerProfileId?: InputMaybe<SortOrder>;
+  resumeId?: InputMaybe<SortOrder>;
+};
+
+export type ResumeSavedByEmployerOrderByRelationAggregateInput = {
+  _count?: InputMaybe<SortOrder>;
+};
+
+export type ResumeSavedByEmployerOrderByWithAggregationInput = {
+  _count?: InputMaybe<ResumeSavedByEmployerCountOrderByAggregateInput>;
+  _max?: InputMaybe<ResumeSavedByEmployerMaxOrderByAggregateInput>;
+  _min?: InputMaybe<ResumeSavedByEmployerMinOrderByAggregateInput>;
+  assignedAt?: InputMaybe<SortOrder>;
+  employerProfileId?: InputMaybe<SortOrder>;
+  resumeId?: InputMaybe<SortOrder>;
+};
+
+export type ResumeSavedByEmployerOrderByWithRelationInput = {
+  assignedAt?: InputMaybe<SortOrder>;
+  employerProfile?: InputMaybe<EmployerProfileOrderByWithRelationInput>;
+  employerProfileId?: InputMaybe<SortOrder>;
+  resume?: InputMaybe<ResumeOrderByWithRelationInput>;
+  resumeId?: InputMaybe<SortOrder>;
+};
+
+export enum ResumeSavedByEmployerScalarFieldEnum {
+  AssignedAt = 'assignedAt',
+  EmployerProfileId = 'employerProfileId',
+  ResumeId = 'resumeId'
 }
 
-export type SecretLabelScalarWhereWithAggregatesInput = {
-  AND?: InputMaybe<Array<SecretLabelScalarWhereWithAggregatesInput>>;
-  NOT?: InputMaybe<Array<SecretLabelScalarWhereWithAggregatesInput>>;
-  OR?: InputMaybe<Array<SecretLabelScalarWhereWithAggregatesInput>>;
+export type ResumeSavedByEmployerScalarWhereInput = {
+  AND?: InputMaybe<Array<ResumeSavedByEmployerScalarWhereInput>>;
+  NOT?: InputMaybe<Array<ResumeSavedByEmployerScalarWhereInput>>;
+  OR?: InputMaybe<Array<ResumeSavedByEmployerScalarWhereInput>>;
+  assignedAt?: InputMaybe<DateTimeFilter>;
+  employerProfileId?: InputMaybe<StringFilter>;
+  resumeId?: InputMaybe<StringFilter>;
+};
+
+export type ResumeSavedByEmployerScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<ResumeSavedByEmployerScalarWhereWithAggregatesInput>>;
+  NOT?: InputMaybe<Array<ResumeSavedByEmployerScalarWhereWithAggregatesInput>>;
+  OR?: InputMaybe<Array<ResumeSavedByEmployerScalarWhereWithAggregatesInput>>;
+  assignedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  employerProfileId?: InputMaybe<StringWithAggregatesFilter>;
+  resumeId?: InputMaybe<StringWithAggregatesFilter>;
+};
+
+export type ResumeSavedByEmployerUpdateInput = {
+  assignedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  employerProfile?: InputMaybe<EmployerProfileUpdateOneRequiredWithoutSavedResumesNestedInput>;
+  resume?: InputMaybe<ResumeUpdateOneRequiredWithoutSavedByNestedInput>;
+};
+
+export type ResumeSavedByEmployerUpdateManyMutationInput = {
+  assignedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type ResumeSavedByEmployerUpdateManyWithWhereWithoutEmployerProfileInput = {
+  data: ResumeSavedByEmployerUpdateManyMutationInput;
+  where: ResumeSavedByEmployerScalarWhereInput;
+};
+
+export type ResumeSavedByEmployerUpdateManyWithWhereWithoutResumeInput = {
+  data: ResumeSavedByEmployerUpdateManyMutationInput;
+  where: ResumeSavedByEmployerScalarWhereInput;
+};
+
+export type ResumeSavedByEmployerUpdateManyWithoutEmployerProfileNestedInput = {
+  connect?: InputMaybe<Array<ResumeSavedByEmployerWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<ResumeSavedByEmployerCreateOrConnectWithoutEmployerProfileInput>>;
+  create?: InputMaybe<Array<ResumeSavedByEmployerCreateWithoutEmployerProfileInput>>;
+  createMany?: InputMaybe<ResumeSavedByEmployerCreateManyEmployerProfileInputEnvelope>;
+  delete?: InputMaybe<Array<ResumeSavedByEmployerWhereUniqueInput>>;
+  deleteMany?: InputMaybe<Array<ResumeSavedByEmployerScalarWhereInput>>;
+  disconnect?: InputMaybe<Array<ResumeSavedByEmployerWhereUniqueInput>>;
+  set?: InputMaybe<Array<ResumeSavedByEmployerWhereUniqueInput>>;
+  update?: InputMaybe<Array<ResumeSavedByEmployerUpdateWithWhereUniqueWithoutEmployerProfileInput>>;
+  updateMany?: InputMaybe<Array<ResumeSavedByEmployerUpdateManyWithWhereWithoutEmployerProfileInput>>;
+  upsert?: InputMaybe<Array<ResumeSavedByEmployerUpsertWithWhereUniqueWithoutEmployerProfileInput>>;
+};
+
+export type ResumeSavedByEmployerUpdateManyWithoutResumeNestedInput = {
+  connect?: InputMaybe<Array<ResumeSavedByEmployerWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<ResumeSavedByEmployerCreateOrConnectWithoutResumeInput>>;
+  create?: InputMaybe<Array<ResumeSavedByEmployerCreateWithoutResumeInput>>;
+  createMany?: InputMaybe<ResumeSavedByEmployerCreateManyResumeInputEnvelope>;
+  delete?: InputMaybe<Array<ResumeSavedByEmployerWhereUniqueInput>>;
+  deleteMany?: InputMaybe<Array<ResumeSavedByEmployerScalarWhereInput>>;
+  disconnect?: InputMaybe<Array<ResumeSavedByEmployerWhereUniqueInput>>;
+  set?: InputMaybe<Array<ResumeSavedByEmployerWhereUniqueInput>>;
+  update?: InputMaybe<Array<ResumeSavedByEmployerUpdateWithWhereUniqueWithoutResumeInput>>;
+  updateMany?: InputMaybe<Array<ResumeSavedByEmployerUpdateManyWithWhereWithoutResumeInput>>;
+  upsert?: InputMaybe<Array<ResumeSavedByEmployerUpsertWithWhereUniqueWithoutResumeInput>>;
+};
+
+export type ResumeSavedByEmployerUpdateWithWhereUniqueWithoutEmployerProfileInput = {
+  data: ResumeSavedByEmployerUpdateWithoutEmployerProfileInput;
+  where: ResumeSavedByEmployerWhereUniqueInput;
+};
+
+export type ResumeSavedByEmployerUpdateWithWhereUniqueWithoutResumeInput = {
+  data: ResumeSavedByEmployerUpdateWithoutResumeInput;
+  where: ResumeSavedByEmployerWhereUniqueInput;
+};
+
+export type ResumeSavedByEmployerUpdateWithoutEmployerProfileInput = {
+  assignedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  resume?: InputMaybe<ResumeUpdateOneRequiredWithoutSavedByNestedInput>;
+};
+
+export type ResumeSavedByEmployerUpdateWithoutResumeInput = {
+  assignedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  employerProfile?: InputMaybe<EmployerProfileUpdateOneRequiredWithoutSavedResumesNestedInput>;
+};
+
+export type ResumeSavedByEmployerUpsertWithWhereUniqueWithoutEmployerProfileInput = {
+  create: ResumeSavedByEmployerCreateWithoutEmployerProfileInput;
+  update: ResumeSavedByEmployerUpdateWithoutEmployerProfileInput;
+  where: ResumeSavedByEmployerWhereUniqueInput;
+};
+
+export type ResumeSavedByEmployerUpsertWithWhereUniqueWithoutResumeInput = {
+  create: ResumeSavedByEmployerCreateWithoutResumeInput;
+  update: ResumeSavedByEmployerUpdateWithoutResumeInput;
+  where: ResumeSavedByEmployerWhereUniqueInput;
+};
+
+export type ResumeSavedByEmployerWhereInput = {
+  AND?: InputMaybe<Array<ResumeSavedByEmployerWhereInput>>;
+  NOT?: InputMaybe<Array<ResumeSavedByEmployerWhereInput>>;
+  OR?: InputMaybe<Array<ResumeSavedByEmployerWhereInput>>;
+  assignedAt?: InputMaybe<DateTimeFilter>;
+  employerProfile?: InputMaybe<EmployerProfileRelationFilter>;
+  employerProfileId?: InputMaybe<StringFilter>;
+  resume?: InputMaybe<ResumeRelationFilter>;
+  resumeId?: InputMaybe<StringFilter>;
+};
+
+export type ResumeSavedByEmployerWhereUniqueInput = {
+  employerProfileId_resumeId?: InputMaybe<ResumeSavedByEmployerEmployerProfileIdResumeIdCompoundUniqueInput>;
+};
+
+export enum ResumeScalarFieldEnum {
+  AboutMe = 'aboutMe',
+  ApplicantProfileId = 'applicantProfileId',
+  Birthday = 'birthday',
+  CreatedAt = 'createdAt',
+  DesiredPost = 'desiredPost',
+  Education = 'education',
+  Experience = 'experience',
+  FieldOfActivity = 'fieldOfActivity',
+  Firstname = 'firstname',
+  Id = 'id',
+  Lastname = 'lastname',
+  Phone = 'phone',
+  PhoneHidden = 'phoneHidden',
+  PlaceOfResidence = 'placeOfResidence',
+  UpdatedAt = 'updatedAt',
+  Views = 'views'
+}
+
+export type ResumeScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<ResumeScalarWhereWithAggregatesInput>>;
+  NOT?: InputMaybe<Array<ResumeScalarWhereWithAggregatesInput>>;
+  OR?: InputMaybe<Array<ResumeScalarWhereWithAggregatesInput>>;
+  aboutMe?: InputMaybe<StringNullableWithAggregatesFilter>;
+  applicantProfileId?: InputMaybe<StringWithAggregatesFilter>;
+  birthday?: InputMaybe<DateTimeWithAggregatesFilter>;
+  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  desiredPost?: InputMaybe<StringNullableWithAggregatesFilter>;
+  education?: InputMaybe<StringNullableWithAggregatesFilter>;
+  experience?: InputMaybe<StringNullableWithAggregatesFilter>;
+  fieldOfActivity?: InputMaybe<IntWithAggregatesFilter>;
+  firstname?: InputMaybe<StringWithAggregatesFilter>;
   id?: InputMaybe<StringWithAggregatesFilter>;
-  label?: InputMaybe<StringWithAggregatesFilter>;
+  lastname?: InputMaybe<StringNullableWithAggregatesFilter>;
+  phone?: InputMaybe<StringWithAggregatesFilter>;
+  phoneHidden?: InputMaybe<BoolWithAggregatesFilter>;
+  placeOfResidence?: InputMaybe<IntWithAggregatesFilter>;
+  updatedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  views?: InputMaybe<IntWithAggregatesFilter>;
 };
 
-export type SecretLabelUpdateInput = {
+export type ResumeSumAggregate = {
+  __typename?: 'ResumeSumAggregate';
+  fieldOfActivity?: Maybe<Scalars['Int']>;
+  placeOfResidence?: Maybe<Scalars['Int']>;
+  views?: Maybe<Scalars['Int']>;
+};
+
+export type ResumeSumOrderByAggregateInput = {
+  fieldOfActivity?: InputMaybe<SortOrder>;
+  placeOfResidence?: InputMaybe<SortOrder>;
+  views?: InputMaybe<SortOrder>;
+};
+
+export type ResumeUpdateInput = {
+  aboutMe?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  applicantProfile?: InputMaybe<ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput>;
+  birthday?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  desiredPost?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  education?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  experience?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>;
+  firstname?: InputMaybe<StringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  label?: InputMaybe<StringFieldUpdateOperationsInput>;
+  lastname?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  phone?: InputMaybe<StringFieldUpdateOperationsInput>;
+  phoneHidden?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  placeOfResidence?: InputMaybe<IntFieldUpdateOperationsInput>;
+  savedBy?: InputMaybe<ResumeSavedByEmployerUpdateManyWithoutResumeNestedInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  views?: InputMaybe<IntFieldUpdateOperationsInput>;
 };
 
-export type SecretLabelUpdateManyMutationInput = {
+export type ResumeUpdateManyMutationInput = {
+  aboutMe?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  birthday?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  desiredPost?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  education?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  experience?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>;
+  firstname?: InputMaybe<StringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  label?: InputMaybe<StringFieldUpdateOperationsInput>;
+  lastname?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  phone?: InputMaybe<StringFieldUpdateOperationsInput>;
+  phoneHidden?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  placeOfResidence?: InputMaybe<IntFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  views?: InputMaybe<IntFieldUpdateOperationsInput>;
 };
 
-export type SecretLabelWhereInput = {
-  AND?: InputMaybe<Array<SecretLabelWhereInput>>;
-  NOT?: InputMaybe<Array<SecretLabelWhereInput>>;
-  OR?: InputMaybe<Array<SecretLabelWhereInput>>;
+export type ResumeUpdateOneRequiredWithoutSavedByNestedInput = {
+  connect?: InputMaybe<ResumeWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<ResumeCreateOrConnectWithoutSavedByInput>;
+  create?: InputMaybe<ResumeCreateWithoutSavedByInput>;
+  update?: InputMaybe<ResumeUpdateWithoutSavedByInput>;
+  upsert?: InputMaybe<ResumeUpsertWithoutSavedByInput>;
+};
+
+export type ResumeUpdateOneWithoutApplicantProfileNestedInput = {
+  connect?: InputMaybe<ResumeWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<ResumeCreateOrConnectWithoutApplicantProfileInput>;
+  create?: InputMaybe<ResumeCreateWithoutApplicantProfileInput>;
+  delete?: InputMaybe<Scalars['Boolean']>;
+  disconnect?: InputMaybe<Scalars['Boolean']>;
+  update?: InputMaybe<ResumeUpdateWithoutApplicantProfileInput>;
+  upsert?: InputMaybe<ResumeUpsertWithoutApplicantProfileInput>;
+};
+
+export type ResumeUpdateWithoutApplicantProfileInput = {
+  aboutMe?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  birthday?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  desiredPost?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  education?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  experience?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>;
+  firstname?: InputMaybe<StringFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  lastname?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  phone?: InputMaybe<StringFieldUpdateOperationsInput>;
+  phoneHidden?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  placeOfResidence?: InputMaybe<IntFieldUpdateOperationsInput>;
+  savedBy?: InputMaybe<ResumeSavedByEmployerUpdateManyWithoutResumeNestedInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  views?: InputMaybe<IntFieldUpdateOperationsInput>;
+};
+
+export type ResumeUpdateWithoutSavedByInput = {
+  aboutMe?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  applicantProfile?: InputMaybe<ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput>;
+  birthday?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  desiredPost?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  education?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  experience?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>;
+  firstname?: InputMaybe<StringFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  lastname?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  phone?: InputMaybe<StringFieldUpdateOperationsInput>;
+  phoneHidden?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  placeOfResidence?: InputMaybe<IntFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  views?: InputMaybe<IntFieldUpdateOperationsInput>;
+};
+
+export type ResumeUpsertWithoutApplicantProfileInput = {
+  create: ResumeCreateWithoutApplicantProfileInput;
+  update: ResumeUpdateWithoutApplicantProfileInput;
+};
+
+export type ResumeUpsertWithoutSavedByInput = {
+  create: ResumeCreateWithoutSavedByInput;
+  update: ResumeUpdateWithoutSavedByInput;
+};
+
+export type ResumeWhereInput = {
+  AND?: InputMaybe<Array<ResumeWhereInput>>;
+  NOT?: InputMaybe<Array<ResumeWhereInput>>;
+  OR?: InputMaybe<Array<ResumeWhereInput>>;
+  aboutMe?: InputMaybe<StringNullableFilter>;
+  applicantProfile?: InputMaybe<ApplicantProfileRelationFilter>;
+  applicantProfileId?: InputMaybe<StringFilter>;
+  birthday?: InputMaybe<DateTimeFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  desiredPost?: InputMaybe<StringNullableFilter>;
+  education?: InputMaybe<StringNullableFilter>;
+  experience?: InputMaybe<StringNullableFilter>;
+  fieldOfActivity?: InputMaybe<IntFilter>;
+  firstname?: InputMaybe<StringFilter>;
   id?: InputMaybe<StringFilter>;
-  label?: InputMaybe<StringFilter>;
+  lastname?: InputMaybe<StringNullableFilter>;
+  phone?: InputMaybe<StringFilter>;
+  phoneHidden?: InputMaybe<BoolFilter>;
+  placeOfResidence?: InputMaybe<IntFilter>;
+  savedBy?: InputMaybe<ResumeSavedByEmployerListRelationFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  views?: InputMaybe<IntFilter>;
 };
 
-export type SecretLabelWhereUniqueInput = {
+export type ResumeWhereUniqueInput = {
+  applicantProfileId?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['String']>;
+};
+
+export type SendMessageInput = {
+  phone: Scalars['String'];
+};
+
+export type SendMessageOutput = {
+  __typename?: 'SendMessageOutput';
+  authToken: Scalars['String'];
 };
 
 export enum SortOrder {
@@ -4149,12 +4781,37 @@ export type StringFilter = {
   startsWith?: InputMaybe<Scalars['String']>;
 };
 
-export type StringNullableListFilter = {
-  equals?: InputMaybe<Array<Scalars['String']>>;
-  has?: InputMaybe<Scalars['String']>;
-  hasEvery?: InputMaybe<Array<Scalars['String']>>;
-  hasSome?: InputMaybe<Array<Scalars['String']>>;
-  isEmpty?: InputMaybe<Scalars['Boolean']>;
+export type StringNullableFilter = {
+  contains?: InputMaybe<Scalars['String']>;
+  endsWith?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  gt?: InputMaybe<Scalars['String']>;
+  gte?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<Scalars['String']>>;
+  lt?: InputMaybe<Scalars['String']>;
+  lte?: InputMaybe<Scalars['String']>;
+  mode?: InputMaybe<QueryMode>;
+  not?: InputMaybe<NestedStringNullableFilter>;
+  notIn?: InputMaybe<Array<Scalars['String']>>;
+  startsWith?: InputMaybe<Scalars['String']>;
+};
+
+export type StringNullableWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntNullableFilter>;
+  _max?: InputMaybe<NestedStringNullableFilter>;
+  _min?: InputMaybe<NestedStringNullableFilter>;
+  contains?: InputMaybe<Scalars['String']>;
+  endsWith?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  gt?: InputMaybe<Scalars['String']>;
+  gte?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<Scalars['String']>>;
+  lt?: InputMaybe<Scalars['String']>;
+  lte?: InputMaybe<Scalars['String']>;
+  mode?: InputMaybe<QueryMode>;
+  not?: InputMaybe<NestedStringNullableWithAggregatesFilter>;
+  notIn?: InputMaybe<Array<Scalars['String']>>;
+  startsWith?: InputMaybe<Scalars['String']>;
 };
 
 export type StringWithAggregatesFilter = {
@@ -4175,49 +4832,1472 @@ export type StringWithAggregatesFilter = {
   startsWith?: InputMaybe<Scalars['String']>;
 };
 
-export enum Subgroup {
-  First = 'first',
-  None = 'none',
-  Second = 'second'
+export type User = {
+  __typename?: 'User';
+  _count?: Maybe<UserCount>;
+  applicantProfile?: Maybe<ApplicantProfile>;
+  chatWithAdmin?: Maybe<AdminChat>;
+  chatsWithFirstUsers: Array<Chat>;
+  chatsWithSecondUsers: Array<Chat>;
+  createdAt: Scalars['DateTime'];
+  employerProfile?: Maybe<EmployerProfile>;
+  id: Scalars['String'];
+  login: Scalars['String'];
+  role: UserRole;
+  updatedAt: Scalars['DateTime'];
+};
+
+
+export type UserChatsWithFirstUsersArgs = {
+  cursor?: InputMaybe<ChatWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ChatScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ChatOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ChatWhereInput>;
+};
+
+
+export type UserChatsWithSecondUsersArgs = {
+  cursor?: InputMaybe<ChatWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ChatScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ChatOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ChatWhereInput>;
+};
+
+export type UserCount = {
+  __typename?: 'UserCount';
+  chatsWithFirstUsers: Scalars['Int'];
+  chatsWithSecondUsers: Scalars['Int'];
+};
+
+export type UserCountAggregate = {
+  __typename?: 'UserCountAggregate';
+  _all: Scalars['Int'];
+  createdAt: Scalars['Int'];
+  id: Scalars['Int'];
+  login: Scalars['Int'];
+  role: Scalars['Int'];
+  updatedAt: Scalars['Int'];
+};
+
+export type UserCountOrderByAggregateInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  login?: InputMaybe<SortOrder>;
+  role?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+};
+
+export type UserCreateInput = {
+  applicantProfile?: InputMaybe<ApplicantProfileCreateNestedOneWithoutUserInput>;
+  chatWithAdmin?: InputMaybe<AdminChatCreateNestedOneWithoutUserInput>;
+  chatsWithFirstUsers?: InputMaybe<ChatCreateNestedManyWithoutFirstUserInput>;
+  chatsWithSecondUsers?: InputMaybe<ChatCreateNestedManyWithoutSecondUserInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  employerProfile?: InputMaybe<EmployerProfileCreateNestedOneWithoutUserInput>;
+  id?: InputMaybe<Scalars['String']>;
+  login: Scalars['String'];
+  role: UserRole;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type UserCreateManyInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  login: Scalars['String'];
+  role: UserRole;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type UserCreateNestedOneWithoutApplicantProfileInput = {
+  connect?: InputMaybe<UserWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<UserCreateOrConnectWithoutApplicantProfileInput>;
+  create?: InputMaybe<UserCreateWithoutApplicantProfileInput>;
+};
+
+export type UserCreateNestedOneWithoutChatWithAdminInput = {
+  connect?: InputMaybe<UserWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<UserCreateOrConnectWithoutChatWithAdminInput>;
+  create?: InputMaybe<UserCreateWithoutChatWithAdminInput>;
+};
+
+export type UserCreateNestedOneWithoutChatsWithFirstUsersInput = {
+  connect?: InputMaybe<UserWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<UserCreateOrConnectWithoutChatsWithFirstUsersInput>;
+  create?: InputMaybe<UserCreateWithoutChatsWithFirstUsersInput>;
+};
+
+export type UserCreateNestedOneWithoutChatsWithSecondUsersInput = {
+  connect?: InputMaybe<UserWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<UserCreateOrConnectWithoutChatsWithSecondUsersInput>;
+  create?: InputMaybe<UserCreateWithoutChatsWithSecondUsersInput>;
+};
+
+export type UserCreateNestedOneWithoutEmployerProfileInput = {
+  connect?: InputMaybe<UserWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<UserCreateOrConnectWithoutEmployerProfileInput>;
+  create?: InputMaybe<UserCreateWithoutEmployerProfileInput>;
+};
+
+export type UserCreateOrConnectWithoutApplicantProfileInput = {
+  create: UserCreateWithoutApplicantProfileInput;
+  where: UserWhereUniqueInput;
+};
+
+export type UserCreateOrConnectWithoutChatWithAdminInput = {
+  create: UserCreateWithoutChatWithAdminInput;
+  where: UserWhereUniqueInput;
+};
+
+export type UserCreateOrConnectWithoutChatsWithFirstUsersInput = {
+  create: UserCreateWithoutChatsWithFirstUsersInput;
+  where: UserWhereUniqueInput;
+};
+
+export type UserCreateOrConnectWithoutChatsWithSecondUsersInput = {
+  create: UserCreateWithoutChatsWithSecondUsersInput;
+  where: UserWhereUniqueInput;
+};
+
+export type UserCreateOrConnectWithoutEmployerProfileInput = {
+  create: UserCreateWithoutEmployerProfileInput;
+  where: UserWhereUniqueInput;
+};
+
+export type UserCreateWithoutApplicantProfileInput = {
+  chatWithAdmin?: InputMaybe<AdminChatCreateNestedOneWithoutUserInput>;
+  chatsWithFirstUsers?: InputMaybe<ChatCreateNestedManyWithoutFirstUserInput>;
+  chatsWithSecondUsers?: InputMaybe<ChatCreateNestedManyWithoutSecondUserInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  employerProfile?: InputMaybe<EmployerProfileCreateNestedOneWithoutUserInput>;
+  id?: InputMaybe<Scalars['String']>;
+  login: Scalars['String'];
+  role: UserRole;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type UserCreateWithoutChatWithAdminInput = {
+  applicantProfile?: InputMaybe<ApplicantProfileCreateNestedOneWithoutUserInput>;
+  chatsWithFirstUsers?: InputMaybe<ChatCreateNestedManyWithoutFirstUserInput>;
+  chatsWithSecondUsers?: InputMaybe<ChatCreateNestedManyWithoutSecondUserInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  employerProfile?: InputMaybe<EmployerProfileCreateNestedOneWithoutUserInput>;
+  id?: InputMaybe<Scalars['String']>;
+  login: Scalars['String'];
+  role: UserRole;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type UserCreateWithoutChatsWithFirstUsersInput = {
+  applicantProfile?: InputMaybe<ApplicantProfileCreateNestedOneWithoutUserInput>;
+  chatWithAdmin?: InputMaybe<AdminChatCreateNestedOneWithoutUserInput>;
+  chatsWithSecondUsers?: InputMaybe<ChatCreateNestedManyWithoutSecondUserInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  employerProfile?: InputMaybe<EmployerProfileCreateNestedOneWithoutUserInput>;
+  id?: InputMaybe<Scalars['String']>;
+  login: Scalars['String'];
+  role: UserRole;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type UserCreateWithoutChatsWithSecondUsersInput = {
+  applicantProfile?: InputMaybe<ApplicantProfileCreateNestedOneWithoutUserInput>;
+  chatWithAdmin?: InputMaybe<AdminChatCreateNestedOneWithoutUserInput>;
+  chatsWithFirstUsers?: InputMaybe<ChatCreateNestedManyWithoutFirstUserInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  employerProfile?: InputMaybe<EmployerProfileCreateNestedOneWithoutUserInput>;
+  id?: InputMaybe<Scalars['String']>;
+  login: Scalars['String'];
+  role: UserRole;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type UserCreateWithoutEmployerProfileInput = {
+  applicantProfile?: InputMaybe<ApplicantProfileCreateNestedOneWithoutUserInput>;
+  chatWithAdmin?: InputMaybe<AdminChatCreateNestedOneWithoutUserInput>;
+  chatsWithFirstUsers?: InputMaybe<ChatCreateNestedManyWithoutFirstUserInput>;
+  chatsWithSecondUsers?: InputMaybe<ChatCreateNestedManyWithoutSecondUserInput>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  login: Scalars['String'];
+  role: UserRole;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type UserGroupBy = {
+  __typename?: 'UserGroupBy';
+  _count?: Maybe<UserCountAggregate>;
+  _max?: Maybe<UserMaxAggregate>;
+  _min?: Maybe<UserMinAggregate>;
+  createdAt: Scalars['DateTime'];
+  id: Scalars['String'];
+  login: Scalars['String'];
+  role: UserRole;
+  updatedAt: Scalars['DateTime'];
+};
+
+export type UserMaxAggregate = {
+  __typename?: 'UserMaxAggregate';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+  login?: Maybe<Scalars['String']>;
+  role?: Maybe<UserRole>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type UserMaxOrderByAggregateInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  login?: InputMaybe<SortOrder>;
+  role?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+};
+
+export type UserMinAggregate = {
+  __typename?: 'UserMinAggregate';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  id?: Maybe<Scalars['String']>;
+  login?: Maybe<Scalars['String']>;
+  role?: Maybe<UserRole>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type UserMinOrderByAggregateInput = {
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  login?: InputMaybe<SortOrder>;
+  role?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+};
+
+export type UserOrderByWithAggregationInput = {
+  _count?: InputMaybe<UserCountOrderByAggregateInput>;
+  _max?: InputMaybe<UserMaxOrderByAggregateInput>;
+  _min?: InputMaybe<UserMinOrderByAggregateInput>;
+  createdAt?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  login?: InputMaybe<SortOrder>;
+  role?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+};
+
+export type UserOrderByWithRelationInput = {
+  applicantProfile?: InputMaybe<ApplicantProfileOrderByWithRelationInput>;
+  chatWithAdmin?: InputMaybe<AdminChatOrderByWithRelationInput>;
+  chatsWithFirstUsers?: InputMaybe<ChatOrderByRelationAggregateInput>;
+  chatsWithSecondUsers?: InputMaybe<ChatOrderByRelationAggregateInput>;
+  createdAt?: InputMaybe<SortOrder>;
+  employerProfile?: InputMaybe<EmployerProfileOrderByWithRelationInput>;
+  id?: InputMaybe<SortOrder>;
+  login?: InputMaybe<SortOrder>;
+  role?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+};
+
+export type UserRelationFilter = {
+  is?: InputMaybe<UserWhereInput>;
+  isNot?: InputMaybe<UserWhereInput>;
+};
+
+export enum UserRole {
+  Applicant = 'Applicant',
+  Employer = 'Employer'
 }
 
-export enum WeekDay {
-  Friday = 'friday',
-  Monday = 'monday',
-  Saturday = 'saturday',
-  Sunday = 'sunday',
-  Thursday = 'thursday',
-  Tuesday = 'tuesday',
-  Wednesday = 'wednesday'
+export enum UserScalarFieldEnum {
+  CreatedAt = 'createdAt',
+  Id = 'id',
+  Login = 'login',
+  Role = 'role',
+  UpdatedAt = 'updatedAt'
 }
 
-export enum WeeksType {
-  All = 'all',
-  Custom = 'custom',
-  First = 'first',
-  Second = 'second'
+export type UserScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<UserScalarWhereWithAggregatesInput>>;
+  NOT?: InputMaybe<Array<UserScalarWhereWithAggregatesInput>>;
+  OR?: InputMaybe<Array<UserScalarWhereWithAggregatesInput>>;
+  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  id?: InputMaybe<StringWithAggregatesFilter>;
+  login?: InputMaybe<StringWithAggregatesFilter>;
+  role?: InputMaybe<EnumUserRoleWithAggregatesFilter>;
+  updatedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+};
+
+export type UserUpdateInput = {
+  applicantProfile?: InputMaybe<ApplicantProfileUpdateOneWithoutUserNestedInput>;
+  chatWithAdmin?: InputMaybe<AdminChatUpdateOneWithoutUserNestedInput>;
+  chatsWithFirstUsers?: InputMaybe<ChatUpdateManyWithoutFirstUserNestedInput>;
+  chatsWithSecondUsers?: InputMaybe<ChatUpdateManyWithoutSecondUserNestedInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  employerProfile?: InputMaybe<EmployerProfileUpdateOneWithoutUserNestedInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  login?: InputMaybe<StringFieldUpdateOperationsInput>;
+  role?: InputMaybe<EnumUserRoleFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type UserUpdateManyMutationInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  login?: InputMaybe<StringFieldUpdateOperationsInput>;
+  role?: InputMaybe<EnumUserRoleFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type UserUpdateOneRequiredWithoutApplicantProfileNestedInput = {
+  connect?: InputMaybe<UserWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<UserCreateOrConnectWithoutApplicantProfileInput>;
+  create?: InputMaybe<UserCreateWithoutApplicantProfileInput>;
+  update?: InputMaybe<UserUpdateWithoutApplicantProfileInput>;
+  upsert?: InputMaybe<UserUpsertWithoutApplicantProfileInput>;
+};
+
+export type UserUpdateOneRequiredWithoutChatWithAdminNestedInput = {
+  connect?: InputMaybe<UserWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<UserCreateOrConnectWithoutChatWithAdminInput>;
+  create?: InputMaybe<UserCreateWithoutChatWithAdminInput>;
+  update?: InputMaybe<UserUpdateWithoutChatWithAdminInput>;
+  upsert?: InputMaybe<UserUpsertWithoutChatWithAdminInput>;
+};
+
+export type UserUpdateOneRequiredWithoutChatsWithFirstUsersNestedInput = {
+  connect?: InputMaybe<UserWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<UserCreateOrConnectWithoutChatsWithFirstUsersInput>;
+  create?: InputMaybe<UserCreateWithoutChatsWithFirstUsersInput>;
+  update?: InputMaybe<UserUpdateWithoutChatsWithFirstUsersInput>;
+  upsert?: InputMaybe<UserUpsertWithoutChatsWithFirstUsersInput>;
+};
+
+export type UserUpdateOneRequiredWithoutChatsWithSecondUsersNestedInput = {
+  connect?: InputMaybe<UserWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<UserCreateOrConnectWithoutChatsWithSecondUsersInput>;
+  create?: InputMaybe<UserCreateWithoutChatsWithSecondUsersInput>;
+  update?: InputMaybe<UserUpdateWithoutChatsWithSecondUsersInput>;
+  upsert?: InputMaybe<UserUpsertWithoutChatsWithSecondUsersInput>;
+};
+
+export type UserUpdateOneRequiredWithoutEmployerProfileNestedInput = {
+  connect?: InputMaybe<UserWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<UserCreateOrConnectWithoutEmployerProfileInput>;
+  create?: InputMaybe<UserCreateWithoutEmployerProfileInput>;
+  update?: InputMaybe<UserUpdateWithoutEmployerProfileInput>;
+  upsert?: InputMaybe<UserUpsertWithoutEmployerProfileInput>;
+};
+
+export type UserUpdateWithoutApplicantProfileInput = {
+  chatWithAdmin?: InputMaybe<AdminChatUpdateOneWithoutUserNestedInput>;
+  chatsWithFirstUsers?: InputMaybe<ChatUpdateManyWithoutFirstUserNestedInput>;
+  chatsWithSecondUsers?: InputMaybe<ChatUpdateManyWithoutSecondUserNestedInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  employerProfile?: InputMaybe<EmployerProfileUpdateOneWithoutUserNestedInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  login?: InputMaybe<StringFieldUpdateOperationsInput>;
+  role?: InputMaybe<EnumUserRoleFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type UserUpdateWithoutChatWithAdminInput = {
+  applicantProfile?: InputMaybe<ApplicantProfileUpdateOneWithoutUserNestedInput>;
+  chatsWithFirstUsers?: InputMaybe<ChatUpdateManyWithoutFirstUserNestedInput>;
+  chatsWithSecondUsers?: InputMaybe<ChatUpdateManyWithoutSecondUserNestedInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  employerProfile?: InputMaybe<EmployerProfileUpdateOneWithoutUserNestedInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  login?: InputMaybe<StringFieldUpdateOperationsInput>;
+  role?: InputMaybe<EnumUserRoleFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type UserUpdateWithoutChatsWithFirstUsersInput = {
+  applicantProfile?: InputMaybe<ApplicantProfileUpdateOneWithoutUserNestedInput>;
+  chatWithAdmin?: InputMaybe<AdminChatUpdateOneWithoutUserNestedInput>;
+  chatsWithSecondUsers?: InputMaybe<ChatUpdateManyWithoutSecondUserNestedInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  employerProfile?: InputMaybe<EmployerProfileUpdateOneWithoutUserNestedInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  login?: InputMaybe<StringFieldUpdateOperationsInput>;
+  role?: InputMaybe<EnumUserRoleFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type UserUpdateWithoutChatsWithSecondUsersInput = {
+  applicantProfile?: InputMaybe<ApplicantProfileUpdateOneWithoutUserNestedInput>;
+  chatWithAdmin?: InputMaybe<AdminChatUpdateOneWithoutUserNestedInput>;
+  chatsWithFirstUsers?: InputMaybe<ChatUpdateManyWithoutFirstUserNestedInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  employerProfile?: InputMaybe<EmployerProfileUpdateOneWithoutUserNestedInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  login?: InputMaybe<StringFieldUpdateOperationsInput>;
+  role?: InputMaybe<EnumUserRoleFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type UserUpdateWithoutEmployerProfileInput = {
+  applicantProfile?: InputMaybe<ApplicantProfileUpdateOneWithoutUserNestedInput>;
+  chatWithAdmin?: InputMaybe<AdminChatUpdateOneWithoutUserNestedInput>;
+  chatsWithFirstUsers?: InputMaybe<ChatUpdateManyWithoutFirstUserNestedInput>;
+  chatsWithSecondUsers?: InputMaybe<ChatUpdateManyWithoutSecondUserNestedInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  login?: InputMaybe<StringFieldUpdateOperationsInput>;
+  role?: InputMaybe<EnumUserRoleFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type UserUpsertWithoutApplicantProfileInput = {
+  create: UserCreateWithoutApplicantProfileInput;
+  update: UserUpdateWithoutApplicantProfileInput;
+};
+
+export type UserUpsertWithoutChatWithAdminInput = {
+  create: UserCreateWithoutChatWithAdminInput;
+  update: UserUpdateWithoutChatWithAdminInput;
+};
+
+export type UserUpsertWithoutChatsWithFirstUsersInput = {
+  create: UserCreateWithoutChatsWithFirstUsersInput;
+  update: UserUpdateWithoutChatsWithFirstUsersInput;
+};
+
+export type UserUpsertWithoutChatsWithSecondUsersInput = {
+  create: UserCreateWithoutChatsWithSecondUsersInput;
+  update: UserUpdateWithoutChatsWithSecondUsersInput;
+};
+
+export type UserUpsertWithoutEmployerProfileInput = {
+  create: UserCreateWithoutEmployerProfileInput;
+  update: UserUpdateWithoutEmployerProfileInput;
+};
+
+export type UserWhereInput = {
+  AND?: InputMaybe<Array<UserWhereInput>>;
+  NOT?: InputMaybe<Array<UserWhereInput>>;
+  OR?: InputMaybe<Array<UserWhereInput>>;
+  applicantProfile?: InputMaybe<ApplicantProfileRelationFilter>;
+  chatWithAdmin?: InputMaybe<AdminChatRelationFilter>;
+  chatsWithFirstUsers?: InputMaybe<ChatListRelationFilter>;
+  chatsWithSecondUsers?: InputMaybe<ChatListRelationFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  employerProfile?: InputMaybe<EmployerProfileRelationFilter>;
+  id?: InputMaybe<StringFilter>;
+  login?: InputMaybe<StringFilter>;
+  role?: InputMaybe<EnumUserRoleFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+};
+
+export type UserWhereUniqueInput = {
+  id?: InputMaybe<Scalars['String']>;
+  login?: InputMaybe<Scalars['String']>;
+};
+
+export type Vacancy = {
+  __typename?: 'Vacancy';
+  _count?: Maybe<VacancyCount>;
+  archived: Scalars['Boolean'];
+  archivedReason?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  description: Scalars['String'];
+  duties?: Maybe<Scalars['String']>;
+  employer: EmployerProfile;
+  employerId: Scalars['String'];
+  fieldOfActivity: Scalars['Int'];
+  id: Scalars['String'];
+  phone: Scalars['String'];
+  phoneHidden: Scalars['Boolean'];
+  placeOfWork: Scalars['Int'];
+  post: Scalars['String'];
+  requirements?: Maybe<Scalars['String']>;
+  salary: Scalars['Int'];
+  savedBy: Array<VacancySavedByApplicant>;
+  updatedAt: Scalars['DateTime'];
+  views: Scalars['Int'];
+  workingSchedule?: Maybe<Scalars['String']>;
+};
+
+
+export type VacancySavedByArgs = {
+  cursor?: InputMaybe<VacancySavedByApplicantWhereUniqueInput>;
+  distinct?: InputMaybe<Array<VacancySavedByApplicantScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<VacancySavedByApplicantOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<VacancySavedByApplicantWhereInput>;
+};
+
+export type VacancyAvgAggregate = {
+  __typename?: 'VacancyAvgAggregate';
+  fieldOfActivity?: Maybe<Scalars['Float']>;
+  placeOfWork?: Maybe<Scalars['Float']>;
+  salary?: Maybe<Scalars['Float']>;
+  views?: Maybe<Scalars['Float']>;
+};
+
+export type VacancyAvgOrderByAggregateInput = {
+  fieldOfActivity?: InputMaybe<SortOrder>;
+  placeOfWork?: InputMaybe<SortOrder>;
+  salary?: InputMaybe<SortOrder>;
+  views?: InputMaybe<SortOrder>;
+};
+
+export type VacancyCount = {
+  __typename?: 'VacancyCount';
+  savedBy: Scalars['Int'];
+};
+
+export type VacancyCountAggregate = {
+  __typename?: 'VacancyCountAggregate';
+  _all: Scalars['Int'];
+  archived: Scalars['Int'];
+  archivedReason: Scalars['Int'];
+  createdAt: Scalars['Int'];
+  description: Scalars['Int'];
+  duties: Scalars['Int'];
+  employerId: Scalars['Int'];
+  fieldOfActivity: Scalars['Int'];
+  id: Scalars['Int'];
+  phone: Scalars['Int'];
+  phoneHidden: Scalars['Int'];
+  placeOfWork: Scalars['Int'];
+  post: Scalars['Int'];
+  requirements: Scalars['Int'];
+  salary: Scalars['Int'];
+  updatedAt: Scalars['Int'];
+  views: Scalars['Int'];
+  workingSchedule: Scalars['Int'];
+};
+
+export type VacancyCountOrderByAggregateInput = {
+  archived?: InputMaybe<SortOrder>;
+  archivedReason?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  description?: InputMaybe<SortOrder>;
+  duties?: InputMaybe<SortOrder>;
+  employerId?: InputMaybe<SortOrder>;
+  fieldOfActivity?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  phone?: InputMaybe<SortOrder>;
+  phoneHidden?: InputMaybe<SortOrder>;
+  placeOfWork?: InputMaybe<SortOrder>;
+  post?: InputMaybe<SortOrder>;
+  requirements?: InputMaybe<SortOrder>;
+  salary?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  views?: InputMaybe<SortOrder>;
+  workingSchedule?: InputMaybe<SortOrder>;
+};
+
+export type VacancyCreateInput = {
+  archived?: InputMaybe<Scalars['Boolean']>;
+  archivedReason?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  description: Scalars['String'];
+  duties?: InputMaybe<Scalars['String']>;
+  employer: EmployerProfileCreateNestedOneWithoutVacanciesInput;
+  fieldOfActivity: Scalars['Int'];
+  id?: InputMaybe<Scalars['String']>;
+  phone: Scalars['String'];
+  phoneHidden: Scalars['Boolean'];
+  placeOfWork: Scalars['Int'];
+  post: Scalars['String'];
+  requirements?: InputMaybe<Scalars['String']>;
+  salary: Scalars['Int'];
+  savedBy?: InputMaybe<VacancySavedByApplicantCreateNestedManyWithoutVacancyInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  views?: InputMaybe<Scalars['Int']>;
+  workingSchedule?: InputMaybe<Scalars['String']>;
+};
+
+export type VacancyCreateManyEmployerInput = {
+  archived?: InputMaybe<Scalars['Boolean']>;
+  archivedReason?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  description: Scalars['String'];
+  duties?: InputMaybe<Scalars['String']>;
+  fieldOfActivity: Scalars['Int'];
+  id?: InputMaybe<Scalars['String']>;
+  phone: Scalars['String'];
+  phoneHidden: Scalars['Boolean'];
+  placeOfWork: Scalars['Int'];
+  post: Scalars['String'];
+  requirements?: InputMaybe<Scalars['String']>;
+  salary: Scalars['Int'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  views?: InputMaybe<Scalars['Int']>;
+  workingSchedule?: InputMaybe<Scalars['String']>;
+};
+
+export type VacancyCreateManyEmployerInputEnvelope = {
+  data: Array<VacancyCreateManyEmployerInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type VacancyCreateManyInput = {
+  archived?: InputMaybe<Scalars['Boolean']>;
+  archivedReason?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  description: Scalars['String'];
+  duties?: InputMaybe<Scalars['String']>;
+  employerId: Scalars['String'];
+  fieldOfActivity: Scalars['Int'];
+  id?: InputMaybe<Scalars['String']>;
+  phone: Scalars['String'];
+  phoneHidden: Scalars['Boolean'];
+  placeOfWork: Scalars['Int'];
+  post: Scalars['String'];
+  requirements?: InputMaybe<Scalars['String']>;
+  salary: Scalars['Int'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  views?: InputMaybe<Scalars['Int']>;
+  workingSchedule?: InputMaybe<Scalars['String']>;
+};
+
+export type VacancyCreateNestedManyWithoutEmployerInput = {
+  connect?: InputMaybe<Array<VacancyWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<VacancyCreateOrConnectWithoutEmployerInput>>;
+  create?: InputMaybe<Array<VacancyCreateWithoutEmployerInput>>;
+  createMany?: InputMaybe<VacancyCreateManyEmployerInputEnvelope>;
+};
+
+export type VacancyCreateNestedOneWithoutSavedByInput = {
+  connect?: InputMaybe<VacancyWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<VacancyCreateOrConnectWithoutSavedByInput>;
+  create?: InputMaybe<VacancyCreateWithoutSavedByInput>;
+};
+
+export type VacancyCreateOrConnectWithoutEmployerInput = {
+  create: VacancyCreateWithoutEmployerInput;
+  where: VacancyWhereUniqueInput;
+};
+
+export type VacancyCreateOrConnectWithoutSavedByInput = {
+  create: VacancyCreateWithoutSavedByInput;
+  where: VacancyWhereUniqueInput;
+};
+
+export type VacancyCreateWithoutEmployerInput = {
+  archived?: InputMaybe<Scalars['Boolean']>;
+  archivedReason?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  description: Scalars['String'];
+  duties?: InputMaybe<Scalars['String']>;
+  fieldOfActivity: Scalars['Int'];
+  id?: InputMaybe<Scalars['String']>;
+  phone: Scalars['String'];
+  phoneHidden: Scalars['Boolean'];
+  placeOfWork: Scalars['Int'];
+  post: Scalars['String'];
+  requirements?: InputMaybe<Scalars['String']>;
+  salary: Scalars['Int'];
+  savedBy?: InputMaybe<VacancySavedByApplicantCreateNestedManyWithoutVacancyInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  views?: InputMaybe<Scalars['Int']>;
+  workingSchedule?: InputMaybe<Scalars['String']>;
+};
+
+export type VacancyCreateWithoutSavedByInput = {
+  archived?: InputMaybe<Scalars['Boolean']>;
+  archivedReason?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  description: Scalars['String'];
+  duties?: InputMaybe<Scalars['String']>;
+  employer: EmployerProfileCreateNestedOneWithoutVacanciesInput;
+  fieldOfActivity: Scalars['Int'];
+  id?: InputMaybe<Scalars['String']>;
+  phone: Scalars['String'];
+  phoneHidden: Scalars['Boolean'];
+  placeOfWork: Scalars['Int'];
+  post: Scalars['String'];
+  requirements?: InputMaybe<Scalars['String']>;
+  salary: Scalars['Int'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  views?: InputMaybe<Scalars['Int']>;
+  workingSchedule?: InputMaybe<Scalars['String']>;
+};
+
+export type VacancyGroupBy = {
+  __typename?: 'VacancyGroupBy';
+  _avg?: Maybe<VacancyAvgAggregate>;
+  _count?: Maybe<VacancyCountAggregate>;
+  _max?: Maybe<VacancyMaxAggregate>;
+  _min?: Maybe<VacancyMinAggregate>;
+  _sum?: Maybe<VacancySumAggregate>;
+  archived: Scalars['Boolean'];
+  archivedReason?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  description: Scalars['String'];
+  duties?: Maybe<Scalars['String']>;
+  employerId: Scalars['String'];
+  fieldOfActivity: Scalars['Int'];
+  id: Scalars['String'];
+  phone: Scalars['String'];
+  phoneHidden: Scalars['Boolean'];
+  placeOfWork: Scalars['Int'];
+  post: Scalars['String'];
+  requirements?: Maybe<Scalars['String']>;
+  salary: Scalars['Int'];
+  updatedAt: Scalars['DateTime'];
+  views: Scalars['Int'];
+  workingSchedule?: Maybe<Scalars['String']>;
+};
+
+export type VacancyListRelationFilter = {
+  every?: InputMaybe<VacancyWhereInput>;
+  none?: InputMaybe<VacancyWhereInput>;
+  some?: InputMaybe<VacancyWhereInput>;
+};
+
+export type VacancyMaxAggregate = {
+  __typename?: 'VacancyMaxAggregate';
+  archived?: Maybe<Scalars['Boolean']>;
+  archivedReason?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description?: Maybe<Scalars['String']>;
+  duties?: Maybe<Scalars['String']>;
+  employerId?: Maybe<Scalars['String']>;
+  fieldOfActivity?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['String']>;
+  phone?: Maybe<Scalars['String']>;
+  phoneHidden?: Maybe<Scalars['Boolean']>;
+  placeOfWork?: Maybe<Scalars['Int']>;
+  post?: Maybe<Scalars['String']>;
+  requirements?: Maybe<Scalars['String']>;
+  salary?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  views?: Maybe<Scalars['Int']>;
+  workingSchedule?: Maybe<Scalars['String']>;
+};
+
+export type VacancyMaxOrderByAggregateInput = {
+  archived?: InputMaybe<SortOrder>;
+  archivedReason?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  description?: InputMaybe<SortOrder>;
+  duties?: InputMaybe<SortOrder>;
+  employerId?: InputMaybe<SortOrder>;
+  fieldOfActivity?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  phone?: InputMaybe<SortOrder>;
+  phoneHidden?: InputMaybe<SortOrder>;
+  placeOfWork?: InputMaybe<SortOrder>;
+  post?: InputMaybe<SortOrder>;
+  requirements?: InputMaybe<SortOrder>;
+  salary?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  views?: InputMaybe<SortOrder>;
+  workingSchedule?: InputMaybe<SortOrder>;
+};
+
+export type VacancyMinAggregate = {
+  __typename?: 'VacancyMinAggregate';
+  archived?: Maybe<Scalars['Boolean']>;
+  archivedReason?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  description?: Maybe<Scalars['String']>;
+  duties?: Maybe<Scalars['String']>;
+  employerId?: Maybe<Scalars['String']>;
+  fieldOfActivity?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['String']>;
+  phone?: Maybe<Scalars['String']>;
+  phoneHidden?: Maybe<Scalars['Boolean']>;
+  placeOfWork?: Maybe<Scalars['Int']>;
+  post?: Maybe<Scalars['String']>;
+  requirements?: Maybe<Scalars['String']>;
+  salary?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  views?: Maybe<Scalars['Int']>;
+  workingSchedule?: Maybe<Scalars['String']>;
+};
+
+export type VacancyMinOrderByAggregateInput = {
+  archived?: InputMaybe<SortOrder>;
+  archivedReason?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  description?: InputMaybe<SortOrder>;
+  duties?: InputMaybe<SortOrder>;
+  employerId?: InputMaybe<SortOrder>;
+  fieldOfActivity?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  phone?: InputMaybe<SortOrder>;
+  phoneHidden?: InputMaybe<SortOrder>;
+  placeOfWork?: InputMaybe<SortOrder>;
+  post?: InputMaybe<SortOrder>;
+  requirements?: InputMaybe<SortOrder>;
+  salary?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  views?: InputMaybe<SortOrder>;
+  workingSchedule?: InputMaybe<SortOrder>;
+};
+
+export type VacancyOrderByRelationAggregateInput = {
+  _count?: InputMaybe<SortOrder>;
+};
+
+export type VacancyOrderByWithAggregationInput = {
+  _avg?: InputMaybe<VacancyAvgOrderByAggregateInput>;
+  _count?: InputMaybe<VacancyCountOrderByAggregateInput>;
+  _max?: InputMaybe<VacancyMaxOrderByAggregateInput>;
+  _min?: InputMaybe<VacancyMinOrderByAggregateInput>;
+  _sum?: InputMaybe<VacancySumOrderByAggregateInput>;
+  archived?: InputMaybe<SortOrder>;
+  archivedReason?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  description?: InputMaybe<SortOrder>;
+  duties?: InputMaybe<SortOrder>;
+  employerId?: InputMaybe<SortOrder>;
+  fieldOfActivity?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  phone?: InputMaybe<SortOrder>;
+  phoneHidden?: InputMaybe<SortOrder>;
+  placeOfWork?: InputMaybe<SortOrder>;
+  post?: InputMaybe<SortOrder>;
+  requirements?: InputMaybe<SortOrder>;
+  salary?: InputMaybe<SortOrder>;
+  updatedAt?: InputMaybe<SortOrder>;
+  views?: InputMaybe<SortOrder>;
+  workingSchedule?: InputMaybe<SortOrder>;
+};
+
+export type VacancyOrderByWithRelationInput = {
+  archived?: InputMaybe<SortOrder>;
+  archivedReason?: InputMaybe<SortOrder>;
+  createdAt?: InputMaybe<SortOrder>;
+  description?: InputMaybe<SortOrder>;
+  duties?: InputMaybe<SortOrder>;
+  employer?: InputMaybe<EmployerProfileOrderByWithRelationInput>;
+  employerId?: InputMaybe<SortOrder>;
+  fieldOfActivity?: InputMaybe<SortOrder>;
+  id?: InputMaybe<SortOrder>;
+  phone?: InputMaybe<SortOrder>;
+  phoneHidden?: InputMaybe<SortOrder>;
+  placeOfWork?: InputMaybe<SortOrder>;
+  post?: InputMaybe<SortOrder>;
+  requirements?: InputMaybe<SortOrder>;
+  salary?: InputMaybe<SortOrder>;
+  savedBy?: InputMaybe<VacancySavedByApplicantOrderByRelationAggregateInput>;
+  updatedAt?: InputMaybe<SortOrder>;
+  views?: InputMaybe<SortOrder>;
+  workingSchedule?: InputMaybe<SortOrder>;
+};
+
+export type VacancyRelationFilter = {
+  is?: InputMaybe<VacancyWhereInput>;
+  isNot?: InputMaybe<VacancyWhereInput>;
+};
+
+export type VacancySavedByApplicant = {
+  __typename?: 'VacancySavedByApplicant';
+  applicantProfile: ApplicantProfile;
+  applicantProfileId: Scalars['String'];
+  assignedAt: Scalars['DateTime'];
+  vacancy: Vacancy;
+  vacancyId: Scalars['String'];
+};
+
+export type VacancySavedByApplicantApplicantProfileIdVacancyIdCompoundUniqueInput = {
+  applicantProfileId: Scalars['String'];
+  vacancyId: Scalars['String'];
+};
+
+export type VacancySavedByApplicantCountAggregate = {
+  __typename?: 'VacancySavedByApplicantCountAggregate';
+  _all: Scalars['Int'];
+  applicantProfileId: Scalars['Int'];
+  assignedAt: Scalars['Int'];
+  vacancyId: Scalars['Int'];
+};
+
+export type VacancySavedByApplicantCountOrderByAggregateInput = {
+  applicantProfileId?: InputMaybe<SortOrder>;
+  assignedAt?: InputMaybe<SortOrder>;
+  vacancyId?: InputMaybe<SortOrder>;
+};
+
+export type VacancySavedByApplicantCreateInput = {
+  applicantProfile: ApplicantProfileCreateNestedOneWithoutSavedVacanciesInput;
+  assignedAt?: InputMaybe<Scalars['DateTime']>;
+  vacancy: VacancyCreateNestedOneWithoutSavedByInput;
+};
+
+export type VacancySavedByApplicantCreateManyApplicantProfileInput = {
+  assignedAt?: InputMaybe<Scalars['DateTime']>;
+  vacancyId: Scalars['String'];
+};
+
+export type VacancySavedByApplicantCreateManyApplicantProfileInputEnvelope = {
+  data: Array<VacancySavedByApplicantCreateManyApplicantProfileInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type VacancySavedByApplicantCreateManyInput = {
+  applicantProfileId: Scalars['String'];
+  assignedAt?: InputMaybe<Scalars['DateTime']>;
+  vacancyId: Scalars['String'];
+};
+
+export type VacancySavedByApplicantCreateManyVacancyInput = {
+  applicantProfileId: Scalars['String'];
+  assignedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type VacancySavedByApplicantCreateManyVacancyInputEnvelope = {
+  data: Array<VacancySavedByApplicantCreateManyVacancyInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type VacancySavedByApplicantCreateNestedManyWithoutApplicantProfileInput = {
+  connect?: InputMaybe<Array<VacancySavedByApplicantWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<VacancySavedByApplicantCreateOrConnectWithoutApplicantProfileInput>>;
+  create?: InputMaybe<Array<VacancySavedByApplicantCreateWithoutApplicantProfileInput>>;
+  createMany?: InputMaybe<VacancySavedByApplicantCreateManyApplicantProfileInputEnvelope>;
+};
+
+export type VacancySavedByApplicantCreateNestedManyWithoutVacancyInput = {
+  connect?: InputMaybe<Array<VacancySavedByApplicantWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<VacancySavedByApplicantCreateOrConnectWithoutVacancyInput>>;
+  create?: InputMaybe<Array<VacancySavedByApplicantCreateWithoutVacancyInput>>;
+  createMany?: InputMaybe<VacancySavedByApplicantCreateManyVacancyInputEnvelope>;
+};
+
+export type VacancySavedByApplicantCreateOrConnectWithoutApplicantProfileInput = {
+  create: VacancySavedByApplicantCreateWithoutApplicantProfileInput;
+  where: VacancySavedByApplicantWhereUniqueInput;
+};
+
+export type VacancySavedByApplicantCreateOrConnectWithoutVacancyInput = {
+  create: VacancySavedByApplicantCreateWithoutVacancyInput;
+  where: VacancySavedByApplicantWhereUniqueInput;
+};
+
+export type VacancySavedByApplicantCreateWithoutApplicantProfileInput = {
+  assignedAt?: InputMaybe<Scalars['DateTime']>;
+  vacancy: VacancyCreateNestedOneWithoutSavedByInput;
+};
+
+export type VacancySavedByApplicantCreateWithoutVacancyInput = {
+  applicantProfile: ApplicantProfileCreateNestedOneWithoutSavedVacanciesInput;
+  assignedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type VacancySavedByApplicantGroupBy = {
+  __typename?: 'VacancySavedByApplicantGroupBy';
+  _count?: Maybe<VacancySavedByApplicantCountAggregate>;
+  _max?: Maybe<VacancySavedByApplicantMaxAggregate>;
+  _min?: Maybe<VacancySavedByApplicantMinAggregate>;
+  applicantProfileId: Scalars['String'];
+  assignedAt: Scalars['DateTime'];
+  vacancyId: Scalars['String'];
+};
+
+export type VacancySavedByApplicantListRelationFilter = {
+  every?: InputMaybe<VacancySavedByApplicantWhereInput>;
+  none?: InputMaybe<VacancySavedByApplicantWhereInput>;
+  some?: InputMaybe<VacancySavedByApplicantWhereInput>;
+};
+
+export type VacancySavedByApplicantMaxAggregate = {
+  __typename?: 'VacancySavedByApplicantMaxAggregate';
+  applicantProfileId?: Maybe<Scalars['String']>;
+  assignedAt?: Maybe<Scalars['DateTime']>;
+  vacancyId?: Maybe<Scalars['String']>;
+};
+
+export type VacancySavedByApplicantMaxOrderByAggregateInput = {
+  applicantProfileId?: InputMaybe<SortOrder>;
+  assignedAt?: InputMaybe<SortOrder>;
+  vacancyId?: InputMaybe<SortOrder>;
+};
+
+export type VacancySavedByApplicantMinAggregate = {
+  __typename?: 'VacancySavedByApplicantMinAggregate';
+  applicantProfileId?: Maybe<Scalars['String']>;
+  assignedAt?: Maybe<Scalars['DateTime']>;
+  vacancyId?: Maybe<Scalars['String']>;
+};
+
+export type VacancySavedByApplicantMinOrderByAggregateInput = {
+  applicantProfileId?: InputMaybe<SortOrder>;
+  assignedAt?: InputMaybe<SortOrder>;
+  vacancyId?: InputMaybe<SortOrder>;
+};
+
+export type VacancySavedByApplicantOrderByRelationAggregateInput = {
+  _count?: InputMaybe<SortOrder>;
+};
+
+export type VacancySavedByApplicantOrderByWithAggregationInput = {
+  _count?: InputMaybe<VacancySavedByApplicantCountOrderByAggregateInput>;
+  _max?: InputMaybe<VacancySavedByApplicantMaxOrderByAggregateInput>;
+  _min?: InputMaybe<VacancySavedByApplicantMinOrderByAggregateInput>;
+  applicantProfileId?: InputMaybe<SortOrder>;
+  assignedAt?: InputMaybe<SortOrder>;
+  vacancyId?: InputMaybe<SortOrder>;
+};
+
+export type VacancySavedByApplicantOrderByWithRelationInput = {
+  applicantProfile?: InputMaybe<ApplicantProfileOrderByWithRelationInput>;
+  applicantProfileId?: InputMaybe<SortOrder>;
+  assignedAt?: InputMaybe<SortOrder>;
+  vacancy?: InputMaybe<VacancyOrderByWithRelationInput>;
+  vacancyId?: InputMaybe<SortOrder>;
+};
+
+export enum VacancySavedByApplicantScalarFieldEnum {
+  ApplicantProfileId = 'applicantProfileId',
+  AssignedAt = 'assignedAt',
+  VacancyId = 'vacancyId'
 }
 
-export type FacultiesList2QueryVariables = Exact<{ [key: string]: never; }>;
+export type VacancySavedByApplicantScalarWhereInput = {
+  AND?: InputMaybe<Array<VacancySavedByApplicantScalarWhereInput>>;
+  NOT?: InputMaybe<Array<VacancySavedByApplicantScalarWhereInput>>;
+  OR?: InputMaybe<Array<VacancySavedByApplicantScalarWhereInput>>;
+  applicantProfileId?: InputMaybe<StringFilter>;
+  assignedAt?: InputMaybe<DateTimeFilter>;
+  vacancyId?: InputMaybe<StringFilter>;
+};
+
+export type VacancySavedByApplicantScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<VacancySavedByApplicantScalarWhereWithAggregatesInput>>;
+  NOT?: InputMaybe<Array<VacancySavedByApplicantScalarWhereWithAggregatesInput>>;
+  OR?: InputMaybe<Array<VacancySavedByApplicantScalarWhereWithAggregatesInput>>;
+  applicantProfileId?: InputMaybe<StringWithAggregatesFilter>;
+  assignedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  vacancyId?: InputMaybe<StringWithAggregatesFilter>;
+};
+
+export type VacancySavedByApplicantUpdateInput = {
+  applicantProfile?: InputMaybe<ApplicantProfileUpdateOneRequiredWithoutSavedVacanciesNestedInput>;
+  assignedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  vacancy?: InputMaybe<VacancyUpdateOneRequiredWithoutSavedByNestedInput>;
+};
+
+export type VacancySavedByApplicantUpdateManyMutationInput = {
+  assignedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type VacancySavedByApplicantUpdateManyWithWhereWithoutApplicantProfileInput = {
+  data: VacancySavedByApplicantUpdateManyMutationInput;
+  where: VacancySavedByApplicantScalarWhereInput;
+};
+
+export type VacancySavedByApplicantUpdateManyWithWhereWithoutVacancyInput = {
+  data: VacancySavedByApplicantUpdateManyMutationInput;
+  where: VacancySavedByApplicantScalarWhereInput;
+};
+
+export type VacancySavedByApplicantUpdateManyWithoutApplicantProfileNestedInput = {
+  connect?: InputMaybe<Array<VacancySavedByApplicantWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<VacancySavedByApplicantCreateOrConnectWithoutApplicantProfileInput>>;
+  create?: InputMaybe<Array<VacancySavedByApplicantCreateWithoutApplicantProfileInput>>;
+  createMany?: InputMaybe<VacancySavedByApplicantCreateManyApplicantProfileInputEnvelope>;
+  delete?: InputMaybe<Array<VacancySavedByApplicantWhereUniqueInput>>;
+  deleteMany?: InputMaybe<Array<VacancySavedByApplicantScalarWhereInput>>;
+  disconnect?: InputMaybe<Array<VacancySavedByApplicantWhereUniqueInput>>;
+  set?: InputMaybe<Array<VacancySavedByApplicantWhereUniqueInput>>;
+  update?: InputMaybe<Array<VacancySavedByApplicantUpdateWithWhereUniqueWithoutApplicantProfileInput>>;
+  updateMany?: InputMaybe<Array<VacancySavedByApplicantUpdateManyWithWhereWithoutApplicantProfileInput>>;
+  upsert?: InputMaybe<Array<VacancySavedByApplicantUpsertWithWhereUniqueWithoutApplicantProfileInput>>;
+};
+
+export type VacancySavedByApplicantUpdateManyWithoutVacancyNestedInput = {
+  connect?: InputMaybe<Array<VacancySavedByApplicantWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<VacancySavedByApplicantCreateOrConnectWithoutVacancyInput>>;
+  create?: InputMaybe<Array<VacancySavedByApplicantCreateWithoutVacancyInput>>;
+  createMany?: InputMaybe<VacancySavedByApplicantCreateManyVacancyInputEnvelope>;
+  delete?: InputMaybe<Array<VacancySavedByApplicantWhereUniqueInput>>;
+  deleteMany?: InputMaybe<Array<VacancySavedByApplicantScalarWhereInput>>;
+  disconnect?: InputMaybe<Array<VacancySavedByApplicantWhereUniqueInput>>;
+  set?: InputMaybe<Array<VacancySavedByApplicantWhereUniqueInput>>;
+  update?: InputMaybe<Array<VacancySavedByApplicantUpdateWithWhereUniqueWithoutVacancyInput>>;
+  updateMany?: InputMaybe<Array<VacancySavedByApplicantUpdateManyWithWhereWithoutVacancyInput>>;
+  upsert?: InputMaybe<Array<VacancySavedByApplicantUpsertWithWhereUniqueWithoutVacancyInput>>;
+};
+
+export type VacancySavedByApplicantUpdateWithWhereUniqueWithoutApplicantProfileInput = {
+  data: VacancySavedByApplicantUpdateWithoutApplicantProfileInput;
+  where: VacancySavedByApplicantWhereUniqueInput;
+};
+
+export type VacancySavedByApplicantUpdateWithWhereUniqueWithoutVacancyInput = {
+  data: VacancySavedByApplicantUpdateWithoutVacancyInput;
+  where: VacancySavedByApplicantWhereUniqueInput;
+};
+
+export type VacancySavedByApplicantUpdateWithoutApplicantProfileInput = {
+  assignedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  vacancy?: InputMaybe<VacancyUpdateOneRequiredWithoutSavedByNestedInput>;
+};
+
+export type VacancySavedByApplicantUpdateWithoutVacancyInput = {
+  applicantProfile?: InputMaybe<ApplicantProfileUpdateOneRequiredWithoutSavedVacanciesNestedInput>;
+  assignedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type VacancySavedByApplicantUpsertWithWhereUniqueWithoutApplicantProfileInput = {
+  create: VacancySavedByApplicantCreateWithoutApplicantProfileInput;
+  update: VacancySavedByApplicantUpdateWithoutApplicantProfileInput;
+  where: VacancySavedByApplicantWhereUniqueInput;
+};
+
+export type VacancySavedByApplicantUpsertWithWhereUniqueWithoutVacancyInput = {
+  create: VacancySavedByApplicantCreateWithoutVacancyInput;
+  update: VacancySavedByApplicantUpdateWithoutVacancyInput;
+  where: VacancySavedByApplicantWhereUniqueInput;
+};
+
+export type VacancySavedByApplicantWhereInput = {
+  AND?: InputMaybe<Array<VacancySavedByApplicantWhereInput>>;
+  NOT?: InputMaybe<Array<VacancySavedByApplicantWhereInput>>;
+  OR?: InputMaybe<Array<VacancySavedByApplicantWhereInput>>;
+  applicantProfile?: InputMaybe<ApplicantProfileRelationFilter>;
+  applicantProfileId?: InputMaybe<StringFilter>;
+  assignedAt?: InputMaybe<DateTimeFilter>;
+  vacancy?: InputMaybe<VacancyRelationFilter>;
+  vacancyId?: InputMaybe<StringFilter>;
+};
+
+export type VacancySavedByApplicantWhereUniqueInput = {
+  applicantProfileId_vacancyId?: InputMaybe<VacancySavedByApplicantApplicantProfileIdVacancyIdCompoundUniqueInput>;
+};
+
+export enum VacancyScalarFieldEnum {
+  Archived = 'archived',
+  ArchivedReason = 'archivedReason',
+  CreatedAt = 'createdAt',
+  Description = 'description',
+  Duties = 'duties',
+  EmployerId = 'employerId',
+  FieldOfActivity = 'fieldOfActivity',
+  Id = 'id',
+  Phone = 'phone',
+  PhoneHidden = 'phoneHidden',
+  PlaceOfWork = 'placeOfWork',
+  Post = 'post',
+  Requirements = 'requirements',
+  Salary = 'salary',
+  UpdatedAt = 'updatedAt',
+  Views = 'views',
+  WorkingSchedule = 'workingSchedule'
+}
+
+export type VacancyScalarWhereInput = {
+  AND?: InputMaybe<Array<VacancyScalarWhereInput>>;
+  NOT?: InputMaybe<Array<VacancyScalarWhereInput>>;
+  OR?: InputMaybe<Array<VacancyScalarWhereInput>>;
+  archived?: InputMaybe<BoolFilter>;
+  archivedReason?: InputMaybe<StringNullableFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  description?: InputMaybe<StringFilter>;
+  duties?: InputMaybe<StringNullableFilter>;
+  employerId?: InputMaybe<StringFilter>;
+  fieldOfActivity?: InputMaybe<IntFilter>;
+  id?: InputMaybe<StringFilter>;
+  phone?: InputMaybe<StringFilter>;
+  phoneHidden?: InputMaybe<BoolFilter>;
+  placeOfWork?: InputMaybe<IntFilter>;
+  post?: InputMaybe<StringFilter>;
+  requirements?: InputMaybe<StringNullableFilter>;
+  salary?: InputMaybe<IntFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  views?: InputMaybe<IntFilter>;
+  workingSchedule?: InputMaybe<StringNullableFilter>;
+};
+
+export type VacancyScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<VacancyScalarWhereWithAggregatesInput>>;
+  NOT?: InputMaybe<Array<VacancyScalarWhereWithAggregatesInput>>;
+  OR?: InputMaybe<Array<VacancyScalarWhereWithAggregatesInput>>;
+  archived?: InputMaybe<BoolWithAggregatesFilter>;
+  archivedReason?: InputMaybe<StringNullableWithAggregatesFilter>;
+  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  description?: InputMaybe<StringWithAggregatesFilter>;
+  duties?: InputMaybe<StringNullableWithAggregatesFilter>;
+  employerId?: InputMaybe<StringWithAggregatesFilter>;
+  fieldOfActivity?: InputMaybe<IntWithAggregatesFilter>;
+  id?: InputMaybe<StringWithAggregatesFilter>;
+  phone?: InputMaybe<StringWithAggregatesFilter>;
+  phoneHidden?: InputMaybe<BoolWithAggregatesFilter>;
+  placeOfWork?: InputMaybe<IntWithAggregatesFilter>;
+  post?: InputMaybe<StringWithAggregatesFilter>;
+  requirements?: InputMaybe<StringNullableWithAggregatesFilter>;
+  salary?: InputMaybe<IntWithAggregatesFilter>;
+  updatedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
+  views?: InputMaybe<IntWithAggregatesFilter>;
+  workingSchedule?: InputMaybe<StringNullableWithAggregatesFilter>;
+};
+
+export type VacancySumAggregate = {
+  __typename?: 'VacancySumAggregate';
+  fieldOfActivity?: Maybe<Scalars['Int']>;
+  placeOfWork?: Maybe<Scalars['Int']>;
+  salary?: Maybe<Scalars['Int']>;
+  views?: Maybe<Scalars['Int']>;
+};
+
+export type VacancySumOrderByAggregateInput = {
+  fieldOfActivity?: InputMaybe<SortOrder>;
+  placeOfWork?: InputMaybe<SortOrder>;
+  salary?: InputMaybe<SortOrder>;
+  views?: InputMaybe<SortOrder>;
+};
+
+export type VacancyUpdateInput = {
+  archived?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  archivedReason?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  description?: InputMaybe<StringFieldUpdateOperationsInput>;
+  duties?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  employer?: InputMaybe<EmployerProfileUpdateOneRequiredWithoutVacanciesNestedInput>;
+  fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  phone?: InputMaybe<StringFieldUpdateOperationsInput>;
+  phoneHidden?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  placeOfWork?: InputMaybe<IntFieldUpdateOperationsInput>;
+  post?: InputMaybe<StringFieldUpdateOperationsInput>;
+  requirements?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  salary?: InputMaybe<IntFieldUpdateOperationsInput>;
+  savedBy?: InputMaybe<VacancySavedByApplicantUpdateManyWithoutVacancyNestedInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  views?: InputMaybe<IntFieldUpdateOperationsInput>;
+  workingSchedule?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+};
+
+export type VacancyUpdateManyMutationInput = {
+  archived?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  archivedReason?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  description?: InputMaybe<StringFieldUpdateOperationsInput>;
+  duties?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  phone?: InputMaybe<StringFieldUpdateOperationsInput>;
+  phoneHidden?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  placeOfWork?: InputMaybe<IntFieldUpdateOperationsInput>;
+  post?: InputMaybe<StringFieldUpdateOperationsInput>;
+  requirements?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  salary?: InputMaybe<IntFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  views?: InputMaybe<IntFieldUpdateOperationsInput>;
+  workingSchedule?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+};
+
+export type VacancyUpdateManyWithWhereWithoutEmployerInput = {
+  data: VacancyUpdateManyMutationInput;
+  where: VacancyScalarWhereInput;
+};
+
+export type VacancyUpdateManyWithoutEmployerNestedInput = {
+  connect?: InputMaybe<Array<VacancyWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<VacancyCreateOrConnectWithoutEmployerInput>>;
+  create?: InputMaybe<Array<VacancyCreateWithoutEmployerInput>>;
+  createMany?: InputMaybe<VacancyCreateManyEmployerInputEnvelope>;
+  delete?: InputMaybe<Array<VacancyWhereUniqueInput>>;
+  deleteMany?: InputMaybe<Array<VacancyScalarWhereInput>>;
+  disconnect?: InputMaybe<Array<VacancyWhereUniqueInput>>;
+  set?: InputMaybe<Array<VacancyWhereUniqueInput>>;
+  update?: InputMaybe<Array<VacancyUpdateWithWhereUniqueWithoutEmployerInput>>;
+  updateMany?: InputMaybe<Array<VacancyUpdateManyWithWhereWithoutEmployerInput>>;
+  upsert?: InputMaybe<Array<VacancyUpsertWithWhereUniqueWithoutEmployerInput>>;
+};
+
+export type VacancyUpdateOneRequiredWithoutSavedByNestedInput = {
+  connect?: InputMaybe<VacancyWhereUniqueInput>;
+  connectOrCreate?: InputMaybe<VacancyCreateOrConnectWithoutSavedByInput>;
+  create?: InputMaybe<VacancyCreateWithoutSavedByInput>;
+  update?: InputMaybe<VacancyUpdateWithoutSavedByInput>;
+  upsert?: InputMaybe<VacancyUpsertWithoutSavedByInput>;
+};
+
+export type VacancyUpdateWithWhereUniqueWithoutEmployerInput = {
+  data: VacancyUpdateWithoutEmployerInput;
+  where: VacancyWhereUniqueInput;
+};
+
+export type VacancyUpdateWithoutEmployerInput = {
+  archived?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  archivedReason?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  description?: InputMaybe<StringFieldUpdateOperationsInput>;
+  duties?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  phone?: InputMaybe<StringFieldUpdateOperationsInput>;
+  phoneHidden?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  placeOfWork?: InputMaybe<IntFieldUpdateOperationsInput>;
+  post?: InputMaybe<StringFieldUpdateOperationsInput>;
+  requirements?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  salary?: InputMaybe<IntFieldUpdateOperationsInput>;
+  savedBy?: InputMaybe<VacancySavedByApplicantUpdateManyWithoutVacancyNestedInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  views?: InputMaybe<IntFieldUpdateOperationsInput>;
+  workingSchedule?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+};
+
+export type VacancyUpdateWithoutSavedByInput = {
+  archived?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  archivedReason?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  description?: InputMaybe<StringFieldUpdateOperationsInput>;
+  duties?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  employer?: InputMaybe<EmployerProfileUpdateOneRequiredWithoutVacanciesNestedInput>;
+  fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  phone?: InputMaybe<StringFieldUpdateOperationsInput>;
+  phoneHidden?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  placeOfWork?: InputMaybe<IntFieldUpdateOperationsInput>;
+  post?: InputMaybe<StringFieldUpdateOperationsInput>;
+  requirements?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  salary?: InputMaybe<IntFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  views?: InputMaybe<IntFieldUpdateOperationsInput>;
+  workingSchedule?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+};
+
+export type VacancyUpsertWithWhereUniqueWithoutEmployerInput = {
+  create: VacancyCreateWithoutEmployerInput;
+  update: VacancyUpdateWithoutEmployerInput;
+  where: VacancyWhereUniqueInput;
+};
+
+export type VacancyUpsertWithoutSavedByInput = {
+  create: VacancyCreateWithoutSavedByInput;
+  update: VacancyUpdateWithoutSavedByInput;
+};
+
+export type VacancyWhereInput = {
+  AND?: InputMaybe<Array<VacancyWhereInput>>;
+  NOT?: InputMaybe<Array<VacancyWhereInput>>;
+  OR?: InputMaybe<Array<VacancyWhereInput>>;
+  archived?: InputMaybe<BoolFilter>;
+  archivedReason?: InputMaybe<StringNullableFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  description?: InputMaybe<StringFilter>;
+  duties?: InputMaybe<StringNullableFilter>;
+  employer?: InputMaybe<EmployerProfileRelationFilter>;
+  employerId?: InputMaybe<StringFilter>;
+  fieldOfActivity?: InputMaybe<IntFilter>;
+  id?: InputMaybe<StringFilter>;
+  phone?: InputMaybe<StringFilter>;
+  phoneHidden?: InputMaybe<BoolFilter>;
+  placeOfWork?: InputMaybe<IntFilter>;
+  post?: InputMaybe<StringFilter>;
+  requirements?: InputMaybe<StringNullableFilter>;
+  salary?: InputMaybe<IntFilter>;
+  savedBy?: InputMaybe<VacancySavedByApplicantListRelationFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+  views?: InputMaybe<IntFilter>;
+  workingSchedule?: InputMaybe<StringNullableFilter>;
+};
+
+export type VacancyWhereUniqueInput = {
+  id?: InputMaybe<Scalars['String']>;
+};
+
+export type VerifyAuthCodeInput = {
+  authToken: Scalars['String'];
+  code: Scalars['String'];
+};
+
+export type VerifyAuthCodeOutput = {
+  __typename?: 'VerifyAuthCodeOutput';
+  authToken?: Maybe<Scalars['String']>;
+  authenticated: Scalars['Boolean'];
+};
+
+export type CreateAndLoginUserMutationVariables = Exact<{
+  authToken: Scalars['String'];
+  data: CreateAndLoginUserInputData;
+}>;
 
 
-export type FacultiesList2Query = { __typename?: 'Query', faculties: Array<{ __typename?: 'Faculty', id: string, title: string, createdAt: any }> };
+export type CreateAndLoginUserMutation = { __typename?: 'Mutation', createAndLoginUser: { __typename?: 'AccessTokenOutput', accessToken: string } };
+
+export type GetOneUserByPhoneQueryVariables = Exact<{
+  phone: Scalars['String'];
+}>;
 
 
-export const FacultiesList2Document = `
-    query FacultiesList2 {
-  faculties {
+export type GetOneUserByPhoneQuery = { __typename?: 'Query', user?: { __typename?: 'User', id: string } | null };
+
+export type LoginUserMutationVariables = Exact<{
+  authToken: Scalars['String'];
+}>;
+
+
+export type LoginUserMutation = { __typename?: 'Mutation', loginUser: { __typename?: 'AccessTokenOutput', accessToken: string } };
+
+export type SendAuthCodeMessageMutationVariables = Exact<{
+  phone: Scalars['String'];
+}>;
+
+
+export type SendAuthCodeMessageMutation = { __typename?: 'Mutation', sendAuthCodeMessage: { __typename?: 'SendMessageOutput', authToken: string } };
+
+export type VerifyAuthCodeMutationVariables = Exact<{
+  authToken: Scalars['String'];
+  code: Scalars['String'];
+}>;
+
+
+export type VerifyAuthCodeMutation = { __typename?: 'Mutation', verifyAuthCode: { __typename?: 'VerifyAuthCodeOutput', authenticated: boolean, authToken?: string | null } };
+
+
+export const CreateAndLoginUserDocument = `
+    mutation CreateAndLoginUser($authToken: String!, $data: CreateAndLoginUserInputData!) {
+  createAndLoginUser(input: {authToken: $authToken, data: $data}) {
+    accessToken
+  }
+}
+    `;
+export const GetOneUserByPhoneDocument = `
+    query GetOneUserByPhone($phone: String!) {
+  user(where: {login: $phone}) {
     id
-    title
-    createdAt
+  }
+}
+    `;
+export const LoginUserDocument = `
+    mutation LoginUser($authToken: String!) {
+  loginUser(input: {authToken: $authToken}) {
+    accessToken
+  }
+}
+    `;
+export const SendAuthCodeMessageDocument = `
+    mutation SendAuthCodeMessage($phone: String!) {
+  sendAuthCodeMessage(input: {phone: $phone}) {
+    authToken
+  }
+}
+    `;
+export const VerifyAuthCodeDocument = `
+    mutation VerifyAuthCode($authToken: String!, $code: String!) {
+  verifyAuthCode(input: {authToken: $authToken, code: $code}) {
+    authenticated
+    authToken
   }
 }
     `;
 
 const injectedRtkApi = api.injectEndpoints({
   endpoints: (build) => ({
-    FacultiesList2: build.query<FacultiesList2Query, FacultiesList2QueryVariables | void>({
-      query: (variables) => ({ document: FacultiesList2Document, variables })
+    CreateAndLoginUser: build.mutation<CreateAndLoginUserMutation, CreateAndLoginUserMutationVariables>({
+      query: (variables) => ({ document: CreateAndLoginUserDocument, variables })
+    }),
+    GetOneUserByPhone: build.query<GetOneUserByPhoneQuery, GetOneUserByPhoneQueryVariables>({
+      query: (variables) => ({ document: GetOneUserByPhoneDocument, variables })
+    }),
+    LoginUser: build.mutation<LoginUserMutation, LoginUserMutationVariables>({
+      query: (variables) => ({ document: LoginUserDocument, variables })
+    }),
+    SendAuthCodeMessage: build.mutation<SendAuthCodeMessageMutation, SendAuthCodeMessageMutationVariables>({
+      query: (variables) => ({ document: SendAuthCodeMessageDocument, variables })
+    }),
+    VerifyAuthCode: build.mutation<VerifyAuthCodeMutation, VerifyAuthCodeMutationVariables>({
+      query: (variables) => ({ document: VerifyAuthCodeDocument, variables })
     }),
   }),
 });
