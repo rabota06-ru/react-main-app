@@ -60,8 +60,8 @@ export function App() {
       ) : (
         <UnauthorizedLayout>
           <Routes>
-            <Route path={routes.main} element={<MainPage />} />
-            <Route path='*' element={<Navigate to={routes.main} />} />
+            <Route path={routes.main.exact} element={<MainPage />} />
+            <Route path='*' element={<Navigate to={routes.main.exact} />} />
           </Routes>
           <AuthModal />
         </UnauthorizedLayout>
