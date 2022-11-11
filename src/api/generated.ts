@@ -6254,6 +6254,13 @@ export type VerifyAuthCodeMutationVariables = Exact<{
 
 export type VerifyAuthCodeMutation = { __typename?: 'Mutation', verifyAuthCode: { __typename?: 'VerifyAuthCodeOutput', authenticated: boolean, authToken?: string | null } };
 
+export type GetUserQueryVariables = Exact<{
+  userId: Scalars['String'];
+}>;
+
+
+export type GetUserQuery = { __typename?: 'Query', findFirstUser?: { __typename?: 'User', id: string, role: UserRole, applicantProfile?: { __typename?: 'ApplicantProfile', resume?: { __typename?: 'Resume', firstname: string, lastname?: string | null } | null } | null, employerProfile?: { __typename?: 'EmployerProfile', id: string, companyName: string } | null } | null };
+
 
 export const CheckIsAuthenticatedDocument = `
     query CheckIsAuthenticated {
@@ -6306,6 +6313,24 @@ export const VerifyAuthCodeDocument = `
   }
 }
     `;
+export const GetUserDocument = `
+    query GetUser($userId: String!) {
+  findFirstUser(where: {id: {equals: $userId}}) {
+    id
+    role
+    applicantProfile {
+      resume {
+        firstname
+        lastname
+      }
+    }
+    employerProfile {
+      id
+      companyName
+    }
+  }
+}
+    `;
 
 const injectedRtkApi = api.injectEndpoints({
   endpoints: (build) => ({
@@ -6329,6 +6354,9 @@ const injectedRtkApi = api.injectEndpoints({
     }),
     VerifyAuthCode: build.mutation<VerifyAuthCodeMutation, VerifyAuthCodeMutationVariables>({
       query: (variables) => ({ document: VerifyAuthCodeDocument, variables })
+    }),
+    GetUser: build.query<GetUserQuery, GetUserQueryVariables>({
+      query: (variables) => ({ document: GetUserDocument, variables })
     }),
   }),
 });

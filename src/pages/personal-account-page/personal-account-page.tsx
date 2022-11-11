@@ -1,19 +1,10 @@
 import { routes } from 'pages/routes'
-import { useEffect } from 'react'
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import { Messages } from './components/messages/messages'
 import { SideBar } from './components/side-bar'
 import styles from './personal-account-page.module.scss'
 
 export function PersonalAccountPage() {
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  useEffect(() => {
-    if (routes.personalAccount.inexact.startsWith(location.pathname)) {
-      navigate(routes.personalAccountAllResumes.absoluteExact)
-    }
-  }, [])
-
   return (
     <div className={styles.page}>
       <SideBar />
@@ -21,8 +12,9 @@ export function PersonalAccountPage() {
         <Routes>
           <Route path={routes.personalAccountAllResumes.exact} element='test1' />
           <Route path={routes.personalAccountMyVacancies.exact} element='test2' />
-          <Route path={routes.personalAccountMessages.exact} element='test3' />
+          <Route path={routes.personalAccountMessages.exact} element={<Messages />} />
           <Route path={routes.personalAccountSettings.exact} element='test4' />
+          <Route path='*' element={<Navigate to={routes.personalAccountAllResumes.absoluteExact} />} />
         </Routes>
       </div>
     </div>

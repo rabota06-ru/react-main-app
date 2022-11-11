@@ -1,31 +1,42 @@
-import { useState } from 'react'
+import { useMemo } from 'react'
 import cn from 'classnames'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { routes } from 'pages/routes'
+import useTypedSelector from 'hooks/use-typed-selector'
+import { UserRole } from 'api/generated'
 import styles from './side-bar.module.scss'
 import avatarImage from './avatar.png'
-import { SideBarMenuItem } from './side-bar.types'
-import { ReactComponent as AllResumesIcon } from './all-resumes.svg'
-import { ReactComponent as MyVacanciesIcon } from './my-vacancies.svg'
-import { ReactComponent as MessagesIcon } from './messages.svg'
-import { ReactComponent as SettingsIcon } from './settings.svg'
+import { APPLICANT_SIDE_BAR_ITEMS, EMPLOYER_SIDE_BAR_ITEMS } from './side-bar.constants'
 
 export function SideBar() {
-  const [menuItems] = useState<SideBarMenuItem[]>([
-    { Icon: AllResumesIcon, label: 'Все резюме', route: routes.personalAccountAllResumes },
-    { Icon: MyVacanciesIcon, label: 'Мои вакансии', route: routes.personalAccountMyVacancies },
-    { Icon: MessagesIcon, label: 'Сообщения', route: routes.personalAccountMessages },
-    { Icon: SettingsIcon, label: 'Настройки', route: routes.personalAccountSettings },
-  ])
+  const user = useTypedSelector(state => state.auth.user)
   const navigate = useNavigate()
   const location = useLocation()
+
+  const menuItems = useMemo(() => {
+    if (user?.role === UserRole.Applicant) return APPLICANT_SIDE_BAR_ITEMS
+    if (user?.role === UserRole.Employer) return EMPLOYER_SIDE_BAR_ITEMS
+    return []
+  }, [user?.role])
+
+  const userName = useMemo(() => {
+    let name: string = ''
+    if (user === null) name = 'Войдите в аккаунт'
+    else if (user.name !== null) {
+      name = user.name
+    } else {
+      if (user.role === UserRole.Applicant) name = 'Соискатель'
+      if (user.role === UserRole.Employer) name = 'Работодатель'
+    }
+
+    return name
+  }, [user])
 
   return (
     <div className={styles.sideBar}>
       <div className={styles.sideBarTop}>
-        <p className={styles.sideBarTitle}>Личный кабинет работодателя</p>
+        <p className={styles.sideBarTitle}>Личный кабинет {user?.role === UserRole.Applicant ? 'соискателя' : 'работодателя'}</p>
         <img className={styles.sideBarAvatar} src={avatarImage} alt='Аватар пользователя' />
-        <p className={styles.sideBarName}>Ахмед К.</p>
+        <p className={styles.sideBarName}>{userName}</p>
       </div>
       <div className={styles.sideBarMenu}>
         {menuItems.map(({ Icon, label, route }) => (

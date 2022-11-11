@@ -6,12 +6,13 @@ import { MainPage } from 'pages/main-page'
 import { AuthModal } from 'components/auth-modal/auth-modal'
 import useTypedSelector from 'hooks/use-typed-selector'
 import { AuthorizedLayout } from 'layouts/authorized-layout'
-import { useLazyCheckIsAuthenticatedQuery, useRefreshAccessTokenMutation } from 'api/enhancedApi'
+import { useLazyCheckIsAuthenticatedQuery, useLazyGetUserQuery, useRefreshAccessTokenMutation } from 'api/enhancedApi'
 import { useEffect } from 'react'
 import useTypedDispatch from 'hooks/use-typed-dispatch'
 import { authSlice } from 'store/slices/auth.slice'
 import { LoadingOverlay } from 'components/loading-overlay'
 import { PersonalAccountPage } from 'pages/personal-account-page/personal-account-page'
+import { parseJwt } from 'utils/parse-jwt'
 
 export interface CarouselCard {
   iconUrl: string
@@ -22,9 +23,11 @@ export interface CarouselCard {
 }
 
 export function App() {
-  const isLoggedIn = useTypedSelector(state => !!state.auth.accessToken)
+  const accessToken = useTypedSelector(state => state.auth.accessToken)
+  const isLoggedIn = !!accessToken
   const [checkIsAuthenticatedQuery, checkIsAuthenticatedData] = useLazyCheckIsAuthenticatedQuery()
   const [refreshAccessTokenMutation] = useRefreshAccessTokenMutation()
+  const [getUserQuery] = useLazyGetUserQuery()
   const dispatch = useTypedDispatch()
 
   useEffect(() => {
@@ -49,12 +52,43 @@ export function App() {
     }
   }, [])
 
+  useEffect(() => {
+    // TODO: отрефакторить
+    if (accessToken !== null) {
+      const { userId } = parseJwt(accessToken)
+      getUserQuery({ userId })
+        .unwrap()
+        .then(response => {
+          const user = response.findFirstUser
+          if (user) {
+            let name: string | null = null
+            if (user.applicantProfile?.resume) {
+              name = user.applicantProfile.resume.firstname + user.applicantProfile.resume.lastname
+            }
+
+            if (user.employerProfile) {
+              name = user.employerProfile.companyName
+            }
+
+            dispatch(
+              authSlice.actions.setUserInfo({
+                id: user.id,
+                role: user.role,
+                name,
+              })
+            )
+          }
+        })
+    }
+  }, [accessToken])
+
   return (
     <div className='app'>
       {isLoggedIn ? (
         <AuthorizedLayout>
           <Routes>
             <Route path={routes.personalAccount.inexact} element={<PersonalAccountPage />} />
+            <Route path='*' element={<Navigate to={routes.personalAccount.exact} />} />
           </Routes>
         </AuthorizedLayout>
       ) : (
