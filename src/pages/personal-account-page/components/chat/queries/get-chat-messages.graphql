@@ -1,0 +1,10 @@
+query GetChatMessages($userId: String!, $applicantId: String!) {
+  chatMessages(
+    where: { chat: { is: { applicantId: { equals: $applicantId }, employer: { is: { userId: { equals: $userId } } } } } }
+    orderBy: { createdAt: asc }
+  ) {
+    id
+    message
+    createdAt
+  }
+}

@@ -1,0 +1,14 @@
+query GetVacanciesWithResponses($userId: String!) {
+  vacancies(where: { employer: { is: { userId: { equals: $userId } } }, responses: { some: {} } }) {
+    id
+    fieldOfActivity
+    post
+    salary
+    placeOfWork
+    views
+    createdAt
+    responses(where: { viewed: { equals: false } }) {
+      id
+    }
+  }
+}

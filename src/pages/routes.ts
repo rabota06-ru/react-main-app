@@ -38,6 +38,12 @@ export const routes = {
     absoluteExact: '/personal-account/messages',
     absoluteInexact: '/personal-account/messages/*',
   },
+  personalAccountChat: {
+    exact: (profileId: string) => `/messages/${profileId}`,
+    inexact: (profileId: string) => `/messages/${profileId}*`,
+    absoluteExact: (profileId: string) => `/personal-account/messages/${profileId}`,
+    absoluteInexact: (profileId: string) => `/personal-account/messages/${profileId}/*`,
+  },
   personalAccountSettings: {
     exact: '/settings',
     inexact: '/settings/*',

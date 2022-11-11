@@ -13,4 +13,7 @@ export const {
   useLazyCheckIsAuthenticatedQuery,
   useRefreshAccessTokenMutation,
   useLazyGetUserQuery,
+  useGetVacanciesWithResponsesQuery,
+  useLazyGetVacancyResponsesQuery,
+  useGetChatMessagesQuery,
 } = api
