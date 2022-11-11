@@ -1,0 +1,6 @@
+query CheckIsAuthenticated {
+  checkIsAuthenticated {
+    authenticated
+    accessToken
+  }
+}

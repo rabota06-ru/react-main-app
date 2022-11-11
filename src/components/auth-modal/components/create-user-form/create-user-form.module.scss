@@ -1,0 +1,57 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 52px 40px 20px;
+  &Title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 62px;
+    text-align: center;
+  }
+  &Options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  &Option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    $Option: &;
+    &_Selected {
+      #{$Option} {
+        &Image {
+          border-color: var(--primaryColor);
+        }
+        &Label {
+          color: var(--primaryColor);
+        }
+      }
+    }
+    &Image {
+      margin-bottom: 10px;
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      object-fit: contain;
+      border: 2px solid transparent;
+      transition: border 0.3s;
+    }
+    &Label {
+      display: flex;
+      align-items: center;
+    }
+    &Input {
+      margin-right: 10px;
+      height: 15px;
+      width: 15px;
+      accent-color: var(--primaryColor);
+    }
+  }
+  &Button {
+    width: 100%;
+    max-width: 260px;
+  }
+}

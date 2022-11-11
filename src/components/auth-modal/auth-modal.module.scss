@@ -1,0 +1,25 @@
+.auth {
+  &Content {
+    width: 90%;
+    max-width: 490px;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  &Title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 62px;
+  }
+  &Form {
+    &Container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 260px;
+    }
+  }
+
+  &Phone {
+    margin-bottom: 20px;
+  }
+}
