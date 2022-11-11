@@ -1,12 +1,12 @@
-import React, { PropsWithChildren, useEffect } from 'react'
+import React, { PropsWithChildren, useContext, useEffect } from 'react'
+import { TabsContext } from './tabs'
 import styles from './tabs.module.scss'
 
-interface TabListProps extends PropsWithChildren {
-  selectedIndex: number
-}
+interface TabListProps extends PropsWithChildren {}
 
-export function TabList({ children, selectedIndex }: TabListProps) {
+export function TabList({ children }: TabListProps) {
   const tabIndicatorRef = React.useRef<HTMLSpanElement>(null)
+  const { selectedIndex } = useContext(TabsContext)
 
   useEffect(() => {
     const tabsItemNode = document.querySelector(`.${styles.tabsItem}`) as HTMLDivElement
