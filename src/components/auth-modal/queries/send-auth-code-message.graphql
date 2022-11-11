@@ -1,0 +1,5 @@
+mutation SendAuthCodeMessage($phone: String!) {
+  sendAuthCodeMessage(input: { phone: $phone }) {
+    authToken
+  }
+}

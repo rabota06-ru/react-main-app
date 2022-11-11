@@ -1,7 +1,15 @@
-import { api as generatedApi } from './generated';
+import { api as generatedApi } from './generated'
 
 export const api = generatedApi.enhanceEndpoints({
   endpoints: {},
-});
+})
 
-export const { useFacultiesList2Query } = api;
+export const {
+  useCreateAndLoginUserMutation,
+  useLazyGetOneUserByPhoneQuery,
+  useLoginUserMutation,
+  useSendAuthCodeMessageMutation,
+  useVerifyAuthCodeMutation,
+  useLazyCheckIsAuthenticatedQuery,
+  useRefreshAccessTokenMutation,
+} = api

@@ -19,12 +19,25 @@ export interface InputProps
  * @param bottomText нижний текст
  * @param isDisabled заблокирован ли инпут
  * @param wrapperProps пропсы элемента, который оборачивает children
+ * @param containerProps пропсы контейнера
  * @param isLoading флаг загрузки. Если true, то отображается спиннер и инуп заблокирован
  * @param RightContent контент справа от инпута
  */
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
-    { bottomText, status, size = InputSize.Default, label, isDisabled, isLoading, type = 'text', className, RightContent, ...props },
+    {
+      bottomText,
+      status,
+      size = InputSize.Default,
+      label,
+      isDisabled,
+      isLoading,
+      type = 'text',
+      className,
+      RightContent,
+      containerProps,
+      ...props
+    },
     inputRef
   ) => {
     return (
@@ -39,6 +52,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         wrapperProps={{
           className: cn(styles.inputBaseWrapper, { [styles.inputBaseWrapper_RightIconProvided]: RightContent || isLoading }),
         }}
+        containerProps={containerProps}
       >
         <input
           {...props}

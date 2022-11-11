@@ -15,6 +15,7 @@ export interface InputBaseProps extends PropsWithChildren {
   isLoading?: boolean
   RightContent?: JSX.Element
   wrapperProps?: Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+  containerProps?: Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 }
 
 /**
@@ -27,6 +28,7 @@ export interface InputBaseProps extends PropsWithChildren {
  * @param isLoading отображается ли загрузка
  * @param RightContent контент в правой части InputBase
  * @param wrapperProps пропсы элемента, который оборачивает children
+ * @param containerProps пропсы контейнера
  */
 export function InputBase({
   label,
@@ -37,10 +39,11 @@ export function InputBase({
   isLoading,
   RightContent,
   wrapperProps,
+  containerProps,
   children,
 }: InputBaseProps) {
   return (
-    <div className={styles.inputBase}>
+    <div {...containerProps} className={cn(styles.inputBase, containerProps?.className)}>
       {label !== undefined && <span className={styles.inputBaseLabel}>{label}</span>}
       <div
         {...wrapperProps}
