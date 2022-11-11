@@ -78,11 +78,22 @@
         margin: 0 10px;
         width: 216px;
       }
-      img {
-        margin-left: 10px;
-        cursor: pointer;
-        &:active {
-          transform: scale(0.98);
+      &Checkbox {
+        &_NoShaded {
+          margin-left: 10px;
+          // fill: blue;
+          cursor: pointer;
+          &:active {
+            transform: scale(0.98);
+          }
+        }
+        &_Shaded {
+          margin-left: 10px;
+          fill: blue;
+          cursor: pointer;
+          &:active {
+            transform: scale(0.98);
+          }
         }
       }
     }
