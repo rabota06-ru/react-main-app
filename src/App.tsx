@@ -6,7 +6,7 @@ import { MainPage } from 'pages/main-page'
 import { AuthModal } from 'components/auth-modal/auth-modal'
 import useTypedSelector from 'hooks/use-typed-selector'
 import { AuthorizedLayout } from 'layouts/authorized-layout'
-import { useLazyCheckIsAuthenticatedQuery } from 'api/enhancedApi'
+import { useLazyCheckIsAuthenticatedQuery, useRefreshAccessTokenMutation } from 'api/enhancedApi'
 import { useEffect } from 'react'
 import useTypedDispatch from 'hooks/use-typed-dispatch'
 import { authSlice } from 'store/slices/auth.slice'
@@ -23,6 +23,7 @@ export interface CarouselCard {
 export function App() {
   const isLoggedIn = useTypedSelector(state => !!state.auth.accessToken)
   const [checkIsAuthenticatedQuery, checkIsAuthenticatedData] = useLazyCheckIsAuthenticatedQuery()
+  const [refreshAccessTokenMutation] = useRefreshAccessTokenMutation()
   const dispatch = useTypedDispatch()
 
   useEffect(() => {
@@ -33,6 +34,18 @@ export function App() {
           dispatch(authSlice.actions.setAccessToken(response.checkIsAuthenticated.accessToken!))
         }
       })
+
+    const intervalTimer = setInterval(() => {
+      refreshAccessTokenMutation()
+        .unwrap()
+        .then(response => {
+          dispatch(authSlice.actions.setAccessToken(response.refreshAccessToken.accessToken))
+        })
+    }, 29 * 60 * 1000)
+
+    return () => {
+      clearInterval(intervalTimer)
+    }
   }, [])
 
   return (
