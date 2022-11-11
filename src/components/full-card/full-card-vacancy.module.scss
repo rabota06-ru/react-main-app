@@ -1,7 +1,8 @@
+@import '/src/variables';
+
 .fullCard {
   padding: 36px 50px 50px 50px;
-  max-width: 1140px;
-  margin: auto;
+  margin: 123px auto 0;
   &Header {
     display: flex;
     align-items: center;
@@ -10,8 +11,15 @@
     &Icon {
       display: flex;
       align-items: center;
-      img {
+      div {
         margin-left: -10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #fcfdff 0%, #e9f2ff 100%);
       }
       h2 {
         font-size: 30px;
@@ -80,6 +88,77 @@
       }
       img {
         margin-left: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .fullCard {
+    padding: 25px 40px 30px;
+    margin: 34px auto 0px;
+  }
+}
+
+@media (max-width: $md) {
+}
+
+@media (max-width: $sm) {
+  .card {
+    margin-bottom: 40px;
+  }
+  .fullCard {
+    padding: 25px 40px 30px;
+    margin: 34px auto 0px;
+  }
+}
+
+@media (max-width: $xs) {
+  .fullCard {
+    padding: 25px 20px 30px;
+    margin: 34px auto 0px;
+
+    &Header {
+      display: block;
+      padding-bottom: 10px;
+      &Icon {
+        margin-bottom: 12px;
+        div {
+          width: 36px;
+          height: 36px;
+          padding: 7px;
+          margin-left: -7px;
+        }
+        h2 {
+          font-size: 16px;
+          margin-left: 9px;
+        }
+      }
+      span {
+        font-size: 14px;
+      }
+    }
+    &SalaryInfoPriceView {
+      span {
+        font-size: 14px;
+      }
+    }
+    &DescriptionButtons {
+      display: flex;
+      flex-direction: column;
+      Button {
+        margin: 0;
+        margin-bottom: 10px;
+      }
+      img {
+        margin: 0;
+        width: 36px;
+        height: 50px;
+      }
+    }
+    &Description {
+      & > div:not(:last-child) {
+        padding-bottom: 35px;
       }
     }
   }

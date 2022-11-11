@@ -14,6 +14,8 @@ const colorVariableNames: Record<Color, string> = {
   [Color.ErrorColor]: '--errorColor',
   [Color.SuccessColor]: '--successColor',
   [Color.WarningColor]: '--warningColor',
+  [Color.CarouselCardShadowColor]: '--carouselCardShadowColor',
+  [Color.CarouselCardHoveredShadowColor]: '--carouselCardHoveredShadowColor',
 }
 
 /**

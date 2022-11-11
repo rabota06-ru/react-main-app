@@ -8,20 +8,23 @@
 .app {
   height: 100vh;
   width: 100vw;
+  overflow-x: auto;
 }
 
 :root {
   --buttonShadowColor: rgba(32, 66, 227, 0.25);
+  --footerBackgroundColor: #e5f1ff;
   --primaryColor: #2042e3;
   --textColor: #222222;
   --textSecondaryColor: #79859e;
   --buttonTextColor: #ffffff;
   --secondaryColor1: #f8fafc;
-  --secondaryColor2: #79859e;
-  --secondaryColor3: #e1e2f0;
+  --secondaryColor2: #e1e2f0;
   --iconColor: #04cec0;
   --redColor: #ff0b0b;
   --errorColor: #da3633;
   --successColor: #3fb950;
   --warningColor: #fe9600;
+  --carouselCardShadowColor: rgba(100, 132, 194, 0.25);
+  --carouselCardHoveredShadowColor: rgba(57, 93, 222, 0.4);
 }

@@ -1,0 +1,143 @@
+@import '/src/variables';
+
+.section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
+  padding-bottom: 90px;
+  margin-bottom: 100px;
+  z-index: 1;
+  &:hover::after {
+    border-radius: 250px;
+    width: 98%;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+    background-color: #f4f9ff;
+    border-radius: 0;
+    border-top-left-radius: 250px;
+    border-bottom-right-radius: 250px;
+    transition: all 0.3s;
+  }
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &Carousel {
+    position: relative;
+    margin-bottom: 10px;
+    &Content {
+      padding: 51px 0;
+    }
+    &SlideLeftButton {
+      position: absolute;
+      left: 0;
+      transform: translateX(-150%);
+    }
+    &SlideRightButton {
+      position: absolute;
+      right: 0;
+      transform: translateX(150%);
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .section {
+    &Carousel {
+      &SlideLeftButton {
+        transform: translateX(-120%);
+      }
+      &SlideRightButton {
+        transform: translateX(120%);
+      }
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    &::after {
+      border-top-left-radius: 150px;
+      border-bottom-right-radius: 150px;
+    }
+    &:hover::after {
+      border-radius: 150px;
+      width: 100%;
+    }
+    &Title {
+      margin-bottom: 0;
+    }
+    &Carousel {
+      &Content {
+        padding-top: 30px;
+      }
+      &SlideLeftButton {
+        width: 50px;
+        height: 50px;
+      }
+      &SlideRightButton {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .section {
+    padding: 20px 0;
+    &Container {
+      width: 100%;
+      margin: unset;
+    }
+    &::after {
+      border-radius: unset;
+    }
+    &:hover::after {
+      border-radius: unset;
+    }
+    &Title {
+      width: 100%;
+      font-size: 16px;
+      padding-left: 5%;
+    }
+    &Carousel {
+      margin-bottom: 0;
+      &Content {
+        padding: 0 5% 21px;
+      }
+    }
+    &Button {
+      align-self: flex-start;
+      margin-left: 5%;
+    }
+  }
+}
+
+@media (max-width: $xs) {
+  .section {
+    &Title {
+      padding-left: 20px;
+    }
+    &Carousel {
+      &Content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+    &Button {
+      margin-left: 20px;
+    }
+  }
+}

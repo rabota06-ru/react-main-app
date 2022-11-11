@@ -1,8 +1,6 @@
 import { Input, InputProps } from 'components/input'
 import { useState } from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
-import cn from 'classnames'
-import styles from './password-input.module.scss'
 
 interface PasswordInputProps extends Omit<InputProps, 'type' | 'RightContent'> {}
 

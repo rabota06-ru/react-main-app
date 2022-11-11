@@ -1,0 +1,108 @@
+@import '/src/variables';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
+  padding-bottom: 150px;
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &Title {
+    margin-bottom: 20px;
+  }
+  &Carousel {
+    position: relative;
+    margin-bottom: 10px;
+    &Content {
+      padding: 51px 0;
+    }
+    &SlideLeftButton {
+      position: absolute;
+      left: 0;
+      transform: translateX(-150%);
+    }
+    &SlideRightButton {
+      position: absolute;
+      right: 0;
+      transform: translateX(150%);
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .section {
+    &Carousel {
+      &SlideLeftButton {
+        transform: translateX(-120%);
+      }
+      &SlideRightButton {
+        transform: translateX(120%);
+      }
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .section {
+    padding-top: 30px;
+    &Title {
+      margin-bottom: 0;
+    }
+    &Carousel {
+      &SlideLeftButton {
+        width: 50px;
+        height: 50px;
+      }
+      &SlideRightButton {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .section {
+    padding-bottom: 50px;
+    &Container {
+      width: 100%;
+      margin: unset;
+    }
+    &Title {
+      width: 100%;
+      font-size: 16px;
+      padding-left: 5%;
+    }
+    &Carousel {
+      margin-bottom: 0;
+      &Content {
+        padding: 0 5% 30px;
+      }
+    }
+    &Button {
+      align-self: flex-start;
+      margin-left: 5%;
+    }
+  }
+}
+
+@media (max-width: $xs) {
+  .section {
+    &Title {
+      padding-left: 20px;
+    }
+    &Carousel {
+      &Content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+    &Button {
+      margin-left: 20px;
+    }
+  }
+}

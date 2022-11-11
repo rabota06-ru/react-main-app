@@ -16,18 +16,37 @@ $buttonBorderRadius: 10px;
   }
   &_PrimaryVariant {
     background-color: var(--primaryColor);
-    line-height: 19.5px;
     font-weight: 700;
-    font-size: 16px;
     color: var(--buttonTextColor);
     border: none;
   }
   &_OutlineVariant {
     border: 1px solid var(--primaryColor);
     background-color: #fff;
-    line-height: 17px;
     font-weight: 500;
     color: var(--primaryColor);
+  }
+  &_TextVariant {
+    color: var(--primaryColor);
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  &_LargeSize {
+    height: $buttonLargeSizeHeight;
+    font-size: 17px;
+  }
+  &_MediumSize {
+    height: $buttonMediumSizeHeight;
+    font-size: 15px;
+  }
+  &_SmallSize {
+    height: $buttonSmallSizeHeight;
+    font-size: 14px;
+  }
+  &_ExtraSmallSize {
+    height: $buttonExtraSmallSizeHeight;
     font-size: 14px;
   }
   &_Shadow {
@@ -53,11 +72,5 @@ $buttonBorderRadius: 10px;
   &Spinner {
     position: absolute;
     z-index: 1;
-  }
-  &_LargeHeight {
-    height: $buttonLargeSizeHeight;
-  }
-  &_SmallHeight {
-    height: $buttonSmallSizeHeight;
   }
 }
