@@ -1,8 +1,8 @@
 declare type Props<E extends HTMLAttributes<T>, T> = Omit<import('react').DetailedHTMLProps<E, T>, 'ref'>
 
-declare module '*.svg' {
-  import React from 'react'
+declare type SVGFC = import('react').VFC<import('react').SVGProps<SVGSVGElement>>
 
-  const SVG: React.VFC<React.SVGProps<SVGSVGElement>>
+declare module '*.svg' {
+  const SVG: SVGFC
   export = { ReactComponent: SVG }
 }
