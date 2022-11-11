@@ -30,11 +30,11 @@ export function SideBar() {
       <div className={styles.sideBarMenu}>
         {menuItems.map(({ Icon, label, route }) => (
           <div
-            key={route}
+            key={route.exact}
             className={cn(styles.sideBarMenuItem, {
-              [styles.sideBarMenuItem_Active]: location.pathname === route,
+              [styles.sideBarMenuItem_Active]: location.pathname.startsWith(route.absoluteExact),
             })}
-            onClick={() => navigate(route)}
+            onClick={() => navigate(route.absoluteExact)}
           >
             <Icon className={styles.sideBarMenuItemIcon} />
             <p className={styles.sideBarMenuItemLabel}>{label}</p>

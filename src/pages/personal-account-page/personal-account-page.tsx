@@ -9,8 +9,8 @@ export function PersonalAccountPage() {
   const location = useLocation()
 
   useEffect(() => {
-    if (routes.personalAccount.startsWith(location.pathname)) {
-      navigate(routes.personalAccountAllResumes)
+    if (routes.personalAccount.inexact.startsWith(location.pathname)) {
+      navigate(routes.personalAccountAllResumes.absoluteExact)
     }
   }, [])
 
@@ -19,10 +19,10 @@ export function PersonalAccountPage() {
       <SideBar />
       <div className={styles.pageContent}>
         <Routes>
-          <Route path={routes.personalAccountAllResumes} element='test1' />
-          <Route path={routes.personalAccountMyVacancies} element='test2' />
-          <Route path={routes.personalAccountMessages} element='test3' />
-          <Route path={routes.personalAccountSettings} element='test4' />
+          <Route path={routes.personalAccountAllResumes.exact} element='test1' />
+          <Route path={routes.personalAccountMyVacancies.exact} element='test2' />
+          <Route path={routes.personalAccountMessages.exact} element='test3' />
+          <Route path={routes.personalAccountSettings.exact} element='test4' />
         </Routes>
       </div>
     </div>

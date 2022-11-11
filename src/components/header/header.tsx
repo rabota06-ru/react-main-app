@@ -22,10 +22,10 @@ export function Header() {
       <Container className={styles.headerContainer}>
         <Logo className={styles.headerLogo} />
         <div className={styles.headerLinks}>
-          <Link to={routes.allVacancies} className={styles.headerLink}>
+          <Link to={routes.allVacancies.exact} className={styles.headerLink}>
             Все вакансии
           </Link>
-          <Link to={routes.allResumes} className={styles.headerLink}>
+          <Link to={routes.allResumes.exact} className={styles.headerLink}>
             Все резюме
           </Link>
           <span onClick={scrollToHowItWorksSection} className={styles.headerLink}>
