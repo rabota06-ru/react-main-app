@@ -13,7 +13,7 @@ import styles from './full-card-resume.module.scss'
 interface FullCardResumeProps {
   title: string
   date: string
-  city: string
+  location: string
   soughtPosition: string
   education: string
   experience: string
@@ -27,7 +27,7 @@ interface FullCardResumeProps {
 export function FullCardResume({
   title,
   date,
-  city,
+  location,
   soughtPosition,
   education,
   experience,

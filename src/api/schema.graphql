@@ -1,420 +1,79 @@
 type Query {
-  aggregateAdmin(
-    where: AdminWhereInput
-    orderBy: [AdminOrderByWithRelationInput!]
-    cursor: AdminWhereUniqueInput
-    take: Int
-    skip: Int
-  ): AggregateAdmin!
-  findFirstAdmin(
-    where: AdminWhereInput
-    orderBy: [AdminOrderByWithRelationInput!]
-    cursor: AdminWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [AdminScalarFieldEnum!]
-  ): Admin
-  admins(
-    where: AdminWhereInput
-    orderBy: [AdminOrderByWithRelationInput!]
-    cursor: AdminWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [AdminScalarFieldEnum!]
-  ): [Admin!]!
+  aggregateAdmin(where: AdminWhereInput, orderBy: [AdminOrderByWithRelationInput!], cursor: AdminWhereUniqueInput, take: Int, skip: Int): AggregateAdmin!
+  findFirstAdmin(where: AdminWhereInput, orderBy: [AdminOrderByWithRelationInput!], cursor: AdminWhereUniqueInput, take: Int, skip: Int, distinct: [AdminScalarFieldEnum!]): Admin
+  admins(where: AdminWhereInput, orderBy: [AdminOrderByWithRelationInput!], cursor: AdminWhereUniqueInput, take: Int, skip: Int, distinct: [AdminScalarFieldEnum!]): [Admin!]!
   admin(where: AdminWhereUniqueInput!): Admin
-  groupByAdmin(
-    where: AdminWhereInput
-    orderBy: [AdminOrderByWithAggregationInput!]
-    by: [AdminScalarFieldEnum!]!
-    having: AdminScalarWhereWithAggregatesInput
-    take: Int
-    skip: Int
-  ): [AdminGroupBy!]!
-  aggregateAdminChat(
-    where: AdminChatWhereInput
-    orderBy: [AdminChatOrderByWithRelationInput!]
-    cursor: AdminChatWhereUniqueInput
-    take: Int
-    skip: Int
-  ): AggregateAdminChat!
-  findFirstAdminChat(
-    where: AdminChatWhereInput
-    orderBy: [AdminChatOrderByWithRelationInput!]
-    cursor: AdminChatWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [AdminChatScalarFieldEnum!]
-  ): AdminChat
-  adminChats(
-    where: AdminChatWhereInput
-    orderBy: [AdminChatOrderByWithRelationInput!]
-    cursor: AdminChatWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [AdminChatScalarFieldEnum!]
-  ): [AdminChat!]!
+  groupByAdmin(where: AdminWhereInput, orderBy: [AdminOrderByWithAggregationInput!], by: [AdminScalarFieldEnum!]!, having: AdminScalarWhereWithAggregatesInput, take: Int, skip: Int): [AdminGroupBy!]!
+  aggregateAdminChat(where: AdminChatWhereInput, orderBy: [AdminChatOrderByWithRelationInput!], cursor: AdminChatWhereUniqueInput, take: Int, skip: Int): AggregateAdminChat!
+  findFirstAdminChat(where: AdminChatWhereInput, orderBy: [AdminChatOrderByWithRelationInput!], cursor: AdminChatWhereUniqueInput, take: Int, skip: Int, distinct: [AdminChatScalarFieldEnum!]): AdminChat
+  adminChats(where: AdminChatWhereInput, orderBy: [AdminChatOrderByWithRelationInput!], cursor: AdminChatWhereUniqueInput, take: Int, skip: Int, distinct: [AdminChatScalarFieldEnum!]): [AdminChat!]!
   adminChat(where: AdminChatWhereUniqueInput!): AdminChat
-  groupByAdminChat(
-    where: AdminChatWhereInput
-    orderBy: [AdminChatOrderByWithAggregationInput!]
-    by: [AdminChatScalarFieldEnum!]!
-    having: AdminChatScalarWhereWithAggregatesInput
-    take: Int
-    skip: Int
-  ): [AdminChatGroupBy!]!
-  aggregateAdminChatMessage(
-    where: AdminChatMessageWhereInput
-    orderBy: [AdminChatMessageOrderByWithRelationInput!]
-    cursor: AdminChatMessageWhereUniqueInput
-    take: Int
-    skip: Int
-  ): AggregateAdminChatMessage!
-  findFirstAdminChatMessage(
-    where: AdminChatMessageWhereInput
-    orderBy: [AdminChatMessageOrderByWithRelationInput!]
-    cursor: AdminChatMessageWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [AdminChatMessageScalarFieldEnum!]
-  ): AdminChatMessage
-  adminChatMessages(
-    where: AdminChatMessageWhereInput
-    orderBy: [AdminChatMessageOrderByWithRelationInput!]
-    cursor: AdminChatMessageWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [AdminChatMessageScalarFieldEnum!]
-  ): [AdminChatMessage!]!
+  groupByAdminChat(where: AdminChatWhereInput, orderBy: [AdminChatOrderByWithAggregationInput!], by: [AdminChatScalarFieldEnum!]!, having: AdminChatScalarWhereWithAggregatesInput, take: Int, skip: Int): [AdminChatGroupBy!]!
+  aggregateAdminChatMessage(where: AdminChatMessageWhereInput, orderBy: [AdminChatMessageOrderByWithRelationInput!], cursor: AdminChatMessageWhereUniqueInput, take: Int, skip: Int): AggregateAdminChatMessage!
+  findFirstAdminChatMessage(where: AdminChatMessageWhereInput, orderBy: [AdminChatMessageOrderByWithRelationInput!], cursor: AdminChatMessageWhereUniqueInput, take: Int, skip: Int, distinct: [AdminChatMessageScalarFieldEnum!]): AdminChatMessage
+  adminChatMessages(where: AdminChatMessageWhereInput, orderBy: [AdminChatMessageOrderByWithRelationInput!], cursor: AdminChatMessageWhereUniqueInput, take: Int, skip: Int, distinct: [AdminChatMessageScalarFieldEnum!]): [AdminChatMessage!]!
   adminChatMessage(where: AdminChatMessageWhereUniqueInput!): AdminChatMessage
-  groupByAdminChatMessage(
-    where: AdminChatMessageWhereInput
-    orderBy: [AdminChatMessageOrderByWithAggregationInput!]
-    by: [AdminChatMessageScalarFieldEnum!]!
-    having: AdminChatMessageScalarWhereWithAggregatesInput
-    take: Int
-    skip: Int
-  ): [AdminChatMessageGroupBy!]!
-  aggregateApplicantProfile(
-    where: ApplicantProfileWhereInput
-    orderBy: [ApplicantProfileOrderByWithRelationInput!]
-    cursor: ApplicantProfileWhereUniqueInput
-    take: Int
-    skip: Int
-  ): AggregateApplicantProfile!
-  findFirstApplicantProfile(
-    where: ApplicantProfileWhereInput
-    orderBy: [ApplicantProfileOrderByWithRelationInput!]
-    cursor: ApplicantProfileWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ApplicantProfileScalarFieldEnum!]
-  ): ApplicantProfile
-  applicantProfiles(
-    where: ApplicantProfileWhereInput
-    orderBy: [ApplicantProfileOrderByWithRelationInput!]
-    cursor: ApplicantProfileWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ApplicantProfileScalarFieldEnum!]
-  ): [ApplicantProfile!]!
+  groupByAdminChatMessage(where: AdminChatMessageWhereInput, orderBy: [AdminChatMessageOrderByWithAggregationInput!], by: [AdminChatMessageScalarFieldEnum!]!, having: AdminChatMessageScalarWhereWithAggregatesInput, take: Int, skip: Int): [AdminChatMessageGroupBy!]!
+  aggregateApplicantProfile(where: ApplicantProfileWhereInput, orderBy: [ApplicantProfileOrderByWithRelationInput!], cursor: ApplicantProfileWhereUniqueInput, take: Int, skip: Int): AggregateApplicantProfile!
+  findFirstApplicantProfile(where: ApplicantProfileWhereInput, orderBy: [ApplicantProfileOrderByWithRelationInput!], cursor: ApplicantProfileWhereUniqueInput, take: Int, skip: Int, distinct: [ApplicantProfileScalarFieldEnum!]): ApplicantProfile
+  applicantProfiles(where: ApplicantProfileWhereInput, orderBy: [ApplicantProfileOrderByWithRelationInput!], cursor: ApplicantProfileWhereUniqueInput, take: Int, skip: Int, distinct: [ApplicantProfileScalarFieldEnum!]): [ApplicantProfile!]!
   applicantProfile(where: ApplicantProfileWhereUniqueInput!): ApplicantProfile
-  groupByApplicantProfile(
-    where: ApplicantProfileWhereInput
-    orderBy: [ApplicantProfileOrderByWithAggregationInput!]
-    by: [ApplicantProfileScalarFieldEnum!]!
-    having: ApplicantProfileScalarWhereWithAggregatesInput
-    take: Int
-    skip: Int
-  ): [ApplicantProfileGroupBy!]!
-  aggregateApplication(
-    where: ApplicationWhereInput
-    orderBy: [ApplicationOrderByWithRelationInput!]
-    cursor: ApplicationWhereUniqueInput
-    take: Int
-    skip: Int
-  ): AggregateApplication!
-  findFirstApplication(
-    where: ApplicationWhereInput
-    orderBy: [ApplicationOrderByWithRelationInput!]
-    cursor: ApplicationWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ApplicationScalarFieldEnum!]
-  ): Application
-  applications(
-    where: ApplicationWhereInput
-    orderBy: [ApplicationOrderByWithRelationInput!]
-    cursor: ApplicationWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ApplicationScalarFieldEnum!]
-  ): [Application!]!
+  groupByApplicantProfile(where: ApplicantProfileWhereInput, orderBy: [ApplicantProfileOrderByWithAggregationInput!], by: [ApplicantProfileScalarFieldEnum!]!, having: ApplicantProfileScalarWhereWithAggregatesInput, take: Int, skip: Int): [ApplicantProfileGroupBy!]!
+  aggregateApplication(where: ApplicationWhereInput, orderBy: [ApplicationOrderByWithRelationInput!], cursor: ApplicationWhereUniqueInput, take: Int, skip: Int): AggregateApplication!
+  findFirstApplication(where: ApplicationWhereInput, orderBy: [ApplicationOrderByWithRelationInput!], cursor: ApplicationWhereUniqueInput, take: Int, skip: Int, distinct: [ApplicationScalarFieldEnum!]): Application
+  applications(where: ApplicationWhereInput, orderBy: [ApplicationOrderByWithRelationInput!], cursor: ApplicationWhereUniqueInput, take: Int, skip: Int, distinct: [ApplicationScalarFieldEnum!]): [Application!]!
   application(where: ApplicationWhereUniqueInput!): Application
-  groupByApplication(
-    where: ApplicationWhereInput
-    orderBy: [ApplicationOrderByWithAggregationInput!]
-    by: [ApplicationScalarFieldEnum!]!
-    having: ApplicationScalarWhereWithAggregatesInput
-    take: Int
-    skip: Int
-  ): [ApplicationGroupBy!]!
-  aggregateChat(
-    where: ChatWhereInput
-    orderBy: [ChatOrderByWithRelationInput!]
-    cursor: ChatWhereUniqueInput
-    take: Int
-    skip: Int
-  ): AggregateChat!
-  findFirstChat(
-    where: ChatWhereInput
-    orderBy: [ChatOrderByWithRelationInput!]
-    cursor: ChatWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ChatScalarFieldEnum!]
-  ): Chat
-  chats(
-    where: ChatWhereInput
-    orderBy: [ChatOrderByWithRelationInput!]
-    cursor: ChatWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ChatScalarFieldEnum!]
-  ): [Chat!]!
+  groupByApplication(where: ApplicationWhereInput, orderBy: [ApplicationOrderByWithAggregationInput!], by: [ApplicationScalarFieldEnum!]!, having: ApplicationScalarWhereWithAggregatesInput, take: Int, skip: Int): [ApplicationGroupBy!]!
+  aggregateChat(where: ChatWhereInput, orderBy: [ChatOrderByWithRelationInput!], cursor: ChatWhereUniqueInput, take: Int, skip: Int): AggregateChat!
+  findFirstChat(where: ChatWhereInput, orderBy: [ChatOrderByWithRelationInput!], cursor: ChatWhereUniqueInput, take: Int, skip: Int, distinct: [ChatScalarFieldEnum!]): Chat
+  chats(where: ChatWhereInput, orderBy: [ChatOrderByWithRelationInput!], cursor: ChatWhereUniqueInput, take: Int, skip: Int, distinct: [ChatScalarFieldEnum!]): [Chat!]!
   chat(where: ChatWhereUniqueInput!): Chat
-  groupByChat(
-    where: ChatWhereInput
-    orderBy: [ChatOrderByWithAggregationInput!]
-    by: [ChatScalarFieldEnum!]!
-    having: ChatScalarWhereWithAggregatesInput
-    take: Int
-    skip: Int
-  ): [ChatGroupBy!]!
-  aggregateChatMessage(
-    where: ChatMessageWhereInput
-    orderBy: [ChatMessageOrderByWithRelationInput!]
-    cursor: ChatMessageWhereUniqueInput
-    take: Int
-    skip: Int
-  ): AggregateChatMessage!
-  findFirstChatMessage(
-    where: ChatMessageWhereInput
-    orderBy: [ChatMessageOrderByWithRelationInput!]
-    cursor: ChatMessageWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ChatMessageScalarFieldEnum!]
-  ): ChatMessage
-  chatMessages(
-    where: ChatMessageWhereInput
-    orderBy: [ChatMessageOrderByWithRelationInput!]
-    cursor: ChatMessageWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ChatMessageScalarFieldEnum!]
-  ): [ChatMessage!]!
+  groupByChat(where: ChatWhereInput, orderBy: [ChatOrderByWithAggregationInput!], by: [ChatScalarFieldEnum!]!, having: ChatScalarWhereWithAggregatesInput, take: Int, skip: Int): [ChatGroupBy!]!
+  aggregateChatMessage(where: ChatMessageWhereInput, orderBy: [ChatMessageOrderByWithRelationInput!], cursor: ChatMessageWhereUniqueInput, take: Int, skip: Int): AggregateChatMessage!
+  findFirstChatMessage(where: ChatMessageWhereInput, orderBy: [ChatMessageOrderByWithRelationInput!], cursor: ChatMessageWhereUniqueInput, take: Int, skip: Int, distinct: [ChatMessageScalarFieldEnum!]): ChatMessage
+  chatMessages(where: ChatMessageWhereInput, orderBy: [ChatMessageOrderByWithRelationInput!], cursor: ChatMessageWhereUniqueInput, take: Int, skip: Int, distinct: [ChatMessageScalarFieldEnum!]): [ChatMessage!]!
   chatMessage(where: ChatMessageWhereUniqueInput!): ChatMessage
-  groupByChatMessage(
-    where: ChatMessageWhereInput
-    orderBy: [ChatMessageOrderByWithAggregationInput!]
-    by: [ChatMessageScalarFieldEnum!]!
-    having: ChatMessageScalarWhereWithAggregatesInput
-    take: Int
-    skip: Int
-  ): [ChatMessageGroupBy!]!
-  aggregateEmployerProfile(
-    where: EmployerProfileWhereInput
-    orderBy: [EmployerProfileOrderByWithRelationInput!]
-    cursor: EmployerProfileWhereUniqueInput
-    take: Int
-    skip: Int
-  ): AggregateEmployerProfile!
-  findFirstEmployerProfile(
-    where: EmployerProfileWhereInput
-    orderBy: [EmployerProfileOrderByWithRelationInput!]
-    cursor: EmployerProfileWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [EmployerProfileScalarFieldEnum!]
-  ): EmployerProfile
-  employerProfiles(
-    where: EmployerProfileWhereInput
-    orderBy: [EmployerProfileOrderByWithRelationInput!]
-    cursor: EmployerProfileWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [EmployerProfileScalarFieldEnum!]
-  ): [EmployerProfile!]!
+  groupByChatMessage(where: ChatMessageWhereInput, orderBy: [ChatMessageOrderByWithAggregationInput!], by: [ChatMessageScalarFieldEnum!]!, having: ChatMessageScalarWhereWithAggregatesInput, take: Int, skip: Int): [ChatMessageGroupBy!]!
+  aggregateEmployerProfile(where: EmployerProfileWhereInput, orderBy: [EmployerProfileOrderByWithRelationInput!], cursor: EmployerProfileWhereUniqueInput, take: Int, skip: Int): AggregateEmployerProfile!
+  findFirstEmployerProfile(where: EmployerProfileWhereInput, orderBy: [EmployerProfileOrderByWithRelationInput!], cursor: EmployerProfileWhereUniqueInput, take: Int, skip: Int, distinct: [EmployerProfileScalarFieldEnum!]): EmployerProfile
+  employerProfiles(where: EmployerProfileWhereInput, orderBy: [EmployerProfileOrderByWithRelationInput!], cursor: EmployerProfileWhereUniqueInput, take: Int, skip: Int, distinct: [EmployerProfileScalarFieldEnum!]): [EmployerProfile!]!
   employerProfile(where: EmployerProfileWhereUniqueInput!): EmployerProfile
-  groupByEmployerProfile(
-    where: EmployerProfileWhereInput
-    orderBy: [EmployerProfileOrderByWithAggregationInput!]
-    by: [EmployerProfileScalarFieldEnum!]!
-    having: EmployerProfileScalarWhereWithAggregatesInput
-    take: Int
-    skip: Int
-  ): [EmployerProfileGroupBy!]!
-  aggregateResume(
-    where: ResumeWhereInput
-    orderBy: [ResumeOrderByWithRelationInput!]
-    cursor: ResumeWhereUniqueInput
-    take: Int
-    skip: Int
-  ): AggregateResume!
-  findFirstResume(
-    where: ResumeWhereInput
-    orderBy: [ResumeOrderByWithRelationInput!]
-    cursor: ResumeWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ResumeScalarFieldEnum!]
-  ): Resume
-  resumes(
-    where: ResumeWhereInput
-    orderBy: [ResumeOrderByWithRelationInput!]
-    cursor: ResumeWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ResumeScalarFieldEnum!]
-  ): [Resume!]!
+  groupByEmployerProfile(where: EmployerProfileWhereInput, orderBy: [EmployerProfileOrderByWithAggregationInput!], by: [EmployerProfileScalarFieldEnum!]!, having: EmployerProfileScalarWhereWithAggregatesInput, take: Int, skip: Int): [EmployerProfileGroupBy!]!
+  aggregateInvitationToVacancy(where: InvitationToVacancyWhereInput, orderBy: [InvitationToVacancyOrderByWithRelationInput!], cursor: InvitationToVacancyWhereUniqueInput, take: Int, skip: Int): AggregateInvitationToVacancy!
+  findFirstInvitationToVacancy(where: InvitationToVacancyWhereInput, orderBy: [InvitationToVacancyOrderByWithRelationInput!], cursor: InvitationToVacancyWhereUniqueInput, take: Int, skip: Int, distinct: [InvitationToVacancyScalarFieldEnum!]): InvitationToVacancy
+  invitationToVacancies(where: InvitationToVacancyWhereInput, orderBy: [InvitationToVacancyOrderByWithRelationInput!], cursor: InvitationToVacancyWhereUniqueInput, take: Int, skip: Int, distinct: [InvitationToVacancyScalarFieldEnum!]): [InvitationToVacancy!]!
+  invitationToVacancy(where: InvitationToVacancyWhereUniqueInput!): InvitationToVacancy
+  groupByInvitationToVacancy(where: InvitationToVacancyWhereInput, orderBy: [InvitationToVacancyOrderByWithAggregationInput!], by: [InvitationToVacancyScalarFieldEnum!]!, having: InvitationToVacancyScalarWhereWithAggregatesInput, take: Int, skip: Int): [InvitationToVacancyGroupBy!]!
+  aggregateResponseToVacancy(where: ResponseToVacancyWhereInput, orderBy: [ResponseToVacancyOrderByWithRelationInput!], cursor: ResponseToVacancyWhereUniqueInput, take: Int, skip: Int): AggregateResponseToVacancy!
+  findFirstResponseToVacancy(where: ResponseToVacancyWhereInput, orderBy: [ResponseToVacancyOrderByWithRelationInput!], cursor: ResponseToVacancyWhereUniqueInput, take: Int, skip: Int, distinct: [ResponseToVacancyScalarFieldEnum!]): ResponseToVacancy
+  responseToVacancies(where: ResponseToVacancyWhereInput, orderBy: [ResponseToVacancyOrderByWithRelationInput!], cursor: ResponseToVacancyWhereUniqueInput, take: Int, skip: Int, distinct: [ResponseToVacancyScalarFieldEnum!]): [ResponseToVacancy!]!
+  responseToVacancy(where: ResponseToVacancyWhereUniqueInput!): ResponseToVacancy
+  groupByResponseToVacancy(where: ResponseToVacancyWhereInput, orderBy: [ResponseToVacancyOrderByWithAggregationInput!], by: [ResponseToVacancyScalarFieldEnum!]!, having: ResponseToVacancyScalarWhereWithAggregatesInput, take: Int, skip: Int): [ResponseToVacancyGroupBy!]!
+  aggregateResume(where: ResumeWhereInput, orderBy: [ResumeOrderByWithRelationInput!], cursor: ResumeWhereUniqueInput, take: Int, skip: Int): AggregateResume!
+  findFirstResume(where: ResumeWhereInput, orderBy: [ResumeOrderByWithRelationInput!], cursor: ResumeWhereUniqueInput, take: Int, skip: Int, distinct: [ResumeScalarFieldEnum!]): Resume
+  resumes(where: ResumeWhereInput, orderBy: [ResumeOrderByWithRelationInput!], cursor: ResumeWhereUniqueInput, take: Int, skip: Int, distinct: [ResumeScalarFieldEnum!]): [Resume!]!
   resume(where: ResumeWhereUniqueInput!): Resume
-  groupByResume(
-    where: ResumeWhereInput
-    orderBy: [ResumeOrderByWithAggregationInput!]
-    by: [ResumeScalarFieldEnum!]!
-    having: ResumeScalarWhereWithAggregatesInput
-    take: Int
-    skip: Int
-  ): [ResumeGroupBy!]!
-  aggregateResumeSavedByEmployer(
-    where: ResumeSavedByEmployerWhereInput
-    orderBy: [ResumeSavedByEmployerOrderByWithRelationInput!]
-    cursor: ResumeSavedByEmployerWhereUniqueInput
-    take: Int
-    skip: Int
-  ): AggregateResumeSavedByEmployer!
-  findFirstResumeSavedByEmployer(
-    where: ResumeSavedByEmployerWhereInput
-    orderBy: [ResumeSavedByEmployerOrderByWithRelationInput!]
-    cursor: ResumeSavedByEmployerWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ResumeSavedByEmployerScalarFieldEnum!]
-  ): ResumeSavedByEmployer
-  resumeSavedByEmployers(
-    where: ResumeSavedByEmployerWhereInput
-    orderBy: [ResumeSavedByEmployerOrderByWithRelationInput!]
-    cursor: ResumeSavedByEmployerWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ResumeSavedByEmployerScalarFieldEnum!]
-  ): [ResumeSavedByEmployer!]!
+  groupByResume(where: ResumeWhereInput, orderBy: [ResumeOrderByWithAggregationInput!], by: [ResumeScalarFieldEnum!]!, having: ResumeScalarWhereWithAggregatesInput, take: Int, skip: Int): [ResumeGroupBy!]!
+  aggregateResumeSavedByEmployer(where: ResumeSavedByEmployerWhereInput, orderBy: [ResumeSavedByEmployerOrderByWithRelationInput!], cursor: ResumeSavedByEmployerWhereUniqueInput, take: Int, skip: Int): AggregateResumeSavedByEmployer!
+  findFirstResumeSavedByEmployer(where: ResumeSavedByEmployerWhereInput, orderBy: [ResumeSavedByEmployerOrderByWithRelationInput!], cursor: ResumeSavedByEmployerWhereUniqueInput, take: Int, skip: Int, distinct: [ResumeSavedByEmployerScalarFieldEnum!]): ResumeSavedByEmployer
+  resumeSavedByEmployers(where: ResumeSavedByEmployerWhereInput, orderBy: [ResumeSavedByEmployerOrderByWithRelationInput!], cursor: ResumeSavedByEmployerWhereUniqueInput, take: Int, skip: Int, distinct: [ResumeSavedByEmployerScalarFieldEnum!]): [ResumeSavedByEmployer!]!
   resumeSavedByEmployer(where: ResumeSavedByEmployerWhereUniqueInput!): ResumeSavedByEmployer
-  groupByResumeSavedByEmployer(
-    where: ResumeSavedByEmployerWhereInput
-    orderBy: [ResumeSavedByEmployerOrderByWithAggregationInput!]
-    by: [ResumeSavedByEmployerScalarFieldEnum!]!
-    having: ResumeSavedByEmployerScalarWhereWithAggregatesInput
-    take: Int
-    skip: Int
-  ): [ResumeSavedByEmployerGroupBy!]!
-  aggregateUser(
-    where: UserWhereInput
-    orderBy: [UserOrderByWithRelationInput!]
-    cursor: UserWhereUniqueInput
-    take: Int
-    skip: Int
-  ): AggregateUser!
-  findFirstUser(
-    where: UserWhereInput
-    orderBy: [UserOrderByWithRelationInput!]
-    cursor: UserWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [UserScalarFieldEnum!]
-  ): User
-  users(
-    where: UserWhereInput
-    orderBy: [UserOrderByWithRelationInput!]
-    cursor: UserWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [UserScalarFieldEnum!]
-  ): [User!]!
+  groupByResumeSavedByEmployer(where: ResumeSavedByEmployerWhereInput, orderBy: [ResumeSavedByEmployerOrderByWithAggregationInput!], by: [ResumeSavedByEmployerScalarFieldEnum!]!, having: ResumeSavedByEmployerScalarWhereWithAggregatesInput, take: Int, skip: Int): [ResumeSavedByEmployerGroupBy!]!
+  aggregateUser(where: UserWhereInput, orderBy: [UserOrderByWithRelationInput!], cursor: UserWhereUniqueInput, take: Int, skip: Int): AggregateUser!
+  findFirstUser(where: UserWhereInput, orderBy: [UserOrderByWithRelationInput!], cursor: UserWhereUniqueInput, take: Int, skip: Int, distinct: [UserScalarFieldEnum!]): User
+  users(where: UserWhereInput, orderBy: [UserOrderByWithRelationInput!], cursor: UserWhereUniqueInput, take: Int, skip: Int, distinct: [UserScalarFieldEnum!]): [User!]!
   user(where: UserWhereUniqueInput!): User
-  groupByUser(
-    where: UserWhereInput
-    orderBy: [UserOrderByWithAggregationInput!]
-    by: [UserScalarFieldEnum!]!
-    having: UserScalarWhereWithAggregatesInput
-    take: Int
-    skip: Int
-  ): [UserGroupBy!]!
-  aggregateVacancy(
-    where: VacancyWhereInput
-    orderBy: [VacancyOrderByWithRelationInput!]
-    cursor: VacancyWhereUniqueInput
-    take: Int
-    skip: Int
-  ): AggregateVacancy!
-  findFirstVacancy(
-    where: VacancyWhereInput
-    orderBy: [VacancyOrderByWithRelationInput!]
-    cursor: VacancyWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [VacancyScalarFieldEnum!]
-  ): Vacancy
-  vacancies(
-    where: VacancyWhereInput
-    orderBy: [VacancyOrderByWithRelationInput!]
-    cursor: VacancyWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [VacancyScalarFieldEnum!]
-  ): [Vacancy!]!
+  groupByUser(where: UserWhereInput, orderBy: [UserOrderByWithAggregationInput!], by: [UserScalarFieldEnum!]!, having: UserScalarWhereWithAggregatesInput, take: Int, skip: Int): [UserGroupBy!]!
+  aggregateVacancy(where: VacancyWhereInput, orderBy: [VacancyOrderByWithRelationInput!], cursor: VacancyWhereUniqueInput, take: Int, skip: Int): AggregateVacancy!
+  findFirstVacancy(where: VacancyWhereInput, orderBy: [VacancyOrderByWithRelationInput!], cursor: VacancyWhereUniqueInput, take: Int, skip: Int, distinct: [VacancyScalarFieldEnum!]): Vacancy
+  vacancies(where: VacancyWhereInput, orderBy: [VacancyOrderByWithRelationInput!], cursor: VacancyWhereUniqueInput, take: Int, skip: Int, distinct: [VacancyScalarFieldEnum!]): [Vacancy!]!
   vacancy(where: VacancyWhereUniqueInput!): Vacancy
-  groupByVacancy(
-    where: VacancyWhereInput
-    orderBy: [VacancyOrderByWithAggregationInput!]
-    by: [VacancyScalarFieldEnum!]!
-    having: VacancyScalarWhereWithAggregatesInput
-    take: Int
-    skip: Int
-  ): [VacancyGroupBy!]!
-  aggregateVacancySavedByApplicant(
-    where: VacancySavedByApplicantWhereInput
-    orderBy: [VacancySavedByApplicantOrderByWithRelationInput!]
-    cursor: VacancySavedByApplicantWhereUniqueInput
-    take: Int
-    skip: Int
-  ): AggregateVacancySavedByApplicant!
-  findFirstVacancySavedByApplicant(
-    where: VacancySavedByApplicantWhereInput
-    orderBy: [VacancySavedByApplicantOrderByWithRelationInput!]
-    cursor: VacancySavedByApplicantWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [VacancySavedByApplicantScalarFieldEnum!]
-  ): VacancySavedByApplicant
-  vacancySavedByApplicants(
-    where: VacancySavedByApplicantWhereInput
-    orderBy: [VacancySavedByApplicantOrderByWithRelationInput!]
-    cursor: VacancySavedByApplicantWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [VacancySavedByApplicantScalarFieldEnum!]
-  ): [VacancySavedByApplicant!]!
+  groupByVacancy(where: VacancyWhereInput, orderBy: [VacancyOrderByWithAggregationInput!], by: [VacancyScalarFieldEnum!]!, having: VacancyScalarWhereWithAggregatesInput, take: Int, skip: Int): [VacancyGroupBy!]!
+  aggregateVacancySavedByApplicant(where: VacancySavedByApplicantWhereInput, orderBy: [VacancySavedByApplicantOrderByWithRelationInput!], cursor: VacancySavedByApplicantWhereUniqueInput, take: Int, skip: Int): AggregateVacancySavedByApplicant!
+  findFirstVacancySavedByApplicant(where: VacancySavedByApplicantWhereInput, orderBy: [VacancySavedByApplicantOrderByWithRelationInput!], cursor: VacancySavedByApplicantWhereUniqueInput, take: Int, skip: Int, distinct: [VacancySavedByApplicantScalarFieldEnum!]): VacancySavedByApplicant
+  vacancySavedByApplicants(where: VacancySavedByApplicantWhereInput, orderBy: [VacancySavedByApplicantOrderByWithRelationInput!], cursor: VacancySavedByApplicantWhereUniqueInput, take: Int, skip: Int, distinct: [VacancySavedByApplicantScalarFieldEnum!]): [VacancySavedByApplicant!]!
   vacancySavedByApplicant(where: VacancySavedByApplicantWhereUniqueInput!): VacancySavedByApplicant
-  groupByVacancySavedByApplicant(
-    where: VacancySavedByApplicantWhereInput
-    orderBy: [VacancySavedByApplicantOrderByWithAggregationInput!]
-    by: [VacancySavedByApplicantScalarFieldEnum!]!
-    having: VacancySavedByApplicantScalarWhereWithAggregatesInput
-    take: Int
-    skip: Int
-  ): [VacancySavedByApplicantGroupBy!]!
+  groupByVacancySavedByApplicant(where: VacancySavedByApplicantWhereInput, orderBy: [VacancySavedByApplicantOrderByWithAggregationInput!], by: [VacancySavedByApplicantScalarFieldEnum!]!, having: VacancySavedByApplicantScalarWhereWithAggregatesInput, take: Int, skip: Int): [VacancySavedByApplicantGroupBy!]!
   checkIsAuthenticated: CheckAuthenticatedOutput!
 }
 
@@ -749,8 +408,6 @@ input UserWhereInput {
   applicantProfile: ApplicantProfileRelationFilter
   employerProfile: EmployerProfileRelationFilter
   chatWithAdmin: AdminChatRelationFilter
-  chatsWithFirstUsers: ChatListRelationFilter
-  chatsWithSecondUsers: ChatListRelationFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
 }
@@ -788,6 +445,7 @@ input ApplicantProfileWhereInput {
   savedVacancies: VacancySavedByApplicantListRelationFilter
   user: UserRelationFilter
   userId: StringFilter
+  chats: ChatListRelationFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
 }
@@ -817,6 +475,8 @@ input ResumeWhereInput {
   applicantProfile: ApplicantProfileRelationFilter
   applicantProfileId: StringFilter
   savedBy: ResumeSavedByEmployerListRelationFilter
+  responses: ResponseToVacancyListRelationFilter
+  invitations: InvitationToVacancyListRelationFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
 }
@@ -904,6 +564,7 @@ input EmployerProfileWhereInput {
   user: UserRelationFilter
   userId: StringFilter
   vacancies: VacancyListRelationFilter
+  chats: ChatListRelationFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
 }
@@ -935,6 +596,8 @@ input VacancyWhereInput {
   archived: BoolFilter
   archivedReason: StringNullableFilter
   savedBy: VacancySavedByApplicantListRelationFilter
+  responses: ResponseToVacancyListRelationFilter
+  invitations: InvitationToVacancyListRelationFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
 }
@@ -961,9 +624,44 @@ input VacancyRelationFilter {
   isNot: VacancyWhereInput
 }
 
-input AdminChatRelationFilter {
-  is: AdminChatWhereInput
-  isNot: AdminChatWhereInput
+input ResponseToVacancyListRelationFilter {
+  every: ResponseToVacancyWhereInput
+  some: ResponseToVacancyWhereInput
+  none: ResponseToVacancyWhereInput
+}
+
+input ResponseToVacancyWhereInput {
+  AND: [ResponseToVacancyWhereInput!]
+  OR: [ResponseToVacancyWhereInput!]
+  NOT: [ResponseToVacancyWhereInput!]
+  id: StringFilter
+  vacancy: VacancyRelationFilter
+  vacancyId: StringFilter
+  resume: ResumeRelationFilter
+  resumeId: StringFilter
+  viewed: BoolFilter
+  coverLetter: StringNullableFilter
+  createdAt: DateTimeFilter
+}
+
+input InvitationToVacancyListRelationFilter {
+  every: InvitationToVacancyWhereInput
+  some: InvitationToVacancyWhereInput
+  none: InvitationToVacancyWhereInput
+}
+
+input InvitationToVacancyWhereInput {
+  AND: [InvitationToVacancyWhereInput!]
+  OR: [InvitationToVacancyWhereInput!]
+  NOT: [InvitationToVacancyWhereInput!]
+  id: StringFilter
+  vacancy: VacancyRelationFilter
+  vacancyId: StringFilter
+  resume: ResumeRelationFilter
+  resumeId: StringFilter
+  viewed: BoolFilter
+  coverLetter: StringNullableFilter
+  createdAt: DateTimeFilter
 }
 
 input ChatListRelationFilter {
@@ -977,12 +675,12 @@ input ChatWhereInput {
   OR: [ChatWhereInput!]
   NOT: [ChatWhereInput!]
   id: StringFilter
-  firstUser: UserRelationFilter
-  firstUserId: StringFilter
-  secondUser: UserRelationFilter
-  secondUserId: StringFilter
-  viewedByFirst: BoolFilter
-  viewedBySecond: BoolFilter
+  employer: EmployerProfileRelationFilter
+  employerId: StringFilter
+  applicant: ApplicantProfileRelationFilter
+  applicantId: StringFilter
+  viewedByApplicant: BoolFilter
+  viewedByEmployer: BoolFilter
   messages: ChatMessageListRelationFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
@@ -1002,12 +700,18 @@ input ChatMessageWhereInput {
   chat: ChatRelationFilter
   chatId: StringFilter
   message: StringFilter
+  sender: EnumUserRoleFilter
   createdAt: DateTimeFilter
 }
 
 input ChatRelationFilter {
   is: ChatWhereInput
   isNot: ChatWhereInput
+}
+
+input AdminChatRelationFilter {
+  is: AdminChatWhereInput
+  isNot: AdminChatWhereInput
 }
 
 input AdminChatMessageListRelationFilter {
@@ -1045,8 +749,6 @@ input UserOrderByWithRelationInput {
   applicantProfile: ApplicantProfileOrderByWithRelationInput
   employerProfile: EmployerProfileOrderByWithRelationInput
   chatWithAdmin: AdminChatOrderByWithRelationInput
-  chatsWithFirstUsers: ChatOrderByRelationAggregateInput
-  chatsWithSecondUsers: ChatOrderByRelationAggregateInput
   createdAt: SortOrder
   updatedAt: SortOrder
 }
@@ -1057,6 +759,7 @@ input ApplicantProfileOrderByWithRelationInput {
   savedVacancies: VacancySavedByApplicantOrderByRelationAggregateInput
   user: UserOrderByWithRelationInput
   userId: SortOrder
+  chats: ChatOrderByRelationAggregateInput
   createdAt: SortOrder
   updatedAt: SortOrder
 }
@@ -1078,6 +781,8 @@ input ResumeOrderByWithRelationInput {
   applicantProfile: ApplicantProfileOrderByWithRelationInput
   applicantProfileId: SortOrder
   savedBy: ResumeSavedByEmployerOrderByRelationAggregateInput
+  responses: ResponseToVacancyOrderByRelationAggregateInput
+  invitations: InvitationToVacancyOrderByRelationAggregateInput
   createdAt: SortOrder
   updatedAt: SortOrder
 }
@@ -1086,7 +791,19 @@ input ResumeSavedByEmployerOrderByRelationAggregateInput {
   _count: SortOrder
 }
 
+input ResponseToVacancyOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input InvitationToVacancyOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
 input VacancySavedByApplicantOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input ChatOrderByRelationAggregateInput {
   _count: SortOrder
 }
 
@@ -1098,15 +815,12 @@ input EmployerProfileOrderByWithRelationInput {
   user: UserOrderByWithRelationInput
   userId: SortOrder
   vacancies: VacancyOrderByRelationAggregateInput
+  chats: ChatOrderByRelationAggregateInput
   createdAt: SortOrder
   updatedAt: SortOrder
 }
 
 input VacancyOrderByRelationAggregateInput {
-  _count: SortOrder
-}
-
-input ChatOrderByRelationAggregateInput {
   _count: SortOrder
 }
 
@@ -1128,14 +842,7 @@ type AdminChat {
   updatedAt: DateTime!
   _count: AdminChatCount
   user: User!
-  messages(
-    where: AdminChatMessageWhereInput
-    orderBy: [AdminChatMessageOrderByWithRelationInput!]
-    cursor: AdminChatMessageWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [AdminChatMessageScalarFieldEnum!]
-  ): [AdminChatMessage!]!
+  messages(where: AdminChatMessageWhereInput, orderBy: [AdminChatMessageOrderByWithRelationInput!], cursor: AdminChatMessageWhereUniqueInput, take: Int, skip: Int, distinct: [AdminChatMessageScalarFieldEnum!]): [AdminChatMessage!]!
 }
 
 type AdminChatCount {
@@ -1148,31 +855,9 @@ type User {
   role: UserRole!
   createdAt: DateTime!
   updatedAt: DateTime!
-  _count: UserCount
   applicantProfile: ApplicantProfile
   employerProfile: EmployerProfile
   chatWithAdmin: AdminChat
-  chatsWithFirstUsers(
-    where: ChatWhereInput
-    orderBy: [ChatOrderByWithRelationInput!]
-    cursor: ChatWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ChatScalarFieldEnum!]
-  ): [Chat!]!
-  chatsWithSecondUsers(
-    where: ChatWhereInput
-    orderBy: [ChatOrderByWithRelationInput!]
-    cursor: ChatWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ChatScalarFieldEnum!]
-  ): [Chat!]!
-}
-
-type UserCount {
-  chatsWithFirstUsers: Int!
-  chatsWithSecondUsers: Int!
 }
 
 type ApplicantProfile {
@@ -1182,19 +867,14 @@ type ApplicantProfile {
   updatedAt: DateTime!
   _count: ApplicantProfileCount
   resume: Resume
-  savedVacancies(
-    where: VacancySavedByApplicantWhereInput
-    orderBy: [VacancySavedByApplicantOrderByWithRelationInput!]
-    cursor: VacancySavedByApplicantWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [VacancySavedByApplicantScalarFieldEnum!]
-  ): [VacancySavedByApplicant!]!
+  savedVacancies(where: VacancySavedByApplicantWhereInput, orderBy: [VacancySavedByApplicantOrderByWithRelationInput!], cursor: VacancySavedByApplicantWhereUniqueInput, take: Int, skip: Int, distinct: [VacancySavedByApplicantScalarFieldEnum!]): [VacancySavedByApplicant!]!
   user: User!
+  chats(where: ChatWhereInput, orderBy: [ChatOrderByWithRelationInput!], cursor: ChatWhereUniqueInput, take: Int, skip: Int, distinct: [ChatScalarFieldEnum!]): [Chat!]!
 }
 
 type ApplicantProfileCount {
   savedVacancies: Int!
+  chats: Int!
 }
 
 type Resume {
@@ -1216,18 +896,15 @@ type Resume {
   updatedAt: DateTime!
   _count: ResumeCount
   applicantProfile: ApplicantProfile!
-  savedBy(
-    where: ResumeSavedByEmployerWhereInput
-    orderBy: [ResumeSavedByEmployerOrderByWithRelationInput!]
-    cursor: ResumeSavedByEmployerWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ResumeSavedByEmployerScalarFieldEnum!]
-  ): [ResumeSavedByEmployer!]!
+  savedBy(where: ResumeSavedByEmployerWhereInput, orderBy: [ResumeSavedByEmployerOrderByWithRelationInput!], cursor: ResumeSavedByEmployerWhereUniqueInput, take: Int, skip: Int, distinct: [ResumeSavedByEmployerScalarFieldEnum!]): [ResumeSavedByEmployer!]!
+  responses(where: ResponseToVacancyWhereInput, orderBy: [ResponseToVacancyOrderByWithRelationInput!], cursor: ResponseToVacancyWhereUniqueInput, take: Int, skip: Int, distinct: [ResponseToVacancyScalarFieldEnum!]): [ResponseToVacancy!]!
+  invitations(where: InvitationToVacancyWhereInput, orderBy: [InvitationToVacancyOrderByWithRelationInput!], cursor: InvitationToVacancyWhereUniqueInput, take: Int, skip: Int, distinct: [InvitationToVacancyScalarFieldEnum!]): [InvitationToVacancy!]!
 }
 
 type ResumeCount {
   savedBy: Int!
+  responses: Int!
+  invitations: Int!
 }
 
 type ResumeSavedByEmployer {
@@ -1246,28 +923,16 @@ type EmployerProfile {
   createdAt: DateTime!
   updatedAt: DateTime!
   _count: EmployerProfileCount
-  savedResumes(
-    where: ResumeSavedByEmployerWhereInput
-    orderBy: [ResumeSavedByEmployerOrderByWithRelationInput!]
-    cursor: ResumeSavedByEmployerWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ResumeSavedByEmployerScalarFieldEnum!]
-  ): [ResumeSavedByEmployer!]!
+  savedResumes(where: ResumeSavedByEmployerWhereInput, orderBy: [ResumeSavedByEmployerOrderByWithRelationInput!], cursor: ResumeSavedByEmployerWhereUniqueInput, take: Int, skip: Int, distinct: [ResumeSavedByEmployerScalarFieldEnum!]): [ResumeSavedByEmployer!]!
   user: User!
-  vacancies(
-    where: VacancyWhereInput
-    orderBy: [VacancyOrderByWithRelationInput!]
-    cursor: VacancyWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [VacancyScalarFieldEnum!]
-  ): [Vacancy!]!
+  vacancies(where: VacancyWhereInput, orderBy: [VacancyOrderByWithRelationInput!], cursor: VacancyWhereUniqueInput, take: Int, skip: Int, distinct: [VacancyScalarFieldEnum!]): [Vacancy!]!
+  chats(where: ChatWhereInput, orderBy: [ChatOrderByWithRelationInput!], cursor: ChatWhereUniqueInput, take: Int, skip: Int, distinct: [ChatScalarFieldEnum!]): [Chat!]!
 }
 
 type EmployerProfileCount {
   savedResumes: Int!
   vacancies: Int!
+  chats: Int!
 }
 
 input ResumeSavedByEmployerOrderByWithRelationInput {
@@ -1313,18 +978,15 @@ type Vacancy {
   updatedAt: DateTime!
   _count: VacancyCount
   employer: EmployerProfile!
-  savedBy(
-    where: VacancySavedByApplicantWhereInput
-    orderBy: [VacancySavedByApplicantOrderByWithRelationInput!]
-    cursor: VacancySavedByApplicantWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [VacancySavedByApplicantScalarFieldEnum!]
-  ): [VacancySavedByApplicant!]!
+  savedBy(where: VacancySavedByApplicantWhereInput, orderBy: [VacancySavedByApplicantOrderByWithRelationInput!], cursor: VacancySavedByApplicantWhereUniqueInput, take: Int, skip: Int, distinct: [VacancySavedByApplicantScalarFieldEnum!]): [VacancySavedByApplicant!]!
+  responses(where: ResponseToVacancyWhereInput, orderBy: [ResponseToVacancyOrderByWithRelationInput!], cursor: ResponseToVacancyWhereUniqueInput, take: Int, skip: Int, distinct: [ResponseToVacancyScalarFieldEnum!]): [ResponseToVacancy!]!
+  invitations(where: InvitationToVacancyWhereInput, orderBy: [InvitationToVacancyOrderByWithRelationInput!], cursor: InvitationToVacancyWhereUniqueInput, take: Int, skip: Int, distinct: [InvitationToVacancyScalarFieldEnum!]): [InvitationToVacancy!]!
 }
 
 type VacancyCount {
   savedBy: Int!
+  responses: Int!
+  invitations: Int!
 }
 
 type VacancySavedByApplicant {
@@ -1361,6 +1023,8 @@ input VacancyOrderByWithRelationInput {
   archived: SortOrder
   archivedReason: SortOrder
   savedBy: VacancySavedByApplicantOrderByRelationAggregateInput
+  responses: ResponseToVacancyOrderByRelationAggregateInput
+  invitations: InvitationToVacancyOrderByRelationAggregateInput
   createdAt: SortOrder
   updatedAt: SortOrder
 }
@@ -1378,6 +1042,76 @@ enum VacancySavedByApplicantScalarFieldEnum {
   applicantProfileId
   vacancyId
   assignedAt
+}
+
+type ResponseToVacancy {
+  id: String!
+  vacancyId: String!
+  resumeId: String!
+  viewed: Boolean!
+  coverLetter: String
+  createdAt: DateTime!
+  vacancy: Vacancy!
+  resume: Resume!
+}
+
+input ResponseToVacancyOrderByWithRelationInput {
+  id: SortOrder
+  vacancy: VacancyOrderByWithRelationInput
+  vacancyId: SortOrder
+  resume: ResumeOrderByWithRelationInput
+  resumeId: SortOrder
+  viewed: SortOrder
+  coverLetter: SortOrder
+  createdAt: SortOrder
+}
+
+input ResponseToVacancyWhereUniqueInput {
+  id: String
+}
+
+enum ResponseToVacancyScalarFieldEnum {
+  id
+  vacancyId
+  resumeId
+  viewed
+  coverLetter
+  createdAt
+}
+
+type InvitationToVacancy {
+  id: String!
+  vacancyId: String!
+  resumeId: String!
+  viewed: Boolean!
+  coverLetter: String
+  createdAt: DateTime!
+  vacancy: Vacancy!
+  resume: Resume!
+}
+
+input InvitationToVacancyOrderByWithRelationInput {
+  id: SortOrder
+  vacancy: VacancyOrderByWithRelationInput
+  vacancyId: SortOrder
+  resume: ResumeOrderByWithRelationInput
+  resumeId: SortOrder
+  viewed: SortOrder
+  coverLetter: SortOrder
+  createdAt: SortOrder
+}
+
+input InvitationToVacancyWhereUniqueInput {
+  id: String
+}
+
+enum InvitationToVacancyScalarFieldEnum {
+  id
+  vacancyId
+  resumeId
+  viewed
+  coverLetter
+  createdAt
 }
 
 input VacancyWhereUniqueInput {
@@ -1406,23 +1140,16 @@ enum VacancyScalarFieldEnum {
 
 type Chat {
   id: String!
-  firstUserId: String!
-  secondUserId: String!
-  viewedByFirst: Boolean!
-  viewedBySecond: Boolean!
+  employerId: String!
+  applicantId: String!
+  viewedByApplicant: Boolean!
+  viewedByEmployer: Boolean!
   createdAt: DateTime!
   updatedAt: DateTime!
   _count: ChatCount
-  firstUser: User!
-  secondUser: User!
-  messages(
-    where: ChatMessageWhereInput
-    orderBy: [ChatMessageOrderByWithRelationInput!]
-    cursor: ChatMessageWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ChatMessageScalarFieldEnum!]
-  ): [ChatMessage!]!
+  employer: EmployerProfile!
+  applicant: ApplicantProfile!
+  messages(where: ChatMessageWhereInput, orderBy: [ChatMessageOrderByWithRelationInput!], cursor: ChatMessageWhereUniqueInput, take: Int, skip: Int, distinct: [ChatMessageScalarFieldEnum!]): [ChatMessage!]!
 }
 
 type ChatCount {
@@ -1433,6 +1160,7 @@ type ChatMessage {
   id: String!
   chatId: String!
   message: String!
+  sender: UserRole!
   createdAt: DateTime!
   chat: Chat!
 }
@@ -1442,17 +1170,18 @@ input ChatMessageOrderByWithRelationInput {
   chat: ChatOrderByWithRelationInput
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
 }
 
 input ChatOrderByWithRelationInput {
   id: SortOrder
-  firstUser: UserOrderByWithRelationInput
-  firstUserId: SortOrder
-  secondUser: UserOrderByWithRelationInput
-  secondUserId: SortOrder
-  viewedByFirst: SortOrder
-  viewedBySecond: SortOrder
+  employer: EmployerProfileOrderByWithRelationInput
+  employerId: SortOrder
+  applicant: ApplicantProfileOrderByWithRelationInput
+  applicantId: SortOrder
+  viewedByApplicant: SortOrder
+  viewedByEmployer: SortOrder
   messages: ChatMessageOrderByRelationAggregateInput
   createdAt: SortOrder
   updatedAt: SortOrder
@@ -1470,19 +1199,26 @@ enum ChatMessageScalarFieldEnum {
   id
   chatId
   message
+  sender
   createdAt
 }
 
 input ChatWhereUniqueInput {
   id: String
+  employerId_applicantId: ChatEmployerIdApplicantIdCompoundUniqueInput
+}
+
+input ChatEmployerIdApplicantIdCompoundUniqueInput {
+  employerId: String!
+  applicantId: String!
 }
 
 enum ChatScalarFieldEnum {
   id
-  firstUserId
-  secondUserId
-  viewedByFirst
-  viewedBySecond
+  employerId
+  applicantId
+  viewedByApplicant
+  viewedByEmployer
   createdAt
   updatedAt
 }
@@ -1985,10 +1721,10 @@ type AggregateChat {
 
 type ChatCountAggregate {
   id: Int!
-  firstUserId: Int!
-  secondUserId: Int!
-  viewedByFirst: Int!
-  viewedBySecond: Int!
+  employerId: Int!
+  applicantId: Int!
+  viewedByApplicant: Int!
+  viewedByEmployer: Int!
   createdAt: Int!
   updatedAt: Int!
   _all: Int!
@@ -1996,30 +1732,30 @@ type ChatCountAggregate {
 
 type ChatMinAggregate {
   id: String
-  firstUserId: String
-  secondUserId: String
-  viewedByFirst: Boolean
-  viewedBySecond: Boolean
+  employerId: String
+  applicantId: String
+  viewedByApplicant: Boolean
+  viewedByEmployer: Boolean
   createdAt: DateTime
   updatedAt: DateTime
 }
 
 type ChatMaxAggregate {
   id: String
-  firstUserId: String
-  secondUserId: String
-  viewedByFirst: Boolean
-  viewedBySecond: Boolean
+  employerId: String
+  applicantId: String
+  viewedByApplicant: Boolean
+  viewedByEmployer: Boolean
   createdAt: DateTime
   updatedAt: DateTime
 }
 
 type ChatGroupBy {
   id: String!
-  firstUserId: String!
-  secondUserId: String!
-  viewedByFirst: Boolean!
-  viewedBySecond: Boolean!
+  employerId: String!
+  applicantId: String!
+  viewedByApplicant: Boolean!
+  viewedByEmployer: Boolean!
   createdAt: DateTime!
   updatedAt: DateTime!
   _count: ChatCountAggregate
@@ -2029,10 +1765,10 @@ type ChatGroupBy {
 
 input ChatOrderByWithAggregationInput {
   id: SortOrder
-  firstUserId: SortOrder
-  secondUserId: SortOrder
-  viewedByFirst: SortOrder
-  viewedBySecond: SortOrder
+  employerId: SortOrder
+  applicantId: SortOrder
+  viewedByApplicant: SortOrder
+  viewedByEmployer: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
   _count: ChatCountOrderByAggregateInput
@@ -2042,30 +1778,30 @@ input ChatOrderByWithAggregationInput {
 
 input ChatCountOrderByAggregateInput {
   id: SortOrder
-  firstUserId: SortOrder
-  secondUserId: SortOrder
-  viewedByFirst: SortOrder
-  viewedBySecond: SortOrder
+  employerId: SortOrder
+  applicantId: SortOrder
+  viewedByApplicant: SortOrder
+  viewedByEmployer: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
 }
 
 input ChatMaxOrderByAggregateInput {
   id: SortOrder
-  firstUserId: SortOrder
-  secondUserId: SortOrder
-  viewedByFirst: SortOrder
-  viewedBySecond: SortOrder
+  employerId: SortOrder
+  applicantId: SortOrder
+  viewedByApplicant: SortOrder
+  viewedByEmployer: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
 }
 
 input ChatMinOrderByAggregateInput {
   id: SortOrder
-  firstUserId: SortOrder
-  secondUserId: SortOrder
-  viewedByFirst: SortOrder
-  viewedBySecond: SortOrder
+  employerId: SortOrder
+  applicantId: SortOrder
+  viewedByApplicant: SortOrder
+  viewedByEmployer: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
 }
@@ -2075,10 +1811,10 @@ input ChatScalarWhereWithAggregatesInput {
   OR: [ChatScalarWhereWithAggregatesInput!]
   NOT: [ChatScalarWhereWithAggregatesInput!]
   id: StringWithAggregatesFilter
-  firstUserId: StringWithAggregatesFilter
-  secondUserId: StringWithAggregatesFilter
-  viewedByFirst: BoolWithAggregatesFilter
-  viewedBySecond: BoolWithAggregatesFilter
+  employerId: StringWithAggregatesFilter
+  applicantId: StringWithAggregatesFilter
+  viewedByApplicant: BoolWithAggregatesFilter
+  viewedByEmployer: BoolWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
   updatedAt: DateTimeWithAggregatesFilter
 }
@@ -2093,6 +1829,7 @@ type ChatMessageCountAggregate {
   id: Int!
   chatId: Int!
   message: Int!
+  sender: Int!
   createdAt: Int!
   _all: Int!
 }
@@ -2101,6 +1838,7 @@ type ChatMessageMinAggregate {
   id: String
   chatId: String
   message: String
+  sender: UserRole
   createdAt: DateTime
 }
 
@@ -2108,6 +1846,7 @@ type ChatMessageMaxAggregate {
   id: String
   chatId: String
   message: String
+  sender: UserRole
   createdAt: DateTime
 }
 
@@ -2115,6 +1854,7 @@ type ChatMessageGroupBy {
   id: String!
   chatId: String!
   message: String!
+  sender: UserRole!
   createdAt: DateTime!
   _count: ChatMessageCountAggregate
   _min: ChatMessageMinAggregate
@@ -2125,6 +1865,7 @@ input ChatMessageOrderByWithAggregationInput {
   id: SortOrder
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
   _count: ChatMessageCountOrderByAggregateInput
   _max: ChatMessageMaxOrderByAggregateInput
@@ -2135,6 +1876,7 @@ input ChatMessageCountOrderByAggregateInput {
   id: SortOrder
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
 }
 
@@ -2142,6 +1884,7 @@ input ChatMessageMaxOrderByAggregateInput {
   id: SortOrder
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
 }
 
@@ -2149,6 +1892,7 @@ input ChatMessageMinOrderByAggregateInput {
   id: SortOrder
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
 }
 
@@ -2159,7 +1903,28 @@ input ChatMessageScalarWhereWithAggregatesInput {
   id: StringWithAggregatesFilter
   chatId: StringWithAggregatesFilter
   message: StringWithAggregatesFilter
+  sender: EnumUserRoleWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
+}
+
+input EnumUserRoleWithAggregatesFilter {
+  equals: UserRole
+  in: [UserRole!]
+  notIn: [UserRole!]
+  not: NestedEnumUserRoleWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumUserRoleFilter
+  _max: NestedEnumUserRoleFilter
+}
+
+input NestedEnumUserRoleWithAggregatesFilter {
+  equals: UserRole
+  in: [UserRole!]
+  notIn: [UserRole!]
+  not: NestedEnumUserRoleWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumUserRoleFilter
+  _max: NestedEnumUserRoleFilter
 }
 
 type AggregateEmployerProfile {
@@ -2271,6 +2036,246 @@ input EmployerProfileScalarWhereWithAggregatesInput {
   userId: StringWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
   updatedAt: DateTimeWithAggregatesFilter
+}
+
+type AggregateInvitationToVacancy {
+  _count: InvitationToVacancyCountAggregate
+  _min: InvitationToVacancyMinAggregate
+  _max: InvitationToVacancyMaxAggregate
+}
+
+type InvitationToVacancyCountAggregate {
+  id: Int!
+  vacancyId: Int!
+  resumeId: Int!
+  viewed: Int!
+  coverLetter: Int!
+  createdAt: Int!
+  _all: Int!
+}
+
+type InvitationToVacancyMinAggregate {
+  id: String
+  vacancyId: String
+  resumeId: String
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+type InvitationToVacancyMaxAggregate {
+  id: String
+  vacancyId: String
+  resumeId: String
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+type InvitationToVacancyGroupBy {
+  id: String!
+  vacancyId: String!
+  resumeId: String!
+  viewed: Boolean!
+  coverLetter: String
+  createdAt: DateTime!
+  _count: InvitationToVacancyCountAggregate
+  _min: InvitationToVacancyMinAggregate
+  _max: InvitationToVacancyMaxAggregate
+}
+
+input InvitationToVacancyOrderByWithAggregationInput {
+  id: SortOrder
+  vacancyId: SortOrder
+  resumeId: SortOrder
+  viewed: SortOrder
+  coverLetter: SortOrder
+  createdAt: SortOrder
+  _count: InvitationToVacancyCountOrderByAggregateInput
+  _max: InvitationToVacancyMaxOrderByAggregateInput
+  _min: InvitationToVacancyMinOrderByAggregateInput
+}
+
+input InvitationToVacancyCountOrderByAggregateInput {
+  id: SortOrder
+  vacancyId: SortOrder
+  resumeId: SortOrder
+  viewed: SortOrder
+  coverLetter: SortOrder
+  createdAt: SortOrder
+}
+
+input InvitationToVacancyMaxOrderByAggregateInput {
+  id: SortOrder
+  vacancyId: SortOrder
+  resumeId: SortOrder
+  viewed: SortOrder
+  coverLetter: SortOrder
+  createdAt: SortOrder
+}
+
+input InvitationToVacancyMinOrderByAggregateInput {
+  id: SortOrder
+  vacancyId: SortOrder
+  resumeId: SortOrder
+  viewed: SortOrder
+  coverLetter: SortOrder
+  createdAt: SortOrder
+}
+
+input InvitationToVacancyScalarWhereWithAggregatesInput {
+  AND: [InvitationToVacancyScalarWhereWithAggregatesInput!]
+  OR: [InvitationToVacancyScalarWhereWithAggregatesInput!]
+  NOT: [InvitationToVacancyScalarWhereWithAggregatesInput!]
+  id: StringWithAggregatesFilter
+  vacancyId: StringWithAggregatesFilter
+  resumeId: StringWithAggregatesFilter
+  viewed: BoolWithAggregatesFilter
+  coverLetter: StringNullableWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
+}
+
+input StringNullableWithAggregatesFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  mode: QueryMode
+  not: NestedStringNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _min: NestedStringNullableFilter
+  _max: NestedStringNullableFilter
+}
+
+input NestedStringNullableWithAggregatesFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _min: NestedStringNullableFilter
+  _max: NestedStringNullableFilter
+}
+
+input NestedIntNullableFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntNullableFilter
+}
+
+type AggregateResponseToVacancy {
+  _count: ResponseToVacancyCountAggregate
+  _min: ResponseToVacancyMinAggregate
+  _max: ResponseToVacancyMaxAggregate
+}
+
+type ResponseToVacancyCountAggregate {
+  id: Int!
+  vacancyId: Int!
+  resumeId: Int!
+  viewed: Int!
+  coverLetter: Int!
+  createdAt: Int!
+  _all: Int!
+}
+
+type ResponseToVacancyMinAggregate {
+  id: String
+  vacancyId: String
+  resumeId: String
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+type ResponseToVacancyMaxAggregate {
+  id: String
+  vacancyId: String
+  resumeId: String
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+type ResponseToVacancyGroupBy {
+  id: String!
+  vacancyId: String!
+  resumeId: String!
+  viewed: Boolean!
+  coverLetter: String
+  createdAt: DateTime!
+  _count: ResponseToVacancyCountAggregate
+  _min: ResponseToVacancyMinAggregate
+  _max: ResponseToVacancyMaxAggregate
+}
+
+input ResponseToVacancyOrderByWithAggregationInput {
+  id: SortOrder
+  vacancyId: SortOrder
+  resumeId: SortOrder
+  viewed: SortOrder
+  coverLetter: SortOrder
+  createdAt: SortOrder
+  _count: ResponseToVacancyCountOrderByAggregateInput
+  _max: ResponseToVacancyMaxOrderByAggregateInput
+  _min: ResponseToVacancyMinOrderByAggregateInput
+}
+
+input ResponseToVacancyCountOrderByAggregateInput {
+  id: SortOrder
+  vacancyId: SortOrder
+  resumeId: SortOrder
+  viewed: SortOrder
+  coverLetter: SortOrder
+  createdAt: SortOrder
+}
+
+input ResponseToVacancyMaxOrderByAggregateInput {
+  id: SortOrder
+  vacancyId: SortOrder
+  resumeId: SortOrder
+  viewed: SortOrder
+  coverLetter: SortOrder
+  createdAt: SortOrder
+}
+
+input ResponseToVacancyMinOrderByAggregateInput {
+  id: SortOrder
+  vacancyId: SortOrder
+  resumeId: SortOrder
+  viewed: SortOrder
+  coverLetter: SortOrder
+  createdAt: SortOrder
+}
+
+input ResponseToVacancyScalarWhereWithAggregatesInput {
+  AND: [ResponseToVacancyScalarWhereWithAggregatesInput!]
+  OR: [ResponseToVacancyScalarWhereWithAggregatesInput!]
+  NOT: [ResponseToVacancyScalarWhereWithAggregatesInput!]
+  id: StringWithAggregatesFilter
+  vacancyId: StringWithAggregatesFilter
+  resumeId: StringWithAggregatesFilter
+  viewed: BoolWithAggregatesFilter
+  coverLetter: StringNullableWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
 }
 
 type AggregateResume {
@@ -2557,52 +2562,6 @@ input NestedFloatFilter {
   not: NestedFloatFilter
 }
 
-input StringNullableWithAggregatesFilter {
-  equals: String
-  in: [String!]
-  notIn: [String!]
-  lt: String
-  lte: String
-  gt: String
-  gte: String
-  contains: String
-  startsWith: String
-  endsWith: String
-  mode: QueryMode
-  not: NestedStringNullableWithAggregatesFilter
-  _count: NestedIntNullableFilter
-  _min: NestedStringNullableFilter
-  _max: NestedStringNullableFilter
-}
-
-input NestedStringNullableWithAggregatesFilter {
-  equals: String
-  in: [String!]
-  notIn: [String!]
-  lt: String
-  lte: String
-  gt: String
-  gte: String
-  contains: String
-  startsWith: String
-  endsWith: String
-  not: NestedStringNullableWithAggregatesFilter
-  _count: NestedIntNullableFilter
-  _min: NestedStringNullableFilter
-  _max: NestedStringNullableFilter
-}
-
-input NestedIntNullableFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntNullableFilter
-}
-
 type AggregateResumeSavedByEmployer {
   _count: ResumeSavedByEmployerCountAggregate
   _min: ResumeSavedByEmployerMinAggregate
@@ -2772,26 +2731,6 @@ input UserScalarWhereWithAggregatesInput {
   role: EnumUserRoleWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
   updatedAt: DateTimeWithAggregatesFilter
-}
-
-input EnumUserRoleWithAggregatesFilter {
-  equals: UserRole
-  in: [UserRole!]
-  notIn: [UserRole!]
-  not: NestedEnumUserRoleWithAggregatesFilter
-  _count: NestedIntFilter
-  _min: NestedEnumUserRoleFilter
-  _max: NestedEnumUserRoleFilter
-}
-
-input NestedEnumUserRoleWithAggregatesFilter {
-  equals: UserRole
-  in: [UserRole!]
-  notIn: [UserRole!]
-  not: NestedEnumUserRoleWithAggregatesFilter
-  _count: NestedIntFilter
-  _min: NestedEnumUserRoleFilter
-  _max: NestedEnumUserRoleFilter
 }
 
 type AggregateVacancy {
@@ -3120,22 +3059,14 @@ type Mutation {
   deleteOneAdminChatMessage(where: AdminChatMessageWhereUniqueInput!): AdminChatMessage
   updateManyAdminChatMessage(data: AdminChatMessageUpdateManyMutationInput!, where: AdminChatMessageWhereInput): AffectedRowsOutput!
   updateOneAdminChatMessage(data: AdminChatMessageUpdateInput!, where: AdminChatMessageWhereUniqueInput!): AdminChatMessage
-  upsertOneAdminChatMessage(
-    where: AdminChatMessageWhereUniqueInput!
-    create: AdminChatMessageCreateInput!
-    update: AdminChatMessageUpdateInput!
-  ): AdminChatMessage!
+  upsertOneAdminChatMessage(where: AdminChatMessageWhereUniqueInput!, create: AdminChatMessageCreateInput!, update: AdminChatMessageUpdateInput!): AdminChatMessage!
   createManyApplicantProfile(data: [ApplicantProfileCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createOneApplicantProfile(data: ApplicantProfileCreateInput!): ApplicantProfile!
   deleteManyApplicantProfile(where: ApplicantProfileWhereInput): AffectedRowsOutput!
   deleteOneApplicantProfile(where: ApplicantProfileWhereUniqueInput!): ApplicantProfile
   updateManyApplicantProfile(data: ApplicantProfileUpdateManyMutationInput!, where: ApplicantProfileWhereInput): AffectedRowsOutput!
   updateOneApplicantProfile(data: ApplicantProfileUpdateInput!, where: ApplicantProfileWhereUniqueInput!): ApplicantProfile
-  upsertOneApplicantProfile(
-    where: ApplicantProfileWhereUniqueInput!
-    create: ApplicantProfileCreateInput!
-    update: ApplicantProfileUpdateInput!
-  ): ApplicantProfile!
+  upsertOneApplicantProfile(where: ApplicantProfileWhereUniqueInput!, create: ApplicantProfileCreateInput!, update: ApplicantProfileUpdateInput!): ApplicantProfile!
   createManyApplication(data: [ApplicationCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createOneApplication(data: ApplicationCreateInput!): Application!
   deleteManyApplication(where: ApplicationWhereInput): AffectedRowsOutput!
@@ -3163,11 +3094,21 @@ type Mutation {
   deleteOneEmployerProfile(where: EmployerProfileWhereUniqueInput!): EmployerProfile
   updateManyEmployerProfile(data: EmployerProfileUpdateManyMutationInput!, where: EmployerProfileWhereInput): AffectedRowsOutput!
   updateOneEmployerProfile(data: EmployerProfileUpdateInput!, where: EmployerProfileWhereUniqueInput!): EmployerProfile
-  upsertOneEmployerProfile(
-    where: EmployerProfileWhereUniqueInput!
-    create: EmployerProfileCreateInput!
-    update: EmployerProfileUpdateInput!
-  ): EmployerProfile!
+  upsertOneEmployerProfile(where: EmployerProfileWhereUniqueInput!, create: EmployerProfileCreateInput!, update: EmployerProfileUpdateInput!): EmployerProfile!
+  createManyInvitationToVacancy(data: [InvitationToVacancyCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+  createOneInvitationToVacancy(data: InvitationToVacancyCreateInput!): InvitationToVacancy!
+  deleteManyInvitationToVacancy(where: InvitationToVacancyWhereInput): AffectedRowsOutput!
+  deleteOneInvitationToVacancy(where: InvitationToVacancyWhereUniqueInput!): InvitationToVacancy
+  updateManyInvitationToVacancy(data: InvitationToVacancyUpdateManyMutationInput!, where: InvitationToVacancyWhereInput): AffectedRowsOutput!
+  updateOneInvitationToVacancy(data: InvitationToVacancyUpdateInput!, where: InvitationToVacancyWhereUniqueInput!): InvitationToVacancy
+  upsertOneInvitationToVacancy(where: InvitationToVacancyWhereUniqueInput!, create: InvitationToVacancyCreateInput!, update: InvitationToVacancyUpdateInput!): InvitationToVacancy!
+  createManyResponseToVacancy(data: [ResponseToVacancyCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+  createOneResponseToVacancy(data: ResponseToVacancyCreateInput!): ResponseToVacancy!
+  deleteManyResponseToVacancy(where: ResponseToVacancyWhereInput): AffectedRowsOutput!
+  deleteOneResponseToVacancy(where: ResponseToVacancyWhereUniqueInput!): ResponseToVacancy
+  updateManyResponseToVacancy(data: ResponseToVacancyUpdateManyMutationInput!, where: ResponseToVacancyWhereInput): AffectedRowsOutput!
+  updateOneResponseToVacancy(data: ResponseToVacancyUpdateInput!, where: ResponseToVacancyWhereUniqueInput!): ResponseToVacancy
+  upsertOneResponseToVacancy(where: ResponseToVacancyWhereUniqueInput!, create: ResponseToVacancyCreateInput!, update: ResponseToVacancyUpdateInput!): ResponseToVacancy!
   createManyResume(data: [ResumeCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createOneResume(data: ResumeCreateInput!): Resume!
   deleteManyResume(where: ResumeWhereInput): AffectedRowsOutput!
@@ -3179,19 +3120,9 @@ type Mutation {
   createOneResumeSavedByEmployer(data: ResumeSavedByEmployerCreateInput!): ResumeSavedByEmployer!
   deleteManyResumeSavedByEmployer(where: ResumeSavedByEmployerWhereInput): AffectedRowsOutput!
   deleteOneResumeSavedByEmployer(where: ResumeSavedByEmployerWhereUniqueInput!): ResumeSavedByEmployer
-  updateManyResumeSavedByEmployer(
-    data: ResumeSavedByEmployerUpdateManyMutationInput!
-    where: ResumeSavedByEmployerWhereInput
-  ): AffectedRowsOutput!
-  updateOneResumeSavedByEmployer(
-    data: ResumeSavedByEmployerUpdateInput!
-    where: ResumeSavedByEmployerWhereUniqueInput!
-  ): ResumeSavedByEmployer
-  upsertOneResumeSavedByEmployer(
-    where: ResumeSavedByEmployerWhereUniqueInput!
-    create: ResumeSavedByEmployerCreateInput!
-    update: ResumeSavedByEmployerUpdateInput!
-  ): ResumeSavedByEmployer!
+  updateManyResumeSavedByEmployer(data: ResumeSavedByEmployerUpdateManyMutationInput!, where: ResumeSavedByEmployerWhereInput): AffectedRowsOutput!
+  updateOneResumeSavedByEmployer(data: ResumeSavedByEmployerUpdateInput!, where: ResumeSavedByEmployerWhereUniqueInput!): ResumeSavedByEmployer
+  upsertOneResumeSavedByEmployer(where: ResumeSavedByEmployerWhereUniqueInput!, create: ResumeSavedByEmployerCreateInput!, update: ResumeSavedByEmployerUpdateInput!): ResumeSavedByEmployer!
   createManyUser(data: [UserCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createOneUser(data: UserCreateInput!): User!
   deleteManyUser(where: UserWhereInput): AffectedRowsOutput!
@@ -3210,19 +3141,9 @@ type Mutation {
   createOneVacancySavedByApplicant(data: VacancySavedByApplicantCreateInput!): VacancySavedByApplicant!
   deleteManyVacancySavedByApplicant(where: VacancySavedByApplicantWhereInput): AffectedRowsOutput!
   deleteOneVacancySavedByApplicant(where: VacancySavedByApplicantWhereUniqueInput!): VacancySavedByApplicant
-  updateManyVacancySavedByApplicant(
-    data: VacancySavedByApplicantUpdateManyMutationInput!
-    where: VacancySavedByApplicantWhereInput
-  ): AffectedRowsOutput!
-  updateOneVacancySavedByApplicant(
-    data: VacancySavedByApplicantUpdateInput!
-    where: VacancySavedByApplicantWhereUniqueInput!
-  ): VacancySavedByApplicant
-  upsertOneVacancySavedByApplicant(
-    where: VacancySavedByApplicantWhereUniqueInput!
-    create: VacancySavedByApplicantCreateInput!
-    update: VacancySavedByApplicantUpdateInput!
-  ): VacancySavedByApplicant!
+  updateManyVacancySavedByApplicant(data: VacancySavedByApplicantUpdateManyMutationInput!, where: VacancySavedByApplicantWhereInput): AffectedRowsOutput!
+  updateOneVacancySavedByApplicant(data: VacancySavedByApplicantUpdateInput!, where: VacancySavedByApplicantWhereUniqueInput!): VacancySavedByApplicant
+  upsertOneVacancySavedByApplicant(where: VacancySavedByApplicantWhereUniqueInput!, create: VacancySavedByApplicantCreateInput!, update: VacancySavedByApplicantUpdateInput!): VacancySavedByApplicant!
   sendAuthCodeMessage(input: SendMessageInput!): SendMessageOutput!
   verifyAuthCode(input: VerifyAuthCodeInput!): VerifyAuthCodeOutput!
   loginUser(input: LoginUserInput!): AccessTokenOutput!
@@ -3307,8 +3228,6 @@ input UserCreateWithoutChatWithAdminInput {
   role: UserRole!
   applicantProfile: ApplicantProfileCreateNestedOneWithoutUserInput
   employerProfile: EmployerProfileCreateNestedOneWithoutUserInput
-  chatsWithFirstUsers: ChatCreateNestedManyWithoutFirstUserInput
-  chatsWithSecondUsers: ChatCreateNestedManyWithoutSecondUserInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -3323,6 +3242,7 @@ input ApplicantProfileCreateWithoutUserInput {
   id: String
   resume: ResumeCreateNestedOneWithoutApplicantProfileInput
   savedVacancies: VacancySavedByApplicantCreateNestedManyWithoutApplicantProfileInput
+  chats: ChatCreateNestedManyWithoutApplicantInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -3348,6 +3268,8 @@ input ResumeCreateWithoutApplicantProfileInput {
   experience: String
   aboutMe: String
   savedBy: ResumeSavedByEmployerCreateNestedManyWithoutResumeInput
+  responses: ResponseToVacancyCreateNestedManyWithoutResumeInput
+  invitations: InvitationToVacancyCreateNestedManyWithoutResumeInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -3376,6 +3298,7 @@ input EmployerProfileCreateWithoutSavedResumesInput {
   description: String!
   user: UserCreateNestedOneWithoutEmployerProfileInput!
   vacancies: VacancyCreateNestedManyWithoutEmployerInput
+  chats: ChatCreateNestedManyWithoutEmployerInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -3392,8 +3315,6 @@ input UserCreateWithoutEmployerProfileInput {
   role: UserRole!
   applicantProfile: ApplicantProfileCreateNestedOneWithoutUserInput
   chatWithAdmin: AdminChatCreateNestedOneWithoutUserInput
-  chatsWithFirstUsers: ChatCreateNestedManyWithoutFirstUserInput
-  chatsWithSecondUsers: ChatCreateNestedManyWithoutSecondUserInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -3447,37 +3368,79 @@ input AdminChatCreateOrConnectWithoutUserInput {
   create: AdminChatCreateWithoutUserInput!
 }
 
-input ChatCreateNestedManyWithoutFirstUserInput {
-  create: [ChatCreateWithoutFirstUserInput!]
-  connectOrCreate: [ChatCreateOrConnectWithoutFirstUserInput!]
-  createMany: ChatCreateManyFirstUserInputEnvelope
-  connect: [ChatWhereUniqueInput!]
+input UserCreateOrConnectWithoutEmployerProfileInput {
+  where: UserWhereUniqueInput!
+  create: UserCreateWithoutEmployerProfileInput!
 }
 
-input ChatCreateWithoutFirstUserInput {
+input VacancyCreateNestedManyWithoutEmployerInput {
+  create: [VacancyCreateWithoutEmployerInput!]
+  connectOrCreate: [VacancyCreateOrConnectWithoutEmployerInput!]
+  createMany: VacancyCreateManyEmployerInputEnvelope
+  connect: [VacancyWhereUniqueInput!]
+}
+
+input VacancyCreateWithoutEmployerInput {
   id: String
-  secondUser: UserCreateNestedOneWithoutChatsWithSecondUsersInput!
-  viewedByFirst: Boolean
-  viewedBySecond: Boolean
-  messages: ChatMessageCreateNestedManyWithoutChatInput
+  salary: Int!
+  views: Int
+  post: String!
+  fieldOfActivity: Int!
+  placeOfWork: Int!
+  description: String!
+  duties: String
+  requirements: String
+  workingSchedule: String
+  phone: String!
+  phoneHidden: Boolean!
+  archived: Boolean
+  archivedReason: String
+  savedBy: VacancySavedByApplicantCreateNestedManyWithoutVacancyInput
+  responses: ResponseToVacancyCreateNestedManyWithoutVacancyInput
+  invitations: InvitationToVacancyCreateNestedManyWithoutVacancyInput
   createdAt: DateTime
   updatedAt: DateTime
 }
 
-input UserCreateNestedOneWithoutChatsWithSecondUsersInput {
-  create: UserCreateWithoutChatsWithSecondUsersInput
-  connectOrCreate: UserCreateOrConnectWithoutChatsWithSecondUsersInput
+input VacancySavedByApplicantCreateNestedManyWithoutVacancyInput {
+  create: [VacancySavedByApplicantCreateWithoutVacancyInput!]
+  connectOrCreate: [VacancySavedByApplicantCreateOrConnectWithoutVacancyInput!]
+  createMany: VacancySavedByApplicantCreateManyVacancyInputEnvelope
+  connect: [VacancySavedByApplicantWhereUniqueInput!]
+}
+
+input VacancySavedByApplicantCreateWithoutVacancyInput {
+  applicantProfile: ApplicantProfileCreateNestedOneWithoutSavedVacanciesInput!
+  assignedAt: DateTime
+}
+
+input ApplicantProfileCreateNestedOneWithoutSavedVacanciesInput {
+  create: ApplicantProfileCreateWithoutSavedVacanciesInput
+  connectOrCreate: ApplicantProfileCreateOrConnectWithoutSavedVacanciesInput
+  connect: ApplicantProfileWhereUniqueInput
+}
+
+input ApplicantProfileCreateWithoutSavedVacanciesInput {
+  id: String
+  resume: ResumeCreateNestedOneWithoutApplicantProfileInput
+  user: UserCreateNestedOneWithoutApplicantProfileInput!
+  chats: ChatCreateNestedManyWithoutApplicantInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input UserCreateNestedOneWithoutApplicantProfileInput {
+  create: UserCreateWithoutApplicantProfileInput
+  connectOrCreate: UserCreateOrConnectWithoutApplicantProfileInput
   connect: UserWhereUniqueInput
 }
 
-input UserCreateWithoutChatsWithSecondUsersInput {
+input UserCreateWithoutApplicantProfileInput {
   id: String
   login: String!
   role: UserRole!
-  applicantProfile: ApplicantProfileCreateNestedOneWithoutUserInput
   employerProfile: EmployerProfileCreateNestedOneWithoutUserInput
   chatWithAdmin: AdminChatCreateNestedOneWithoutUserInput
-  chatsWithFirstUsers: ChatCreateNestedManyWithoutFirstUserInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -3494,6 +3457,7 @@ input EmployerProfileCreateWithoutUserInput {
   description: String!
   savedResumes: ResumeSavedByEmployerCreateNestedManyWithoutEmployerProfileInput
   vacancies: VacancyCreateNestedManyWithoutEmployerInput
+  chats: ChatCreateNestedManyWithoutEmployerInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -3531,6 +3495,8 @@ input ResumeCreateWithoutSavedByInput {
   experience: String
   aboutMe: String
   applicantProfile: ApplicantProfileCreateNestedOneWithoutResumeInput!
+  responses: ResponseToVacancyCreateNestedManyWithoutResumeInput
+  invitations: InvitationToVacancyCreateNestedManyWithoutResumeInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -3545,6 +3511,7 @@ input ApplicantProfileCreateWithoutResumeInput {
   id: String
   savedVacancies: VacancySavedByApplicantCreateNestedManyWithoutApplicantProfileInput
   user: UserCreateNestedOneWithoutApplicantProfileInput!
+  chats: ChatCreateNestedManyWithoutApplicantInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -3583,6 +3550,8 @@ input VacancyCreateWithoutSavedByInput {
   phoneHidden: Boolean!
   archived: Boolean
   archivedReason: String
+  responses: ResponseToVacancyCreateNestedManyWithoutVacancyInput
+  invitations: InvitationToVacancyCreateNestedManyWithoutVacancyInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -3599,6 +3568,94 @@ input EmployerProfileCreateWithoutVacanciesInput {
   description: String!
   savedResumes: ResumeSavedByEmployerCreateNestedManyWithoutEmployerProfileInput
   user: UserCreateNestedOneWithoutEmployerProfileInput!
+  chats: ChatCreateNestedManyWithoutEmployerInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input ChatCreateNestedManyWithoutEmployerInput {
+  create: [ChatCreateWithoutEmployerInput!]
+  connectOrCreate: [ChatCreateOrConnectWithoutEmployerInput!]
+  createMany: ChatCreateManyEmployerInputEnvelope
+  connect: [ChatWhereUniqueInput!]
+}
+
+input ChatCreateWithoutEmployerInput {
+  id: String
+  applicant: ApplicantProfileCreateNestedOneWithoutChatsInput!
+  viewedByApplicant: Boolean
+  viewedByEmployer: Boolean
+  messages: ChatMessageCreateNestedManyWithoutChatInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input ApplicantProfileCreateNestedOneWithoutChatsInput {
+  create: ApplicantProfileCreateWithoutChatsInput
+  connectOrCreate: ApplicantProfileCreateOrConnectWithoutChatsInput
+  connect: ApplicantProfileWhereUniqueInput
+}
+
+input ApplicantProfileCreateWithoutChatsInput {
+  id: String
+  resume: ResumeCreateNestedOneWithoutApplicantProfileInput
+  savedVacancies: VacancySavedByApplicantCreateNestedManyWithoutApplicantProfileInput
+  user: UserCreateNestedOneWithoutApplicantProfileInput!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input ApplicantProfileCreateOrConnectWithoutChatsInput {
+  where: ApplicantProfileWhereUniqueInput!
+  create: ApplicantProfileCreateWithoutChatsInput!
+}
+
+input ChatMessageCreateNestedManyWithoutChatInput {
+  create: [ChatMessageCreateWithoutChatInput!]
+  connectOrCreate: [ChatMessageCreateOrConnectWithoutChatInput!]
+  createMany: ChatMessageCreateManyChatInputEnvelope
+  connect: [ChatMessageWhereUniqueInput!]
+}
+
+input ChatMessageCreateWithoutChatInput {
+  id: String
+  message: String!
+  sender: UserRole!
+  createdAt: DateTime
+}
+
+input ChatMessageCreateOrConnectWithoutChatInput {
+  where: ChatMessageWhereUniqueInput!
+  create: ChatMessageCreateWithoutChatInput!
+}
+
+input ChatMessageCreateManyChatInputEnvelope {
+  data: [ChatMessageCreateManyChatInput!]!
+  skipDuplicates: Boolean
+}
+
+input ChatMessageCreateManyChatInput {
+  id: String
+  message: String!
+  sender: UserRole!
+  createdAt: DateTime
+}
+
+input ChatCreateOrConnectWithoutEmployerInput {
+  where: ChatWhereUniqueInput!
+  create: ChatCreateWithoutEmployerInput!
+}
+
+input ChatCreateManyEmployerInputEnvelope {
+  data: [ChatCreateManyEmployerInput!]!
+  skipDuplicates: Boolean
+}
+
+input ChatCreateManyEmployerInput {
+  id: String
+  applicantId: String!
+  viewedByApplicant: Boolean
+  viewedByEmployer: Boolean
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -3606,6 +3663,268 @@ input EmployerProfileCreateWithoutVacanciesInput {
 input EmployerProfileCreateOrConnectWithoutVacanciesInput {
   where: EmployerProfileWhereUniqueInput!
   create: EmployerProfileCreateWithoutVacanciesInput!
+}
+
+input ResponseToVacancyCreateNestedManyWithoutVacancyInput {
+  create: [ResponseToVacancyCreateWithoutVacancyInput!]
+  connectOrCreate: [ResponseToVacancyCreateOrConnectWithoutVacancyInput!]
+  createMany: ResponseToVacancyCreateManyVacancyInputEnvelope
+  connect: [ResponseToVacancyWhereUniqueInput!]
+}
+
+input ResponseToVacancyCreateWithoutVacancyInput {
+  id: String
+  resume: ResumeCreateNestedOneWithoutResponsesInput!
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+input ResumeCreateNestedOneWithoutResponsesInput {
+  create: ResumeCreateWithoutResponsesInput
+  connectOrCreate: ResumeCreateOrConnectWithoutResponsesInput
+  connect: ResumeWhereUniqueInput
+}
+
+input ResumeCreateWithoutResponsesInput {
+  id: String
+  views: Int
+  firstname: String!
+  lastname: String
+  phone: String!
+  phoneHidden: Boolean!
+  birthday: DateTime!
+  placeOfResidence: Int!
+  desiredPost: String
+  fieldOfActivity: Int!
+  education: String
+  experience: String
+  aboutMe: String
+  applicantProfile: ApplicantProfileCreateNestedOneWithoutResumeInput!
+  savedBy: ResumeSavedByEmployerCreateNestedManyWithoutResumeInput
+  invitations: InvitationToVacancyCreateNestedManyWithoutResumeInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input InvitationToVacancyCreateNestedManyWithoutResumeInput {
+  create: [InvitationToVacancyCreateWithoutResumeInput!]
+  connectOrCreate: [InvitationToVacancyCreateOrConnectWithoutResumeInput!]
+  createMany: InvitationToVacancyCreateManyResumeInputEnvelope
+  connect: [InvitationToVacancyWhereUniqueInput!]
+}
+
+input InvitationToVacancyCreateWithoutResumeInput {
+  id: String
+  vacancy: VacancyCreateNestedOneWithoutInvitationsInput!
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+input VacancyCreateNestedOneWithoutInvitationsInput {
+  create: VacancyCreateWithoutInvitationsInput
+  connectOrCreate: VacancyCreateOrConnectWithoutInvitationsInput
+  connect: VacancyWhereUniqueInput
+}
+
+input VacancyCreateWithoutInvitationsInput {
+  id: String
+  employer: EmployerProfileCreateNestedOneWithoutVacanciesInput!
+  salary: Int!
+  views: Int
+  post: String!
+  fieldOfActivity: Int!
+  placeOfWork: Int!
+  description: String!
+  duties: String
+  requirements: String
+  workingSchedule: String
+  phone: String!
+  phoneHidden: Boolean!
+  archived: Boolean
+  archivedReason: String
+  savedBy: VacancySavedByApplicantCreateNestedManyWithoutVacancyInput
+  responses: ResponseToVacancyCreateNestedManyWithoutVacancyInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input VacancyCreateOrConnectWithoutInvitationsInput {
+  where: VacancyWhereUniqueInput!
+  create: VacancyCreateWithoutInvitationsInput!
+}
+
+input InvitationToVacancyCreateOrConnectWithoutResumeInput {
+  where: InvitationToVacancyWhereUniqueInput!
+  create: InvitationToVacancyCreateWithoutResumeInput!
+}
+
+input InvitationToVacancyCreateManyResumeInputEnvelope {
+  data: [InvitationToVacancyCreateManyResumeInput!]!
+  skipDuplicates: Boolean
+}
+
+input InvitationToVacancyCreateManyResumeInput {
+  id: String
+  vacancyId: String!
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+input ResumeCreateOrConnectWithoutResponsesInput {
+  where: ResumeWhereUniqueInput!
+  create: ResumeCreateWithoutResponsesInput!
+}
+
+input ResponseToVacancyCreateOrConnectWithoutVacancyInput {
+  where: ResponseToVacancyWhereUniqueInput!
+  create: ResponseToVacancyCreateWithoutVacancyInput!
+}
+
+input ResponseToVacancyCreateManyVacancyInputEnvelope {
+  data: [ResponseToVacancyCreateManyVacancyInput!]!
+  skipDuplicates: Boolean
+}
+
+input ResponseToVacancyCreateManyVacancyInput {
+  id: String
+  resumeId: String!
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+input InvitationToVacancyCreateNestedManyWithoutVacancyInput {
+  create: [InvitationToVacancyCreateWithoutVacancyInput!]
+  connectOrCreate: [InvitationToVacancyCreateOrConnectWithoutVacancyInput!]
+  createMany: InvitationToVacancyCreateManyVacancyInputEnvelope
+  connect: [InvitationToVacancyWhereUniqueInput!]
+}
+
+input InvitationToVacancyCreateWithoutVacancyInput {
+  id: String
+  resume: ResumeCreateNestedOneWithoutInvitationsInput!
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+input ResumeCreateNestedOneWithoutInvitationsInput {
+  create: ResumeCreateWithoutInvitationsInput
+  connectOrCreate: ResumeCreateOrConnectWithoutInvitationsInput
+  connect: ResumeWhereUniqueInput
+}
+
+input ResumeCreateWithoutInvitationsInput {
+  id: String
+  views: Int
+  firstname: String!
+  lastname: String
+  phone: String!
+  phoneHidden: Boolean!
+  birthday: DateTime!
+  placeOfResidence: Int!
+  desiredPost: String
+  fieldOfActivity: Int!
+  education: String
+  experience: String
+  aboutMe: String
+  applicantProfile: ApplicantProfileCreateNestedOneWithoutResumeInput!
+  savedBy: ResumeSavedByEmployerCreateNestedManyWithoutResumeInput
+  responses: ResponseToVacancyCreateNestedManyWithoutResumeInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input ResponseToVacancyCreateNestedManyWithoutResumeInput {
+  create: [ResponseToVacancyCreateWithoutResumeInput!]
+  connectOrCreate: [ResponseToVacancyCreateOrConnectWithoutResumeInput!]
+  createMany: ResponseToVacancyCreateManyResumeInputEnvelope
+  connect: [ResponseToVacancyWhereUniqueInput!]
+}
+
+input ResponseToVacancyCreateWithoutResumeInput {
+  id: String
+  vacancy: VacancyCreateNestedOneWithoutResponsesInput!
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+input VacancyCreateNestedOneWithoutResponsesInput {
+  create: VacancyCreateWithoutResponsesInput
+  connectOrCreate: VacancyCreateOrConnectWithoutResponsesInput
+  connect: VacancyWhereUniqueInput
+}
+
+input VacancyCreateWithoutResponsesInput {
+  id: String
+  employer: EmployerProfileCreateNestedOneWithoutVacanciesInput!
+  salary: Int!
+  views: Int
+  post: String!
+  fieldOfActivity: Int!
+  placeOfWork: Int!
+  description: String!
+  duties: String
+  requirements: String
+  workingSchedule: String
+  phone: String!
+  phoneHidden: Boolean!
+  archived: Boolean
+  archivedReason: String
+  savedBy: VacancySavedByApplicantCreateNestedManyWithoutVacancyInput
+  invitations: InvitationToVacancyCreateNestedManyWithoutVacancyInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input VacancyCreateOrConnectWithoutResponsesInput {
+  where: VacancyWhereUniqueInput!
+  create: VacancyCreateWithoutResponsesInput!
+}
+
+input ResponseToVacancyCreateOrConnectWithoutResumeInput {
+  where: ResponseToVacancyWhereUniqueInput!
+  create: ResponseToVacancyCreateWithoutResumeInput!
+}
+
+input ResponseToVacancyCreateManyResumeInputEnvelope {
+  data: [ResponseToVacancyCreateManyResumeInput!]!
+  skipDuplicates: Boolean
+}
+
+input ResponseToVacancyCreateManyResumeInput {
+  id: String
+  vacancyId: String!
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+input ResumeCreateOrConnectWithoutInvitationsInput {
+  where: ResumeWhereUniqueInput!
+  create: ResumeCreateWithoutInvitationsInput!
+}
+
+input InvitationToVacancyCreateOrConnectWithoutVacancyInput {
+  where: InvitationToVacancyWhereUniqueInput!
+  create: InvitationToVacancyCreateWithoutVacancyInput!
+}
+
+input InvitationToVacancyCreateManyVacancyInputEnvelope {
+  data: [InvitationToVacancyCreateManyVacancyInput!]!
+  skipDuplicates: Boolean
+}
+
+input InvitationToVacancyCreateManyVacancyInput {
+  id: String
+  resumeId: String!
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
 }
 
 input VacancyCreateOrConnectWithoutSavedByInput {
@@ -3628,115 +3947,62 @@ input VacancySavedByApplicantCreateManyApplicantProfileInput {
   assignedAt: DateTime
 }
 
-input UserCreateNestedOneWithoutApplicantProfileInput {
-  create: UserCreateWithoutApplicantProfileInput
-  connectOrCreate: UserCreateOrConnectWithoutApplicantProfileInput
-  connect: UserWhereUniqueInput
-}
-
-input UserCreateWithoutApplicantProfileInput {
-  id: String
-  login: String!
-  role: UserRole!
-  employerProfile: EmployerProfileCreateNestedOneWithoutUserInput
-  chatWithAdmin: AdminChatCreateNestedOneWithoutUserInput
-  chatsWithFirstUsers: ChatCreateNestedManyWithoutFirstUserInput
-  chatsWithSecondUsers: ChatCreateNestedManyWithoutSecondUserInput
-  createdAt: DateTime
-  updatedAt: DateTime
-}
-
-input ChatCreateNestedManyWithoutSecondUserInput {
-  create: [ChatCreateWithoutSecondUserInput!]
-  connectOrCreate: [ChatCreateOrConnectWithoutSecondUserInput!]
-  createMany: ChatCreateManySecondUserInputEnvelope
+input ChatCreateNestedManyWithoutApplicantInput {
+  create: [ChatCreateWithoutApplicantInput!]
+  connectOrCreate: [ChatCreateOrConnectWithoutApplicantInput!]
+  createMany: ChatCreateManyApplicantInputEnvelope
   connect: [ChatWhereUniqueInput!]
 }
 
-input ChatCreateWithoutSecondUserInput {
+input ChatCreateWithoutApplicantInput {
   id: String
-  firstUser: UserCreateNestedOneWithoutChatsWithFirstUsersInput!
-  viewedByFirst: Boolean
-  viewedBySecond: Boolean
+  employer: EmployerProfileCreateNestedOneWithoutChatsInput!
+  viewedByApplicant: Boolean
+  viewedByEmployer: Boolean
   messages: ChatMessageCreateNestedManyWithoutChatInput
   createdAt: DateTime
   updatedAt: DateTime
 }
 
-input UserCreateNestedOneWithoutChatsWithFirstUsersInput {
-  create: UserCreateWithoutChatsWithFirstUsersInput
-  connectOrCreate: UserCreateOrConnectWithoutChatsWithFirstUsersInput
-  connect: UserWhereUniqueInput
+input EmployerProfileCreateNestedOneWithoutChatsInput {
+  create: EmployerProfileCreateWithoutChatsInput
+  connectOrCreate: EmployerProfileCreateOrConnectWithoutChatsInput
+  connect: EmployerProfileWhereUniqueInput
 }
 
-input UserCreateWithoutChatsWithFirstUsersInput {
+input EmployerProfileCreateWithoutChatsInput {
   id: String
-  login: String!
-  role: UserRole!
-  applicantProfile: ApplicantProfileCreateNestedOneWithoutUserInput
-  employerProfile: EmployerProfileCreateNestedOneWithoutUserInput
-  chatWithAdmin: AdminChatCreateNestedOneWithoutUserInput
-  chatsWithSecondUsers: ChatCreateNestedManyWithoutSecondUserInput
+  companyName: String!
+  description: String!
+  savedResumes: ResumeSavedByEmployerCreateNestedManyWithoutEmployerProfileInput
+  user: UserCreateNestedOneWithoutEmployerProfileInput!
+  vacancies: VacancyCreateNestedManyWithoutEmployerInput
   createdAt: DateTime
   updatedAt: DateTime
 }
 
-input UserCreateOrConnectWithoutChatsWithFirstUsersInput {
-  where: UserWhereUniqueInput!
-  create: UserCreateWithoutChatsWithFirstUsersInput!
+input EmployerProfileCreateOrConnectWithoutChatsInput {
+  where: EmployerProfileWhereUniqueInput!
+  create: EmployerProfileCreateWithoutChatsInput!
 }
 
-input ChatMessageCreateNestedManyWithoutChatInput {
-  create: [ChatMessageCreateWithoutChatInput!]
-  connectOrCreate: [ChatMessageCreateOrConnectWithoutChatInput!]
-  createMany: ChatMessageCreateManyChatInputEnvelope
-  connect: [ChatMessageWhereUniqueInput!]
-}
-
-input ChatMessageCreateWithoutChatInput {
-  id: String
-  message: String!
-  createdAt: DateTime
-}
-
-input ChatMessageCreateOrConnectWithoutChatInput {
-  where: ChatMessageWhereUniqueInput!
-  create: ChatMessageCreateWithoutChatInput!
-}
-
-input ChatMessageCreateManyChatInputEnvelope {
-  data: [ChatMessageCreateManyChatInput!]!
-  skipDuplicates: Boolean
-}
-
-input ChatMessageCreateManyChatInput {
-  id: String
-  message: String!
-  createdAt: DateTime
-}
-
-input ChatCreateOrConnectWithoutSecondUserInput {
+input ChatCreateOrConnectWithoutApplicantInput {
   where: ChatWhereUniqueInput!
-  create: ChatCreateWithoutSecondUserInput!
+  create: ChatCreateWithoutApplicantInput!
 }
 
-input ChatCreateManySecondUserInputEnvelope {
-  data: [ChatCreateManySecondUserInput!]!
+input ChatCreateManyApplicantInputEnvelope {
+  data: [ChatCreateManyApplicantInput!]!
   skipDuplicates: Boolean
 }
 
-input ChatCreateManySecondUserInput {
+input ChatCreateManyApplicantInput {
   id: String
-  firstUserId: String!
-  viewedByFirst: Boolean
-  viewedBySecond: Boolean
+  employerId: String!
+  viewedByApplicant: Boolean
+  viewedByEmployer: Boolean
   createdAt: DateTime
   updatedAt: DateTime
-}
-
-input UserCreateOrConnectWithoutApplicantProfileInput {
-  where: UserWhereUniqueInput!
-  create: UserCreateWithoutApplicantProfileInput!
 }
 
 input ApplicantProfileCreateOrConnectWithoutResumeInput {
@@ -3764,57 +4030,14 @@ input ResumeSavedByEmployerCreateManyEmployerProfileInput {
   assignedAt: DateTime
 }
 
-input VacancyCreateNestedManyWithoutEmployerInput {
-  create: [VacancyCreateWithoutEmployerInput!]
-  connectOrCreate: [VacancyCreateOrConnectWithoutEmployerInput!]
-  createMany: VacancyCreateManyEmployerInputEnvelope
-  connect: [VacancyWhereUniqueInput!]
+input EmployerProfileCreateOrConnectWithoutUserInput {
+  where: EmployerProfileWhereUniqueInput!
+  create: EmployerProfileCreateWithoutUserInput!
 }
 
-input VacancyCreateWithoutEmployerInput {
-  id: String
-  salary: Int!
-  views: Int
-  post: String!
-  fieldOfActivity: Int!
-  placeOfWork: Int!
-  description: String!
-  duties: String
-  requirements: String
-  workingSchedule: String
-  phone: String!
-  phoneHidden: Boolean!
-  archived: Boolean
-  archivedReason: String
-  savedBy: VacancySavedByApplicantCreateNestedManyWithoutVacancyInput
-  createdAt: DateTime
-  updatedAt: DateTime
-}
-
-input VacancySavedByApplicantCreateNestedManyWithoutVacancyInput {
-  create: [VacancySavedByApplicantCreateWithoutVacancyInput!]
-  connectOrCreate: [VacancySavedByApplicantCreateOrConnectWithoutVacancyInput!]
-  createMany: VacancySavedByApplicantCreateManyVacancyInputEnvelope
-  connect: [VacancySavedByApplicantWhereUniqueInput!]
-}
-
-input VacancySavedByApplicantCreateWithoutVacancyInput {
-  applicantProfile: ApplicantProfileCreateNestedOneWithoutSavedVacanciesInput!
-  assignedAt: DateTime
-}
-
-input ApplicantProfileCreateNestedOneWithoutSavedVacanciesInput {
-  create: ApplicantProfileCreateWithoutSavedVacanciesInput
-  connectOrCreate: ApplicantProfileCreateOrConnectWithoutSavedVacanciesInput
-  connect: ApplicantProfileWhereUniqueInput
-}
-
-input ApplicantProfileCreateWithoutSavedVacanciesInput {
-  id: String
-  resume: ResumeCreateNestedOneWithoutApplicantProfileInput
-  user: UserCreateNestedOneWithoutApplicantProfileInput!
-  createdAt: DateTime
-  updatedAt: DateTime
+input UserCreateOrConnectWithoutApplicantProfileInput {
+  where: UserWhereUniqueInput!
+  create: UserCreateWithoutApplicantProfileInput!
 }
 
 input ApplicantProfileCreateOrConnectWithoutSavedVacanciesInput {
@@ -3864,40 +4087,6 @@ input VacancyCreateManyEmployerInput {
   archivedReason: String
   createdAt: DateTime
   updatedAt: DateTime
-}
-
-input EmployerProfileCreateOrConnectWithoutUserInput {
-  where: EmployerProfileWhereUniqueInput!
-  create: EmployerProfileCreateWithoutUserInput!
-}
-
-input UserCreateOrConnectWithoutChatsWithSecondUsersInput {
-  where: UserWhereUniqueInput!
-  create: UserCreateWithoutChatsWithSecondUsersInput!
-}
-
-input ChatCreateOrConnectWithoutFirstUserInput {
-  where: ChatWhereUniqueInput!
-  create: ChatCreateWithoutFirstUserInput!
-}
-
-input ChatCreateManyFirstUserInputEnvelope {
-  data: [ChatCreateManyFirstUserInput!]!
-  skipDuplicates: Boolean
-}
-
-input ChatCreateManyFirstUserInput {
-  id: String
-  secondUserId: String!
-  viewedByFirst: Boolean
-  viewedBySecond: Boolean
-  createdAt: DateTime
-  updatedAt: DateTime
-}
-
-input UserCreateOrConnectWithoutEmployerProfileInput {
-  where: UserWhereUniqueInput!
-  create: UserCreateWithoutEmployerProfileInput!
 }
 
 input EmployerProfileCreateOrConnectWithoutSavedResumesInput {
@@ -3976,8 +4165,6 @@ input UserUpdateWithoutChatWithAdminInput {
   role: EnumUserRoleFieldUpdateOperationsInput
   applicantProfile: ApplicantProfileUpdateOneWithoutUserNestedInput
   employerProfile: EmployerProfileUpdateOneWithoutUserNestedInput
-  chatsWithFirstUsers: ChatUpdateManyWithoutFirstUserNestedInput
-  chatsWithSecondUsers: ChatUpdateManyWithoutSecondUserNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -4005,6 +4192,7 @@ input ApplicantProfileUpdateWithoutUserInput {
   id: StringFieldUpdateOperationsInput
   resume: ResumeUpdateOneWithoutApplicantProfileNestedInput
   savedVacancies: VacancySavedByApplicantUpdateManyWithoutApplicantProfileNestedInput
+  chats: ChatUpdateManyWithoutApplicantNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -4039,6 +4227,8 @@ input ResumeUpdateWithoutApplicantProfileInput {
   experience: NullableStringFieldUpdateOperationsInput
   aboutMe: NullableStringFieldUpdateOperationsInput
   savedBy: ResumeSavedByEmployerUpdateManyWithoutResumeNestedInput
+  responses: ResponseToVacancyUpdateManyWithoutResumeNestedInput
+  invitations: InvitationToVacancyUpdateManyWithoutResumeNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -4099,6 +4289,7 @@ input EmployerProfileUpdateWithoutSavedResumesInput {
   description: StringFieldUpdateOperationsInput
   user: UserUpdateOneRequiredWithoutEmployerProfileNestedInput
   vacancies: VacancyUpdateManyWithoutEmployerNestedInput
+  chats: ChatUpdateManyWithoutEmployerNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -4122,8 +4313,6 @@ input UserUpdateWithoutEmployerProfileInput {
   role: EnumUserRoleFieldUpdateOperationsInput
   applicantProfile: ApplicantProfileUpdateOneWithoutUserNestedInput
   chatWithAdmin: AdminChatUpdateOneWithoutUserNestedInput
-  chatsWithFirstUsers: ChatUpdateManyWithoutFirstUserNestedInput
-  chatsWithSecondUsers: ChatUpdateManyWithoutSecondUserNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -4204,57 +4393,114 @@ input AdminChatMessageUpdateManyMutationInput {
   createdAt: DateTimeFieldUpdateOperationsInput
 }
 
-input ChatUpdateManyWithoutFirstUserNestedInput {
-  create: [ChatCreateWithoutFirstUserInput!]
-  connectOrCreate: [ChatCreateOrConnectWithoutFirstUserInput!]
-  upsert: [ChatUpsertWithWhereUniqueWithoutFirstUserInput!]
-  createMany: ChatCreateManyFirstUserInputEnvelope
-  set: [ChatWhereUniqueInput!]
-  disconnect: [ChatWhereUniqueInput!]
-  delete: [ChatWhereUniqueInput!]
-  connect: [ChatWhereUniqueInput!]
-  update: [ChatUpdateWithWhereUniqueWithoutFirstUserInput!]
-  updateMany: [ChatUpdateManyWithWhereWithoutFirstUserInput!]
-  deleteMany: [ChatScalarWhereInput!]
+input VacancyUpdateManyWithoutEmployerNestedInput {
+  create: [VacancyCreateWithoutEmployerInput!]
+  connectOrCreate: [VacancyCreateOrConnectWithoutEmployerInput!]
+  upsert: [VacancyUpsertWithWhereUniqueWithoutEmployerInput!]
+  createMany: VacancyCreateManyEmployerInputEnvelope
+  set: [VacancyWhereUniqueInput!]
+  disconnect: [VacancyWhereUniqueInput!]
+  delete: [VacancyWhereUniqueInput!]
+  connect: [VacancyWhereUniqueInput!]
+  update: [VacancyUpdateWithWhereUniqueWithoutEmployerInput!]
+  updateMany: [VacancyUpdateManyWithWhereWithoutEmployerInput!]
+  deleteMany: [VacancyScalarWhereInput!]
 }
 
-input ChatUpsertWithWhereUniqueWithoutFirstUserInput {
-  where: ChatWhereUniqueInput!
-  update: ChatUpdateWithoutFirstUserInput!
-  create: ChatCreateWithoutFirstUserInput!
+input VacancyUpsertWithWhereUniqueWithoutEmployerInput {
+  where: VacancyWhereUniqueInput!
+  update: VacancyUpdateWithoutEmployerInput!
+  create: VacancyCreateWithoutEmployerInput!
 }
 
-input ChatUpdateWithoutFirstUserInput {
+input VacancyUpdateWithoutEmployerInput {
   id: StringFieldUpdateOperationsInput
-  secondUser: UserUpdateOneRequiredWithoutChatsWithSecondUsersNestedInput
-  viewedByFirst: BoolFieldUpdateOperationsInput
-  viewedBySecond: BoolFieldUpdateOperationsInput
-  messages: ChatMessageUpdateManyWithoutChatNestedInput
+  salary: IntFieldUpdateOperationsInput
+  views: IntFieldUpdateOperationsInput
+  post: StringFieldUpdateOperationsInput
+  fieldOfActivity: IntFieldUpdateOperationsInput
+  placeOfWork: IntFieldUpdateOperationsInput
+  description: StringFieldUpdateOperationsInput
+  duties: NullableStringFieldUpdateOperationsInput
+  requirements: NullableStringFieldUpdateOperationsInput
+  workingSchedule: NullableStringFieldUpdateOperationsInput
+  phone: StringFieldUpdateOperationsInput
+  phoneHidden: BoolFieldUpdateOperationsInput
+  archived: BoolFieldUpdateOperationsInput
+  archivedReason: NullableStringFieldUpdateOperationsInput
+  savedBy: VacancySavedByApplicantUpdateManyWithoutVacancyNestedInput
+  responses: ResponseToVacancyUpdateManyWithoutVacancyNestedInput
+  invitations: InvitationToVacancyUpdateManyWithoutVacancyNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input UserUpdateOneRequiredWithoutChatsWithSecondUsersNestedInput {
-  create: UserCreateWithoutChatsWithSecondUsersInput
-  connectOrCreate: UserCreateOrConnectWithoutChatsWithSecondUsersInput
-  upsert: UserUpsertWithoutChatsWithSecondUsersInput
+input VacancySavedByApplicantUpdateManyWithoutVacancyNestedInput {
+  create: [VacancySavedByApplicantCreateWithoutVacancyInput!]
+  connectOrCreate: [VacancySavedByApplicantCreateOrConnectWithoutVacancyInput!]
+  upsert: [VacancySavedByApplicantUpsertWithWhereUniqueWithoutVacancyInput!]
+  createMany: VacancySavedByApplicantCreateManyVacancyInputEnvelope
+  set: [VacancySavedByApplicantWhereUniqueInput!]
+  disconnect: [VacancySavedByApplicantWhereUniqueInput!]
+  delete: [VacancySavedByApplicantWhereUniqueInput!]
+  connect: [VacancySavedByApplicantWhereUniqueInput!]
+  update: [VacancySavedByApplicantUpdateWithWhereUniqueWithoutVacancyInput!]
+  updateMany: [VacancySavedByApplicantUpdateManyWithWhereWithoutVacancyInput!]
+  deleteMany: [VacancySavedByApplicantScalarWhereInput!]
+}
+
+input VacancySavedByApplicantUpsertWithWhereUniqueWithoutVacancyInput {
+  where: VacancySavedByApplicantWhereUniqueInput!
+  update: VacancySavedByApplicantUpdateWithoutVacancyInput!
+  create: VacancySavedByApplicantCreateWithoutVacancyInput!
+}
+
+input VacancySavedByApplicantUpdateWithoutVacancyInput {
+  applicantProfile: ApplicantProfileUpdateOneRequiredWithoutSavedVacanciesNestedInput
+  assignedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ApplicantProfileUpdateOneRequiredWithoutSavedVacanciesNestedInput {
+  create: ApplicantProfileCreateWithoutSavedVacanciesInput
+  connectOrCreate: ApplicantProfileCreateOrConnectWithoutSavedVacanciesInput
+  upsert: ApplicantProfileUpsertWithoutSavedVacanciesInput
+  connect: ApplicantProfileWhereUniqueInput
+  update: ApplicantProfileUpdateWithoutSavedVacanciesInput
+}
+
+input ApplicantProfileUpsertWithoutSavedVacanciesInput {
+  update: ApplicantProfileUpdateWithoutSavedVacanciesInput!
+  create: ApplicantProfileCreateWithoutSavedVacanciesInput!
+}
+
+input ApplicantProfileUpdateWithoutSavedVacanciesInput {
+  id: StringFieldUpdateOperationsInput
+  resume: ResumeUpdateOneWithoutApplicantProfileNestedInput
+  user: UserUpdateOneRequiredWithoutApplicantProfileNestedInput
+  chats: ChatUpdateManyWithoutApplicantNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input UserUpdateOneRequiredWithoutApplicantProfileNestedInput {
+  create: UserCreateWithoutApplicantProfileInput
+  connectOrCreate: UserCreateOrConnectWithoutApplicantProfileInput
+  upsert: UserUpsertWithoutApplicantProfileInput
   connect: UserWhereUniqueInput
-  update: UserUpdateWithoutChatsWithSecondUsersInput
+  update: UserUpdateWithoutApplicantProfileInput
 }
 
-input UserUpsertWithoutChatsWithSecondUsersInput {
-  update: UserUpdateWithoutChatsWithSecondUsersInput!
-  create: UserCreateWithoutChatsWithSecondUsersInput!
+input UserUpsertWithoutApplicantProfileInput {
+  update: UserUpdateWithoutApplicantProfileInput!
+  create: UserCreateWithoutApplicantProfileInput!
 }
 
-input UserUpdateWithoutChatsWithSecondUsersInput {
+input UserUpdateWithoutApplicantProfileInput {
   id: StringFieldUpdateOperationsInput
   login: StringFieldUpdateOperationsInput
   role: EnumUserRoleFieldUpdateOperationsInput
-  applicantProfile: ApplicantProfileUpdateOneWithoutUserNestedInput
   employerProfile: EmployerProfileUpdateOneWithoutUserNestedInput
   chatWithAdmin: AdminChatUpdateOneWithoutUserNestedInput
-  chatsWithFirstUsers: ChatUpdateManyWithoutFirstUserNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -4280,6 +4526,7 @@ input EmployerProfileUpdateWithoutUserInput {
   description: StringFieldUpdateOperationsInput
   savedResumes: ResumeSavedByEmployerUpdateManyWithoutEmployerProfileNestedInput
   vacancies: VacancyUpdateManyWithoutEmployerNestedInput
+  chats: ChatUpdateManyWithoutEmployerNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -4337,6 +4584,8 @@ input ResumeUpdateWithoutSavedByInput {
   experience: NullableStringFieldUpdateOperationsInput
   aboutMe: NullableStringFieldUpdateOperationsInput
   applicantProfile: ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput
+  responses: ResponseToVacancyUpdateManyWithoutResumeNestedInput
+  invitations: InvitationToVacancyUpdateManyWithoutResumeNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -4358,6 +4607,7 @@ input ApplicantProfileUpdateWithoutResumeInput {
   id: StringFieldUpdateOperationsInput
   savedVacancies: VacancySavedByApplicantUpdateManyWithoutApplicantProfileNestedInput
   user: UserUpdateOneRequiredWithoutApplicantProfileNestedInput
+  chats: ChatUpdateManyWithoutApplicantNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -4416,6 +4666,8 @@ input VacancyUpdateWithoutSavedByInput {
   phoneHidden: BoolFieldUpdateOperationsInput
   archived: BoolFieldUpdateOperationsInput
   archivedReason: NullableStringFieldUpdateOperationsInput
+  responses: ResponseToVacancyUpdateManyWithoutVacancyNestedInput
+  invitations: InvitationToVacancyUpdateManyWithoutVacancyNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -4439,109 +4691,59 @@ input EmployerProfileUpdateWithoutVacanciesInput {
   description: StringFieldUpdateOperationsInput
   savedResumes: ResumeSavedByEmployerUpdateManyWithoutEmployerProfileNestedInput
   user: UserUpdateOneRequiredWithoutEmployerProfileNestedInput
+  chats: ChatUpdateManyWithoutEmployerNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input VacancySavedByApplicantUpdateWithWhereUniqueWithoutApplicantProfileInput {
-  where: VacancySavedByApplicantWhereUniqueInput!
-  data: VacancySavedByApplicantUpdateWithoutApplicantProfileInput!
-}
-
-input VacancySavedByApplicantUpdateManyWithWhereWithoutApplicantProfileInput {
-  where: VacancySavedByApplicantScalarWhereInput!
-  data: VacancySavedByApplicantUpdateManyMutationInput!
-}
-
-input VacancySavedByApplicantScalarWhereInput {
-  AND: [VacancySavedByApplicantScalarWhereInput!]
-  OR: [VacancySavedByApplicantScalarWhereInput!]
-  NOT: [VacancySavedByApplicantScalarWhereInput!]
-  applicantProfileId: StringFilter
-  vacancyId: StringFilter
-  assignedAt: DateTimeFilter
-}
-
-input VacancySavedByApplicantUpdateManyMutationInput {
-  assignedAt: DateTimeFieldUpdateOperationsInput
-}
-
-input UserUpdateOneRequiredWithoutApplicantProfileNestedInput {
-  create: UserCreateWithoutApplicantProfileInput
-  connectOrCreate: UserCreateOrConnectWithoutApplicantProfileInput
-  upsert: UserUpsertWithoutApplicantProfileInput
-  connect: UserWhereUniqueInput
-  update: UserUpdateWithoutApplicantProfileInput
-}
-
-input UserUpsertWithoutApplicantProfileInput {
-  update: UserUpdateWithoutApplicantProfileInput!
-  create: UserCreateWithoutApplicantProfileInput!
-}
-
-input UserUpdateWithoutApplicantProfileInput {
-  id: StringFieldUpdateOperationsInput
-  login: StringFieldUpdateOperationsInput
-  role: EnumUserRoleFieldUpdateOperationsInput
-  employerProfile: EmployerProfileUpdateOneWithoutUserNestedInput
-  chatWithAdmin: AdminChatUpdateOneWithoutUserNestedInput
-  chatsWithFirstUsers: ChatUpdateManyWithoutFirstUserNestedInput
-  chatsWithSecondUsers: ChatUpdateManyWithoutSecondUserNestedInput
-  createdAt: DateTimeFieldUpdateOperationsInput
-  updatedAt: DateTimeFieldUpdateOperationsInput
-}
-
-input ChatUpdateManyWithoutSecondUserNestedInput {
-  create: [ChatCreateWithoutSecondUserInput!]
-  connectOrCreate: [ChatCreateOrConnectWithoutSecondUserInput!]
-  upsert: [ChatUpsertWithWhereUniqueWithoutSecondUserInput!]
-  createMany: ChatCreateManySecondUserInputEnvelope
+input ChatUpdateManyWithoutEmployerNestedInput {
+  create: [ChatCreateWithoutEmployerInput!]
+  connectOrCreate: [ChatCreateOrConnectWithoutEmployerInput!]
+  upsert: [ChatUpsertWithWhereUniqueWithoutEmployerInput!]
+  createMany: ChatCreateManyEmployerInputEnvelope
   set: [ChatWhereUniqueInput!]
   disconnect: [ChatWhereUniqueInput!]
   delete: [ChatWhereUniqueInput!]
   connect: [ChatWhereUniqueInput!]
-  update: [ChatUpdateWithWhereUniqueWithoutSecondUserInput!]
-  updateMany: [ChatUpdateManyWithWhereWithoutSecondUserInput!]
+  update: [ChatUpdateWithWhereUniqueWithoutEmployerInput!]
+  updateMany: [ChatUpdateManyWithWhereWithoutEmployerInput!]
   deleteMany: [ChatScalarWhereInput!]
 }
 
-input ChatUpsertWithWhereUniqueWithoutSecondUserInput {
+input ChatUpsertWithWhereUniqueWithoutEmployerInput {
   where: ChatWhereUniqueInput!
-  update: ChatUpdateWithoutSecondUserInput!
-  create: ChatCreateWithoutSecondUserInput!
+  update: ChatUpdateWithoutEmployerInput!
+  create: ChatCreateWithoutEmployerInput!
 }
 
-input ChatUpdateWithoutSecondUserInput {
+input ChatUpdateWithoutEmployerInput {
   id: StringFieldUpdateOperationsInput
-  firstUser: UserUpdateOneRequiredWithoutChatsWithFirstUsersNestedInput
-  viewedByFirst: BoolFieldUpdateOperationsInput
-  viewedBySecond: BoolFieldUpdateOperationsInput
+  applicant: ApplicantProfileUpdateOneRequiredWithoutChatsNestedInput
+  viewedByApplicant: BoolFieldUpdateOperationsInput
+  viewedByEmployer: BoolFieldUpdateOperationsInput
   messages: ChatMessageUpdateManyWithoutChatNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input UserUpdateOneRequiredWithoutChatsWithFirstUsersNestedInput {
-  create: UserCreateWithoutChatsWithFirstUsersInput
-  connectOrCreate: UserCreateOrConnectWithoutChatsWithFirstUsersInput
-  upsert: UserUpsertWithoutChatsWithFirstUsersInput
-  connect: UserWhereUniqueInput
-  update: UserUpdateWithoutChatsWithFirstUsersInput
+input ApplicantProfileUpdateOneRequiredWithoutChatsNestedInput {
+  create: ApplicantProfileCreateWithoutChatsInput
+  connectOrCreate: ApplicantProfileCreateOrConnectWithoutChatsInput
+  upsert: ApplicantProfileUpsertWithoutChatsInput
+  connect: ApplicantProfileWhereUniqueInput
+  update: ApplicantProfileUpdateWithoutChatsInput
 }
 
-input UserUpsertWithoutChatsWithFirstUsersInput {
-  update: UserUpdateWithoutChatsWithFirstUsersInput!
-  create: UserCreateWithoutChatsWithFirstUsersInput!
+input ApplicantProfileUpsertWithoutChatsInput {
+  update: ApplicantProfileUpdateWithoutChatsInput!
+  create: ApplicantProfileCreateWithoutChatsInput!
 }
 
-input UserUpdateWithoutChatsWithFirstUsersInput {
+input ApplicantProfileUpdateWithoutChatsInput {
   id: StringFieldUpdateOperationsInput
-  login: StringFieldUpdateOperationsInput
-  role: EnumUserRoleFieldUpdateOperationsInput
-  applicantProfile: ApplicantProfileUpdateOneWithoutUserNestedInput
-  employerProfile: EmployerProfileUpdateOneWithoutUserNestedInput
-  chatWithAdmin: AdminChatUpdateOneWithoutUserNestedInput
-  chatsWithSecondUsers: ChatUpdateManyWithoutSecondUserNestedInput
+  resume: ResumeUpdateOneWithoutApplicantProfileNestedInput
+  savedVacancies: VacancySavedByApplicantUpdateManyWithoutApplicantProfileNestedInput
+  user: UserUpdateOneRequiredWithoutApplicantProfileNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -4569,6 +4771,7 @@ input ChatMessageUpsertWithWhereUniqueWithoutChatInput {
 input ChatMessageUpdateWithoutChatInput {
   id: StringFieldUpdateOperationsInput
   message: StringFieldUpdateOperationsInput
+  sender: EnumUserRoleFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -4589,21 +4792,23 @@ input ChatMessageScalarWhereInput {
   id: StringFilter
   chatId: StringFilter
   message: StringFilter
+  sender: EnumUserRoleFilter
   createdAt: DateTimeFilter
 }
 
 input ChatMessageUpdateManyMutationInput {
   id: StringFieldUpdateOperationsInput
   message: StringFieldUpdateOperationsInput
+  sender: EnumUserRoleFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
 }
 
-input ChatUpdateWithWhereUniqueWithoutSecondUserInput {
+input ChatUpdateWithWhereUniqueWithoutEmployerInput {
   where: ChatWhereUniqueInput!
-  data: ChatUpdateWithoutSecondUserInput!
+  data: ChatUpdateWithoutEmployerInput!
 }
 
-input ChatUpdateManyWithWhereWithoutSecondUserInput {
+input ChatUpdateManyWithWhereWithoutEmployerInput {
   where: ChatScalarWhereInput!
   data: ChatUpdateManyMutationInput!
 }
@@ -4613,20 +4818,435 @@ input ChatScalarWhereInput {
   OR: [ChatScalarWhereInput!]
   NOT: [ChatScalarWhereInput!]
   id: StringFilter
-  firstUserId: StringFilter
-  secondUserId: StringFilter
-  viewedByFirst: BoolFilter
-  viewedBySecond: BoolFilter
+  employerId: StringFilter
+  applicantId: StringFilter
+  viewedByApplicant: BoolFilter
+  viewedByEmployer: BoolFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
 }
 
 input ChatUpdateManyMutationInput {
   id: StringFieldUpdateOperationsInput
-  viewedByFirst: BoolFieldUpdateOperationsInput
-  viewedBySecond: BoolFieldUpdateOperationsInput
+  viewedByApplicant: BoolFieldUpdateOperationsInput
+  viewedByEmployer: BoolFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ResponseToVacancyUpdateManyWithoutVacancyNestedInput {
+  create: [ResponseToVacancyCreateWithoutVacancyInput!]
+  connectOrCreate: [ResponseToVacancyCreateOrConnectWithoutVacancyInput!]
+  upsert: [ResponseToVacancyUpsertWithWhereUniqueWithoutVacancyInput!]
+  createMany: ResponseToVacancyCreateManyVacancyInputEnvelope
+  set: [ResponseToVacancyWhereUniqueInput!]
+  disconnect: [ResponseToVacancyWhereUniqueInput!]
+  delete: [ResponseToVacancyWhereUniqueInput!]
+  connect: [ResponseToVacancyWhereUniqueInput!]
+  update: [ResponseToVacancyUpdateWithWhereUniqueWithoutVacancyInput!]
+  updateMany: [ResponseToVacancyUpdateManyWithWhereWithoutVacancyInput!]
+  deleteMany: [ResponseToVacancyScalarWhereInput!]
+}
+
+input ResponseToVacancyUpsertWithWhereUniqueWithoutVacancyInput {
+  where: ResponseToVacancyWhereUniqueInput!
+  update: ResponseToVacancyUpdateWithoutVacancyInput!
+  create: ResponseToVacancyCreateWithoutVacancyInput!
+}
+
+input ResponseToVacancyUpdateWithoutVacancyInput {
+  id: StringFieldUpdateOperationsInput
+  resume: ResumeUpdateOneRequiredWithoutResponsesNestedInput
+  viewed: BoolFieldUpdateOperationsInput
+  coverLetter: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ResumeUpdateOneRequiredWithoutResponsesNestedInput {
+  create: ResumeCreateWithoutResponsesInput
+  connectOrCreate: ResumeCreateOrConnectWithoutResponsesInput
+  upsert: ResumeUpsertWithoutResponsesInput
+  connect: ResumeWhereUniqueInput
+  update: ResumeUpdateWithoutResponsesInput
+}
+
+input ResumeUpsertWithoutResponsesInput {
+  update: ResumeUpdateWithoutResponsesInput!
+  create: ResumeCreateWithoutResponsesInput!
+}
+
+input ResumeUpdateWithoutResponsesInput {
+  id: StringFieldUpdateOperationsInput
+  views: IntFieldUpdateOperationsInput
+  firstname: StringFieldUpdateOperationsInput
+  lastname: NullableStringFieldUpdateOperationsInput
+  phone: StringFieldUpdateOperationsInput
+  phoneHidden: BoolFieldUpdateOperationsInput
+  birthday: DateTimeFieldUpdateOperationsInput
+  placeOfResidence: IntFieldUpdateOperationsInput
+  desiredPost: NullableStringFieldUpdateOperationsInput
+  fieldOfActivity: IntFieldUpdateOperationsInput
+  education: NullableStringFieldUpdateOperationsInput
+  experience: NullableStringFieldUpdateOperationsInput
+  aboutMe: NullableStringFieldUpdateOperationsInput
+  applicantProfile: ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput
+  savedBy: ResumeSavedByEmployerUpdateManyWithoutResumeNestedInput
+  invitations: InvitationToVacancyUpdateManyWithoutResumeNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input InvitationToVacancyUpdateManyWithoutResumeNestedInput {
+  create: [InvitationToVacancyCreateWithoutResumeInput!]
+  connectOrCreate: [InvitationToVacancyCreateOrConnectWithoutResumeInput!]
+  upsert: [InvitationToVacancyUpsertWithWhereUniqueWithoutResumeInput!]
+  createMany: InvitationToVacancyCreateManyResumeInputEnvelope
+  set: [InvitationToVacancyWhereUniqueInput!]
+  disconnect: [InvitationToVacancyWhereUniqueInput!]
+  delete: [InvitationToVacancyWhereUniqueInput!]
+  connect: [InvitationToVacancyWhereUniqueInput!]
+  update: [InvitationToVacancyUpdateWithWhereUniqueWithoutResumeInput!]
+  updateMany: [InvitationToVacancyUpdateManyWithWhereWithoutResumeInput!]
+  deleteMany: [InvitationToVacancyScalarWhereInput!]
+}
+
+input InvitationToVacancyUpsertWithWhereUniqueWithoutResumeInput {
+  where: InvitationToVacancyWhereUniqueInput!
+  update: InvitationToVacancyUpdateWithoutResumeInput!
+  create: InvitationToVacancyCreateWithoutResumeInput!
+}
+
+input InvitationToVacancyUpdateWithoutResumeInput {
+  id: StringFieldUpdateOperationsInput
+  vacancy: VacancyUpdateOneRequiredWithoutInvitationsNestedInput
+  viewed: BoolFieldUpdateOperationsInput
+  coverLetter: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+}
+
+input VacancyUpdateOneRequiredWithoutInvitationsNestedInput {
+  create: VacancyCreateWithoutInvitationsInput
+  connectOrCreate: VacancyCreateOrConnectWithoutInvitationsInput
+  upsert: VacancyUpsertWithoutInvitationsInput
+  connect: VacancyWhereUniqueInput
+  update: VacancyUpdateWithoutInvitationsInput
+}
+
+input VacancyUpsertWithoutInvitationsInput {
+  update: VacancyUpdateWithoutInvitationsInput!
+  create: VacancyCreateWithoutInvitationsInput!
+}
+
+input VacancyUpdateWithoutInvitationsInput {
+  id: StringFieldUpdateOperationsInput
+  employer: EmployerProfileUpdateOneRequiredWithoutVacanciesNestedInput
+  salary: IntFieldUpdateOperationsInput
+  views: IntFieldUpdateOperationsInput
+  post: StringFieldUpdateOperationsInput
+  fieldOfActivity: IntFieldUpdateOperationsInput
+  placeOfWork: IntFieldUpdateOperationsInput
+  description: StringFieldUpdateOperationsInput
+  duties: NullableStringFieldUpdateOperationsInput
+  requirements: NullableStringFieldUpdateOperationsInput
+  workingSchedule: NullableStringFieldUpdateOperationsInput
+  phone: StringFieldUpdateOperationsInput
+  phoneHidden: BoolFieldUpdateOperationsInput
+  archived: BoolFieldUpdateOperationsInput
+  archivedReason: NullableStringFieldUpdateOperationsInput
+  savedBy: VacancySavedByApplicantUpdateManyWithoutVacancyNestedInput
+  responses: ResponseToVacancyUpdateManyWithoutVacancyNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input InvitationToVacancyUpdateWithWhereUniqueWithoutResumeInput {
+  where: InvitationToVacancyWhereUniqueInput!
+  data: InvitationToVacancyUpdateWithoutResumeInput!
+}
+
+input InvitationToVacancyUpdateManyWithWhereWithoutResumeInput {
+  where: InvitationToVacancyScalarWhereInput!
+  data: InvitationToVacancyUpdateManyMutationInput!
+}
+
+input InvitationToVacancyScalarWhereInput {
+  AND: [InvitationToVacancyScalarWhereInput!]
+  OR: [InvitationToVacancyScalarWhereInput!]
+  NOT: [InvitationToVacancyScalarWhereInput!]
+  id: StringFilter
+  vacancyId: StringFilter
+  resumeId: StringFilter
+  viewed: BoolFilter
+  coverLetter: StringNullableFilter
+  createdAt: DateTimeFilter
+}
+
+input InvitationToVacancyUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  viewed: BoolFieldUpdateOperationsInput
+  coverLetter: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ResponseToVacancyUpdateWithWhereUniqueWithoutVacancyInput {
+  where: ResponseToVacancyWhereUniqueInput!
+  data: ResponseToVacancyUpdateWithoutVacancyInput!
+}
+
+input ResponseToVacancyUpdateManyWithWhereWithoutVacancyInput {
+  where: ResponseToVacancyScalarWhereInput!
+  data: ResponseToVacancyUpdateManyMutationInput!
+}
+
+input ResponseToVacancyScalarWhereInput {
+  AND: [ResponseToVacancyScalarWhereInput!]
+  OR: [ResponseToVacancyScalarWhereInput!]
+  NOT: [ResponseToVacancyScalarWhereInput!]
+  id: StringFilter
+  vacancyId: StringFilter
+  resumeId: StringFilter
+  viewed: BoolFilter
+  coverLetter: StringNullableFilter
+  createdAt: DateTimeFilter
+}
+
+input ResponseToVacancyUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  viewed: BoolFieldUpdateOperationsInput
+  coverLetter: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+}
+
+input InvitationToVacancyUpdateManyWithoutVacancyNestedInput {
+  create: [InvitationToVacancyCreateWithoutVacancyInput!]
+  connectOrCreate: [InvitationToVacancyCreateOrConnectWithoutVacancyInput!]
+  upsert: [InvitationToVacancyUpsertWithWhereUniqueWithoutVacancyInput!]
+  createMany: InvitationToVacancyCreateManyVacancyInputEnvelope
+  set: [InvitationToVacancyWhereUniqueInput!]
+  disconnect: [InvitationToVacancyWhereUniqueInput!]
+  delete: [InvitationToVacancyWhereUniqueInput!]
+  connect: [InvitationToVacancyWhereUniqueInput!]
+  update: [InvitationToVacancyUpdateWithWhereUniqueWithoutVacancyInput!]
+  updateMany: [InvitationToVacancyUpdateManyWithWhereWithoutVacancyInput!]
+  deleteMany: [InvitationToVacancyScalarWhereInput!]
+}
+
+input InvitationToVacancyUpsertWithWhereUniqueWithoutVacancyInput {
+  where: InvitationToVacancyWhereUniqueInput!
+  update: InvitationToVacancyUpdateWithoutVacancyInput!
+  create: InvitationToVacancyCreateWithoutVacancyInput!
+}
+
+input InvitationToVacancyUpdateWithoutVacancyInput {
+  id: StringFieldUpdateOperationsInput
+  resume: ResumeUpdateOneRequiredWithoutInvitationsNestedInput
+  viewed: BoolFieldUpdateOperationsInput
+  coverLetter: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ResumeUpdateOneRequiredWithoutInvitationsNestedInput {
+  create: ResumeCreateWithoutInvitationsInput
+  connectOrCreate: ResumeCreateOrConnectWithoutInvitationsInput
+  upsert: ResumeUpsertWithoutInvitationsInput
+  connect: ResumeWhereUniqueInput
+  update: ResumeUpdateWithoutInvitationsInput
+}
+
+input ResumeUpsertWithoutInvitationsInput {
+  update: ResumeUpdateWithoutInvitationsInput!
+  create: ResumeCreateWithoutInvitationsInput!
+}
+
+input ResumeUpdateWithoutInvitationsInput {
+  id: StringFieldUpdateOperationsInput
+  views: IntFieldUpdateOperationsInput
+  firstname: StringFieldUpdateOperationsInput
+  lastname: NullableStringFieldUpdateOperationsInput
+  phone: StringFieldUpdateOperationsInput
+  phoneHidden: BoolFieldUpdateOperationsInput
+  birthday: DateTimeFieldUpdateOperationsInput
+  placeOfResidence: IntFieldUpdateOperationsInput
+  desiredPost: NullableStringFieldUpdateOperationsInput
+  fieldOfActivity: IntFieldUpdateOperationsInput
+  education: NullableStringFieldUpdateOperationsInput
+  experience: NullableStringFieldUpdateOperationsInput
+  aboutMe: NullableStringFieldUpdateOperationsInput
+  applicantProfile: ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput
+  savedBy: ResumeSavedByEmployerUpdateManyWithoutResumeNestedInput
+  responses: ResponseToVacancyUpdateManyWithoutResumeNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ResponseToVacancyUpdateManyWithoutResumeNestedInput {
+  create: [ResponseToVacancyCreateWithoutResumeInput!]
+  connectOrCreate: [ResponseToVacancyCreateOrConnectWithoutResumeInput!]
+  upsert: [ResponseToVacancyUpsertWithWhereUniqueWithoutResumeInput!]
+  createMany: ResponseToVacancyCreateManyResumeInputEnvelope
+  set: [ResponseToVacancyWhereUniqueInput!]
+  disconnect: [ResponseToVacancyWhereUniqueInput!]
+  delete: [ResponseToVacancyWhereUniqueInput!]
+  connect: [ResponseToVacancyWhereUniqueInput!]
+  update: [ResponseToVacancyUpdateWithWhereUniqueWithoutResumeInput!]
+  updateMany: [ResponseToVacancyUpdateManyWithWhereWithoutResumeInput!]
+  deleteMany: [ResponseToVacancyScalarWhereInput!]
+}
+
+input ResponseToVacancyUpsertWithWhereUniqueWithoutResumeInput {
+  where: ResponseToVacancyWhereUniqueInput!
+  update: ResponseToVacancyUpdateWithoutResumeInput!
+  create: ResponseToVacancyCreateWithoutResumeInput!
+}
+
+input ResponseToVacancyUpdateWithoutResumeInput {
+  id: StringFieldUpdateOperationsInput
+  vacancy: VacancyUpdateOneRequiredWithoutResponsesNestedInput
+  viewed: BoolFieldUpdateOperationsInput
+  coverLetter: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+}
+
+input VacancyUpdateOneRequiredWithoutResponsesNestedInput {
+  create: VacancyCreateWithoutResponsesInput
+  connectOrCreate: VacancyCreateOrConnectWithoutResponsesInput
+  upsert: VacancyUpsertWithoutResponsesInput
+  connect: VacancyWhereUniqueInput
+  update: VacancyUpdateWithoutResponsesInput
+}
+
+input VacancyUpsertWithoutResponsesInput {
+  update: VacancyUpdateWithoutResponsesInput!
+  create: VacancyCreateWithoutResponsesInput!
+}
+
+input VacancyUpdateWithoutResponsesInput {
+  id: StringFieldUpdateOperationsInput
+  employer: EmployerProfileUpdateOneRequiredWithoutVacanciesNestedInput
+  salary: IntFieldUpdateOperationsInput
+  views: IntFieldUpdateOperationsInput
+  post: StringFieldUpdateOperationsInput
+  fieldOfActivity: IntFieldUpdateOperationsInput
+  placeOfWork: IntFieldUpdateOperationsInput
+  description: StringFieldUpdateOperationsInput
+  duties: NullableStringFieldUpdateOperationsInput
+  requirements: NullableStringFieldUpdateOperationsInput
+  workingSchedule: NullableStringFieldUpdateOperationsInput
+  phone: StringFieldUpdateOperationsInput
+  phoneHidden: BoolFieldUpdateOperationsInput
+  archived: BoolFieldUpdateOperationsInput
+  archivedReason: NullableStringFieldUpdateOperationsInput
+  savedBy: VacancySavedByApplicantUpdateManyWithoutVacancyNestedInput
+  invitations: InvitationToVacancyUpdateManyWithoutVacancyNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ResponseToVacancyUpdateWithWhereUniqueWithoutResumeInput {
+  where: ResponseToVacancyWhereUniqueInput!
+  data: ResponseToVacancyUpdateWithoutResumeInput!
+}
+
+input ResponseToVacancyUpdateManyWithWhereWithoutResumeInput {
+  where: ResponseToVacancyScalarWhereInput!
+  data: ResponseToVacancyUpdateManyMutationInput!
+}
+
+input InvitationToVacancyUpdateWithWhereUniqueWithoutVacancyInput {
+  where: InvitationToVacancyWhereUniqueInput!
+  data: InvitationToVacancyUpdateWithoutVacancyInput!
+}
+
+input InvitationToVacancyUpdateManyWithWhereWithoutVacancyInput {
+  where: InvitationToVacancyScalarWhereInput!
+  data: InvitationToVacancyUpdateManyMutationInput!
+}
+
+input VacancySavedByApplicantUpdateWithWhereUniqueWithoutApplicantProfileInput {
+  where: VacancySavedByApplicantWhereUniqueInput!
+  data: VacancySavedByApplicantUpdateWithoutApplicantProfileInput!
+}
+
+input VacancySavedByApplicantUpdateManyWithWhereWithoutApplicantProfileInput {
+  where: VacancySavedByApplicantScalarWhereInput!
+  data: VacancySavedByApplicantUpdateManyMutationInput!
+}
+
+input VacancySavedByApplicantScalarWhereInput {
+  AND: [VacancySavedByApplicantScalarWhereInput!]
+  OR: [VacancySavedByApplicantScalarWhereInput!]
+  NOT: [VacancySavedByApplicantScalarWhereInput!]
+  applicantProfileId: StringFilter
+  vacancyId: StringFilter
+  assignedAt: DateTimeFilter
+}
+
+input VacancySavedByApplicantUpdateManyMutationInput {
+  assignedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ChatUpdateManyWithoutApplicantNestedInput {
+  create: [ChatCreateWithoutApplicantInput!]
+  connectOrCreate: [ChatCreateOrConnectWithoutApplicantInput!]
+  upsert: [ChatUpsertWithWhereUniqueWithoutApplicantInput!]
+  createMany: ChatCreateManyApplicantInputEnvelope
+  set: [ChatWhereUniqueInput!]
+  disconnect: [ChatWhereUniqueInput!]
+  delete: [ChatWhereUniqueInput!]
+  connect: [ChatWhereUniqueInput!]
+  update: [ChatUpdateWithWhereUniqueWithoutApplicantInput!]
+  updateMany: [ChatUpdateManyWithWhereWithoutApplicantInput!]
+  deleteMany: [ChatScalarWhereInput!]
+}
+
+input ChatUpsertWithWhereUniqueWithoutApplicantInput {
+  where: ChatWhereUniqueInput!
+  update: ChatUpdateWithoutApplicantInput!
+  create: ChatCreateWithoutApplicantInput!
+}
+
+input ChatUpdateWithoutApplicantInput {
+  id: StringFieldUpdateOperationsInput
+  employer: EmployerProfileUpdateOneRequiredWithoutChatsNestedInput
+  viewedByApplicant: BoolFieldUpdateOperationsInput
+  viewedByEmployer: BoolFieldUpdateOperationsInput
+  messages: ChatMessageUpdateManyWithoutChatNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input EmployerProfileUpdateOneRequiredWithoutChatsNestedInput {
+  create: EmployerProfileCreateWithoutChatsInput
+  connectOrCreate: EmployerProfileCreateOrConnectWithoutChatsInput
+  upsert: EmployerProfileUpsertWithoutChatsInput
+  connect: EmployerProfileWhereUniqueInput
+  update: EmployerProfileUpdateWithoutChatsInput
+}
+
+input EmployerProfileUpsertWithoutChatsInput {
+  update: EmployerProfileUpdateWithoutChatsInput!
+  create: EmployerProfileCreateWithoutChatsInput!
+}
+
+input EmployerProfileUpdateWithoutChatsInput {
+  id: StringFieldUpdateOperationsInput
+  companyName: StringFieldUpdateOperationsInput
+  description: StringFieldUpdateOperationsInput
+  savedResumes: ResumeSavedByEmployerUpdateManyWithoutEmployerProfileNestedInput
+  user: UserUpdateOneRequiredWithoutEmployerProfileNestedInput
+  vacancies: VacancyUpdateManyWithoutEmployerNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ChatUpdateWithWhereUniqueWithoutApplicantInput {
+  where: ChatWhereUniqueInput!
+  data: ChatUpdateWithoutApplicantInput!
+}
+
+input ChatUpdateManyWithWhereWithoutApplicantInput {
+  where: ChatScalarWhereInput!
+  data: ChatUpdateManyMutationInput!
 }
 
 input ResumeSavedByEmployerUpdateWithWhereUniqueWithoutEmployerProfileInput {
@@ -4650,92 +5270,6 @@ input ResumeSavedByEmployerScalarWhereInput {
 
 input ResumeSavedByEmployerUpdateManyMutationInput {
   assignedAt: DateTimeFieldUpdateOperationsInput
-}
-
-input VacancyUpdateManyWithoutEmployerNestedInput {
-  create: [VacancyCreateWithoutEmployerInput!]
-  connectOrCreate: [VacancyCreateOrConnectWithoutEmployerInput!]
-  upsert: [VacancyUpsertWithWhereUniqueWithoutEmployerInput!]
-  createMany: VacancyCreateManyEmployerInputEnvelope
-  set: [VacancyWhereUniqueInput!]
-  disconnect: [VacancyWhereUniqueInput!]
-  delete: [VacancyWhereUniqueInput!]
-  connect: [VacancyWhereUniqueInput!]
-  update: [VacancyUpdateWithWhereUniqueWithoutEmployerInput!]
-  updateMany: [VacancyUpdateManyWithWhereWithoutEmployerInput!]
-  deleteMany: [VacancyScalarWhereInput!]
-}
-
-input VacancyUpsertWithWhereUniqueWithoutEmployerInput {
-  where: VacancyWhereUniqueInput!
-  update: VacancyUpdateWithoutEmployerInput!
-  create: VacancyCreateWithoutEmployerInput!
-}
-
-input VacancyUpdateWithoutEmployerInput {
-  id: StringFieldUpdateOperationsInput
-  salary: IntFieldUpdateOperationsInput
-  views: IntFieldUpdateOperationsInput
-  post: StringFieldUpdateOperationsInput
-  fieldOfActivity: IntFieldUpdateOperationsInput
-  placeOfWork: IntFieldUpdateOperationsInput
-  description: StringFieldUpdateOperationsInput
-  duties: NullableStringFieldUpdateOperationsInput
-  requirements: NullableStringFieldUpdateOperationsInput
-  workingSchedule: NullableStringFieldUpdateOperationsInput
-  phone: StringFieldUpdateOperationsInput
-  phoneHidden: BoolFieldUpdateOperationsInput
-  archived: BoolFieldUpdateOperationsInput
-  archivedReason: NullableStringFieldUpdateOperationsInput
-  savedBy: VacancySavedByApplicantUpdateManyWithoutVacancyNestedInput
-  createdAt: DateTimeFieldUpdateOperationsInput
-  updatedAt: DateTimeFieldUpdateOperationsInput
-}
-
-input VacancySavedByApplicantUpdateManyWithoutVacancyNestedInput {
-  create: [VacancySavedByApplicantCreateWithoutVacancyInput!]
-  connectOrCreate: [VacancySavedByApplicantCreateOrConnectWithoutVacancyInput!]
-  upsert: [VacancySavedByApplicantUpsertWithWhereUniqueWithoutVacancyInput!]
-  createMany: VacancySavedByApplicantCreateManyVacancyInputEnvelope
-  set: [VacancySavedByApplicantWhereUniqueInput!]
-  disconnect: [VacancySavedByApplicantWhereUniqueInput!]
-  delete: [VacancySavedByApplicantWhereUniqueInput!]
-  connect: [VacancySavedByApplicantWhereUniqueInput!]
-  update: [VacancySavedByApplicantUpdateWithWhereUniqueWithoutVacancyInput!]
-  updateMany: [VacancySavedByApplicantUpdateManyWithWhereWithoutVacancyInput!]
-  deleteMany: [VacancySavedByApplicantScalarWhereInput!]
-}
-
-input VacancySavedByApplicantUpsertWithWhereUniqueWithoutVacancyInput {
-  where: VacancySavedByApplicantWhereUniqueInput!
-  update: VacancySavedByApplicantUpdateWithoutVacancyInput!
-  create: VacancySavedByApplicantCreateWithoutVacancyInput!
-}
-
-input VacancySavedByApplicantUpdateWithoutVacancyInput {
-  applicantProfile: ApplicantProfileUpdateOneRequiredWithoutSavedVacanciesNestedInput
-  assignedAt: DateTimeFieldUpdateOperationsInput
-}
-
-input ApplicantProfileUpdateOneRequiredWithoutSavedVacanciesNestedInput {
-  create: ApplicantProfileCreateWithoutSavedVacanciesInput
-  connectOrCreate: ApplicantProfileCreateOrConnectWithoutSavedVacanciesInput
-  upsert: ApplicantProfileUpsertWithoutSavedVacanciesInput
-  connect: ApplicantProfileWhereUniqueInput
-  update: ApplicantProfileUpdateWithoutSavedVacanciesInput
-}
-
-input ApplicantProfileUpsertWithoutSavedVacanciesInput {
-  update: ApplicantProfileUpdateWithoutSavedVacanciesInput!
-  create: ApplicantProfileCreateWithoutSavedVacanciesInput!
-}
-
-input ApplicantProfileUpdateWithoutSavedVacanciesInput {
-  id: StringFieldUpdateOperationsInput
-  resume: ResumeUpdateOneWithoutApplicantProfileNestedInput
-  user: UserUpdateOneRequiredWithoutApplicantProfileNestedInput
-  createdAt: DateTimeFieldUpdateOperationsInput
-  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input VacancySavedByApplicantUpdateWithWhereUniqueWithoutVacancyInput {
@@ -4798,16 +5332,6 @@ input VacancyUpdateManyMutationInput {
   archivedReason: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-}
-
-input ChatUpdateWithWhereUniqueWithoutFirstUserInput {
-  where: ChatWhereUniqueInput!
-  data: ChatUpdateWithoutFirstUserInput!
-}
-
-input ChatUpdateManyWithWhereWithoutFirstUserInput {
-  where: ChatScalarWhereInput!
-  data: ChatUpdateManyMutationInput!
 }
 
 input ResumeSavedByEmployerUpdateWithWhereUniqueWithoutResumeInput {
@@ -4895,6 +5419,7 @@ input ApplicantProfileCreateInput {
   resume: ResumeCreateNestedOneWithoutApplicantProfileInput
   savedVacancies: VacancySavedByApplicantCreateNestedManyWithoutApplicantProfileInput
   user: UserCreateNestedOneWithoutApplicantProfileInput!
+  chats: ChatCreateNestedManyWithoutApplicantInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -4910,6 +5435,7 @@ input ApplicantProfileUpdateInput {
   resume: ResumeUpdateOneWithoutApplicantProfileNestedInput
   savedVacancies: VacancySavedByApplicantUpdateManyWithoutApplicantProfileNestedInput
   user: UserUpdateOneRequiredWithoutApplicantProfileNestedInput
+  chats: ChatUpdateManyWithoutApplicantNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -4948,20 +5474,20 @@ input ApplicationUpdateInput {
 
 input ChatCreateManyInput {
   id: String
-  firstUserId: String!
-  secondUserId: String!
-  viewedByFirst: Boolean
-  viewedBySecond: Boolean
+  employerId: String!
+  applicantId: String!
+  viewedByApplicant: Boolean
+  viewedByEmployer: Boolean
   createdAt: DateTime
   updatedAt: DateTime
 }
 
 input ChatCreateInput {
   id: String
-  firstUser: UserCreateNestedOneWithoutChatsWithFirstUsersInput!
-  secondUser: UserCreateNestedOneWithoutChatsWithSecondUsersInput!
-  viewedByFirst: Boolean
-  viewedBySecond: Boolean
+  employer: EmployerProfileCreateNestedOneWithoutChatsInput!
+  applicant: ApplicantProfileCreateNestedOneWithoutChatsInput!
+  viewedByApplicant: Boolean
+  viewedByEmployer: Boolean
   messages: ChatMessageCreateNestedManyWithoutChatInput
   createdAt: DateTime
   updatedAt: DateTime
@@ -4969,10 +5495,10 @@ input ChatCreateInput {
 
 input ChatUpdateInput {
   id: StringFieldUpdateOperationsInput
-  firstUser: UserUpdateOneRequiredWithoutChatsWithFirstUsersNestedInput
-  secondUser: UserUpdateOneRequiredWithoutChatsWithSecondUsersNestedInput
-  viewedByFirst: BoolFieldUpdateOperationsInput
-  viewedBySecond: BoolFieldUpdateOperationsInput
+  employer: EmployerProfileUpdateOneRequiredWithoutChatsNestedInput
+  applicant: ApplicantProfileUpdateOneRequiredWithoutChatsNestedInput
+  viewedByApplicant: BoolFieldUpdateOperationsInput
+  viewedByEmployer: BoolFieldUpdateOperationsInput
   messages: ChatMessageUpdateManyWithoutChatNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -4982,6 +5508,7 @@ input ChatMessageCreateManyInput {
   id: String
   chatId: String!
   message: String!
+  sender: UserRole!
   createdAt: DateTime
 }
 
@@ -4989,6 +5516,7 @@ input ChatMessageCreateInput {
   id: String
   chat: ChatCreateNestedOneWithoutMessagesInput!
   message: String!
+  sender: UserRole!
   createdAt: DateTime
 }
 
@@ -5000,10 +5528,10 @@ input ChatCreateNestedOneWithoutMessagesInput {
 
 input ChatCreateWithoutMessagesInput {
   id: String
-  firstUser: UserCreateNestedOneWithoutChatsWithFirstUsersInput!
-  secondUser: UserCreateNestedOneWithoutChatsWithSecondUsersInput!
-  viewedByFirst: Boolean
-  viewedBySecond: Boolean
+  employer: EmployerProfileCreateNestedOneWithoutChatsInput!
+  applicant: ApplicantProfileCreateNestedOneWithoutChatsInput!
+  viewedByApplicant: Boolean
+  viewedByEmployer: Boolean
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -5017,6 +5545,7 @@ input ChatMessageUpdateInput {
   id: StringFieldUpdateOperationsInput
   chat: ChatUpdateOneRequiredWithoutMessagesNestedInput
   message: StringFieldUpdateOperationsInput
+  sender: EnumUserRoleFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -5035,10 +5564,10 @@ input ChatUpsertWithoutMessagesInput {
 
 input ChatUpdateWithoutMessagesInput {
   id: StringFieldUpdateOperationsInput
-  firstUser: UserUpdateOneRequiredWithoutChatsWithFirstUsersNestedInput
-  secondUser: UserUpdateOneRequiredWithoutChatsWithSecondUsersNestedInput
-  viewedByFirst: BoolFieldUpdateOperationsInput
-  viewedBySecond: BoolFieldUpdateOperationsInput
+  employer: EmployerProfileUpdateOneRequiredWithoutChatsNestedInput
+  applicant: ApplicantProfileUpdateOneRequiredWithoutChatsNestedInput
+  viewedByApplicant: BoolFieldUpdateOperationsInput
+  viewedByEmployer: BoolFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -5059,6 +5588,7 @@ input EmployerProfileCreateInput {
   savedResumes: ResumeSavedByEmployerCreateNestedManyWithoutEmployerProfileInput
   user: UserCreateNestedOneWithoutEmployerProfileInput!
   vacancies: VacancyCreateNestedManyWithoutEmployerInput
+  chats: ChatCreateNestedManyWithoutEmployerInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -5078,8 +5608,63 @@ input EmployerProfileUpdateInput {
   savedResumes: ResumeSavedByEmployerUpdateManyWithoutEmployerProfileNestedInput
   user: UserUpdateOneRequiredWithoutEmployerProfileNestedInput
   vacancies: VacancyUpdateManyWithoutEmployerNestedInput
+  chats: ChatUpdateManyWithoutEmployerNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input InvitationToVacancyCreateManyInput {
+  id: String
+  vacancyId: String!
+  resumeId: String!
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+input InvitationToVacancyCreateInput {
+  id: String
+  vacancy: VacancyCreateNestedOneWithoutInvitationsInput!
+  resume: ResumeCreateNestedOneWithoutInvitationsInput!
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+input InvitationToVacancyUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  vacancy: VacancyUpdateOneRequiredWithoutInvitationsNestedInput
+  resume: ResumeUpdateOneRequiredWithoutInvitationsNestedInput
+  viewed: BoolFieldUpdateOperationsInput
+  coverLetter: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ResponseToVacancyCreateManyInput {
+  id: String
+  vacancyId: String!
+  resumeId: String!
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+input ResponseToVacancyCreateInput {
+  id: String
+  vacancy: VacancyCreateNestedOneWithoutResponsesInput!
+  resume: ResumeCreateNestedOneWithoutResponsesInput!
+  viewed: Boolean
+  coverLetter: String
+  createdAt: DateTime
+}
+
+input ResponseToVacancyUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  vacancy: VacancyUpdateOneRequiredWithoutResponsesNestedInput
+  resume: ResumeUpdateOneRequiredWithoutResponsesNestedInput
+  viewed: BoolFieldUpdateOperationsInput
+  coverLetter: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ResumeCreateManyInput {
@@ -5117,6 +5702,8 @@ input ResumeCreateInput {
   aboutMe: String
   applicantProfile: ApplicantProfileCreateNestedOneWithoutResumeInput!
   savedBy: ResumeSavedByEmployerCreateNestedManyWithoutResumeInput
+  responses: ResponseToVacancyCreateNestedManyWithoutResumeInput
+  invitations: InvitationToVacancyCreateNestedManyWithoutResumeInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -5155,6 +5742,8 @@ input ResumeUpdateInput {
   aboutMe: NullableStringFieldUpdateOperationsInput
   applicantProfile: ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput
   savedBy: ResumeSavedByEmployerUpdateManyWithoutResumeNestedInput
+  responses: ResponseToVacancyUpdateManyWithoutResumeNestedInput
+  invitations: InvitationToVacancyUpdateManyWithoutResumeNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -5192,8 +5781,6 @@ input UserCreateInput {
   applicantProfile: ApplicantProfileCreateNestedOneWithoutUserInput
   employerProfile: EmployerProfileCreateNestedOneWithoutUserInput
   chatWithAdmin: AdminChatCreateNestedOneWithoutUserInput
-  chatsWithFirstUsers: ChatCreateNestedManyWithoutFirstUserInput
-  chatsWithSecondUsers: ChatCreateNestedManyWithoutSecondUserInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -5213,8 +5800,6 @@ input UserUpdateInput {
   applicantProfile: ApplicantProfileUpdateOneWithoutUserNestedInput
   employerProfile: EmployerProfileUpdateOneWithoutUserNestedInput
   chatWithAdmin: AdminChatUpdateOneWithoutUserNestedInput
-  chatsWithFirstUsers: ChatUpdateManyWithoutFirstUserNestedInput
-  chatsWithSecondUsers: ChatUpdateManyWithoutSecondUserNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -5256,6 +5841,8 @@ input VacancyCreateInput {
   archived: Boolean
   archivedReason: String
   savedBy: VacancySavedByApplicantCreateNestedManyWithoutVacancyInput
+  responses: ResponseToVacancyCreateNestedManyWithoutVacancyInput
+  invitations: InvitationToVacancyCreateNestedManyWithoutVacancyInput
   createdAt: DateTime
   updatedAt: DateTime
 }
@@ -5277,6 +5864,8 @@ input VacancyUpdateInput {
   archived: BoolFieldUpdateOperationsInput
   archivedReason: NullableStringFieldUpdateOperationsInput
   savedBy: VacancySavedByApplicantUpdateManyWithoutVacancyNestedInput
+  responses: ResponseToVacancyUpdateManyWithoutVacancyNestedInput
+  invitations: InvitationToVacancyUpdateManyWithoutVacancyNestedInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -5339,7 +5928,5 @@ input LoginAdminInput {
   password: String!
 }
 
-"""
-Represents NULL values
-"""
+"""Represents NULL values"""
 scalar Void

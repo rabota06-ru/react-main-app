@@ -10,7 +10,7 @@ export function FullResumePage(props: FullResumePageProps) {
       <FullCardResume
         title='UX/UI Дизайнер'
         date='18 октября'
-        city='Назрань'
+        location='Назрань'
         soughtPosition='Frontend разработчик'
         education='Московский государственный технический университет имени Н.Э.Баумана'
         experience='- опыт работы с HTML5, CSS3, JS;

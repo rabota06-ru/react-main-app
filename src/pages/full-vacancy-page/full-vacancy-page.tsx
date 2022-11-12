@@ -12,7 +12,7 @@ export function FullVacancyPage(props: FullVacancyPageProps) {
         date='18 октября'
         price={25000}
         company='Beeline'
-        city='Назрань'
+        location='Назрань'
         viewCount={77}
         description='Наша команда ищет Мидл/Старшего UI/UX Дизайнера. Важно, чтобы это был человек, 
         который способен не только создать красивый интерфейс, но и может полностью продумать продукт, 

@@ -16,7 +16,7 @@ interface FullCardVacancyProps {
   date: string
   price: number
   company: string
-  city: string
+  location: string
   description: string
   responsibilities: string
   requirements: string
@@ -32,7 +32,7 @@ export function FullCardVacancy({
   date,
   price,
   company,
-  city,
+  location,
   description,
   responsibilities,
   requirements,

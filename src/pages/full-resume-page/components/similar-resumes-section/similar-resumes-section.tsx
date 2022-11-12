@@ -27,7 +27,7 @@ export function SimilarResumesSection() {
           label: 'Назрань',
         },
       ],
-      url: routes.allResumes,
+      url: routes.resume('1'),
     },
     {
       Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
@@ -42,7 +42,7 @@ export function SimilarResumesSection() {
           label: 'Назрань',
         },
       ],
-      url: routes.allResumes,
+      url: routes.resume('2'),
     },
     {
       Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
@@ -57,7 +57,7 @@ export function SimilarResumesSection() {
           label: 'Назрань',
         },
       ],
-      url: routes.allResumes,
+      url: routes.resume('3'),
     },
     {
       Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
@@ -72,7 +72,7 @@ export function SimilarResumesSection() {
           label: 'Назрань',
         },
       ],
-      url: routes.allResumes,
+      url: routes.resume('4'),
     },
     {
       Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
@@ -87,7 +87,7 @@ export function SimilarResumesSection() {
           label: 'Назрань',
         },
       ],
-      url: routes.allResumes,
+      url: routes.resume('1'),
     },
     {
       Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
@@ -102,7 +102,7 @@ export function SimilarResumesSection() {
           label: 'Назрань',
         },
       ],
-      url: routes.allResumes,
+      url: routes.resume('1'),
     },
   ])
   const carouselVisibleItemsCount = useMediaValue({ xs: 1, sm: 2, lg: 3, xl: 4 })
