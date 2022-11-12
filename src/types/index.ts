@@ -6,6 +6,8 @@ export enum Color {
   ButtonTextColor,
   SecondaryColor1,
   SecondaryColor2,
+  SecondaryColor3,
+  iconColor,
   RedColor,
   ErrorColor,
   SuccessColor,

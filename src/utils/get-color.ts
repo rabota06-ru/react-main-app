@@ -8,6 +8,8 @@ const colorVariableNames: Record<Color, string> = {
   [Color.ButtonTextColor]: '--buttonTextColor',
   [Color.SecondaryColor1]: '--secondaryColor1',
   [Color.SecondaryColor2]: '--secondaryColor2',
+  [Color.SecondaryColor3]: '--secondaryColor3',
+  [Color.iconColor]: '--iconColor',
   [Color.RedColor]: '--redColor',
   [Color.ErrorColor]: '--errorColor',
   [Color.SuccessColor]: '--successColor',
