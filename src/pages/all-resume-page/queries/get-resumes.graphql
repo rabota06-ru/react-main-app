@@ -1,0 +1,15 @@
+query GetResumes($fieldOfActivity: Int!, $placeOfResidence: Int!, $skip: Int!, $take: Int!) {
+  resumes(
+    where: { fieldOfActivity: { equals: $fieldOfActivity }, placeOfResidence: { equals: $placeOfResidence } }
+    skip: $skip
+    take: $take
+  ) {
+    aboutMe
+    id
+    fieldOfActivity
+    placeOfResidence
+    firstname
+    lastname
+    education
+  }
+}

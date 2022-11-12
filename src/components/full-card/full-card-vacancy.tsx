@@ -1,6 +1,6 @@
 import { Card } from 'components/card'
 import { Divider } from 'components/divider'
-import { Color, FieldOfActivity } from 'types/index'
+import { Color, FieldOfActivity, Locations } from 'types/index'
 import { BiRuble } from 'react-icons/bi'
 import { TfiLocationPin } from 'react-icons/Tfi'
 import { HiOutlineEye } from 'react-icons/hi'
@@ -9,6 +9,7 @@ import { useState, createElement, useMemo } from 'react'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
 import { Container } from 'components/container'
 import cn from 'classnames'
+import { LOCATIONS_LABEL } from 'utils/locations'
 import styles from './full-card-vacancy.module.scss'
 
 interface FullCardVacancyProps {
@@ -16,7 +17,7 @@ interface FullCardVacancyProps {
   date: string
   price: number
   company: string
-  city: string
+  location: number
   description: string
   responsibilities: string
   requirements: string
@@ -32,7 +33,7 @@ export function FullCardVacancy({
   date,
   price,
   company,
-  city,
+  location,
   description,
   responsibilities,
   requirements,
@@ -74,7 +75,7 @@ export function FullCardVacancy({
             <div className={styles.fullCardSalaryInfoCity}>
               <div>
                 <TfiLocationPin className={styles.fullCardSalaryIcons} />
-                <span className={styles.fullCardSalaryInfoText}>{city}</span>
+                <span className={styles.fullCardSalaryInfoText}>{LOCATIONS_LABEL[location as Locations]}</span>
               </div>
               <div className={styles.fullCardSalaryInfoPriceView}>
                 <HiOutlineEye className={styles.fullCardSalaryInfoPriceViewEye} />
