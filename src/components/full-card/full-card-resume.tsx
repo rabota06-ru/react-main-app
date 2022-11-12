@@ -1,7 +1,7 @@
 import { Card } from 'components/card'
 import { Divider } from 'components/divider'
 import { Color, FieldOfActivity, Locations } from 'types/index'
-import { TfiLocationPin } from 'react-icons/Tfi'
+import { TfiLocationPin } from 'react-icons/tfi'
 import { HiOutlineEye } from 'react-icons/hi'
 import { Button, ButtonSize, ButtonVariant } from 'components/button'
 import { useState, createElement, useMemo } from 'react'

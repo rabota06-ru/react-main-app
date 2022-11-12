@@ -2,10 +2,10 @@ import { Container } from 'components/container'
 import { List } from 'components/list'
 import { ListDropdown } from 'components/list-dropdown'
 import { ItemType } from 'components/list/list'
-import styles from './all-Resumes-page.module.scss'
 import { useGetResumesQuery } from 'api/enhancedApi'
 import { FieldOfActivity, Locations } from 'types/index'
 import { useState } from 'react'
+import styles from './all-Resumes-page.module.scss'
 
 export function AllResumesPage() {
   const [selectedFieldOfActivity, setSelectedFieldOfActivity] = useState<FieldOfActivity | null>(null)

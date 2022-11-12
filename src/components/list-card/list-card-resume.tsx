@@ -1,15 +1,14 @@
-import React, { HTMLAttributes, createElement, useMemo } from 'react'
+import { createElement, useMemo } from 'react'
 import { Button, ButtonSize, ButtonVariant } from 'components/button'
 import { Card } from 'components/card'
-import { TfiLocationPin } from 'react-icons/Tfi'
+import { TfiLocationPin } from 'react-icons/tfi'
 import { Divider, DividerDirection } from 'components/divider'
 import { Color, FieldOfActivity, Locations } from 'types/index'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
 import { LOCATIONS_LABEL } from 'utils/locations'
 import styles from './list-card.module.scss'
-import { ResumeStateTypes } from './list-card.types'
 
-interface resumeCardProps {
+interface ResumeCardProps {
   title: string | undefined | null
   name: string
   text: string | undefined | null
@@ -17,7 +16,7 @@ interface resumeCardProps {
   headerImage: number
 }
 
-export function ListCardResume({ headerImage, title, name, text, location, ...props }: resumeCardProps) {
+export function ListCardResume({ headerImage, title, name, text, location, ...props }: ResumeCardProps) {
   const headerImageComponent = useMemo(() => createElement(FIELDS_OF_ACTIVITY_IMAGE[headerImage as FieldOfActivity]), [headerImage])
 
   return (

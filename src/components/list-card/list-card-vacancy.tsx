@@ -1,11 +1,12 @@
 import { Button, ButtonSize, ButtonVariant } from 'components/button'
 import { Card } from 'components/card'
 import { BiRuble } from 'react-icons/bi'
-import { TfiLocationPin } from 'react-icons/Tfi'
+import { TfiLocationPin } from 'react-icons/tfi'
 import { Divider, DividerDirection } from 'components/divider'
-import { Color, FieldOfActivity } from 'types/index'
+import { Color, FieldOfActivity, Locations } from 'types/index'
 import { createElement, useMemo } from 'react'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
+import { LOCATIONS_LABEL } from 'utils/locations'
 import styles from './list-card.module.scss'
 
 interface VacancyCardProps {
@@ -15,7 +16,7 @@ interface VacancyCardProps {
   company: string
   text: string
   price: number
-  location: string
+  location: number
 }
 
 export function ListCardVacancy({ title, headerImage, date, company, text, price, location, ...props }: VacancyCardProps) {
@@ -48,7 +49,7 @@ export function ListCardVacancy({ title, headerImage, date, company, text, price
             </p>
             <p>
               <TfiLocationPin className={styles.vacancyCardIcon} />
-              <span>{location}</span>
+              <span>{LOCATIONS_LABEL[location as Locations]}</span>
             </p>
           </div>
           <Button
