@@ -8,9 +8,10 @@ interface UniversalFormProps {
   fields: TUniversalFormField[]
   bottomText?: string
   buttonText: string
+  onSubmitForm: (data: any) => void
 }
 
-export function UniversalForm({ fields, bottomText, buttonText }: UniversalFormProps) {
+export function UniversalForm({ fields, bottomText, buttonText, onSubmitForm }: UniversalFormProps) {
   const { register, handleSubmit } = useForm({
     // TODO: убрать
     defaultValues: fields
@@ -20,10 +21,9 @@ export function UniversalForm({ fields, bottomText, buttonText }: UniversalFormP
         return defaultValues
       }, {} as Record<string, any>),
   })
-  const onSubmit = (data: any) => console.log(data)
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+    <form onSubmit={handleSubmit(onSubmitForm)} className={styles.form}>
       {fields.map((field, i) => (
         <UniversalFormField key={i} register={register} {...field} />
       ))}

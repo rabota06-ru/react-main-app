@@ -6254,6 +6254,20 @@ export type VerifyAuthCodeMutationVariables = Exact<{
 
 export type VerifyAuthCodeMutation = { __typename?: 'Mutation', verifyAuthCode: { __typename?: 'VerifyAuthCodeOutput', authenticated: boolean, authToken?: string | null } };
 
+export type CreateResumeMutationVariables = Exact<{
+  input: ResumeCreateInput;
+}>;
+
+
+export type CreateResumeMutation = { __typename?: 'Mutation', createOneResume: { __typename?: 'Resume', id: string } };
+
+export type CreateVacancyMutationVariables = Exact<{
+  input: VacancyCreateInput;
+}>;
+
+
+export type CreateVacancyMutation = { __typename?: 'Mutation', createOneVacancy: { __typename?: 'Vacancy', id: string } };
+
 
 export const CheckIsAuthenticatedDocument = `
     query CheckIsAuthenticated {
@@ -6306,6 +6320,20 @@ export const VerifyAuthCodeDocument = `
   }
 }
     `;
+export const CreateResumeDocument = `
+    mutation CreateResume($input: ResumeCreateInput!) {
+  createOneResume(data: $input) {
+    id
+  }
+}
+    `;
+export const CreateVacancyDocument = `
+    mutation CreateVacancy($input: VacancyCreateInput!) {
+  createOneVacancy(data: $input) {
+    id
+  }
+}
+    `;
 
 const injectedRtkApi = api.injectEndpoints({
   endpoints: (build) => ({
@@ -6329,6 +6357,12 @@ const injectedRtkApi = api.injectEndpoints({
     }),
     VerifyAuthCode: build.mutation<VerifyAuthCodeMutation, VerifyAuthCodeMutationVariables>({
       query: (variables) => ({ document: VerifyAuthCodeDocument, variables })
+    }),
+    CreateResume: build.mutation<CreateResumeMutation, CreateResumeMutationVariables>({
+      query: (variables) => ({ document: CreateResumeDocument, variables })
+    }),
+    CreateVacancy: build.mutation<CreateVacancyMutation, CreateVacancyMutationVariables>({
+      query: (variables) => ({ document: CreateVacancyDocument, variables })
     }),
   }),
 });
