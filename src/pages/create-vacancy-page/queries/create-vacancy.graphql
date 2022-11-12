@@ -1,0 +1,5 @@
+mutation CreateVacancy($input: VacancyCreateInput!) {
+  createOneVacancy(data: $input) {
+    id
+  }
+}

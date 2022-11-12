@@ -13,6 +13,12 @@ import { authSlice } from 'store/slices/auth.slice'
 import { LoadingOverlay } from 'components/loading-overlay'
 import { PersonalAccountPage } from 'pages/personal-account-page/personal-account-page'
 import { parseJwt } from 'utils/parse-jwt'
+import { FullResumePage } from 'pages/full-resume-page'
+import { FullVacancyPage } from 'pages/full-vacancy-page'
+import { AllVacanciesPage } from 'pages/all-vacancies-page'
+import { AllResumesPage } from 'pages/all-resume-page/all-resumes-page'
+import { CreateVacancyPage } from 'pages/create-vacancy-page'
+import { CreateResumePage } from 'pages/create-resume-page'
 
 export interface CarouselCard {
   iconUrl: string
@@ -84,9 +90,11 @@ export function App() {
 
   return (
     <div className='app'>
-      {isLoggedIn ? (
+      {isLoggedIn || true ? (
         <AuthorizedLayout>
           <Routes>
+            <Route path={routes.createVacancy} element={<CreateVacancyPage />} />
+            <Route path={routes.createResume} element={<CreateResumePage />} />
             <Route path={routes.personalAccount.inexact} element={<PersonalAccountPage />} />
             <Route path='*' element={<Navigate to={routes.personalAccount.exact} />} />
           </Routes>
@@ -94,8 +102,12 @@ export function App() {
       ) : (
         <UnauthorizedLayout>
           <Routes>
-            <Route path={routes.main.exact} element={<MainPage />} />
-            <Route path='*' element={<Navigate to={routes.main.exact} />} />
+            <Route path={routes.resume(':vacancyId')} element={<FullVacancyPage />} />
+            <Route path={routes.resume(':resumeId')} element={<FullResumePage />} />
+            <Route path={routes.main} element={<MainPage />} />
+            <Route path={routes.allVacancies} element={<AllVacanciesPage />} />
+            <Route path={routes.allResumes} element={<AllResumesPage />} />
+            <Route path='*' element={<Navigate to={routes.main} />} />
           </Routes>
           <AuthModal />
         </UnauthorizedLayout>

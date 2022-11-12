@@ -1,0 +1,65 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #f7fdff;
+}
+
+.header {
+  padding: 20px 0;
+  margin-bottom: 20px;
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  &Img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+  }
+  &Title {
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--textColor);
+    margin-bottom: 5px;
+  }
+  &Subtitle {
+    font-size: 14px;
+    color: var(--textColor);
+  }
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.formContainer {
+  padding: 60px 50px;
+  max-width: 805px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.footer {
+  padding: 75px 0;
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &Logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 30px;
+    fill: var(--primaryColor);
+    transition: width, height 0.3s;
+  }
+  &Copyright {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--primaryColor);
+  }
+}
