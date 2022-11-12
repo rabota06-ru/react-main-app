@@ -761,6 +761,20 @@ export type AggregateEmployerProfile = {
   _min?: Maybe<EmployerProfileMinAggregate>
 }
 
+export type AggregateInvitationToVacancy = {
+  __typename?: 'AggregateInvitationToVacancy'
+  _count?: Maybe<InvitationToVacancyCountAggregate>
+  _max?: Maybe<InvitationToVacancyMaxAggregate>
+  _min?: Maybe<InvitationToVacancyMinAggregate>
+}
+
+export type AggregateResponseToVacancy = {
+  __typename?: 'AggregateResponseToVacancy'
+  _count?: Maybe<ResponseToVacancyCountAggregate>
+  _max?: Maybe<ResponseToVacancyMaxAggregate>
+  _min?: Maybe<ResponseToVacancyMinAggregate>
+}
+
 export type AggregateResume = {
   __typename?: 'AggregateResume'
   _avg?: Maybe<ResumeAvgAggregate>
@@ -803,7 +817,6 @@ export type AggregateVacancySavedByApplicant = {
 export type ApplicantProfile = {
   __typename?: 'ApplicantProfile'
   _count?: Maybe<ApplicantProfileCount>
-  chats: Array<Chat>
   createdAt: Scalars['DateTime']
   id: Scalars['String']
   resume?: Maybe<Resume>
@@ -811,6 +824,15 @@ export type ApplicantProfile = {
   updatedAt: Scalars['DateTime']
   user: User
   userId: Scalars['String']
+}
+
+export type ApplicantProfileChatsArgs = {
+  cursor?: InputMaybe<ChatWhereUniqueInput>
+  distinct?: InputMaybe<Array<ChatScalarFieldEnum>>
+  orderBy?: InputMaybe<Array<ChatOrderByWithRelationInput>>
+  skip?: InputMaybe<Scalars['Int']>
+  take?: InputMaybe<Scalars['Int']>
+  where?: InputMaybe<ChatWhereInput>
 }
 
 export type ApplicantProfileChatsArgs = {
@@ -833,7 +855,6 @@ export type ApplicantProfileSavedVacanciesArgs = {
 
 export type ApplicantProfileCount = {
   __typename?: 'ApplicantProfileCount'
-  chats: Scalars['Int']
   savedVacancies: Scalars['Int']
 }
 
@@ -854,7 +875,6 @@ export type ApplicantProfileCountOrderByAggregateInput = {
 }
 
 export type ApplicantProfileCreateInput = {
-  chats?: InputMaybe<ChatCreateNestedManyWithoutApplicantInput>
   createdAt?: InputMaybe<Scalars['DateTime']>
   id?: InputMaybe<Scalars['String']>
   resume?: InputMaybe<ResumeCreateNestedOneWithoutApplicantProfileInput>
@@ -868,6 +888,12 @@ export type ApplicantProfileCreateManyInput = {
   id?: InputMaybe<Scalars['String']>
   updatedAt?: InputMaybe<Scalars['DateTime']>
   userId: Scalars['String']
+}
+
+export type ApplicantProfileCreateNestedOneWithoutChatsInput = {
+  connect?: InputMaybe<ApplicantProfileWhereUniqueInput>
+  connectOrCreate?: InputMaybe<ApplicantProfileCreateOrConnectWithoutChatsInput>
+  create?: InputMaybe<ApplicantProfileCreateWithoutChatsInput>
 }
 
 export type ApplicantProfileCreateNestedOneWithoutResumeInput = {
@@ -888,6 +914,11 @@ export type ApplicantProfileCreateNestedOneWithoutUserInput = {
   create?: InputMaybe<ApplicantProfileCreateWithoutUserInput>
 }
 
+export type ApplicantProfileCreateOrConnectWithoutChatsInput = {
+  create: ApplicantProfileCreateWithoutChatsInput
+  where: ApplicantProfileWhereUniqueInput
+}
+
 export type ApplicantProfileCreateOrConnectWithoutResumeInput = {
   create: ApplicantProfileCreateWithoutResumeInput
   where: ApplicantProfileWhereUniqueInput
@@ -903,17 +934,7 @@ export type ApplicantProfileCreateOrConnectWithoutUserInput = {
   where: ApplicantProfileWhereUniqueInput
 }
 
-export type ApplicantProfileCreateWithoutChatsInput = {
-  createdAt?: InputMaybe<Scalars['DateTime']>
-  id?: InputMaybe<Scalars['String']>
-  resume?: InputMaybe<ResumeCreateNestedOneWithoutApplicantProfileInput>
-  savedVacancies?: InputMaybe<VacancySavedByApplicantCreateNestedManyWithoutApplicantProfileInput>
-  updatedAt?: InputMaybe<Scalars['DateTime']>
-  user: UserCreateNestedOneWithoutApplicantProfileInput
-}
-
 export type ApplicantProfileCreateWithoutResumeInput = {
-  chats?: InputMaybe<ChatCreateNestedManyWithoutApplicantInput>
   createdAt?: InputMaybe<Scalars['DateTime']>
   id?: InputMaybe<Scalars['String']>
   savedVacancies?: InputMaybe<VacancySavedByApplicantCreateNestedManyWithoutApplicantProfileInput>
@@ -922,7 +943,6 @@ export type ApplicantProfileCreateWithoutResumeInput = {
 }
 
 export type ApplicantProfileCreateWithoutSavedVacanciesInput = {
-  chats?: InputMaybe<ChatCreateNestedManyWithoutApplicantInput>
   createdAt?: InputMaybe<Scalars['DateTime']>
   id?: InputMaybe<Scalars['String']>
   resume?: InputMaybe<ResumeCreateNestedOneWithoutApplicantProfileInput>
@@ -931,7 +951,6 @@ export type ApplicantProfileCreateWithoutSavedVacanciesInput = {
 }
 
 export type ApplicantProfileCreateWithoutUserInput = {
-  chats?: InputMaybe<ChatCreateNestedManyWithoutApplicantInput>
   createdAt?: InputMaybe<Scalars['DateTime']>
   id?: InputMaybe<Scalars['String']>
   resume?: InputMaybe<ResumeCreateNestedOneWithoutApplicantProfileInput>
@@ -1037,6 +1056,14 @@ export type ApplicantProfileUpdateManyMutationInput = {
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
 }
 
+export type ApplicantProfileUpdateOneRequiredWithoutChatsNestedInput = {
+  connect?: InputMaybe<ApplicantProfileWhereUniqueInput>
+  connectOrCreate?: InputMaybe<ApplicantProfileCreateOrConnectWithoutChatsInput>
+  create?: InputMaybe<ApplicantProfileCreateWithoutChatsInput>
+  update?: InputMaybe<ApplicantProfileUpdateWithoutChatsInput>
+  upsert?: InputMaybe<ApplicantProfileUpsertWithoutChatsInput>
+}
+
 export type ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput = {
   connect?: InputMaybe<ApplicantProfileWhereUniqueInput>
   connectOrCreate?: InputMaybe<ApplicantProfileCreateOrConnectWithoutResumeInput>
@@ -1063,6 +1090,15 @@ export type ApplicantProfileUpdateOneWithoutUserNestedInput = {
   upsert?: InputMaybe<ApplicantProfileUpsertWithoutUserInput>
 }
 
+export type ApplicantProfileUpdateWithoutChatsInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  id?: InputMaybe<StringFieldUpdateOperationsInput>
+  resume?: InputMaybe<ResumeUpdateOneWithoutApplicantProfileNestedInput>
+  savedVacancies?: InputMaybe<VacancySavedByApplicantUpdateManyWithoutApplicantProfileNestedInput>
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  user?: InputMaybe<UserUpdateOneRequiredWithoutApplicantProfileNestedInput>
+}
+
 export type ApplicantProfileUpdateWithoutResumeInput = {
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
   id?: InputMaybe<StringFieldUpdateOperationsInput>
@@ -1085,6 +1121,11 @@ export type ApplicantProfileUpdateWithoutUserInput = {
   resume?: InputMaybe<ResumeUpdateOneWithoutApplicantProfileNestedInput>
   savedVacancies?: InputMaybe<VacancySavedByApplicantUpdateManyWithoutApplicantProfileNestedInput>
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+}
+
+export type ApplicantProfileUpsertWithoutChatsInput = {
+  create: ApplicantProfileCreateWithoutChatsInput
+  update: ApplicantProfileUpdateWithoutChatsInput
 }
 
 export type ApplicantProfileUpsertWithoutResumeInput = {
@@ -1444,6 +1485,11 @@ export type ChatCreateWithoutSecondUserInput = {
   viewedBySecond?: InputMaybe<Scalars['Boolean']>
 }
 
+export type ChatEmployerIdApplicantIdCompoundUniqueInput = {
+  applicantId: Scalars['String']
+  employerId: Scalars['String']
+}
+
 export type ChatGroupBy = {
   __typename?: 'ChatGroupBy'
   _count?: Maybe<ChatCountAggregate>
@@ -1770,10 +1816,10 @@ export type ChatRelationFilter = {
 }
 
 export enum ChatScalarFieldEnum {
+  ApplicantId = 'applicantId',
   CreatedAt = 'createdAt',
-  FirstUserId = 'firstUserId',
+  EmployerId = 'employerId',
   Id = 'id',
-  SecondUserId = 'secondUserId',
   UpdatedAt = 'updatedAt',
   ViewedByFirst = 'viewedByFirst',
   ViewedBySecond = 'viewedBySecond',
@@ -2069,6 +2115,12 @@ export type EmployerProfileCreateManyInput = {
   userId: Scalars['String']
 }
 
+export type EmployerProfileCreateNestedOneWithoutChatsInput = {
+  connect?: InputMaybe<EmployerProfileWhereUniqueInput>
+  connectOrCreate?: InputMaybe<EmployerProfileCreateOrConnectWithoutChatsInput>
+  create?: InputMaybe<EmployerProfileCreateWithoutChatsInput>
+}
+
 export type EmployerProfileCreateNestedOneWithoutSavedResumesInput = {
   connect?: InputMaybe<EmployerProfileWhereUniqueInput>
   connectOrCreate?: InputMaybe<EmployerProfileCreateOrConnectWithoutSavedResumesInput>
@@ -2087,6 +2139,11 @@ export type EmployerProfileCreateNestedOneWithoutVacanciesInput = {
   create?: InputMaybe<EmployerProfileCreateWithoutVacanciesInput>
 }
 
+export type EmployerProfileCreateOrConnectWithoutChatsInput = {
+  create: EmployerProfileCreateWithoutChatsInput
+  where: EmployerProfileWhereUniqueInput
+}
+
 export type EmployerProfileCreateOrConnectWithoutSavedResumesInput = {
   create: EmployerProfileCreateWithoutSavedResumesInput
   where: EmployerProfileWhereUniqueInput
@@ -2100,6 +2157,17 @@ export type EmployerProfileCreateOrConnectWithoutUserInput = {
 export type EmployerProfileCreateOrConnectWithoutVacanciesInput = {
   create: EmployerProfileCreateWithoutVacanciesInput
   where: EmployerProfileWhereUniqueInput
+}
+
+export type EmployerProfileCreateWithoutChatsInput = {
+  companyName: Scalars['String']
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  description: Scalars['String']
+  id?: InputMaybe<Scalars['String']>
+  savedResumes?: InputMaybe<ResumeSavedByEmployerCreateNestedManyWithoutEmployerProfileInput>
+  updatedAt?: InputMaybe<Scalars['DateTime']>
+  user: UserCreateNestedOneWithoutEmployerProfileInput
+  vacancies?: InputMaybe<VacancyCreateNestedManyWithoutEmployerInput>
 }
 
 export type EmployerProfileCreateWithoutSavedResumesInput = {
@@ -2252,6 +2320,14 @@ export type EmployerProfileUpdateManyMutationInput = {
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
 }
 
+export type EmployerProfileUpdateOneRequiredWithoutChatsNestedInput = {
+  connect?: InputMaybe<EmployerProfileWhereUniqueInput>
+  connectOrCreate?: InputMaybe<EmployerProfileCreateOrConnectWithoutChatsInput>
+  create?: InputMaybe<EmployerProfileCreateWithoutChatsInput>
+  update?: InputMaybe<EmployerProfileUpdateWithoutChatsInput>
+  upsert?: InputMaybe<EmployerProfileUpsertWithoutChatsInput>
+}
+
 export type EmployerProfileUpdateOneRequiredWithoutSavedResumesNestedInput = {
   connect?: InputMaybe<EmployerProfileWhereUniqueInput>
   connectOrCreate?: InputMaybe<EmployerProfileCreateOrConnectWithoutSavedResumesInput>
@@ -2276,6 +2352,17 @@ export type EmployerProfileUpdateOneWithoutUserNestedInput = {
   disconnect?: InputMaybe<Scalars['Boolean']>
   update?: InputMaybe<EmployerProfileUpdateWithoutUserInput>
   upsert?: InputMaybe<EmployerProfileUpsertWithoutUserInput>
+}
+
+export type EmployerProfileUpdateWithoutChatsInput = {
+  companyName?: InputMaybe<StringFieldUpdateOperationsInput>
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  description?: InputMaybe<StringFieldUpdateOperationsInput>
+  id?: InputMaybe<StringFieldUpdateOperationsInput>
+  savedResumes?: InputMaybe<ResumeSavedByEmployerUpdateManyWithoutEmployerProfileNestedInput>
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  user?: InputMaybe<UserUpdateOneRequiredWithoutEmployerProfileNestedInput>
+  vacancies?: InputMaybe<VacancyUpdateManyWithoutEmployerNestedInput>
 }
 
 export type EmployerProfileUpdateWithoutSavedResumesInput = {
@@ -2306,6 +2393,11 @@ export type EmployerProfileUpdateWithoutVacanciesInput = {
   savedResumes?: InputMaybe<ResumeSavedByEmployerUpdateManyWithoutEmployerProfileNestedInput>
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
   user?: InputMaybe<UserUpdateOneRequiredWithoutEmployerProfileNestedInput>
+}
+
+export type EmployerProfileUpsertWithoutChatsInput = {
+  create: EmployerProfileCreateWithoutChatsInput
+  update: EmployerProfileUpdateWithoutChatsInput
 }
 
 export type EmployerProfileUpsertWithoutSavedResumesInput = {
@@ -2418,6 +2510,349 @@ export type IntWithAggregatesFilter = {
   lte?: InputMaybe<Scalars['Int']>
   not?: InputMaybe<NestedIntWithAggregatesFilter>
   notIn?: InputMaybe<Array<Scalars['Int']>>
+}
+
+export type InvitationToVacancy = {
+  __typename?: 'InvitationToVacancy'
+  coverLetter?: Maybe<Scalars['String']>
+  createdAt: Scalars['DateTime']
+  id: Scalars['String']
+  resume: Resume
+  resumeId: Scalars['String']
+  vacancy: Vacancy
+  vacancyId: Scalars['String']
+  viewed: Scalars['Boolean']
+}
+
+export type InvitationToVacancyCountAggregate = {
+  __typename?: 'InvitationToVacancyCountAggregate'
+  _all: Scalars['Int']
+  coverLetter: Scalars['Int']
+  createdAt: Scalars['Int']
+  id: Scalars['Int']
+  resumeId: Scalars['Int']
+  vacancyId: Scalars['Int']
+  viewed: Scalars['Int']
+}
+
+export type InvitationToVacancyCountOrderByAggregateInput = {
+  coverLetter?: InputMaybe<SortOrder>
+  createdAt?: InputMaybe<SortOrder>
+  id?: InputMaybe<SortOrder>
+  resumeId?: InputMaybe<SortOrder>
+  vacancyId?: InputMaybe<SortOrder>
+  viewed?: InputMaybe<SortOrder>
+}
+
+export type InvitationToVacancyCreateInput = {
+  coverLetter?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  id?: InputMaybe<Scalars['String']>
+  resume: ResumeCreateNestedOneWithoutInvitationsInput
+  vacancy: VacancyCreateNestedOneWithoutInvitationsInput
+  viewed?: InputMaybe<Scalars['Boolean']>
+}
+
+export type InvitationToVacancyCreateManyInput = {
+  coverLetter?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  id?: InputMaybe<Scalars['String']>
+  resumeId: Scalars['String']
+  vacancyId: Scalars['String']
+  viewed?: InputMaybe<Scalars['Boolean']>
+}
+
+export type InvitationToVacancyCreateManyResumeInput = {
+  coverLetter?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  id?: InputMaybe<Scalars['String']>
+  vacancyId: Scalars['String']
+  viewed?: InputMaybe<Scalars['Boolean']>
+}
+
+export type InvitationToVacancyCreateManyResumeInputEnvelope = {
+  data: Array<InvitationToVacancyCreateManyResumeInput>
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>
+}
+
+export type InvitationToVacancyCreateManyVacancyInput = {
+  coverLetter?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  id?: InputMaybe<Scalars['String']>
+  resumeId: Scalars['String']
+  viewed?: InputMaybe<Scalars['Boolean']>
+}
+
+export type InvitationToVacancyCreateManyVacancyInputEnvelope = {
+  data: Array<InvitationToVacancyCreateManyVacancyInput>
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>
+}
+
+export type InvitationToVacancyCreateNestedManyWithoutResumeInput = {
+  connect?: InputMaybe<Array<InvitationToVacancyWhereUniqueInput>>
+  connectOrCreate?: InputMaybe<Array<InvitationToVacancyCreateOrConnectWithoutResumeInput>>
+  create?: InputMaybe<Array<InvitationToVacancyCreateWithoutResumeInput>>
+  createMany?: InputMaybe<InvitationToVacancyCreateManyResumeInputEnvelope>
+}
+
+export type InvitationToVacancyCreateNestedManyWithoutVacancyInput = {
+  connect?: InputMaybe<Array<InvitationToVacancyWhereUniqueInput>>
+  connectOrCreate?: InputMaybe<Array<InvitationToVacancyCreateOrConnectWithoutVacancyInput>>
+  create?: InputMaybe<Array<InvitationToVacancyCreateWithoutVacancyInput>>
+  createMany?: InputMaybe<InvitationToVacancyCreateManyVacancyInputEnvelope>
+}
+
+export type InvitationToVacancyCreateOrConnectWithoutResumeInput = {
+  create: InvitationToVacancyCreateWithoutResumeInput
+  where: InvitationToVacancyWhereUniqueInput
+}
+
+export type InvitationToVacancyCreateOrConnectWithoutVacancyInput = {
+  create: InvitationToVacancyCreateWithoutVacancyInput
+  where: InvitationToVacancyWhereUniqueInput
+}
+
+export type InvitationToVacancyCreateWithoutResumeInput = {
+  coverLetter?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  id?: InputMaybe<Scalars['String']>
+  vacancy: VacancyCreateNestedOneWithoutInvitationsInput
+  viewed?: InputMaybe<Scalars['Boolean']>
+}
+
+export type InvitationToVacancyCreateWithoutVacancyInput = {
+  coverLetter?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  id?: InputMaybe<Scalars['String']>
+  resume: ResumeCreateNestedOneWithoutInvitationsInput
+  viewed?: InputMaybe<Scalars['Boolean']>
+}
+
+export type InvitationToVacancyGroupBy = {
+  __typename?: 'InvitationToVacancyGroupBy'
+  _count?: Maybe<InvitationToVacancyCountAggregate>
+  _max?: Maybe<InvitationToVacancyMaxAggregate>
+  _min?: Maybe<InvitationToVacancyMinAggregate>
+  coverLetter?: Maybe<Scalars['String']>
+  createdAt: Scalars['DateTime']
+  id: Scalars['String']
+  resumeId: Scalars['String']
+  vacancyId: Scalars['String']
+  viewed: Scalars['Boolean']
+}
+
+export type InvitationToVacancyListRelationFilter = {
+  every?: InputMaybe<InvitationToVacancyWhereInput>
+  none?: InputMaybe<InvitationToVacancyWhereInput>
+  some?: InputMaybe<InvitationToVacancyWhereInput>
+}
+
+export type InvitationToVacancyMaxAggregate = {
+  __typename?: 'InvitationToVacancyMaxAggregate'
+  coverLetter?: Maybe<Scalars['String']>
+  createdAt?: Maybe<Scalars['DateTime']>
+  id?: Maybe<Scalars['String']>
+  resumeId?: Maybe<Scalars['String']>
+  vacancyId?: Maybe<Scalars['String']>
+  viewed?: Maybe<Scalars['Boolean']>
+}
+
+export type InvitationToVacancyMaxOrderByAggregateInput = {
+  coverLetter?: InputMaybe<SortOrder>
+  createdAt?: InputMaybe<SortOrder>
+  id?: InputMaybe<SortOrder>
+  resumeId?: InputMaybe<SortOrder>
+  vacancyId?: InputMaybe<SortOrder>
+  viewed?: InputMaybe<SortOrder>
+}
+
+export type InvitationToVacancyMinAggregate = {
+  __typename?: 'InvitationToVacancyMinAggregate'
+  coverLetter?: Maybe<Scalars['String']>
+  createdAt?: Maybe<Scalars['DateTime']>
+  id?: Maybe<Scalars['String']>
+  resumeId?: Maybe<Scalars['String']>
+  vacancyId?: Maybe<Scalars['String']>
+  viewed?: Maybe<Scalars['Boolean']>
+}
+
+export type InvitationToVacancyMinOrderByAggregateInput = {
+  coverLetter?: InputMaybe<SortOrder>
+  createdAt?: InputMaybe<SortOrder>
+  id?: InputMaybe<SortOrder>
+  resumeId?: InputMaybe<SortOrder>
+  vacancyId?: InputMaybe<SortOrder>
+  viewed?: InputMaybe<SortOrder>
+}
+
+export type InvitationToVacancyOrderByRelationAggregateInput = {
+  _count?: InputMaybe<SortOrder>
+}
+
+export type InvitationToVacancyOrderByWithAggregationInput = {
+  _count?: InputMaybe<InvitationToVacancyCountOrderByAggregateInput>
+  _max?: InputMaybe<InvitationToVacancyMaxOrderByAggregateInput>
+  _min?: InputMaybe<InvitationToVacancyMinOrderByAggregateInput>
+  coverLetter?: InputMaybe<SortOrder>
+  createdAt?: InputMaybe<SortOrder>
+  id?: InputMaybe<SortOrder>
+  resumeId?: InputMaybe<SortOrder>
+  vacancyId?: InputMaybe<SortOrder>
+  viewed?: InputMaybe<SortOrder>
+}
+
+export type InvitationToVacancyOrderByWithRelationInput = {
+  coverLetter?: InputMaybe<SortOrder>
+  createdAt?: InputMaybe<SortOrder>
+  id?: InputMaybe<SortOrder>
+  resume?: InputMaybe<ResumeOrderByWithRelationInput>
+  resumeId?: InputMaybe<SortOrder>
+  vacancy?: InputMaybe<VacancyOrderByWithRelationInput>
+  vacancyId?: InputMaybe<SortOrder>
+  viewed?: InputMaybe<SortOrder>
+}
+
+export enum InvitationToVacancyScalarFieldEnum {
+  CoverLetter = 'coverLetter',
+  CreatedAt = 'createdAt',
+  Id = 'id',
+  ResumeId = 'resumeId',
+  VacancyId = 'vacancyId',
+  Viewed = 'viewed',
+}
+
+export type InvitationToVacancyScalarWhereInput = {
+  AND?: InputMaybe<Array<InvitationToVacancyScalarWhereInput>>
+  NOT?: InputMaybe<Array<InvitationToVacancyScalarWhereInput>>
+  OR?: InputMaybe<Array<InvitationToVacancyScalarWhereInput>>
+  coverLetter?: InputMaybe<StringNullableFilter>
+  createdAt?: InputMaybe<DateTimeFilter>
+  id?: InputMaybe<StringFilter>
+  resumeId?: InputMaybe<StringFilter>
+  vacancyId?: InputMaybe<StringFilter>
+  viewed?: InputMaybe<BoolFilter>
+}
+
+export type InvitationToVacancyScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<InvitationToVacancyScalarWhereWithAggregatesInput>>
+  NOT?: InputMaybe<Array<InvitationToVacancyScalarWhereWithAggregatesInput>>
+  OR?: InputMaybe<Array<InvitationToVacancyScalarWhereWithAggregatesInput>>
+  coverLetter?: InputMaybe<StringNullableWithAggregatesFilter>
+  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>
+  id?: InputMaybe<StringWithAggregatesFilter>
+  resumeId?: InputMaybe<StringWithAggregatesFilter>
+  vacancyId?: InputMaybe<StringWithAggregatesFilter>
+  viewed?: InputMaybe<BoolWithAggregatesFilter>
+}
+
+export type InvitationToVacancyUpdateInput = {
+  coverLetter?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  id?: InputMaybe<StringFieldUpdateOperationsInput>
+  resume?: InputMaybe<ResumeUpdateOneRequiredWithoutInvitationsNestedInput>
+  vacancy?: InputMaybe<VacancyUpdateOneRequiredWithoutInvitationsNestedInput>
+  viewed?: InputMaybe<BoolFieldUpdateOperationsInput>
+}
+
+export type InvitationToVacancyUpdateManyMutationInput = {
+  coverLetter?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  id?: InputMaybe<StringFieldUpdateOperationsInput>
+  viewed?: InputMaybe<BoolFieldUpdateOperationsInput>
+}
+
+export type InvitationToVacancyUpdateManyWithWhereWithoutResumeInput = {
+  data: InvitationToVacancyUpdateManyMutationInput
+  where: InvitationToVacancyScalarWhereInput
+}
+
+export type InvitationToVacancyUpdateManyWithWhereWithoutVacancyInput = {
+  data: InvitationToVacancyUpdateManyMutationInput
+  where: InvitationToVacancyScalarWhereInput
+}
+
+export type InvitationToVacancyUpdateManyWithoutResumeNestedInput = {
+  connect?: InputMaybe<Array<InvitationToVacancyWhereUniqueInput>>
+  connectOrCreate?: InputMaybe<Array<InvitationToVacancyCreateOrConnectWithoutResumeInput>>
+  create?: InputMaybe<Array<InvitationToVacancyCreateWithoutResumeInput>>
+  createMany?: InputMaybe<InvitationToVacancyCreateManyResumeInputEnvelope>
+  delete?: InputMaybe<Array<InvitationToVacancyWhereUniqueInput>>
+  deleteMany?: InputMaybe<Array<InvitationToVacancyScalarWhereInput>>
+  disconnect?: InputMaybe<Array<InvitationToVacancyWhereUniqueInput>>
+  set?: InputMaybe<Array<InvitationToVacancyWhereUniqueInput>>
+  update?: InputMaybe<Array<InvitationToVacancyUpdateWithWhereUniqueWithoutResumeInput>>
+  updateMany?: InputMaybe<Array<InvitationToVacancyUpdateManyWithWhereWithoutResumeInput>>
+  upsert?: InputMaybe<Array<InvitationToVacancyUpsertWithWhereUniqueWithoutResumeInput>>
+}
+
+export type InvitationToVacancyUpdateManyWithoutVacancyNestedInput = {
+  connect?: InputMaybe<Array<InvitationToVacancyWhereUniqueInput>>
+  connectOrCreate?: InputMaybe<Array<InvitationToVacancyCreateOrConnectWithoutVacancyInput>>
+  create?: InputMaybe<Array<InvitationToVacancyCreateWithoutVacancyInput>>
+  createMany?: InputMaybe<InvitationToVacancyCreateManyVacancyInputEnvelope>
+  delete?: InputMaybe<Array<InvitationToVacancyWhereUniqueInput>>
+  deleteMany?: InputMaybe<Array<InvitationToVacancyScalarWhereInput>>
+  disconnect?: InputMaybe<Array<InvitationToVacancyWhereUniqueInput>>
+  set?: InputMaybe<Array<InvitationToVacancyWhereUniqueInput>>
+  update?: InputMaybe<Array<InvitationToVacancyUpdateWithWhereUniqueWithoutVacancyInput>>
+  updateMany?: InputMaybe<Array<InvitationToVacancyUpdateManyWithWhereWithoutVacancyInput>>
+  upsert?: InputMaybe<Array<InvitationToVacancyUpsertWithWhereUniqueWithoutVacancyInput>>
+}
+
+export type InvitationToVacancyUpdateWithWhereUniqueWithoutResumeInput = {
+  data: InvitationToVacancyUpdateWithoutResumeInput
+  where: InvitationToVacancyWhereUniqueInput
+}
+
+export type InvitationToVacancyUpdateWithWhereUniqueWithoutVacancyInput = {
+  data: InvitationToVacancyUpdateWithoutVacancyInput
+  where: InvitationToVacancyWhereUniqueInput
+}
+
+export type InvitationToVacancyUpdateWithoutResumeInput = {
+  coverLetter?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  id?: InputMaybe<StringFieldUpdateOperationsInput>
+  vacancy?: InputMaybe<VacancyUpdateOneRequiredWithoutInvitationsNestedInput>
+  viewed?: InputMaybe<BoolFieldUpdateOperationsInput>
+}
+
+export type InvitationToVacancyUpdateWithoutVacancyInput = {
+  coverLetter?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  id?: InputMaybe<StringFieldUpdateOperationsInput>
+  resume?: InputMaybe<ResumeUpdateOneRequiredWithoutInvitationsNestedInput>
+  viewed?: InputMaybe<BoolFieldUpdateOperationsInput>
+}
+
+export type InvitationToVacancyUpsertWithWhereUniqueWithoutResumeInput = {
+  create: InvitationToVacancyCreateWithoutResumeInput
+  update: InvitationToVacancyUpdateWithoutResumeInput
+  where: InvitationToVacancyWhereUniqueInput
+}
+
+export type InvitationToVacancyUpsertWithWhereUniqueWithoutVacancyInput = {
+  create: InvitationToVacancyCreateWithoutVacancyInput
+  update: InvitationToVacancyUpdateWithoutVacancyInput
+  where: InvitationToVacancyWhereUniqueInput
+}
+
+export type InvitationToVacancyWhereInput = {
+  AND?: InputMaybe<Array<InvitationToVacancyWhereInput>>
+  NOT?: InputMaybe<Array<InvitationToVacancyWhereInput>>
+  OR?: InputMaybe<Array<InvitationToVacancyWhereInput>>
+  coverLetter?: InputMaybe<StringNullableFilter>
+  createdAt?: InputMaybe<DateTimeFilter>
+  id?: InputMaybe<StringFilter>
+  resume?: InputMaybe<ResumeRelationFilter>
+  resumeId?: InputMaybe<StringFilter>
+  vacancy?: InputMaybe<VacancyRelationFilter>
+  vacancyId?: InputMaybe<StringFilter>
+  viewed?: InputMaybe<BoolFilter>
+}
+
+export type InvitationToVacancyWhereUniqueInput = {
+  id?: InputMaybe<Scalars['String']>
 }
 
 export type JsonFilter = {
@@ -3800,6 +4235,349 @@ export enum QueryMode {
   Insensitive = 'insensitive',
 }
 
+export type ResponseToVacancy = {
+  __typename?: 'ResponseToVacancy'
+  coverLetter?: Maybe<Scalars['String']>
+  createdAt: Scalars['DateTime']
+  id: Scalars['String']
+  resume: Resume
+  resumeId: Scalars['String']
+  vacancy: Vacancy
+  vacancyId: Scalars['String']
+  viewed: Scalars['Boolean']
+}
+
+export type ResponseToVacancyCountAggregate = {
+  __typename?: 'ResponseToVacancyCountAggregate'
+  _all: Scalars['Int']
+  coverLetter: Scalars['Int']
+  createdAt: Scalars['Int']
+  id: Scalars['Int']
+  resumeId: Scalars['Int']
+  vacancyId: Scalars['Int']
+  viewed: Scalars['Int']
+}
+
+export type ResponseToVacancyCountOrderByAggregateInput = {
+  coverLetter?: InputMaybe<SortOrder>
+  createdAt?: InputMaybe<SortOrder>
+  id?: InputMaybe<SortOrder>
+  resumeId?: InputMaybe<SortOrder>
+  vacancyId?: InputMaybe<SortOrder>
+  viewed?: InputMaybe<SortOrder>
+}
+
+export type ResponseToVacancyCreateInput = {
+  coverLetter?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  id?: InputMaybe<Scalars['String']>
+  resume: ResumeCreateNestedOneWithoutResponsesInput
+  vacancy: VacancyCreateNestedOneWithoutResponsesInput
+  viewed?: InputMaybe<Scalars['Boolean']>
+}
+
+export type ResponseToVacancyCreateManyInput = {
+  coverLetter?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  id?: InputMaybe<Scalars['String']>
+  resumeId: Scalars['String']
+  vacancyId: Scalars['String']
+  viewed?: InputMaybe<Scalars['Boolean']>
+}
+
+export type ResponseToVacancyCreateManyResumeInput = {
+  coverLetter?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  id?: InputMaybe<Scalars['String']>
+  vacancyId: Scalars['String']
+  viewed?: InputMaybe<Scalars['Boolean']>
+}
+
+export type ResponseToVacancyCreateManyResumeInputEnvelope = {
+  data: Array<ResponseToVacancyCreateManyResumeInput>
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>
+}
+
+export type ResponseToVacancyCreateManyVacancyInput = {
+  coverLetter?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  id?: InputMaybe<Scalars['String']>
+  resumeId: Scalars['String']
+  viewed?: InputMaybe<Scalars['Boolean']>
+}
+
+export type ResponseToVacancyCreateManyVacancyInputEnvelope = {
+  data: Array<ResponseToVacancyCreateManyVacancyInput>
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>
+}
+
+export type ResponseToVacancyCreateNestedManyWithoutResumeInput = {
+  connect?: InputMaybe<Array<ResponseToVacancyWhereUniqueInput>>
+  connectOrCreate?: InputMaybe<Array<ResponseToVacancyCreateOrConnectWithoutResumeInput>>
+  create?: InputMaybe<Array<ResponseToVacancyCreateWithoutResumeInput>>
+  createMany?: InputMaybe<ResponseToVacancyCreateManyResumeInputEnvelope>
+}
+
+export type ResponseToVacancyCreateNestedManyWithoutVacancyInput = {
+  connect?: InputMaybe<Array<ResponseToVacancyWhereUniqueInput>>
+  connectOrCreate?: InputMaybe<Array<ResponseToVacancyCreateOrConnectWithoutVacancyInput>>
+  create?: InputMaybe<Array<ResponseToVacancyCreateWithoutVacancyInput>>
+  createMany?: InputMaybe<ResponseToVacancyCreateManyVacancyInputEnvelope>
+}
+
+export type ResponseToVacancyCreateOrConnectWithoutResumeInput = {
+  create: ResponseToVacancyCreateWithoutResumeInput
+  where: ResponseToVacancyWhereUniqueInput
+}
+
+export type ResponseToVacancyCreateOrConnectWithoutVacancyInput = {
+  create: ResponseToVacancyCreateWithoutVacancyInput
+  where: ResponseToVacancyWhereUniqueInput
+}
+
+export type ResponseToVacancyCreateWithoutResumeInput = {
+  coverLetter?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  id?: InputMaybe<Scalars['String']>
+  vacancy: VacancyCreateNestedOneWithoutResponsesInput
+  viewed?: InputMaybe<Scalars['Boolean']>
+}
+
+export type ResponseToVacancyCreateWithoutVacancyInput = {
+  coverLetter?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  id?: InputMaybe<Scalars['String']>
+  resume: ResumeCreateNestedOneWithoutResponsesInput
+  viewed?: InputMaybe<Scalars['Boolean']>
+}
+
+export type ResponseToVacancyGroupBy = {
+  __typename?: 'ResponseToVacancyGroupBy'
+  _count?: Maybe<ResponseToVacancyCountAggregate>
+  _max?: Maybe<ResponseToVacancyMaxAggregate>
+  _min?: Maybe<ResponseToVacancyMinAggregate>
+  coverLetter?: Maybe<Scalars['String']>
+  createdAt: Scalars['DateTime']
+  id: Scalars['String']
+  resumeId: Scalars['String']
+  vacancyId: Scalars['String']
+  viewed: Scalars['Boolean']
+}
+
+export type ResponseToVacancyListRelationFilter = {
+  every?: InputMaybe<ResponseToVacancyWhereInput>
+  none?: InputMaybe<ResponseToVacancyWhereInput>
+  some?: InputMaybe<ResponseToVacancyWhereInput>
+}
+
+export type ResponseToVacancyMaxAggregate = {
+  __typename?: 'ResponseToVacancyMaxAggregate'
+  coverLetter?: Maybe<Scalars['String']>
+  createdAt?: Maybe<Scalars['DateTime']>
+  id?: Maybe<Scalars['String']>
+  resumeId?: Maybe<Scalars['String']>
+  vacancyId?: Maybe<Scalars['String']>
+  viewed?: Maybe<Scalars['Boolean']>
+}
+
+export type ResponseToVacancyMaxOrderByAggregateInput = {
+  coverLetter?: InputMaybe<SortOrder>
+  createdAt?: InputMaybe<SortOrder>
+  id?: InputMaybe<SortOrder>
+  resumeId?: InputMaybe<SortOrder>
+  vacancyId?: InputMaybe<SortOrder>
+  viewed?: InputMaybe<SortOrder>
+}
+
+export type ResponseToVacancyMinAggregate = {
+  __typename?: 'ResponseToVacancyMinAggregate'
+  coverLetter?: Maybe<Scalars['String']>
+  createdAt?: Maybe<Scalars['DateTime']>
+  id?: Maybe<Scalars['String']>
+  resumeId?: Maybe<Scalars['String']>
+  vacancyId?: Maybe<Scalars['String']>
+  viewed?: Maybe<Scalars['Boolean']>
+}
+
+export type ResponseToVacancyMinOrderByAggregateInput = {
+  coverLetter?: InputMaybe<SortOrder>
+  createdAt?: InputMaybe<SortOrder>
+  id?: InputMaybe<SortOrder>
+  resumeId?: InputMaybe<SortOrder>
+  vacancyId?: InputMaybe<SortOrder>
+  viewed?: InputMaybe<SortOrder>
+}
+
+export type ResponseToVacancyOrderByRelationAggregateInput = {
+  _count?: InputMaybe<SortOrder>
+}
+
+export type ResponseToVacancyOrderByWithAggregationInput = {
+  _count?: InputMaybe<ResponseToVacancyCountOrderByAggregateInput>
+  _max?: InputMaybe<ResponseToVacancyMaxOrderByAggregateInput>
+  _min?: InputMaybe<ResponseToVacancyMinOrderByAggregateInput>
+  coverLetter?: InputMaybe<SortOrder>
+  createdAt?: InputMaybe<SortOrder>
+  id?: InputMaybe<SortOrder>
+  resumeId?: InputMaybe<SortOrder>
+  vacancyId?: InputMaybe<SortOrder>
+  viewed?: InputMaybe<SortOrder>
+}
+
+export type ResponseToVacancyOrderByWithRelationInput = {
+  coverLetter?: InputMaybe<SortOrder>
+  createdAt?: InputMaybe<SortOrder>
+  id?: InputMaybe<SortOrder>
+  resume?: InputMaybe<ResumeOrderByWithRelationInput>
+  resumeId?: InputMaybe<SortOrder>
+  vacancy?: InputMaybe<VacancyOrderByWithRelationInput>
+  vacancyId?: InputMaybe<SortOrder>
+  viewed?: InputMaybe<SortOrder>
+}
+
+export enum ResponseToVacancyScalarFieldEnum {
+  CoverLetter = 'coverLetter',
+  CreatedAt = 'createdAt',
+  Id = 'id',
+  ResumeId = 'resumeId',
+  VacancyId = 'vacancyId',
+  Viewed = 'viewed',
+}
+
+export type ResponseToVacancyScalarWhereInput = {
+  AND?: InputMaybe<Array<ResponseToVacancyScalarWhereInput>>
+  NOT?: InputMaybe<Array<ResponseToVacancyScalarWhereInput>>
+  OR?: InputMaybe<Array<ResponseToVacancyScalarWhereInput>>
+  coverLetter?: InputMaybe<StringNullableFilter>
+  createdAt?: InputMaybe<DateTimeFilter>
+  id?: InputMaybe<StringFilter>
+  resumeId?: InputMaybe<StringFilter>
+  vacancyId?: InputMaybe<StringFilter>
+  viewed?: InputMaybe<BoolFilter>
+}
+
+export type ResponseToVacancyScalarWhereWithAggregatesInput = {
+  AND?: InputMaybe<Array<ResponseToVacancyScalarWhereWithAggregatesInput>>
+  NOT?: InputMaybe<Array<ResponseToVacancyScalarWhereWithAggregatesInput>>
+  OR?: InputMaybe<Array<ResponseToVacancyScalarWhereWithAggregatesInput>>
+  coverLetter?: InputMaybe<StringNullableWithAggregatesFilter>
+  createdAt?: InputMaybe<DateTimeWithAggregatesFilter>
+  id?: InputMaybe<StringWithAggregatesFilter>
+  resumeId?: InputMaybe<StringWithAggregatesFilter>
+  vacancyId?: InputMaybe<StringWithAggregatesFilter>
+  viewed?: InputMaybe<BoolWithAggregatesFilter>
+}
+
+export type ResponseToVacancyUpdateInput = {
+  coverLetter?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  id?: InputMaybe<StringFieldUpdateOperationsInput>
+  resume?: InputMaybe<ResumeUpdateOneRequiredWithoutResponsesNestedInput>
+  vacancy?: InputMaybe<VacancyUpdateOneRequiredWithoutResponsesNestedInput>
+  viewed?: InputMaybe<BoolFieldUpdateOperationsInput>
+}
+
+export type ResponseToVacancyUpdateManyMutationInput = {
+  coverLetter?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  id?: InputMaybe<StringFieldUpdateOperationsInput>
+  viewed?: InputMaybe<BoolFieldUpdateOperationsInput>
+}
+
+export type ResponseToVacancyUpdateManyWithWhereWithoutResumeInput = {
+  data: ResponseToVacancyUpdateManyMutationInput
+  where: ResponseToVacancyScalarWhereInput
+}
+
+export type ResponseToVacancyUpdateManyWithWhereWithoutVacancyInput = {
+  data: ResponseToVacancyUpdateManyMutationInput
+  where: ResponseToVacancyScalarWhereInput
+}
+
+export type ResponseToVacancyUpdateManyWithoutResumeNestedInput = {
+  connect?: InputMaybe<Array<ResponseToVacancyWhereUniqueInput>>
+  connectOrCreate?: InputMaybe<Array<ResponseToVacancyCreateOrConnectWithoutResumeInput>>
+  create?: InputMaybe<Array<ResponseToVacancyCreateWithoutResumeInput>>
+  createMany?: InputMaybe<ResponseToVacancyCreateManyResumeInputEnvelope>
+  delete?: InputMaybe<Array<ResponseToVacancyWhereUniqueInput>>
+  deleteMany?: InputMaybe<Array<ResponseToVacancyScalarWhereInput>>
+  disconnect?: InputMaybe<Array<ResponseToVacancyWhereUniqueInput>>
+  set?: InputMaybe<Array<ResponseToVacancyWhereUniqueInput>>
+  update?: InputMaybe<Array<ResponseToVacancyUpdateWithWhereUniqueWithoutResumeInput>>
+  updateMany?: InputMaybe<Array<ResponseToVacancyUpdateManyWithWhereWithoutResumeInput>>
+  upsert?: InputMaybe<Array<ResponseToVacancyUpsertWithWhereUniqueWithoutResumeInput>>
+}
+
+export type ResponseToVacancyUpdateManyWithoutVacancyNestedInput = {
+  connect?: InputMaybe<Array<ResponseToVacancyWhereUniqueInput>>
+  connectOrCreate?: InputMaybe<Array<ResponseToVacancyCreateOrConnectWithoutVacancyInput>>
+  create?: InputMaybe<Array<ResponseToVacancyCreateWithoutVacancyInput>>
+  createMany?: InputMaybe<ResponseToVacancyCreateManyVacancyInputEnvelope>
+  delete?: InputMaybe<Array<ResponseToVacancyWhereUniqueInput>>
+  deleteMany?: InputMaybe<Array<ResponseToVacancyScalarWhereInput>>
+  disconnect?: InputMaybe<Array<ResponseToVacancyWhereUniqueInput>>
+  set?: InputMaybe<Array<ResponseToVacancyWhereUniqueInput>>
+  update?: InputMaybe<Array<ResponseToVacancyUpdateWithWhereUniqueWithoutVacancyInput>>
+  updateMany?: InputMaybe<Array<ResponseToVacancyUpdateManyWithWhereWithoutVacancyInput>>
+  upsert?: InputMaybe<Array<ResponseToVacancyUpsertWithWhereUniqueWithoutVacancyInput>>
+}
+
+export type ResponseToVacancyUpdateWithWhereUniqueWithoutResumeInput = {
+  data: ResponseToVacancyUpdateWithoutResumeInput
+  where: ResponseToVacancyWhereUniqueInput
+}
+
+export type ResponseToVacancyUpdateWithWhereUniqueWithoutVacancyInput = {
+  data: ResponseToVacancyUpdateWithoutVacancyInput
+  where: ResponseToVacancyWhereUniqueInput
+}
+
+export type ResponseToVacancyUpdateWithoutResumeInput = {
+  coverLetter?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  id?: InputMaybe<StringFieldUpdateOperationsInput>
+  vacancy?: InputMaybe<VacancyUpdateOneRequiredWithoutResponsesNestedInput>
+  viewed?: InputMaybe<BoolFieldUpdateOperationsInput>
+}
+
+export type ResponseToVacancyUpdateWithoutVacancyInput = {
+  coverLetter?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  id?: InputMaybe<StringFieldUpdateOperationsInput>
+  resume?: InputMaybe<ResumeUpdateOneRequiredWithoutResponsesNestedInput>
+  viewed?: InputMaybe<BoolFieldUpdateOperationsInput>
+}
+
+export type ResponseToVacancyUpsertWithWhereUniqueWithoutResumeInput = {
+  create: ResponseToVacancyCreateWithoutResumeInput
+  update: ResponseToVacancyUpdateWithoutResumeInput
+  where: ResponseToVacancyWhereUniqueInput
+}
+
+export type ResponseToVacancyUpsertWithWhereUniqueWithoutVacancyInput = {
+  create: ResponseToVacancyCreateWithoutVacancyInput
+  update: ResponseToVacancyUpdateWithoutVacancyInput
+  where: ResponseToVacancyWhereUniqueInput
+}
+
+export type ResponseToVacancyWhereInput = {
+  AND?: InputMaybe<Array<ResponseToVacancyWhereInput>>
+  NOT?: InputMaybe<Array<ResponseToVacancyWhereInput>>
+  OR?: InputMaybe<Array<ResponseToVacancyWhereInput>>
+  coverLetter?: InputMaybe<StringNullableFilter>
+  createdAt?: InputMaybe<DateTimeFilter>
+  id?: InputMaybe<StringFilter>
+  resume?: InputMaybe<ResumeRelationFilter>
+  resumeId?: InputMaybe<StringFilter>
+  vacancy?: InputMaybe<VacancyRelationFilter>
+  vacancyId?: InputMaybe<StringFilter>
+  viewed?: InputMaybe<BoolFilter>
+}
+
+export type ResponseToVacancyWhereUniqueInput = {
+  id?: InputMaybe<Scalars['String']>
+}
+
 export type Resume = {
   __typename?: 'Resume'
   _count?: Maybe<ResumeCount>
@@ -3935,6 +4713,18 @@ export type ResumeCreateNestedOneWithoutApplicantProfileInput = {
   create?: InputMaybe<ResumeCreateWithoutApplicantProfileInput>
 }
 
+export type ResumeCreateNestedOneWithoutInvitationsInput = {
+  connect?: InputMaybe<ResumeWhereUniqueInput>
+  connectOrCreate?: InputMaybe<ResumeCreateOrConnectWithoutInvitationsInput>
+  create?: InputMaybe<ResumeCreateWithoutInvitationsInput>
+}
+
+export type ResumeCreateNestedOneWithoutResponsesInput = {
+  connect?: InputMaybe<ResumeWhereUniqueInput>
+  connectOrCreate?: InputMaybe<ResumeCreateOrConnectWithoutResponsesInput>
+  create?: InputMaybe<ResumeCreateWithoutResponsesInput>
+}
+
 export type ResumeCreateNestedOneWithoutSavedByInput = {
   connect?: InputMaybe<ResumeWhereUniqueInput>
   connectOrCreate?: InputMaybe<ResumeCreateOrConnectWithoutSavedByInput>
@@ -3943,6 +4733,16 @@ export type ResumeCreateNestedOneWithoutSavedByInput = {
 
 export type ResumeCreateOrConnectWithoutApplicantProfileInput = {
   create: ResumeCreateWithoutApplicantProfileInput
+  where: ResumeWhereUniqueInput
+}
+
+export type ResumeCreateOrConnectWithoutInvitationsInput = {
+  create: ResumeCreateWithoutInvitationsInput
+  where: ResumeWhereUniqueInput
+}
+
+export type ResumeCreateOrConnectWithoutResponsesInput = {
+  create: ResumeCreateWithoutResponsesInput
   where: ResumeWhereUniqueInput
 }
 
@@ -3961,6 +4761,48 @@ export type ResumeCreateWithoutApplicantProfileInput = {
   fieldOfActivity: Scalars['Int']
   firstname: Scalars['String']
   id?: InputMaybe<Scalars['String']>
+  lastname?: InputMaybe<Scalars['String']>
+  phone: Scalars['String']
+  phoneHidden: Scalars['Boolean']
+  placeOfResidence: Scalars['Int']
+  savedBy?: InputMaybe<ResumeSavedByEmployerCreateNestedManyWithoutResumeInput>
+  updatedAt?: InputMaybe<Scalars['DateTime']>
+  views?: InputMaybe<Scalars['Int']>
+}
+
+export type ResumeCreateWithoutInvitationsInput = {
+  aboutMe?: InputMaybe<Scalars['String']>
+  applicantProfile: ApplicantProfileCreateNestedOneWithoutResumeInput
+  birthday: Scalars['DateTime']
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  desiredPost?: InputMaybe<Scalars['String']>
+  education?: InputMaybe<Scalars['String']>
+  experience?: InputMaybe<Scalars['String']>
+  fieldOfActivity: Scalars['Int']
+  firstname: Scalars['String']
+  id?: InputMaybe<Scalars['String']>
+  lastname?: InputMaybe<Scalars['String']>
+  phone: Scalars['String']
+  phoneHidden: Scalars['Boolean']
+  placeOfResidence: Scalars['Int']
+  responses?: InputMaybe<ResponseToVacancyCreateNestedManyWithoutResumeInput>
+  savedBy?: InputMaybe<ResumeSavedByEmployerCreateNestedManyWithoutResumeInput>
+  updatedAt?: InputMaybe<Scalars['DateTime']>
+  views?: InputMaybe<Scalars['Int']>
+}
+
+export type ResumeCreateWithoutResponsesInput = {
+  aboutMe?: InputMaybe<Scalars['String']>
+  applicantProfile: ApplicantProfileCreateNestedOneWithoutResumeInput
+  birthday: Scalars['DateTime']
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  desiredPost?: InputMaybe<Scalars['String']>
+  education?: InputMaybe<Scalars['String']>
+  experience?: InputMaybe<Scalars['String']>
+  fieldOfActivity: Scalars['Int']
+  firstname: Scalars['String']
+  id?: InputMaybe<Scalars['String']>
+  invitations?: InputMaybe<InvitationToVacancyCreateNestedManyWithoutResumeInput>
   lastname?: InputMaybe<Scalars['String']>
   phone: Scalars['String']
   phoneHidden: Scalars['Boolean']
@@ -4510,6 +5352,22 @@ export type ResumeUpdateManyMutationInput = {
   views?: InputMaybe<IntFieldUpdateOperationsInput>
 }
 
+export type ResumeUpdateOneRequiredWithoutInvitationsNestedInput = {
+  connect?: InputMaybe<ResumeWhereUniqueInput>
+  connectOrCreate?: InputMaybe<ResumeCreateOrConnectWithoutInvitationsInput>
+  create?: InputMaybe<ResumeCreateWithoutInvitationsInput>
+  update?: InputMaybe<ResumeUpdateWithoutInvitationsInput>
+  upsert?: InputMaybe<ResumeUpsertWithoutInvitationsInput>
+}
+
+export type ResumeUpdateOneRequiredWithoutResponsesNestedInput = {
+  connect?: InputMaybe<ResumeWhereUniqueInput>
+  connectOrCreate?: InputMaybe<ResumeCreateOrConnectWithoutResponsesInput>
+  create?: InputMaybe<ResumeCreateWithoutResponsesInput>
+  update?: InputMaybe<ResumeUpdateWithoutResponsesInput>
+  upsert?: InputMaybe<ResumeUpsertWithoutResponsesInput>
+}
+
 export type ResumeUpdateOneRequiredWithoutSavedByNestedInput = {
   connect?: InputMaybe<ResumeWhereUniqueInput>
   connectOrCreate?: InputMaybe<ResumeCreateOrConnectWithoutSavedByInput>
@@ -4547,6 +5405,48 @@ export type ResumeUpdateWithoutApplicantProfileInput = {
   views?: InputMaybe<IntFieldUpdateOperationsInput>
 }
 
+export type ResumeUpdateWithoutInvitationsInput = {
+  aboutMe?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  applicantProfile?: InputMaybe<ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput>
+  birthday?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  desiredPost?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  education?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  experience?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>
+  firstname?: InputMaybe<StringFieldUpdateOperationsInput>
+  id?: InputMaybe<StringFieldUpdateOperationsInput>
+  lastname?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  phone?: InputMaybe<StringFieldUpdateOperationsInput>
+  phoneHidden?: InputMaybe<BoolFieldUpdateOperationsInput>
+  placeOfResidence?: InputMaybe<IntFieldUpdateOperationsInput>
+  responses?: InputMaybe<ResponseToVacancyUpdateManyWithoutResumeNestedInput>
+  savedBy?: InputMaybe<ResumeSavedByEmployerUpdateManyWithoutResumeNestedInput>
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  views?: InputMaybe<IntFieldUpdateOperationsInput>
+}
+
+export type ResumeUpdateWithoutResponsesInput = {
+  aboutMe?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  applicantProfile?: InputMaybe<ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput>
+  birthday?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  desiredPost?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  education?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  experience?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>
+  firstname?: InputMaybe<StringFieldUpdateOperationsInput>
+  id?: InputMaybe<StringFieldUpdateOperationsInput>
+  invitations?: InputMaybe<InvitationToVacancyUpdateManyWithoutResumeNestedInput>
+  lastname?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  phone?: InputMaybe<StringFieldUpdateOperationsInput>
+  phoneHidden?: InputMaybe<BoolFieldUpdateOperationsInput>
+  placeOfResidence?: InputMaybe<IntFieldUpdateOperationsInput>
+  savedBy?: InputMaybe<ResumeSavedByEmployerUpdateManyWithoutResumeNestedInput>
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  views?: InputMaybe<IntFieldUpdateOperationsInput>
+}
+
 export type ResumeUpdateWithoutSavedByInput = {
   aboutMe?: InputMaybe<NullableStringFieldUpdateOperationsInput>
   applicantProfile?: InputMaybe<ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput>
@@ -4569,6 +5469,16 @@ export type ResumeUpdateWithoutSavedByInput = {
 export type ResumeUpsertWithoutApplicantProfileInput = {
   create: ResumeCreateWithoutApplicantProfileInput
   update: ResumeUpdateWithoutApplicantProfileInput
+}
+
+export type ResumeUpsertWithoutInvitationsInput = {
+  create: ResumeCreateWithoutInvitationsInput
+  update: ResumeUpdateWithoutInvitationsInput
+}
+
+export type ResumeUpsertWithoutResponsesInput = {
+  create: ResumeCreateWithoutResponsesInput
+  update: ResumeUpdateWithoutResponsesInput
 }
 
 export type ResumeUpsertWithoutSavedByInput = {
@@ -5315,6 +6225,18 @@ export type VacancyCreateNestedManyWithoutEmployerInput = {
   createMany?: InputMaybe<VacancyCreateManyEmployerInputEnvelope>
 }
 
+export type VacancyCreateNestedOneWithoutInvitationsInput = {
+  connect?: InputMaybe<VacancyWhereUniqueInput>
+  connectOrCreate?: InputMaybe<VacancyCreateOrConnectWithoutInvitationsInput>
+  create?: InputMaybe<VacancyCreateWithoutInvitationsInput>
+}
+
+export type VacancyCreateNestedOneWithoutResponsesInput = {
+  connect?: InputMaybe<VacancyWhereUniqueInput>
+  connectOrCreate?: InputMaybe<VacancyCreateOrConnectWithoutResponsesInput>
+  create?: InputMaybe<VacancyCreateWithoutResponsesInput>
+}
+
 export type VacancyCreateNestedOneWithoutSavedByInput = {
   connect?: InputMaybe<VacancyWhereUniqueInput>
   connectOrCreate?: InputMaybe<VacancyCreateOrConnectWithoutSavedByInput>
@@ -5323,6 +6245,16 @@ export type VacancyCreateNestedOneWithoutSavedByInput = {
 
 export type VacancyCreateOrConnectWithoutEmployerInput = {
   create: VacancyCreateWithoutEmployerInput
+  where: VacancyWhereUniqueInput
+}
+
+export type VacancyCreateOrConnectWithoutInvitationsInput = {
+  create: VacancyCreateWithoutInvitationsInput
+  where: VacancyWhereUniqueInput
+}
+
+export type VacancyCreateOrConnectWithoutResponsesInput = {
+  create: VacancyCreateWithoutResponsesInput
   where: VacancyWhereUniqueInput
 }
 
@@ -5339,6 +6271,50 @@ export type VacancyCreateWithoutEmployerInput = {
   duties?: InputMaybe<Scalars['String']>
   fieldOfActivity: Scalars['Int']
   id?: InputMaybe<Scalars['String']>
+  phone: Scalars['String']
+  phoneHidden: Scalars['Boolean']
+  placeOfWork: Scalars['Int']
+  post: Scalars['String']
+  requirements?: InputMaybe<Scalars['String']>
+  salary: Scalars['Int']
+  savedBy?: InputMaybe<VacancySavedByApplicantCreateNestedManyWithoutVacancyInput>
+  updatedAt?: InputMaybe<Scalars['DateTime']>
+  views?: InputMaybe<Scalars['Int']>
+  workingSchedule?: InputMaybe<Scalars['String']>
+}
+
+export type VacancyCreateWithoutInvitationsInput = {
+  archived?: InputMaybe<Scalars['Boolean']>
+  archivedReason?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  description: Scalars['String']
+  duties?: InputMaybe<Scalars['String']>
+  employer: EmployerProfileCreateNestedOneWithoutVacanciesInput
+  fieldOfActivity: Scalars['Int']
+  id?: InputMaybe<Scalars['String']>
+  phone: Scalars['String']
+  phoneHidden: Scalars['Boolean']
+  placeOfWork: Scalars['Int']
+  post: Scalars['String']
+  requirements?: InputMaybe<Scalars['String']>
+  responses?: InputMaybe<ResponseToVacancyCreateNestedManyWithoutVacancyInput>
+  salary: Scalars['Int']
+  savedBy?: InputMaybe<VacancySavedByApplicantCreateNestedManyWithoutVacancyInput>
+  updatedAt?: InputMaybe<Scalars['DateTime']>
+  views?: InputMaybe<Scalars['Int']>
+  workingSchedule?: InputMaybe<Scalars['String']>
+}
+
+export type VacancyCreateWithoutResponsesInput = {
+  archived?: InputMaybe<Scalars['Boolean']>
+  archivedReason?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  description: Scalars['String']
+  duties?: InputMaybe<Scalars['String']>
+  employer: EmployerProfileCreateNestedOneWithoutVacanciesInput
+  fieldOfActivity: Scalars['Int']
+  id?: InputMaybe<Scalars['String']>
+  invitations?: InputMaybe<InvitationToVacancyCreateNestedManyWithoutVacancyInput>
   phone: Scalars['String']
   phoneHidden: Scalars['Boolean']
   placeOfWork: Scalars['Int']
@@ -5957,6 +6933,22 @@ export type VacancyUpdateManyWithoutEmployerNestedInput = {
   upsert?: InputMaybe<Array<VacancyUpsertWithWhereUniqueWithoutEmployerInput>>
 }
 
+export type VacancyUpdateOneRequiredWithoutInvitationsNestedInput = {
+  connect?: InputMaybe<VacancyWhereUniqueInput>
+  connectOrCreate?: InputMaybe<VacancyCreateOrConnectWithoutInvitationsInput>
+  create?: InputMaybe<VacancyCreateWithoutInvitationsInput>
+  update?: InputMaybe<VacancyUpdateWithoutInvitationsInput>
+  upsert?: InputMaybe<VacancyUpsertWithoutInvitationsInput>
+}
+
+export type VacancyUpdateOneRequiredWithoutResponsesNestedInput = {
+  connect?: InputMaybe<VacancyWhereUniqueInput>
+  connectOrCreate?: InputMaybe<VacancyCreateOrConnectWithoutResponsesInput>
+  create?: InputMaybe<VacancyCreateWithoutResponsesInput>
+  update?: InputMaybe<VacancyUpdateWithoutResponsesInput>
+  upsert?: InputMaybe<VacancyUpsertWithoutResponsesInput>
+}
+
 export type VacancyUpdateOneRequiredWithoutSavedByNestedInput = {
   connect?: InputMaybe<VacancyWhereUniqueInput>
   connectOrCreate?: InputMaybe<VacancyCreateOrConnectWithoutSavedByInput>
@@ -5978,6 +6970,50 @@ export type VacancyUpdateWithoutEmployerInput = {
   duties?: InputMaybe<NullableStringFieldUpdateOperationsInput>
   fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>
   id?: InputMaybe<StringFieldUpdateOperationsInput>
+  phone?: InputMaybe<StringFieldUpdateOperationsInput>
+  phoneHidden?: InputMaybe<BoolFieldUpdateOperationsInput>
+  placeOfWork?: InputMaybe<IntFieldUpdateOperationsInput>
+  post?: InputMaybe<StringFieldUpdateOperationsInput>
+  requirements?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  salary?: InputMaybe<IntFieldUpdateOperationsInput>
+  savedBy?: InputMaybe<VacancySavedByApplicantUpdateManyWithoutVacancyNestedInput>
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  views?: InputMaybe<IntFieldUpdateOperationsInput>
+  workingSchedule?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+}
+
+export type VacancyUpdateWithoutInvitationsInput = {
+  archived?: InputMaybe<BoolFieldUpdateOperationsInput>
+  archivedReason?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  description?: InputMaybe<StringFieldUpdateOperationsInput>
+  duties?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  employer?: InputMaybe<EmployerProfileUpdateOneRequiredWithoutVacanciesNestedInput>
+  fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>
+  id?: InputMaybe<StringFieldUpdateOperationsInput>
+  phone?: InputMaybe<StringFieldUpdateOperationsInput>
+  phoneHidden?: InputMaybe<BoolFieldUpdateOperationsInput>
+  placeOfWork?: InputMaybe<IntFieldUpdateOperationsInput>
+  post?: InputMaybe<StringFieldUpdateOperationsInput>
+  requirements?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  responses?: InputMaybe<ResponseToVacancyUpdateManyWithoutVacancyNestedInput>
+  salary?: InputMaybe<IntFieldUpdateOperationsInput>
+  savedBy?: InputMaybe<VacancySavedByApplicantUpdateManyWithoutVacancyNestedInput>
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  views?: InputMaybe<IntFieldUpdateOperationsInput>
+  workingSchedule?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+}
+
+export type VacancyUpdateWithoutResponsesInput = {
+  archived?: InputMaybe<BoolFieldUpdateOperationsInput>
+  archivedReason?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>
+  description?: InputMaybe<StringFieldUpdateOperationsInput>
+  duties?: InputMaybe<NullableStringFieldUpdateOperationsInput>
+  employer?: InputMaybe<EmployerProfileUpdateOneRequiredWithoutVacanciesNestedInput>
+  fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>
+  id?: InputMaybe<StringFieldUpdateOperationsInput>
+  invitations?: InputMaybe<InvitationToVacancyUpdateManyWithoutVacancyNestedInput>
   phone?: InputMaybe<StringFieldUpdateOperationsInput>
   phoneHidden?: InputMaybe<BoolFieldUpdateOperationsInput>
   placeOfWork?: InputMaybe<IntFieldUpdateOperationsInput>
@@ -6014,6 +7050,16 @@ export type VacancyUpsertWithWhereUniqueWithoutEmployerInput = {
   create: VacancyCreateWithoutEmployerInput
   update: VacancyUpdateWithoutEmployerInput
   where: VacancyWhereUniqueInput
+}
+
+export type VacancyUpsertWithoutInvitationsInput = {
+  create: VacancyCreateWithoutInvitationsInput
+  update: VacancyUpdateWithoutInvitationsInput
+}
+
+export type VacancyUpsertWithoutResponsesInput = {
+  create: VacancyCreateWithoutResponsesInput
+  update: VacancyUpdateWithoutResponsesInput
 }
 
 export type VacancyUpsertWithoutSavedByInput = {
@@ -6178,12 +7224,6 @@ export type CreateResumeMutationVariables = Exact<{
 }>
 
 export type CreateResumeMutation = { __typename?: 'Mutation'; createOneResume: { __typename?: 'Resume'; id: string } }
-
-export type CreateVacancyMutationVariables = Exact<{
-  input: VacancyCreateInput
-}>
-
-export type CreateVacancyMutation = { __typename?: 'Mutation'; createOneVacancy: { __typename?: 'Vacancy'; id: string } }
 
 export const CheckIsAuthenticatedDocument = `
     query CheckIsAuthenticated {

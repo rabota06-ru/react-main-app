@@ -1,0 +1,16 @@
+query GetUser($userId: String!) {
+  findFirstUser(where: { id: { equals: $userId } }) {
+    id
+    role
+    applicantProfile {
+      resume {
+        firstname
+        lastname
+      }
+    }
+    employerProfile {
+      id
+      companyName
+    }
+  }
+}

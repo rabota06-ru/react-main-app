@@ -13,13 +13,13 @@ export function Footer() {
     <div className={styles.footer}>
       <Container className={styles.footerContainer}>
         <div className={styles.footerLeft}>
-          <Link to={routes.allVacancies} className={styles.footerLeftLink}>
+          <Link to={routes.allVacancies.exact} className={styles.footerLeftLink}>
             Все вакансии
           </Link>
-          <Link to={routes.allResumes} className={styles.footerLeftLink}>
+          <Link to={routes.allResumes.exact} className={styles.footerLeftLink}>
             Все резюме
           </Link>
-          <Link to='/' className={styles.footerLeftLink}>
+          <Link to={routes.personalAccount.inexact} className={styles.footerLeftLink}>
             Личный кабинет
           </Link>
         </div>

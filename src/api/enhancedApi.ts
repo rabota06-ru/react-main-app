@@ -18,4 +18,9 @@ export const {
   useGetResumesQuery,
   useCreateVacancyMutation,
   useCreateResumeMutation,
+  useLazyGetUserQuery,
+  useGetVacanciesWithResponsesQuery,
+  useLazyGetVacancyResponsesQuery,
+  useLazyGetChatMessagesQuery,
+  useSendMessageMutation,
 } = api

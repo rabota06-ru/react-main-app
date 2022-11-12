@@ -1,0 +1,14 @@
+query GetVacancyResponses($vacancyId: String!) {
+  responseToVacancies(where: { vacancyId: { equals: $vacancyId } }) {
+    id
+    resume {
+      id
+      firstname
+      lastname
+      fieldOfActivity
+      applicantProfileId
+    }
+    coverLetter
+    createdAt
+  }
+}
