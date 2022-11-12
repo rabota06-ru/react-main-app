@@ -24,7 +24,7 @@ export function PhoneForm({ onSuccess }: PhoneFormProps) {
       <p className={styles.formTitle}>Вход и регистрация</p>
       <div className={styles.formContainer}>
         <PhoneInput
-          onChange={({ clear }) => setPhone(clear)}
+          onPhoneChange={({ clear }) => setPhone(clear)}
           isDisabled={sendAuthCodeMessageData.isLoading}
           value={phone}
           containerProps={{ className: styles.formPhone }}

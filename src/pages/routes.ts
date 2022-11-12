@@ -68,4 +68,16 @@ export const routes = {
     absoluteExact: (resumeId: string) => `/personal-account/all-resumes/${resumeId}`,
     absoluteInexact: (resumeId: string) => `/personal-account/all-resumes/${resumeId}/*`,
   },
+  createVacancy: {
+    exact: '/create-vacancy',
+    inexact: '/create-vacancy/*',
+    absoluteExact: '/personal-account/create-vacancy',
+    absoluteInexact: '/personal-account/create-vacancy/*',
+  },
+  createResume: {
+    exact: '/create-resume',
+    inexact: '/create-resume/*',
+    absoluteExact: '/personal-account/create-resume',
+    absoluteInexact: '/personal-account/create-resume/*',
+  },
 }

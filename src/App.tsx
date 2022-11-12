@@ -90,11 +90,11 @@ export function App() {
 
   return (
     <div className='app'>
-      {isLoggedIn || true ? (
+      {isLoggedIn ? (
         <AuthorizedLayout>
           <Routes>
-            <Route path={routes.createVacancy} element={<CreateVacancyPage />} />
-            <Route path={routes.createResume} element={<CreateResumePage />} />
+            <Route path={routes.createVacancy.exact} element={<CreateVacancyPage />} />
+            <Route path={routes.createResume.exact} element={<CreateResumePage />} />
             <Route path={routes.personalAccount.inexact} element={<PersonalAccountPage />} />
             <Route path='*' element={<Navigate to={routes.personalAccount.exact} />} />
           </Routes>
@@ -102,12 +102,12 @@ export function App() {
       ) : (
         <UnauthorizedLayout>
           <Routes>
-            <Route path={routes.resume(':vacancyId')} element={<FullVacancyPage />} />
-            <Route path={routes.resume(':resumeId')} element={<FullResumePage />} />
-            <Route path={routes.main} element={<MainPage />} />
-            <Route path={routes.allVacancies} element={<AllVacanciesPage />} />
-            <Route path={routes.allResumes} element={<AllResumesPage />} />
-            <Route path='*' element={<Navigate to={routes.main} />} />
+            <Route path={routes.resume.exact(':vacancyId')} element={<FullVacancyPage />} />
+            <Route path={routes.resume.exact(':resumeId')} element={<FullResumePage />} />
+            <Route path={routes.main.exact} element={<MainPage />} />
+            <Route path={routes.allVacancies.exact} element={<AllVacanciesPage />} />
+            <Route path={routes.allResumes.exact} element={<AllResumesPage />} />
+            <Route path='*' element={<Navigate to={routes.main.exact} />} />
           </Routes>
           <AuthModal />
         </UnauthorizedLayout>

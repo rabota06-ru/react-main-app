@@ -1,9 +1,9 @@
 query GetResume($resumeId: String!) {
   resume(where: { id: $resumeId }) {
     id
-    post
-    placeOfWork
-    description
+    firstname
+    lastname
+    placeOfResidence
     views
     fieldOfActivity
   }

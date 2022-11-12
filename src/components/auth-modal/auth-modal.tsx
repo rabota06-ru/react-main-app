@@ -43,7 +43,7 @@ export function AuthModal() {
   const onUserLoggedId = useCallback(
     (accessToken: string) => {
       dispatch(authSlice.actions.setAccessToken(accessToken))
-      navigate(routes.allVacancies)
+      navigate(routes.allVacancies.exact)
       resetAndClose()
     },
     [navigate, resetAndClose, dispatch]
