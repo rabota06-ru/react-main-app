@@ -12,4 +12,6 @@ export const {
   useVerifyAuthCodeMutation,
   useLazyCheckIsAuthenticatedQuery,
   useRefreshAccessTokenMutation,
+  useGetVacancyQuery,
+  useGetResumeQuery,
 } = api

@@ -8,9 +8,9 @@ export function FullResumePage(props: FullResumePageProps) {
   return (
     <div className={styles.main}>
       <FullCardResume
-        title='UX/UI Дизайнер'
+        title='React разработчик'
         date='18 октября'
-        location='Назрань'
+        location={4}
         soughtPosition='Frontend разработчик'
         education='Московский государственный технический университет имени Н.Э.Баумана'
         experience='- опыт работы с HTML5, CSS3, JS;

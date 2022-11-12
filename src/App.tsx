@@ -59,7 +59,7 @@ export function App() {
       ) : (
         <UnauthorizedLayout>
           <Routes>
-            <Route path={routes.resume('2')} element={<FullVacancyPage />} />
+            <Route path={routes.resume(':vacancyId')} element={<FullVacancyPage />} />
             <Route path={routes.resume(':resumeId')} element={<FullResumePage />} />
             <Route path={routes.main} element={<MainPage />} />
             <Route path='*' element={<Navigate to={routes.main} />} />

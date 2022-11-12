@@ -1,10 +1,16 @@
+import React from 'react'
 import { FullCardVacancy } from 'components/full-card'
+import { useGetVacancyQuery } from 'api/enhancedApi'
+import { useParams } from 'react-router-dom'
 import { SimilarVacanciesSection } from './components/similar-vacancies-section/similar-vacancies-section'
 import styles from './full-vacancy-page.module.scss'
 
 interface FullVacancyPageProps {}
 
 export function FullVacancyPage(props: FullVacancyPageProps) {
+  const { vacancyId } = useParams<string>()
+  const { data: vacancyData } = useGetVacancyQuery({ vacancyId: vacancyId as string }, { skip: !vacancyId })
+
   return (
     <div className={styles.main}>
       <FullCardVacancy
@@ -12,9 +18,9 @@ export function FullVacancyPage(props: FullVacancyPageProps) {
         date='18 октября'
         price={25000}
         company='Beeline'
-        location='Назрань'
+        location={2}
         viewCount={77}
-        description='Наша команда ищет Мидл/Старшего UI/UX Дизайнера. Важно, чтобы это был человек, 
+        description='Наша команда ищет Мидл/Старшего UI/UX Дизайнера. Важно, чтобы это был человек,
         который способен не только создать красивый интерфейс, но и может полностью продумать продукт, 
         его логику, UX. Мы в свою очередь обещаем работу над интересными 
         продуктами и задачами в команде специалистов своего дела!'

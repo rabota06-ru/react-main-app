@@ -1,6 +1,6 @@
 import { Card } from 'components/card'
 import { Divider } from 'components/divider'
-import { Color, FieldOfActivity } from 'types/index'
+import { Color, FieldOfActivity, Locations } from 'types/index'
 import { TfiLocationPin } from 'react-icons/Tfi'
 import { HiOutlineEye } from 'react-icons/hi'
 import { Button, ButtonSize, ButtonVariant } from 'components/button'
@@ -8,12 +8,13 @@ import { useState, createElement, useMemo } from 'react'
 import { Container } from 'components/container'
 import cn from 'classnames'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
+import { LOCATIONS_LABEL } from 'utils/locations'
 import styles from './full-card-resume.module.scss'
 
 interface FullCardResumeProps {
   title: string
   date: string
-  location: string
+  location: number
   soughtPosition: string
   education: string
   experience: string
@@ -58,7 +59,7 @@ export function FullCardResume({
           <div className={styles.fullCardCity}>
             <div>
               <TfiLocationPin className={styles.fullCardCityIcons} />
-              <span className={styles.fullCardCityInfoText}>{city}</span>
+              <span className={styles.fullCardCityInfoText}>{LOCATIONS_LABEL[location as Locations]}</span>
             </div>
             <div className={styles.fullCardCityInfoView}>
               <HiOutlineEye className={styles.fullCardCityInfoViewEye} />

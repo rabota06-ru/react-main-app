@@ -1,0 +1,10 @@
+query GetResume($resumeId: String!) {
+  resume(where: { id: $resumeId }) {
+    id
+    post
+    placeOfWork
+    description
+    views
+    fieldOfActivity
+  }
+}
