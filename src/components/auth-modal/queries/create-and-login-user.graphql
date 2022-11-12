@@ -1,0 +1,5 @@
+mutation CreateAndLoginUser($authToken: String!, $data: CreateAndLoginUserInputData!) {
+  createAndLoginUser(input: { authToken: $authToken, data: $data }) {
+    accessToken
+  }
+}
