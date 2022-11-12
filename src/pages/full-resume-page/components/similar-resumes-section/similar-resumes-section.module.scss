@@ -1,13 +1,15 @@
 @import '/src/variables';
 
 .section {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 175px;
-  padding-bottom: 150px;
+  padding-bottom: 90px;
+  margin-bottom: 100px;
+  z-index: 1;
   &Container {
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,10 +52,22 @@
 @media (max-width: $md) {
   .section {
     padding-top: 30px;
+    padding-bottom: 30px;
+    &::after {
+      border-top-left-radius: 150px;
+      border-bottom-right-radius: 150px;
+    }
+    &:hover::after {
+      border-radius: 150px;
+      width: 100%;
+    }
     &Title {
       margin-bottom: 0;
     }
     &Carousel {
+      &Content {
+        padding-top: 30px;
+      }
       &SlideLeftButton {
         width: 50px;
         height: 50px;
@@ -68,10 +82,16 @@
 
 @media (max-width: $sm) {
   .section {
-    padding-bottom: 50px;
+    padding: 20px 0;
     &Container {
       width: 100%;
       margin: unset;
+    }
+    &::after {
+      border-radius: unset;
+    }
+    &:hover::after {
+      border-radius: unset;
     }
     &Title {
       width: 100%;
@@ -81,7 +101,7 @@
     &Carousel {
       margin-bottom: 0;
       &Content {
-        padding: 0 5% 30px;
+        padding: 0 5% 21px;
       }
     }
     &Button {
