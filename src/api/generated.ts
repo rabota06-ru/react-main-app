@@ -1554,6 +1554,7 @@ export type ChatMessage = {
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   message: Scalars['String'];
+  sender: UserRole;
 };
 
 export type ChatMessageCountAggregate = {
@@ -1563,6 +1564,7 @@ export type ChatMessageCountAggregate = {
   createdAt: Scalars['Int'];
   id: Scalars['Int'];
   message: Scalars['Int'];
+  sender: Scalars['Int'];
 };
 
 export type ChatMessageCountOrderByAggregateInput = {
@@ -1570,6 +1572,7 @@ export type ChatMessageCountOrderByAggregateInput = {
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   message?: InputMaybe<SortOrder>;
+  sender?: InputMaybe<SortOrder>;
 };
 
 export type ChatMessageCreateInput = {
@@ -1577,12 +1580,14 @@ export type ChatMessageCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
   message: Scalars['String'];
+  sender: UserRole;
 };
 
 export type ChatMessageCreateManyChatInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
   message: Scalars['String'];
+  sender: UserRole;
 };
 
 export type ChatMessageCreateManyChatInputEnvelope = {
@@ -1595,6 +1600,7 @@ export type ChatMessageCreateManyInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
   message: Scalars['String'];
+  sender: UserRole;
 };
 
 export type ChatMessageCreateNestedManyWithoutChatInput = {
@@ -1613,6 +1619,7 @@ export type ChatMessageCreateWithoutChatInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
   message: Scalars['String'];
+  sender: UserRole;
 };
 
 export type ChatMessageGroupBy = {
@@ -1624,6 +1631,7 @@ export type ChatMessageGroupBy = {
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   message: Scalars['String'];
+  sender: UserRole;
 };
 
 export type ChatMessageListRelationFilter = {
@@ -1638,6 +1646,7 @@ export type ChatMessageMaxAggregate = {
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['String']>;
   message?: Maybe<Scalars['String']>;
+  sender?: Maybe<UserRole>;
 };
 
 export type ChatMessageMaxOrderByAggregateInput = {
@@ -1645,6 +1654,7 @@ export type ChatMessageMaxOrderByAggregateInput = {
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   message?: InputMaybe<SortOrder>;
+  sender?: InputMaybe<SortOrder>;
 };
 
 export type ChatMessageMinAggregate = {
@@ -1653,6 +1663,7 @@ export type ChatMessageMinAggregate = {
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['String']>;
   message?: Maybe<Scalars['String']>;
+  sender?: Maybe<UserRole>;
 };
 
 export type ChatMessageMinOrderByAggregateInput = {
@@ -1660,6 +1671,7 @@ export type ChatMessageMinOrderByAggregateInput = {
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   message?: InputMaybe<SortOrder>;
+  sender?: InputMaybe<SortOrder>;
 };
 
 export type ChatMessageOrderByRelationAggregateInput = {
@@ -1674,6 +1686,7 @@ export type ChatMessageOrderByWithAggregationInput = {
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   message?: InputMaybe<SortOrder>;
+  sender?: InputMaybe<SortOrder>;
 };
 
 export type ChatMessageOrderByWithRelationInput = {
@@ -1682,13 +1695,15 @@ export type ChatMessageOrderByWithRelationInput = {
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   message?: InputMaybe<SortOrder>;
+  sender?: InputMaybe<SortOrder>;
 };
 
 export enum ChatMessageScalarFieldEnum {
   ChatId = 'chatId',
   CreatedAt = 'createdAt',
   Id = 'id',
-  Message = 'message'
+  Message = 'message',
+  Sender = 'sender'
 }
 
 export type ChatMessageScalarWhereInput = {
@@ -1699,6 +1714,7 @@ export type ChatMessageScalarWhereInput = {
   createdAt?: InputMaybe<DateTimeFilter>;
   id?: InputMaybe<StringFilter>;
   message?: InputMaybe<StringFilter>;
+  sender?: InputMaybe<EnumUserRoleFilter>;
 };
 
 export type ChatMessageScalarWhereWithAggregatesInput = {
@@ -1709,6 +1725,7 @@ export type ChatMessageScalarWhereWithAggregatesInput = {
   createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
   id?: InputMaybe<StringWithAggregatesFilter>;
   message?: InputMaybe<StringWithAggregatesFilter>;
+  sender?: InputMaybe<EnumUserRoleWithAggregatesFilter>;
 };
 
 export type ChatMessageUpdateInput = {
@@ -1716,12 +1733,14 @@ export type ChatMessageUpdateInput = {
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   message?: InputMaybe<StringFieldUpdateOperationsInput>;
+  sender?: InputMaybe<EnumUserRoleFieldUpdateOperationsInput>;
 };
 
 export type ChatMessageUpdateManyMutationInput = {
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   message?: InputMaybe<StringFieldUpdateOperationsInput>;
+  sender?: InputMaybe<EnumUserRoleFieldUpdateOperationsInput>;
 };
 
 export type ChatMessageUpdateManyWithWhereWithoutChatInput = {
@@ -1752,6 +1771,7 @@ export type ChatMessageUpdateWithoutChatInput = {
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   message?: InputMaybe<StringFieldUpdateOperationsInput>;
+  sender?: InputMaybe<EnumUserRoleFieldUpdateOperationsInput>;
 };
 
 export type ChatMessageUpsertWithWhereUniqueWithoutChatInput = {
@@ -1769,6 +1789,7 @@ export type ChatMessageWhereInput = {
   createdAt?: InputMaybe<DateTimeFilter>;
   id?: InputMaybe<StringFilter>;
   message?: InputMaybe<StringFilter>;
+  sender?: InputMaybe<EnumUserRoleFilter>;
 };
 
 export type ChatMessageWhereUniqueInput = {
@@ -7490,10 +7511,21 @@ export type VerifyAuthCodeMutation = { __typename?: 'Mutation', verifyAuthCode: 
 export type GetChatMessagesQueryVariables = Exact<{
   userId: Scalars['String'];
   applicantId: Scalars['String'];
+  skip: Scalars['Int'];
+  take: Scalars['Int'];
 }>;
 
 
-export type GetChatMessagesQuery = { __typename?: 'Query', chatMessages: Array<{ __typename?: 'ChatMessage', id: string, message: string, createdAt: any }> };
+export type GetChatMessagesQuery = { __typename?: 'Query', findFirstChat?: { __typename?: 'Chat', id: string, applicant: { __typename?: 'ApplicantProfile', resume?: { __typename?: 'Resume', firstname: string } | null } } | null, chatMessages: Array<{ __typename?: 'ChatMessage', id: string, message: string, sender: UserRole, createdAt: any }> };
+
+export type SendMessageMutationVariables = Exact<{
+  chatId: Scalars['String'];
+  message: Scalars['String'];
+  sender: UserRole;
+}>;
+
+
+export type SendMessageMutation = { __typename?: 'Mutation', createOneChatMessage: { __typename?: 'ChatMessage', id: string, message: string, sender: UserRole, createdAt: any } };
 
 export type GetVacanciesWithResponsesQueryVariables = Exact<{
   userId: Scalars['String'];
@@ -7569,13 +7601,38 @@ export const VerifyAuthCodeDocument = `
 }
     `;
 export const GetChatMessagesDocument = `
-    query GetChatMessages($userId: String!, $applicantId: String!) {
+    query GetChatMessages($userId: String!, $applicantId: String!, $skip: Int!, $take: Int!) {
+  findFirstChat(
+    where: {applicantId: {equals: $applicantId}, employer: {is: {userId: {equals: $userId}}}}
+  ) {
+    id
+    applicant {
+      resume {
+        firstname
+      }
+    }
+  }
   chatMessages(
     where: {chat: {is: {applicantId: {equals: $applicantId}, employer: {is: {userId: {equals: $userId}}}}}}
-    orderBy: {createdAt: asc}
+    orderBy: {createdAt: desc}
+    skip: $skip
+    take: $take
   ) {
     id
     message
+    sender
+    createdAt
+  }
+}
+    `;
+export const SendMessageDocument = `
+    mutation SendMessage($chatId: String!, $message: String!, $sender: UserRole!) {
+  createOneChatMessage(
+    data: {chat: {connect: {id: $chatId}}, message: $message, sender: $sender}
+  ) {
+    id
+    message
+    sender
     createdAt
   }
 }
@@ -7658,6 +7715,9 @@ const injectedRtkApi = api.injectEndpoints({
     }),
     GetChatMessages: build.query<GetChatMessagesQuery, GetChatMessagesQueryVariables>({
       query: (variables) => ({ document: GetChatMessagesDocument, variables })
+    }),
+    SendMessage: build.mutation<SendMessageMutation, SendMessageMutationVariables>({
+      query: (variables) => ({ document: SendMessageDocument, variables })
     }),
     GetVacanciesWithResponses: build.query<GetVacanciesWithResponsesQuery, GetVacanciesWithResponsesQueryVariables>({
       query: (variables) => ({ document: GetVacanciesWithResponsesDocument, variables })

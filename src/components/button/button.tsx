@@ -26,7 +26,7 @@ export function Button({
   size = ButtonSize.Medium,
   isDisabled = false,
   isLoading = false,
-  isShadow = true,
+  isShadow = false,
   children,
   className,
   ...props

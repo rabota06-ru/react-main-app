@@ -75,3 +75,7 @@ export const FIELDS_OF_ACTIVITY_IMAGE: Record<FieldOfActivity, FC<SVGProps<SVGSV
   [FieldOfActivity.Jurisprudence]: JurisprudenceImage,
   [FieldOfActivity.Other]: OtherImage,
 }
+
+export function numberToFieldOfActivity(numb: number): FieldOfActivity {
+  return numb as FieldOfActivity
+}

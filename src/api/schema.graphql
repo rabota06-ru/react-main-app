@@ -700,6 +700,7 @@ input ChatMessageWhereInput {
   chat: ChatRelationFilter
   chatId: StringFilter
   message: StringFilter
+  sender: EnumUserRoleFilter
   createdAt: DateTimeFilter
 }
 
@@ -1159,6 +1160,7 @@ type ChatMessage {
   id: String!
   chatId: String!
   message: String!
+  sender: UserRole!
   createdAt: DateTime!
   chat: Chat!
 }
@@ -1168,6 +1170,7 @@ input ChatMessageOrderByWithRelationInput {
   chat: ChatOrderByWithRelationInput
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
 }
 
@@ -1196,6 +1199,7 @@ enum ChatMessageScalarFieldEnum {
   id
   chatId
   message
+  sender
   createdAt
 }
 
@@ -1825,6 +1829,7 @@ type ChatMessageCountAggregate {
   id: Int!
   chatId: Int!
   message: Int!
+  sender: Int!
   createdAt: Int!
   _all: Int!
 }
@@ -1833,6 +1838,7 @@ type ChatMessageMinAggregate {
   id: String
   chatId: String
   message: String
+  sender: UserRole
   createdAt: DateTime
 }
 
@@ -1840,6 +1846,7 @@ type ChatMessageMaxAggregate {
   id: String
   chatId: String
   message: String
+  sender: UserRole
   createdAt: DateTime
 }
 
@@ -1847,6 +1854,7 @@ type ChatMessageGroupBy {
   id: String!
   chatId: String!
   message: String!
+  sender: UserRole!
   createdAt: DateTime!
   _count: ChatMessageCountAggregate
   _min: ChatMessageMinAggregate
@@ -1857,6 +1865,7 @@ input ChatMessageOrderByWithAggregationInput {
   id: SortOrder
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
   _count: ChatMessageCountOrderByAggregateInput
   _max: ChatMessageMaxOrderByAggregateInput
@@ -1867,6 +1876,7 @@ input ChatMessageCountOrderByAggregateInput {
   id: SortOrder
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
 }
 
@@ -1874,6 +1884,7 @@ input ChatMessageMaxOrderByAggregateInput {
   id: SortOrder
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
 }
 
@@ -1881,6 +1892,7 @@ input ChatMessageMinOrderByAggregateInput {
   id: SortOrder
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
 }
 
@@ -1891,7 +1903,28 @@ input ChatMessageScalarWhereWithAggregatesInput {
   id: StringWithAggregatesFilter
   chatId: StringWithAggregatesFilter
   message: StringWithAggregatesFilter
+  sender: EnumUserRoleWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
+}
+
+input EnumUserRoleWithAggregatesFilter {
+  equals: UserRole
+  in: [UserRole!]
+  notIn: [UserRole!]
+  not: NestedEnumUserRoleWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumUserRoleFilter
+  _max: NestedEnumUserRoleFilter
+}
+
+input NestedEnumUserRoleWithAggregatesFilter {
+  equals: UserRole
+  in: [UserRole!]
+  notIn: [UserRole!]
+  not: NestedEnumUserRoleWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumUserRoleFilter
+  _max: NestedEnumUserRoleFilter
 }
 
 type AggregateEmployerProfile {
@@ -2698,26 +2731,6 @@ input UserScalarWhereWithAggregatesInput {
   role: EnumUserRoleWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
   updatedAt: DateTimeWithAggregatesFilter
-}
-
-input EnumUserRoleWithAggregatesFilter {
-  equals: UserRole
-  in: [UserRole!]
-  notIn: [UserRole!]
-  not: NestedEnumUserRoleWithAggregatesFilter
-  _count: NestedIntFilter
-  _min: NestedEnumUserRoleFilter
-  _max: NestedEnumUserRoleFilter
-}
-
-input NestedEnumUserRoleWithAggregatesFilter {
-  equals: UserRole
-  in: [UserRole!]
-  notIn: [UserRole!]
-  not: NestedEnumUserRoleWithAggregatesFilter
-  _count: NestedIntFilter
-  _min: NestedEnumUserRoleFilter
-  _max: NestedEnumUserRoleFilter
 }
 
 type AggregateVacancy {
@@ -3607,6 +3620,7 @@ input ChatMessageCreateNestedManyWithoutChatInput {
 input ChatMessageCreateWithoutChatInput {
   id: String
   message: String!
+  sender: UserRole!
   createdAt: DateTime
 }
 
@@ -3623,6 +3637,7 @@ input ChatMessageCreateManyChatInputEnvelope {
 input ChatMessageCreateManyChatInput {
   id: String
   message: String!
+  sender: UserRole!
   createdAt: DateTime
 }
 
@@ -4756,6 +4771,7 @@ input ChatMessageUpsertWithWhereUniqueWithoutChatInput {
 input ChatMessageUpdateWithoutChatInput {
   id: StringFieldUpdateOperationsInput
   message: StringFieldUpdateOperationsInput
+  sender: EnumUserRoleFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -4776,12 +4792,14 @@ input ChatMessageScalarWhereInput {
   id: StringFilter
   chatId: StringFilter
   message: StringFilter
+  sender: EnumUserRoleFilter
   createdAt: DateTimeFilter
 }
 
 input ChatMessageUpdateManyMutationInput {
   id: StringFieldUpdateOperationsInput
   message: StringFieldUpdateOperationsInput
+  sender: EnumUserRoleFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -5490,6 +5508,7 @@ input ChatMessageCreateManyInput {
   id: String
   chatId: String!
   message: String!
+  sender: UserRole!
   createdAt: DateTime
 }
 
@@ -5497,6 +5516,7 @@ input ChatMessageCreateInput {
   id: String
   chat: ChatCreateNestedOneWithoutMessagesInput!
   message: String!
+  sender: UserRole!
   createdAt: DateTime
 }
 
@@ -5525,6 +5545,7 @@ input ChatMessageUpdateInput {
   id: StringFieldUpdateOperationsInput
   chat: ChatUpdateOneRequiredWithoutMessagesNestedInput
   message: StringFieldUpdateOperationsInput
+  sender: EnumUserRoleFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
 }
 
