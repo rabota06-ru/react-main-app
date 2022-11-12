@@ -15,6 +15,8 @@ import { FullResumePage } from 'pages/full-resume-page'
 import { FullVacancyPage } from 'pages/full-vacancy-page'
 import { AllVacanciesPage } from 'pages/all-vacancies-page'
 import { AllResumesPage } from 'pages/all-resume-page/all-resumes-page'
+import { CreateVacancyPage } from 'pages/create-vacancy-page'
+import { CreateResumePage } from 'pages/create-resume-page'
 
 export interface CarouselCard {
   iconUrl: string
@@ -54,9 +56,12 @@ export function App() {
 
   return (
     <div className='app'>
-      {isLoggedIn ? (
+      {isLoggedIn || true ? (
         <AuthorizedLayout>
-          <Routes>{/* <Route /> */}</Routes>
+          <Routes>
+            <Route path={routes.createVacancy} element={<CreateVacancyPage />} />
+            <Route path={routes.createResume} element={<CreateResumePage />} />
+          </Routes>
         </AuthorizedLayout>
       ) : (
         <UnauthorizedLayout>

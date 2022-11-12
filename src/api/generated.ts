@@ -6116,26 +6116,74 @@ export type VerifyAuthCodeMutation = {
   verifyAuthCode: { __typename?: 'VerifyAuthCodeOutput'; authenticated: boolean; authToken?: string | null }
 }
 
-export type VerifyAuthCodeMutation = { __typename?: 'Mutation', verifyAuthCode: { __typename?: 'VerifyAuthCodeOutput', authenticated: boolean, authToken?: string | null } };
+export type VerifyAuthCodeMutation = {
+  __typename?: 'Mutation'
+  verifyAuthCode: { __typename?: 'VerifyAuthCodeOutput'; authenticated: boolean; authToken?: string | null }
+}
 
+export type GetVacancyQuery = {
+  __typename?: 'Query'
+  vacancy?: {
+    __typename?: 'Vacancy'
+    id: string
+    post: string
+    createdAt: any
+    salary: number
+    placeOfWork: number
+    views: number
+    description: string
+    phone: string
+    employer: { __typename?: 'EmployerProfile'; companyName: string }
+  } | null
+}
 
-
-export type GetVacancyQuery = { __typename?: 'Query', vacancy?: { __typename?: 'Vacancy', id: string, post: string, createdAt: any, salary: number, placeOfWork: number, views: number, description: string, phone: string, employer: { __typename?: 'EmployerProfile', companyName: string } } | null };
-
-
-
-export type GetResumesQuery = { __typename?: 'Query', resumes: Array<{ __typename?: 'Resume', aboutMe?: string | null, id: string, fieldOfActivity: number, placeOfResidence: number, firstname: string, lastname?: string | null, education?: string | null }> };
+export type GetResumesQuery = {
+  __typename?: 'Query'
+  resumes: Array<{
+    __typename?: 'Resume'
+    aboutMe?: string | null
+    id: string
+    fieldOfActivity: number
+    placeOfResidence: number
+    firstname: string
+    lastname?: string | null
+    education?: string | null
+  }>
+}
 
 export type GetVacanciesQueryVariables = Exact<{
-  fieldOfActivity: Scalars['Int'];
-  placeOfWork: Scalars['Int'];
-  skip: Scalars['Int'];
-  take: Scalars['Int'];
-}>;
+  fieldOfActivity: Scalars['Int']
+  placeOfWork: Scalars['Int']
+  skip: Scalars['Int']
+  take: Scalars['Int']
+}>
 
+export type GetVacanciesQuery = {
+  __typename?: 'Query'
+  vacancies: Array<{
+    __typename?: 'Vacancy'
+    id: string
+    post: string
+    salary: number
+    fieldOfActivity: number
+    createdAt: any
+    description: string
+    placeOfWork: number
+    employer: { __typename?: 'EmployerProfile'; companyName: string }
+  }>
+}
 
-export type GetVacanciesQuery = { __typename?: 'Query', vacancies: Array<{ __typename?: 'Vacancy', id: string, post: string, salary: number, fieldOfActivity: number, createdAt: any, description: string, placeOfWork: number, employer: { __typename?: 'EmployerProfile', companyName: string } }> };
+export type CreateResumeMutationVariables = Exact<{
+  input: ResumeCreateInput
+}>
 
+export type CreateResumeMutation = { __typename?: 'Mutation'; createOneResume: { __typename?: 'Resume'; id: string } }
+
+export type CreateVacancyMutationVariables = Exact<{
+  input: VacancyCreateInput
+}>
+
+export type CreateVacancyMutation = { __typename?: 'Mutation'; createOneVacancy: { __typename?: 'Vacancy'; id: string } }
 
 export const CheckIsAuthenticatedDocument = `
     query CheckIsAuthenticated {

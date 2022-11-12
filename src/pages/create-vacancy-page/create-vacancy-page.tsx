@@ -7,6 +7,8 @@ import { FIELDS_OF_ACTIVITY_TO_DROPDOWN_ITEMS } from 'utils/fields-of-activity'
 import { LOCATIONS_TO_DROPDOWN_ITEMS } from 'utils/locations'
 import headerImg from 'assets/images/vacancy-form.png'
 import { ReactComponent as Logo } from 'assets/images/logo.svg'
+import { useCreateVacancyMutation } from 'api/enhancedApi'
+import { useNavigate } from 'react-router-dom'
 import styles from './create-vacancy-page.module.scss'
 
 const vacancyFields: TUniversalFormField[] = [
@@ -14,7 +16,7 @@ const vacancyFields: TUniversalFormField[] = [
     label: 'Должность',
     isRequired: true,
     description: 'Кого вы ищете или хотите нанять',
-    fieldName: 'position',
+    fieldName: 'post',
     type: FormField.Text,
   },
   {
@@ -28,27 +30,20 @@ const vacancyFields: TUniversalFormField[] = [
     label: 'Обязанности сотрудника',
     isRequired: false,
     description: 'Что должен будет делать сотрудник',
-    fieldName: 'employeeResponsibilities',
+    fieldName: 'duties',
     type: FormField.Textarea,
   },
   {
     label: 'Требования к сотруднику',
     isRequired: false,
     description: 'Каким требованиям должен соответствовать сотрудник? К примеру: пол, возраст, наличие диплома, опыт и т.д.',
-    fieldName: 'employeeRequirements',
-    type: FormField.Textarea,
-  },
-  {
-    label: 'Информация о работодателе, работе',
-    isRequired: false,
-    description: 'К примеру, расскажите о возможностях и преимуществах работы у вас',
-    fieldName: 'employerInfo',
+    fieldName: 'requirements',
     type: FormField.Textarea,
   },
   {
     label: 'Рабочий график',
     isRequired: false,
-    fieldName: 'workSchedule',
+    fieldName: 'workingSchedule',
     type: FormField.Date,
   },
   {
@@ -79,6 +74,22 @@ const vacancyFields: TUniversalFormField[] = [
 ]
 
 export function CreateVacancyPage() {
+  const navigate = useNavigate()
+  const [createVacancyMutation, createVacancyMutationData] = useCreateVacancyMutation()
+
+  function onSubmitForm(data: any) {
+    createVacancyMutation({
+      input: {
+        ...data,
+        employer: {
+          connect: {
+            userId: '',
+          },
+        },
+      },
+    }).finally(() => navigate('/'))
+  }
+
   return (
     <div className={styles.page}>
       <div className={styles.header}>
@@ -91,7 +102,7 @@ export function CreateVacancyPage() {
       <div className={styles.main}>
         <Container>
           <Card className={styles.formContainer}>
-            <UniversalForm buttonText='Разместить вакансию' fields={vacancyFields} />
+            <UniversalForm onSubmitForm={onSubmitForm} buttonText='Разместить вакансию' fields={vacancyFields} />
           </Card>
         </Container>
       </div>

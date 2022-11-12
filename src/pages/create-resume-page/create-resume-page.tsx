@@ -7,6 +7,8 @@ import { FIELDS_OF_ACTIVITY_TO_DROPDOWN_ITEMS } from 'utils/fields-of-activity'
 import { LOCATIONS_TO_DROPDOWN_ITEMS } from 'utils/locations'
 import headerImg from 'assets/images/resume-form.png'
 import { ReactComponent as Logo } from 'assets/images/logo.svg'
+import { useCreateResumeMutation } from 'api/enhancedApi'
+import { useNavigate } from 'react-router-dom'
 import styles from './create-resume-page.module.scss'
 
 const resumeFields: TUniversalFormField[] = [
@@ -86,6 +88,13 @@ const resumeFields: TUniversalFormField[] = [
 ]
 
 export function CreateResumePage() {
+  const navigate = useNavigate()
+  const [createResumeMutation, createResumeMutationData] = useCreateResumeMutation()
+
+  function onSubmitForm(data: any) {
+    createResumeMutation({ input: data }).finally(() => navigate('/'))
+  }
+
   return (
     <div className={styles.page}>
       <div className={styles.header}>
@@ -99,6 +108,7 @@ export function CreateResumePage() {
         <Container>
           <Card className={styles.formContainer}>
             <UniversalForm
+              onSubmitForm={onSubmitForm}
               buttonText='Продолжить'
               bottomText='Дабы мы имели возможность оказать Вам содействие в трудоустройстве, нажимая "отправить", вы даете свое согласие на обработку персональных данных согласно ФЗ №152 от 27.07.2006'
               fields={resumeFields}

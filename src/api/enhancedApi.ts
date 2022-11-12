@@ -16,4 +16,6 @@ export const {
   useGetResumeQuery,
   useGetVacanciesQuery,
   useGetResumesQuery,
+  useCreateVacancyMutation,
+  useCreateResumeMutation,
 } = api
