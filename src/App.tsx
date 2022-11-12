@@ -12,6 +12,7 @@ import useTypedDispatch from 'hooks/use-typed-dispatch'
 import { authSlice } from 'store/slices/auth.slice'
 import { LoadingOverlay } from 'components/loading-overlay'
 import { AllVacanciesPage } from 'pages/all-vacancies-page'
+import { AllResumesPage } from 'pages/all-resume-page/all-resumes-page'
 
 export function App() {
   const isLoggedIn = useTypedSelector(state => !!state.auth.accessToken)
@@ -52,6 +53,7 @@ export function App() {
           <Routes>
             <Route path={routes.main} element={<MainPage />} />
             <Route path={routes.allVacancies} element={<AllVacanciesPage />} />
+            <Route path={routes.allResumes} element={<AllResumesPage />} />
             <Route path='*' element={<Navigate to={routes.main} />} />
           </Routes>
           <AuthModal />

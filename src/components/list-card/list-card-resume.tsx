@@ -3,15 +3,16 @@ import { Button, ButtonSize, ButtonVariant } from 'components/button'
 import { Card } from 'components/card'
 import { TfiLocationPin } from 'react-icons/Tfi'
 import { Divider, DividerDirection } from 'components/divider'
-import { Color, FieldOfActivity } from 'types/index'
+import { Color, FieldOfActivity, Locations } from 'types/index'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
+import { LOCATIONS_LABEL } from 'utils/locations'
 import { createElement, useMemo } from 'react'
 
 interface resumeCardProps {
-  title: string
+  title: string | undefined | null
   name: string
-  text: string
-  location: string
+  text: string | undefined | null
+  location: number
   headerImage: number
 }
 
@@ -29,7 +30,7 @@ export function ListCardResume({ headerImage, title, name, text, location, ...pr
             <h3>{title}</h3>
             <p>
               <TfiLocationPin className={styles.resumeCardIcon} />
-              <span>{location}</span>
+              <span>{LOCATIONS_LABEL[location as Locations]}</span>
             </p>
           </div>
           <div>

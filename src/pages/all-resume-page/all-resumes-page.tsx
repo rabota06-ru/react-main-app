@@ -2,18 +2,18 @@ import { Container } from 'components/container'
 import { List } from 'components/list'
 import { ListDropdown } from 'components/list-dropdown'
 import { ItemType } from 'components/list/list'
-import styles from './all-vacancies-page.module.scss'
-import { useGetVacanciesQuery } from 'api/enhancedApi'
+import styles from './all-Resumes-page.module.scss'
+import { useGetResumesQuery } from 'api/enhancedApi'
 import { FieldOfActivity, Locations } from 'types/index'
 import { useState } from 'react'
 
-export function AllVacanciesPage() {
+export function AllResumesPage() {
   const [selectedFieldOfActivity, setSelectedFieldOfActivity] = useState<FieldOfActivity | null>(null)
   const [selectedLocation, setSelectedLocation] = useState<Locations | null>(null)
-  const getVacanciesData = useGetVacanciesQuery(
+  const getResumesData = useGetResumesQuery(
     {
       fieldOfActivity: selectedFieldOfActivity as number,
-      placeOfWork: selectedLocation as number,
+      placeOfResidence: selectedLocation as number,
       skip: 0,
       take: 20,
     },
@@ -23,12 +23,12 @@ export function AllVacanciesPage() {
   )
 
   return (
-    <div className={styles.allVacanciesPage}>
+    <div className={styles.allResumesPage}>
       <Container>
         <ListDropdown onSelectFieldOfActivity={setSelectedFieldOfActivity} onSelectLocation={setSelectedLocation} />
       </Container>
-      <div className={styles.allVacanciesPageList}>
-        <List items={getVacanciesData.data?.vacancies ?? []} type={ItemType.Vacancy} />
+      <div className={styles.allResumesPageList}>
+        <List items={getResumesData.data?.resumes ?? []} type={ItemType.Resume} />
       </div>
     </div>
   )

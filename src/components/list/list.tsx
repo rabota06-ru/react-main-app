@@ -1,11 +1,21 @@
-import React, { HTMLAttributes, useState } from 'react'
+import React, { HTMLAttributes } from 'react'
 import styles from './list.module.scss'
 import { ListCardVacancy, ListCardResume } from '../list-card'
+import { SlArrowDown } from 'react-icons/sl'
+import { Button } from '../button'
+import { GetVacanciesQuery, GetResumesQuery } from 'api/generated'
 
-interface ListProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  type: ItemType
-  items: any
-}
+type ListProps = {} & Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> &
+  (
+    | {
+        type: ItemType.Vacancy
+        items: GetVacanciesQuery['vacancies']
+      }
+    | {
+        type: ItemType.Resume
+        items: GetResumesQuery['resumes']
+      }
+  )
 
 export enum ItemType {
   Resume,
@@ -13,32 +23,54 @@ export enum ItemType {
 }
 
 export function List({ items, type, title, ...props }: ListProps) {
-  const [amountCard, setAmount] = useState(10)
-
   if (type === ItemType.Resume) {
     return (
       <div className={styles.list}>
+        <div className={styles.listTitle}>
+          <p>Все резюме</p>
+        </div>
         {items?.map(el => (
-          <ListCardResume headerImage={el.headerImage} title={el.title} name={el.name} location={el.location} text={el.text} />
+          <ListCardResume
+            key={el.id}
+            headerImage={el.fieldOfActivity}
+            title={el.education}
+            name={el.firstname + ' ' + el.lastname}
+            location={el.placeOfResidence}
+            text={el.aboutMe}
+          />
         ))}
+        <Button isShadow={false} className={styles.listButton}>
+          <SlArrowDown className={styles.listButtonIcon} />
+          <p>Показать еще</p>
+        </Button>
       </div>
     )
   }
   if (type === ItemType.Vacancy) {
     return (
       <div className={styles.list}>
+        <div className={styles.listTitle}>
+          <p>Все вакансии</p>
+        </div>
         {items?.map(el => (
           <ListCardVacancy
-            headerImage={el.headerImage}
-            title={el.title}
-            date={el.date}
-            company={el.company}
-            text={el.text}
-            price={el.price}
-            location={el.location}
+            key={el.id}
+            headerImage={el.fieldOfActivity}
+            title={el.post}
+            date={el.createdAt}
+            company={el.employer.companyName}
+            text={el.description}
+            price={el.salary}
+            location={el.placeOfWork}
           />
         ))}
+        <Button isShadow={false} className={styles.listButton}>
+          <SlArrowDown className={styles.listButtonIcon} />
+          <p>Показать еще</p>
+        </Button>
       </div>
     )
   }
+
+  return null
 }
