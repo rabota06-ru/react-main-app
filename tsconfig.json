@@ -25,7 +25,8 @@
       "store/*": ["store/*"],
       "types/*": ["types/*"],
       "utils/*": ["utils/*"],
-      "assets/*": ["assets/*"]
+      "assets/*": ["assets/*"],
+      "constants/*": ["constants/*"]
     }
   },
   "include": ["src"],

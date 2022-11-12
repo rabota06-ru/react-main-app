@@ -1,0 +1,6 @@
+mutation VerifyAuthCode($authToken: String!, $code: String!) {
+  verifyAuthCode(input: { authToken: $authToken, code: $code }) {
+    authenticated
+    authToken
+  }
+}
