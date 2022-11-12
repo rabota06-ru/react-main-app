@@ -5,7 +5,7 @@
   width: 100%;
 }
 .fullCard {
-  padding: 25px 50px 50px;
+  padding: 36px 50px 50px 50px;
   margin: 123px auto 0px;
   &Header {
     display: flex;
@@ -74,6 +74,9 @@
     &Buttons {
       display: flex;
       justify-content: center;
+      & > div {
+        display: flex;
+      }
       Button {
         margin: 0 10px;
         width: 216px;
@@ -81,7 +84,6 @@
       &Checkbox {
         &_NoShaded {
           margin-left: 10px;
-          // fill: blue;
           cursor: pointer;
           &:active {
             transform: scale(0.98);
@@ -152,10 +154,16 @@
         margin: 0;
         margin-bottom: 10px;
       }
-      img {
-        margin: 0;
-        width: 36px;
-        height: 50px;
+      &Checkbox {
+        &_NoShaded {
+          margin-left: 16px;
+        }
+        &_Shaded {
+          margin-left: 16px;
+        }
+      }
+      & > div {
+        display: flex;
       }
     }
     &Description {

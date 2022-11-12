@@ -86,8 +86,25 @@
         margin: 0 10px;
         width: 216px;
       }
-      img {
-        margin-left: 10px;
+      & > div {
+        display: flex;
+      }
+      &Checkbox {
+        &_NoShaded {
+          margin-left: 10px;
+          cursor: pointer;
+          &:active {
+            transform: scale(0.98);
+          }
+        }
+        &_Shaded {
+          margin-left: 10px;
+          fill: blue;
+          cursor: pointer;
+          &:active {
+            transform: scale(0.98);
+          }
+        }
       }
     }
   }
@@ -150,10 +167,16 @@
         margin: 0;
         margin-bottom: 10px;
       }
-      img {
-        margin: 0;
-        width: 36px;
-        height: 50px;
+      &Checkbox {
+        &_NoShaded {
+          margin-left: 16px;
+        }
+        &_Shaded {
+          margin-left: 16px;
+        }
+      }
+      & > div {
+        display: flex;
       }
     }
     &Description {

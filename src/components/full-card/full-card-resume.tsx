@@ -90,25 +90,27 @@ export function FullCardResume({
             <Button variant={ButtonVariant.Primary} size={ButtonSize.Medium} isShadow={false}>
               Пригласить
             </Button>
-            <Button variant={ButtonVariant.Outline} size={ButtonSize.Medium} isShadow={false} onClick={handleShowNumber}>
-              {phoneState ? phoneNumber : 'Показать телефон'}
-            </Button>
             <div>
-              <svg
-                className={cn(styles.fullCardDescriptionButtonsCheckbox_NoShaded, {
-                  [styles.fullCardDescriptionButtonsCheckbox_Shaded]: isFavorite,
-                })}
-                width='40'
-                height='49'
-                viewBox='0 0 40 49'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  d='M0.5 2C0.5 1.17157 1.17157 0.5 2 0.5H38C38.8284 0.5 39.5 1.17157 39.5 2V46.3915C39.5 47.5697 38.2041 48.2879 37.205 47.6635L21.325 37.7385C20.5143 37.2318 19.4857 37.2318 18.675 37.7385L2.795 47.6635C1.79593 48.2879 0.5 47.5697 0.5 46.3915V2Z'
-                  stroke='#395DDE'
-                />
-              </svg>
+              <Button variant={ButtonVariant.Outline} size={ButtonSize.Medium} isShadow={false} onClick={handleShowNumber}>
+                {phoneState ? phoneNumber : 'Показать телефон'}
+              </Button>
+              <div className={styles.fullCardDescriptionButtonsCheckbox}>
+                <svg
+                  className={cn(styles.fullCardDescriptionButtonsCheckbox_NoShaded, {
+                    [styles.fullCardDescriptionButtonsCheckbox_Shaded]: isFavorite,
+                  })}
+                  width='40'
+                  height='49'
+                  viewBox='0 0 40 49'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M0.5 2C0.5 1.17157 1.17157 0.5 2 0.5H38C38.8284 0.5 39.5 1.17157 39.5 2V46.3915C39.5 47.5697 38.2041 48.2879 37.205 47.6635L21.325 37.7385C20.5143 37.2318 19.4857 37.2318 18.675 37.7385L2.795 47.6635C1.79593 48.2879 0.5 47.5697 0.5 46.3915V2Z'
+                    stroke='#395DDE'
+                  />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
