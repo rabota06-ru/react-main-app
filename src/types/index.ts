@@ -6,6 +6,8 @@ export enum Color {
   ButtonTextColor,
   SecondaryColor1,
   SecondaryColor2,
+  SecondaryColor3,
+  iconColor,
   RedColor,
   ErrorColor,
   SuccessColor,
@@ -56,4 +58,28 @@ export enum FieldOfActivity {
   FitnessAndBeautySalons, // Фитнес, салоны красоты
   Jurisprudence, // Юриспруденция
   Other, // Другое
+}
+
+export enum Locations {
+  Nazran = 1,
+  Magas,
+  Karabulak,
+  Sunzha,
+  Malgobek,
+  AliYurt,
+  Altievo,
+  Barsuki,
+  GaziYurt,
+  Gamurzievo,
+  Dolakovo,
+  Kantyshevo,
+  NasyrKort,
+  Plievo,
+  Surkhakhi,
+  Ekazhevo,
+  Nesterovskoe,
+  Troitskoe,
+  VerhnieAchaluki,
+  SrednieAchaluki,
+  NizhnieAchaluki,
 }

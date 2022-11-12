@@ -22,6 +22,7 @@ import { ReactComponent as JurisprudenceImage } from 'assets/images/fields-of-ac
 import { ReactComponent as OtherImage } from 'assets/images/fields-of-activity/other.svg'
 import { FC, SVGProps } from 'react'
 import { objectKeys } from './object-keys'
+import { convertToDropdownItems } from './convert-to-dropdown-items'
 
 export const FIELDS_OF_ACTIVITY_LABEL: Record<FieldOfActivity, string> = {
   [FieldOfActivity.ITAndInternet]: 'IT, интернет, телеком',
@@ -51,6 +52,8 @@ export const FIELDS_OF_ACTIVITY: { field: FieldOfActivity; label: string }[] = o
   field,
   label: FIELDS_OF_ACTIVITY_LABEL[field],
 }))
+
+export const FIELDS_OF_ACTIVITY_TO_DROPDOWN_ITEMS: { id: FieldOfActivity; label: string }[] = convertToDropdownItems(FIELDS_OF_ACTIVITY)
 
 export const FIELDS_OF_ACTIVITY_IMAGE: Record<FieldOfActivity, FC<SVGProps<SVGSVGElement>>> = {
   [FieldOfActivity.ITAndInternet]: ITInternetImage,
