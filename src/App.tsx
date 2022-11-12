@@ -13,6 +13,8 @@ import { authSlice } from 'store/slices/auth.slice'
 import { LoadingOverlay } from 'components/loading-overlay'
 import { FullResumePage } from 'pages/full-resume-page'
 import { FullVacancyPage } from 'pages/full-vacancy-page'
+import { AllVacanciesPage } from 'pages/all-vacancies-page'
+import { AllResumesPage } from 'pages/all-resume-page/all-resumes-page'
 
 export interface CarouselCard {
   iconUrl: string
@@ -62,6 +64,8 @@ export function App() {
             <Route path={routes.resume(':vacancyId')} element={<FullVacancyPage />} />
             <Route path={routes.resume(':resumeId')} element={<FullResumePage />} />
             <Route path={routes.main} element={<MainPage />} />
+            <Route path={routes.allVacancies} element={<AllVacanciesPage />} />
+            <Route path={routes.allResumes} element={<AllResumesPage />} />
             <Route path='*' element={<Navigate to={routes.main} />} />
           </Routes>
           <AuthModal />

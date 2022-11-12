@@ -1,33 +1,41 @@
-import styles from './list-card.module.scss'
-import { Card } from 'components/card'
 import { Button, ButtonSize, ButtonVariant } from 'components/button'
-import { BiRuble } from 'react-icons/Bi'
+import { Card } from 'components/card'
+import { BiRuble } from 'react-icons/bi'
 import { TfiLocationPin } from 'react-icons/Tfi'
 import { Divider, DividerDirection } from 'components/divider'
-import { Color } from 'types/index'
+import { Color, FieldOfActivity } from 'types/index'
+import { createElement, useMemo } from 'react'
+import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
+import styles from './list-card.module.scss'
 
 interface VacancyCardProps {
   title: string
+  headerImage: number
   date: string
-  operator: string
+  company: string
   text: string
   price: number
   location: string
 }
 
-export function ListCardVacancy({ title, date, operator, text, price, location, ...props }: VacancyCardProps) {
+export function ListCardVacancy({ title, headerImage, date, company, text, price, location, ...props }: VacancyCardProps) {
+  const headerImageComponent = useMemo(() => createElement(FIELDS_OF_ACTIVITY_IMAGE[headerImage as FieldOfActivity]), [headerImage])
+
   return (
     <Card
       shadow={{ color: '#6484C226', blurRadius: 50, spreadRadius: 20 }}
       hoverShadow={{ color: '#395DDE66', blurRadius: 50, spreadRadius: 10 }}
+      className={styles.vacancyCardShadow}
     >
       <div className={styles.vacancyCard}>
         <div className={styles.vacancyCardHeader}>
-          {/* <div className={styles.listCardHeaderIcon}></div> */}
-          <h3>{title}</h3>
-          <div>
+          <div className={styles.vacancyCardHeaderImageAndTitleDiv}>
+            <div className={styles.vacancyCardHeaderIcon}>{headerImageComponent}</div>
+            <h3>{title}</h3>
+          </div>
+          <div className={styles.vacancyCardHeaderDataDiv}>
             <p>{date}</p>
-            <p>{operator}</p>
+            <p>{company}</p>
           </div>
         </div>
         <Divider direction={DividerDirection.Horizontal} size={0.5} color={Color.SecondaryColor2} />
@@ -48,7 +56,7 @@ export function ListCardVacancy({ title, date, operator, text, price, location, 
             size={ButtonSize.Large}
             variant={ButtonVariant.Primary}
             isShadow
-            children={'Посмотреть'}
+            children='Посмотреть'
           />
         </div>
       </div>

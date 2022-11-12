@@ -1,18 +1,25 @@
-import styles from './list-card.module.scss'
-import { Card } from 'components/card'
+import React, { HTMLAttributes, createElement, useMemo } from 'react'
 import { Button, ButtonSize, ButtonVariant } from 'components/button'
+import { Card } from 'components/card'
 import { TfiLocationPin } from 'react-icons/Tfi'
 import { Divider, DividerDirection } from 'components/divider'
-import { Color } from 'types/index'
+import { Color, FieldOfActivity, Locations } from 'types/index'
+import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
+import { LOCATIONS_LABEL } from 'utils/locations'
+import styles from './list-card.module.scss'
+import { ResumeStateTypes } from './list-card.types'
 
 interface resumeCardProps {
-  title: string
+  title: string | undefined | null
   name: string
-  text: string
-  location: string
+  text: string | undefined | null
+  location: number
+  headerImage: number
 }
 
-export function ListCardResume({ title, name, text, location, ...props }: resumeCardProps) {
+export function ListCardResume({ headerImage, title, name, text, location, ...props }: resumeCardProps) {
+  const headerImageComponent = useMemo(() => createElement(FIELDS_OF_ACTIVITY_IMAGE[headerImage as FieldOfActivity]), [headerImage])
+
   return (
     <Card
       shadow={{ color: '#6484C226', blurRadius: 50, spreadRadius: 20 }}
@@ -24,12 +31,12 @@ export function ListCardResume({ title, name, text, location, ...props }: resume
             <h3>{title}</h3>
             <p>
               <TfiLocationPin className={styles.resumeCardIcon} />
-              <span>{location}</span>
+              <span>{LOCATIONS_LABEL[location as Locations]}</span>
             </p>
           </div>
           <div>
             {name}
-            {/* <div className={styles.listCardHeaderIcon}></div> */}
+            {headerImageComponent}
           </div>
         </div>
         <Divider direction={DividerDirection.Horizontal} size={0.5} color={Color.SecondaryColor2} />
@@ -40,7 +47,7 @@ export function ListCardResume({ title, name, text, location, ...props }: resume
             size={ButtonSize.Large}
             variant={ButtonVariant.Primary}
             isShadow
-            children={'Посмотреть'}
+            children='Посмотреть'
           />
         </div>
       </div>

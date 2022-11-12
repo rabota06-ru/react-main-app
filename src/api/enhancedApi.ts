@@ -14,4 +14,6 @@ export const {
   useRefreshAccessTokenMutation,
   useGetVacancyQuery,
   useGetResumeQuery,
+  useGetVacanciesQuery,
+  useGetResumesQuery,
 } = api
