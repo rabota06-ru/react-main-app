@@ -34,11 +34,7 @@ export function Button({
   return (
     <button
       {...props}
-<<<<<<< HEAD
-      className={cn(styles.button, props.className, {
-=======
       className={cn(styles.button, className, {
->>>>>>> develop
         [styles.button_PrimaryVariant]: variant === ButtonVariant.Primary,
         [styles.button_OutlineVariant]: variant === ButtonVariant.Outline,
         [styles.button_TextVariant]: variant === ButtonVariant.Text,

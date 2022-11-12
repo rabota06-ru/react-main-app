@@ -4,7 +4,7 @@ import { ListCardVacancy, ListCardResume } from '../list-card'
 
 interface ListProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   type: ItemType
-  items: []
+  items: any
 }
 
 export enum ItemType {
@@ -18,8 +18,8 @@ export function List({ items, type, title, ...props }: ListProps) {
   if (type === ItemType.Resume) {
     return (
       <div className={styles.list}>
-        {items.map((el, index) => (
-          <ListCardResume cardState={el} />
+        {items?.map(el => (
+          <ListCardResume headerImage={el.headerImage} title={el.title} name={el.name} location={el.location} text={el.text} />
         ))}
       </div>
     )
@@ -27,8 +27,16 @@ export function List({ items, type, title, ...props }: ListProps) {
   if (type === ItemType.Vacancy) {
     return (
       <div className={styles.list}>
-        {items.map(el => (
-          <ListCardVacancy cardState={el} />
+        {items?.map(el => (
+          <ListCardVacancy
+            headerImage={el.headerImage}
+            title={el.title}
+            date={el.date}
+            company={el.company}
+            text={el.text}
+            price={el.price}
+            location={el.location}
+          />
         ))}
       </div>
     )

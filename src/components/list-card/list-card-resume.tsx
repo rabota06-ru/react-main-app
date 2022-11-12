@@ -1,18 +1,23 @@
-import React, { HTMLAttributes } from 'react'
-import { ResumeStateTypes } from './list-card.types'
 import styles from './list-card.module.scss'
-import { Card } from 'components/card'
 import { Button, ButtonSize, ButtonVariant } from 'components/button'
-import { BiRuble } from 'react-icons/Bi'
+import { Card } from 'components/card'
 import { TfiLocationPin } from 'react-icons/Tfi'
 import { Divider, DividerDirection } from 'components/divider'
-import { Color } from 'types/index'
+import { Color, FieldOfActivity } from 'types/index'
+import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
+import { createElement, useMemo } from 'react'
 
-interface ListCardProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  cardState: ResumeStateTypes
+interface resumeCardProps {
+  title: string
+  name: string
+  text: string
+  location: string
+  headerImage: number
 }
 
-export function ListCardResume({ cardState, ...props }: ListCardProps) {
+export function ListCardResume({ headerImage, title, name, text, location, ...props }: resumeCardProps) {
+  const headerImageComponent = useMemo(() => createElement(FIELDS_OF_ACTIVITY_IMAGE[headerImage as FieldOfActivity]), [headerImage])
+
   return (
     <Card
       shadow={{ color: '#6484C226', blurRadius: 50, spreadRadius: 20 }}
@@ -21,20 +26,19 @@ export function ListCardResume({ cardState, ...props }: ListCardProps) {
       <div className={styles.resumeCard}>
         <div className={styles.resumeCardHeader}>
           <div>
-            <h3>{cardState.title}</h3>
+            <h3>{title}</h3>
             <p>
               <TfiLocationPin className={styles.resumeCardIcon} />
-              <span>{cardState.location}</span>
+              <span>{location}</span>
             </p>
           </div>
-
           <div>
-            {cardState.name}
-            {/* <div className={styles.listCardHeaderIcon}></div> */}
+            {name}
+            {headerImageComponent}
           </div>
         </div>
         <Divider direction={DividerDirection.Horizontal} size={0.5} color={Color.SecondaryColor2} />
-        <p className={styles.resumeCardText}>{cardState.text}</p>
+        <p className={styles.resumeCardText}>{text}</p>
         <div className={styles.resumeCardFooter}>
           <Button
             className={styles.resumeCardButton}
