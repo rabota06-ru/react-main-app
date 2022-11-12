@@ -1,0 +1,103 @@
+@import '/src/variables';
+@import '/src/mixins';
+
+.header {
+  width: 100%;
+  &Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+  }
+  &Logo {
+    width: 60px;
+    height: 60px;
+    fill: var(--primaryColor);
+    transition: width, height 0.3s;
+  }
+  &Links {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 100px;
+    margin-left: auto;
+    padding-left: 20px;
+    flex: 1;
+    gap: 20px;
+    max-width: 500px;
+    transition: margin-right 0.3s;
+  }
+  &Link {
+    text-decoration: none;
+    white-space: nowrap;
+    color: #000;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .header {
+    &Links {
+      margin-right: 50px;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .header {
+    border-bottom: 2px solid var(--secondaryColor2);
+    margin-bottom: 30px;
+    &Container {
+      position: relative;
+      padding-bottom: 10px;
+    }
+    &Logo {
+      width: 50px;
+      height: 50px;
+    }
+    &Links {
+      position: absolute;
+      max-width: unset;
+      bottom: 0;
+      width: 100%;
+      transform: translateY(calc(100% + 10px));
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .header {
+    &Logo {
+      width: 40px;
+      height: 40px;
+    }
+    &Link {
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: $xs) {
+  .header {
+    &Container {
+      padding: 5px 0;
+    }
+    &Logo {
+      width: 30px;
+      height: 30px;
+    }
+    &Links {
+      padding: 5px 0;
+      overflow-x: auto;
+      @include hideScrollbar;
+      transform: translateY(calc(100% + 5px));
+    }
+    &Link {
+      font-size: 12px;
+    }
+  }
+}

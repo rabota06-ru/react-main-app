@@ -8,10 +8,12 @@
 .app {
   height: 100vh;
   width: 100vw;
+  overflow-x: auto;
 }
 
 :root {
   --buttonShadowColor: rgba(32, 66, 227, 0.25);
+  --footerBackgroundColor: #e5f1ff;
   --primaryColor: #2042e3;
   --textColor: #222222;
   --textSecondaryColor: #79859e;
@@ -24,4 +26,6 @@
   --errorColor: #da3633;
   --successColor: #3fb950;
   --warningColor: #fe9600;
+  --carouselCardShadowColor: rgba(100, 132, 194, 0.25);
+  --carouselCardHoveredShadowColor: rgba(57, 93, 222, 0.4);
 }

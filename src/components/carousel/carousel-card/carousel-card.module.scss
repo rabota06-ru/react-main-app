@@ -1,0 +1,106 @@
+@import '/src/variables';
+
+.card {
+  position: relative;
+  padding-top: 50px;
+  background-color: #fff;
+  &IconContainer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 10px;
+    background: linear-gradient(180deg, #fcfdff 0%, #e9f2ff 100%);
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &Title {
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    color: var(--textColor);
+    margin-bottom: 27px;
+  }
+  &Info {
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    &Item {
+      display: flex;
+      align-items: center;
+    }
+    &Icon {
+      margin-right: 10px;
+    }
+    &Text {
+      font-weight: 500;
+      font-size: 16px;
+      margin-left: 8px;
+      color: var(--textColor);
+    }
+  }
+  &Action {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 22px 30px;
+    background-color: #f4f9ff;
+    border-radius: 0 0 20px 20px;
+    cursor: pointer;
+    &:hover &LinkIcon {
+      transform: translateX(5px);
+    }
+    &Text {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+      margin-right: 8px;
+      color: var(--primaryColor);
+    }
+    &Icon {
+      fill: var(--primaryColor);
+      transition: transform 0.3s;
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .card {
+    padding: 20px 17px;
+    &Divider {
+      display: none;
+    }
+    &IconContainer {
+      top: 10px;
+      right: 10px;
+      left: unset;
+      transform: unset;
+      width: 40px;
+      height: 40px;
+      padding: 7px;
+    }
+    &Title {
+      text-align: left;
+      font-size: 16px;
+      color: var(--primaryColor);
+      margin-bottom: 30px;
+    }
+    &Info {
+      padding: unset;
+      gap: 10px;
+    }
+    &Action {
+      display: none;
+    }
+  }
+}
