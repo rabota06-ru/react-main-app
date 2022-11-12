@@ -11,6 +11,8 @@ import { useEffect } from 'react'
 import useTypedDispatch from 'hooks/use-typed-dispatch'
 import { authSlice } from 'store/slices/auth.slice'
 import { LoadingOverlay } from 'components/loading-overlay'
+import { FullResumePage } from 'pages/full-resume-page'
+import { FullVacancyPage } from 'pages/full-vacancy-page'
 
 export interface CarouselCard {
   iconUrl: string
@@ -57,6 +59,8 @@ export function App() {
       ) : (
         <UnauthorizedLayout>
           <Routes>
+            <Route path={routes.resume('2')} element={<FullVacancyPage />} />
+            <Route path={routes.resume('1')} element={<FullResumePage />} />
             <Route path={routes.main} element={<MainPage />} />
             <Route path='*' element={<Navigate to={routes.main} />} />
           </Routes>

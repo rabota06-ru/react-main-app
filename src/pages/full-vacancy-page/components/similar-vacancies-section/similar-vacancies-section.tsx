@@ -108,9 +108,9 @@ export function SimilarVacanciesSection() {
   const isCarouselScrollSnapping = useMediaValue({ xs: false, md: true })
   const carouselCardWidthCoef = useMediaValue({ xs: 0.8, md: 1 })
   const isCarouselHoverShadow = useMediaValue({ xs: false, md: true })
-  const buttonVariant = useMediaValue({ xs: ButtonVariant.Text, md: ButtonVariant.Primary })
+  const buttonVariant = useMediaValue({ xs: ButtonVariant.Text, md: ButtonVariant.Outline })
   const buttonSize = useMediaValue({ xs: ButtonSize.ExtraSmall, md: ButtonSize.Medium })
-  const isButtonShadow = useMediaValue({ xs: false, md: true })
+  const isButtonShadow = useMediaValue({ xs: false, md: false })
   const buttonRightArrow = useMediaValue({ xs: <IoIosArrowForward size={20} />, md: undefined })
 
   return (
