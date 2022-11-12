@@ -29,6 +29,7 @@ export function Button({
   isShadow = true,
   children,
   className,
+  type = 'button',
   ...props
 }: ButtonProps) {
   return (
@@ -45,7 +46,7 @@ export function Button({
         [styles.button_Disabled]: isLoading || isDisabled,
         [styles.button_Shadow]: isShadow,
       })}
-      type='button'
+      type={type}
     >
       {children}
       {isLoading && <Spinner className={cn(styles.buttonSpinner)} size={25} thickness={2} />}

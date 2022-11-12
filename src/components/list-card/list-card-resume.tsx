@@ -1,4 +1,4 @@
-import styles from './list-card.module.scss'
+import React, { HTMLAttributes, createElement, useMemo } from 'react'
 import { Button, ButtonSize, ButtonVariant } from 'components/button'
 import { Card } from 'components/card'
 import { TfiLocationPin } from 'react-icons/Tfi'
@@ -6,7 +6,8 @@ import { Divider, DividerDirection } from 'components/divider'
 import { Color, FieldOfActivity, Locations } from 'types/index'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
 import { LOCATIONS_LABEL } from 'utils/locations'
-import { createElement, useMemo } from 'react'
+import styles from './list-card.module.scss'
+import { ResumeStateTypes } from './list-card.types'
 
 interface resumeCardProps {
   title: string | undefined | null
@@ -46,7 +47,7 @@ export function ListCardResume({ headerImage, title, name, text, location, ...pr
             size={ButtonSize.Large}
             variant={ButtonVariant.Primary}
             isShadow
-            children={'Посмотреть'}
+            children='Посмотреть'
           />
         </div>
       </div>

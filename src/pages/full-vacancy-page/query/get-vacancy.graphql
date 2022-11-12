@@ -1,0 +1,16 @@
+query GetVacancy($vacancyId: String!) {
+  vacancy(where: { id: $vacancyId }) {
+    id
+    post
+    createdAt
+    fieldOfActivity
+    salary
+    placeOfWork
+    employer {
+      companyName
+    }
+    views
+    description
+    phone
+  }
+}

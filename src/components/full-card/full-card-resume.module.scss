@@ -1,0 +1,175 @@
+@import '/src/variables';
+
+.card {
+  margin: auto;
+  width: 100%;
+}
+.fullCard {
+  padding: 36px 50px 50px 50px;
+  margin: 123px auto 0px;
+  &Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    &Icon {
+      display: flex;
+      align-items: center;
+      div {
+        margin-left: -10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #fcfdff 0%, #e9f2ff 100%);
+      }
+      h2 {
+        font-size: 30px;
+        margin-left: 15px;
+      }
+    }
+    span {
+      color: var(--textSecondaryColor);
+    }
+  }
+  &City {
+    padding: 30px 0 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & > div {
+      display: flex;
+      align-items: center;
+    }
+    &Icons {
+      font-size: 19px;
+      color: var(--iconColor);
+      margin-right: 8px;
+    }
+    &Info {
+      margin-top: 20px;
+      &View {
+        color: var(--textSecondaryColor);
+        &Eye {
+          font-size: 19px;
+        }
+        span {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  &Description {
+    padding: 30px 0 58px 0;
+    font-size: 14px;
+    & > div:not(:last-child) {
+      padding-bottom: 50px;
+    }
+    h3 {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    &Buttons {
+      display: flex;
+      justify-content: center;
+      & > div {
+        display: flex;
+      }
+      Button {
+        margin: 0 10px;
+        width: 216px;
+      }
+      &Checkbox {
+        &_NoShaded {
+          margin-left: 10px;
+          cursor: pointer;
+          &:active {
+            transform: scale(0.98);
+          }
+        }
+        &_Shaded {
+          margin-left: 10px;
+          fill: blue;
+          cursor: pointer;
+          &:active {
+            transform: scale(0.98);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .fullCard {
+    padding: 25px 40px 30px;
+    margin: 34px auto 0px;
+  }
+}
+
+@media (max-width: $md) {
+}
+
+@media (max-width: $sm) {
+  .card {
+    margin-bottom: 40px;
+  }
+  .fullCard {
+    padding: 25px 40px 30px;
+    margin: 34px auto 0px;
+  }
+}
+
+@media (max-width: $xs) {
+  .fullCard {
+    padding: 25px 20px 30px;
+    margin: 34px auto 0px;
+
+    &Header {
+      display: block;
+      padding-bottom: 10px;
+      &Icon {
+        margin-bottom: 12px;
+        div {
+          width: 36px;
+          height: 36px;
+          padding: 7px;
+          margin-left: -7px;
+        }
+        h2 {
+          font-size: 16px;
+          margin-left: 9px;
+        }
+      }
+      span {
+        font-size: 14px;
+      }
+    }
+    &DescriptionButtons {
+      display: flex;
+      flex-direction: column;
+      Button {
+        margin: 0;
+        margin-bottom: 10px;
+      }
+      &Checkbox {
+        &_NoShaded {
+          margin-left: 16px;
+        }
+        &_Shaded {
+          margin-left: 16px;
+        }
+      }
+      & > div {
+        display: flex;
+      }
+    }
+    &Description {
+      & > div:not(:last-child) {
+        padding-bottom: 35px;
+      }
+    }
+  }
+}

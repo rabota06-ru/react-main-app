@@ -11,8 +11,18 @@ import { useEffect } from 'react'
 import useTypedDispatch from 'hooks/use-typed-dispatch'
 import { authSlice } from 'store/slices/auth.slice'
 import { LoadingOverlay } from 'components/loading-overlay'
+import { FullResumePage } from 'pages/full-resume-page'
+import { FullVacancyPage } from 'pages/full-vacancy-page'
 import { AllVacanciesPage } from 'pages/all-vacancies-page'
 import { AllResumesPage } from 'pages/all-resume-page/all-resumes-page'
+
+export interface CarouselCard {
+  iconUrl: string
+  profession: string
+  name: string
+  location: string
+  fullResumeLink: string
+}
 
 export function App() {
   const isLoggedIn = useTypedSelector(state => !!state.auth.accessToken)
@@ -51,6 +61,8 @@ export function App() {
       ) : (
         <UnauthorizedLayout>
           <Routes>
+            <Route path={routes.resume(':vacancyId')} element={<FullVacancyPage />} />
+            <Route path={routes.resume(':resumeId')} element={<FullResumePage />} />
             <Route path={routes.main} element={<MainPage />} />
             <Route path={routes.allVacancies} element={<AllVacanciesPage />} />
             <Route path={routes.allResumes} element={<AllResumesPage />} />

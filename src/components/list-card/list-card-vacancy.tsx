@@ -1,4 +1,3 @@
-import styles from './list-card.module.scss'
 import { Button, ButtonSize, ButtonVariant } from 'components/button'
 import { Card } from 'components/card'
 import { BiRuble } from 'react-icons/bi'
@@ -7,6 +6,7 @@ import { Divider, DividerDirection } from 'components/divider'
 import { Color, FieldOfActivity } from 'types/index'
 import { createElement, useMemo } from 'react'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
+import styles from './list-card.module.scss'
 
 interface VacancyCardProps {
   title: string
@@ -56,7 +56,7 @@ export function ListCardVacancy({ title, headerImage, date, company, text, price
             size={ButtonSize.Large}
             variant={ButtonVariant.Primary}
             isShadow
-            children={'Посмотреть'}
+            children='Посмотреть'
           />
         </div>
       </div>
