@@ -57,3 +57,27 @@ export enum FieldOfActivity {
   Jurisprudence, // Юриспруденция
   Other, // Другое
 }
+
+export enum Locations {
+  Nazran = 1,
+  Magas,
+  Karabulak,
+  Sunzha,
+  Malgobek,
+  AliYurt,
+  Altievo,
+  Barsuki,
+  GaziYurt,
+  Gamurzievo,
+  Dolakovo,
+  Kantyshevo,
+  NasyrKort,
+  Plievo,
+  Surkhakhi,
+  Ekazhevo,
+  Nesterovskoe,
+  Troitskoe,
+  VerhnieAchaluki,
+  SrednieAchaluki,
+  NizhnieAchaluki,
+}
