@@ -9,9 +9,6 @@ import { useState, createElement, useMemo } from 'react'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
 import { Container } from 'components/container'
 import cn from 'classnames'
-// import Fav from './img/favorites.svg'
-// import favoritesTrue from './img/favoritesTrue.svg'
-// import { ReactComponent as Fav } from './img/favorites.svg'
 import styles from './full-card-vacancy.module.scss'
 
 interface FullCardVacancyProps {

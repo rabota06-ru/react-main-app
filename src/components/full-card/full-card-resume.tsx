@@ -8,8 +8,6 @@ import { useState, createElement, useMemo } from 'react'
 import { Container } from 'components/container'
 import cn from 'classnames'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
-// import favorites from './img/favorites.svg'
-// import favoritesTrue from './img/favoritesTrue.svg'
 import styles from './full-card-resume.module.scss'
 
 interface FullCardResumeProps {
