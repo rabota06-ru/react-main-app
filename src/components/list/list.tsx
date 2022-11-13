@@ -1,9 +1,9 @@
 import React, { HTMLAttributes } from 'react'
+import { SlArrowDown } from 'react-icons/sl'
+import { GetVacanciesQuery, GetResumesQuery } from 'api/generated'
 import styles from './list.module.scss'
 import { ListCardVacancy, ListCardResume } from '../list-card'
-import { SlArrowDown } from 'react-icons/sl'
 import { Button } from '../button'
-import { GetVacanciesQuery, GetResumesQuery } from 'api/generated'
 
 type ListProps = {} & Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> &
   (
@@ -34,7 +34,7 @@ export function List({ items, type, title, ...props }: ListProps) {
             key={el.id}
             headerImage={el.fieldOfActivity}
             title={el.education}
-            name={el.firstname + ' ' + el.lastname}
+            name={`${el.firstname} ${el.lastname}`}
             location={el.placeOfResidence}
             text={el.aboutMe}
           />
