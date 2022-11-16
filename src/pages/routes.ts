@@ -1,83 +1,87 @@
-// type Routes = Record<Paths, Route<string | ((...args: any[]) => string)>>
-
-export interface Route<T extends 'str' | 'func' = 'str'> {
-  exact: T extends 'str' ? string : (...args: any[]) => string
-  inexact: T extends 'str' ? string : (...args: any[]) => string
-  absoluteExact: T extends 'str' ? string : (...args: any[]) => string
-  absoluteInexact: T extends 'str' ? string : (...args: any[]) => string
-}
-
-export const routes = {
+const routesTree = {
   main: {
-    exact: '/',
-    inexact: '/*',
-    absoluteExact: '/',
-    absoluteInexact: '/*',
+    path: '/',
+    nested: {},
   },
   personalAccount: {
-    exact: '/personal-account',
-    inexact: '/personal-account/*',
-    absoluteExact: '/personal-account',
-    absoluteInexact: '/personal-account/*',
-  },
-  personalAccountAllResumes: {
-    exact: '/all-resumes',
-    inexact: '/all-resumes/*',
-    absoluteExact: '/personal-account/all-resumes',
-    absoluteInexact: '/personal-account/all-resumes/*',
-  },
-  personalAccountMyVacancies: {
-    exact: '/my-vacancies',
-    inexact: '/my-vacancies/*',
-    absoluteExact: '/personal-account/my-vacancies',
-    absoluteInexact: '/personal-account/my-vacancies/*',
-  },
-  personalAccountMessages: {
-    exact: '/messages',
-    inexact: '/messages/*',
-    absoluteExact: '/personal-account/messages',
-    absoluteInexact: '/personal-account/messages/*',
-  },
-  personalAccountChat: {
-    exact: (profileId: string) => `/messages/${profileId}`,
-    inexact: (profileId: string) => `/messages/${profileId}*`,
-    absoluteExact: (profileId: string) => `/personal-account/messages/${profileId}`,
-    absoluteInexact: (profileId: string) => `/personal-account/messages/${profileId}/*`,
-  },
-  personalAccountSettings: {
-    exact: '/settings',
-    inexact: '/settings/*',
-    absoluteExact: '/personal-account/settings',
-    absoluteInexact: '/personal-account/settings/*',
+    path: '/personal-account',
+    nested: {
+      allResumes: {
+        path: '/all-resumes',
+        nested: {},
+      },
+      myVacancies: {
+        path: '/my-vacancies',
+        nested: {},
+      },
+      messages: {
+        path: '/messages',
+        nested: {
+          chat: {
+            path: (chatId: string) => `/${chatId}`,
+            nested: {},
+          },
+        },
+      },
+      settings: {
+        path: '/settings',
+        nested: {},
+      },
+    },
   },
   allVacancies: {
-    exact: '/all-vacancies',
-    inexact: '/all-vacancies/*',
-    absoluteExact: '/personal-account/all-vacancies',
-    absoluteInexact: '/personal-account/all-vacancies/*',
+    path: '/all-vacancies',
+    nested: {},
   },
   allResumes: {
-    exact: '/all-resumes',
-    inexact: '/all-resumes/*',
-    absoluteExact: '/personal-account/all-resumes',
-    absoluteInexact: '/personal-account/all-resumes/*',
-  },
-  resume: {
-    exact: (resumeId: string) => `/all-resumes/${resumeId}`,
-    inexact: (resumeId: string) => `/all-resumes/${resumeId}/*`,
-    absoluteExact: (resumeId: string) => `/personal-account/all-resumes/${resumeId}`,
-    absoluteInexact: (resumeId: string) => `/personal-account/all-resumes/${resumeId}/*`,
+    path: '/all-resumes',
+    nested: {
+      resume: {
+        path: (resumeId: string) => `/:${resumeId}`,
+        nested: {},
+      },
+    },
   },
   createVacancy: {
-    exact: '/create-vacancy',
-    inexact: '/create-vacancy/*',
-    absoluteExact: '/personal-account/create-vacancy',
-    absoluteInexact: '/personal-account/create-vacancy/*',
+    path: '/create-vacancy',
+    nested: {},
   },
   createResume: {
-    exact: '/create-resume',
-    inexact: '/create-resume/*',
-    absoluteExact: '/personal-account/create-resume',
-    absoluteInexact: '/personal-account/create-resume/*',
+    path: '/create-resume',
+    nested: {},
   },
 }
+
+type Routes = {
+  [Route in string]: {
+    path: string | ((...args: any[]) => string)
+    nested: Routes
+  }
+}
+
+type GeneratedRoutes<T extends Routes> = {
+  [Route in keyof T]: {
+    exact: T[Route]['path']
+    inexact: T[Route]['path']
+    absoluteExact: T[Route]['path']
+    absoluteInexact: T[Route]['path']
+    nested: GeneratedRoutes<T[Route]['nested']>
+  }
+}
+
+function generateRoutes<T extends Routes>(routes: T, parentPath: string): GeneratedRoutes<T> {
+  return Object.entries(routes).reduce((r, [route, { path, nested }]) => {
+    r[route as keyof T] = {
+      exact: path,
+      inexact: `${path}/*`,
+      absoluteExact: `${parentPath}${path}`,
+      absoluteInexact: `${parentPath}${path}/*`,
+      nested: generateRoutes(nested, `${parentPath}${path}`),
+    }
+
+    return r
+  }, {} as GeneratedRoutes<T>)
+}
+console.log(generateRoutes(routesTree, ''))
+
+export const routes = generateRoutes(routesTree, '')
