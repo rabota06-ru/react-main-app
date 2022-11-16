@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #edf1f4;
+  min-height: 150vh;
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.app {
+  // width: 100vw;
+  // height: 100vh;
+}
+
+:root {
+  --primaryColor: #4f79c6;
+  --attentionColor: #c64f4f;
+  --secondaryButtonColor: #e1e8f5;
+  --buttonSecondaryTextColor: #245fca;
+  --buttonTextColor: #ffffff;
+}
