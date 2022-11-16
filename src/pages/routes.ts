@@ -17,10 +17,10 @@ const routesTree = {
       messages: {
         path: '/messages',
         nested: {
-          chat: {
-            path: (chatId: string) => `/${chatId}`,
+          chat: (start: string, end: string) => (chatId: string) => ({
+            path: `${start}/${chatId}${end}`,
             nested: {},
-          },
+          }),
         },
       },
       settings: {
@@ -36,10 +36,10 @@ const routesTree = {
   allResumes: {
     path: '/all-resumes',
     nested: {
-      resume: {
-        path: (resumeId: string) => `/:${resumeId}`,
+      resume: (start: string, end: string) => (resumeId: string) => ({
+        path: `${start}/${resumeId}${end}`,
         nested: {},
-      },
+      }),
     },
   },
   createVacancy: {
@@ -52,36 +52,57 @@ const routesTree = {
   },
 }
 
+type RouteObj = {
+  path: string
+  nested: Routes
+}
+type RouteFunc = (start: string, end: string) => (...args: any[]) => RouteObj
+
 type Routes = {
-  [Route in string]: {
-    path: string | ((...args: any[]) => string)
-    nested: Routes
-  }
+  [Route in string]: RouteObj | RouteFunc
 }
 
 type GeneratedRoutes<T extends Routes> = {
-  [Route in keyof T]: {
-    exact: T[Route]['path']
-    inexact: T[Route]['path']
-    absoluteExact: T[Route]['path']
-    absoluteInexact: T[Route]['path']
-    nested: GeneratedRoutes<T[Route]['nested']>
-  }
+  [Route in keyof T]: T[Route] extends RouteObj
+    ? {
+        exact: T[Route]['path']
+        inexact: T[Route]['path']
+        absoluteExact: T[Route]['path']
+        absoluteInexact: T[Route]['path']
+        nested: GeneratedRoutes<T[Route]['nested']>
+      }
+    : T[Route] extends RouteFunc
+    ? (...args: Parameters<ReturnType<T[Route]>>) => {
+        exact: ReturnType<ReturnType<T[Route]>>['path']
+        inexact: ReturnType<ReturnType<T[Route]>>['path']
+        absoluteExact: ReturnType<ReturnType<T[Route]>>['path']
+        absoluteInexact: ReturnType<ReturnType<T[Route]>>['path']
+        nested: GeneratedRoutes<ReturnType<ReturnType<T[Route]>>['nested']>
+      }
+    : never
 }
 
 function generateRoutes<T extends Routes>(routes: T, parentPath: string): GeneratedRoutes<T> {
-  return Object.entries(routes).reduce((r, [route, { path, nested }]) => {
-    r[route as keyof T] = {
-      exact: path,
-      inexact: `${path}/*`,
-      absoluteExact: `${parentPath}${path}`,
-      absoluteInexact: `${parentPath}${path}/*`,
-      nested: generateRoutes(nested, `${parentPath}${path}`),
-    }
+  return Object.entries(routes).reduce((r, [routeName, route]) => {
+    r[routeName as keyof T] =
+      typeof route === 'function'
+        ? (...args: Parameters<typeof route>) => ({
+            exact: route('', '')(args).path,
+            inexact: route('', '/*')(args).path,
+            absoluteExact: route(parentPath, '')(args).path,
+            absoluteInexact: route(parentPath, '/*')(args).path,
+            nested: generateRoutes(route(parentPath, '')(args).nested, `${parentPath}${route('', '')(args).path}`),
+          })
+        : {
+            exact: route.path,
+            inexact: `${route.path}/*`,
+            absoluteExact: `${parentPath}${route.path}`,
+            absoluteInexact: `${parentPath}${route.path}/*`,
+            nested: generateRoutes(route.nested, `${parentPath}${route.path}`),
+          }
 
     return r
   }, {} as GeneratedRoutes<T>)
 }
-console.log(generateRoutes(routesTree, ''))
 
 export const routes = generateRoutes(routesTree, '')
