@@ -82,17 +82,21 @@ type GeneratedRoutes<T extends Routes> = {
     : never
 }
 
+type Entries<T extends Routes> = {
+  [K in keyof T]: [K, T[K]]
+}[keyof T][]
+
 function generateRoutes<T extends Routes>(routes: T, parentPath: string): GeneratedRoutes<T> {
-  return Object.entries(routes).reduce((r, [routeName, route]) => {
-    r[routeName as keyof T] =
+  return (Object.entries(routes) as Entries<T>).reduce((r, [routeName, route]) => {
+    r[routeName] =
       typeof route === 'function'
-        ? (...args: Parameters<typeof route>) => ({
+        ? (((...args: Parameters<Exclude<typeof route, RouteObj>>) => ({
             exact: route('', '')(args).path,
             inexact: route('', '/*')(args).path,
             absoluteExact: route(parentPath, '')(args).path,
             absoluteInexact: route(parentPath, '/*')(args).path,
             nested: generateRoutes(route(parentPath, '')(args).nested, `${parentPath}${route('', '')(args).path}`),
-          })
+          })) as any)
         : {
             exact: route.path,
             inexact: `${route.path}/*`,
