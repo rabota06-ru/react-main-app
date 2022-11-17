@@ -1,0 +1,25 @@
+.spinner {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  background: transparent;
+  &Inner {
+    position: absolute;
+    border-style: solid;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spinnerInner 0.6s linear infinite;
+    top: 50%;
+    left: 50%;
+    box-sizing: content-box;
+  }
+}
+
+@keyframes spinnerInner {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
