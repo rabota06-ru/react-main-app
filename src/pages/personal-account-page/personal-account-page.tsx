@@ -6,18 +6,17 @@ import { SideBar } from './components/side-bar'
 import styles from './personal-account-page.module.scss'
 
 export function PersonalAccountPage() {
-  console.log(routes.personalAccountChat.exact(':profileId'))
   return (
     <div className={styles.page}>
       <SideBar />
       <div className={styles.pageContent}>
         <Routes>
-          <Route path={routes.personalAccountAllResumes.exact} element='test1' />
-          <Route path={routes.personalAccountMyVacancies.exact} element='test2' />
-          <Route path={routes.personalAccountMessages.exact} element={<EmployerMessages />} />
-          <Route path={routes.personalAccountChat.exact(':profileId')} element={<Chat />} />
-          <Route path={routes.personalAccountSettings.exact} element='test4' />
-          <Route path='*' element={<Navigate to={routes.personalAccountAllResumes.absoluteExact} />} />
+          <Route path={routes.personalAccount.nested.allResumes.exact} element='test1' />
+          <Route path={routes.personalAccount.nested.myVacancies.exact} element='test2' />
+          <Route path={routes.personalAccount.nested.messages.exact} element={<EmployerMessages />} />
+          <Route path={routes.personalAccount.nested.messages.nested.chat(':profileId').exact} element={<Chat />} />
+          <Route path={routes.personalAccount.nested.settings.exact} element='test4' />
+          <Route path='*' element={<Navigate to={routes.personalAccount.nested.allResumes.absoluteExact} />} />
         </Routes>
       </div>
     </div>

@@ -17,7 +17,7 @@ export function ResponseToVacancy({ response }: ResponseToVacancyProps) {
   const navigate = useNavigate()
 
   const goToChatWithApplicant = useCallback(
-    (applicantId: string) => navigate(routes.personalAccountChat.absoluteExact(applicantId)),
+    (applicantId: string) => navigate(routes.personalAccount.nested.messages.nested.chat(applicantId).absoluteExact),
     [navigate]
   )
 

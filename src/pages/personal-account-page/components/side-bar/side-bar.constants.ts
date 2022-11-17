@@ -7,15 +7,15 @@ import { ReactComponent as MessagesIcon } from './messages.svg'
 import { ReactComponent as SettingsIcon } from './settings.svg'
 
 export const APPLICANT_SIDE_BAR_ITEMS: SideBarMenuItem[] = [
-  { Icon: AboutMeIcon, label: 'Обо мне', route: routes.personalAccountAllResumes },
-  { Icon: MyVacanciesIcon, label: 'Все вакансии', route: routes.personalAccountMyVacancies },
-  { Icon: MessagesIcon, label: 'Сообщения', route: routes.personalAccountMessages },
-  { Icon: SettingsIcon, label: 'Настройки', route: routes.personalAccountSettings },
+  { Icon: AboutMeIcon, label: 'Обо мне', route: routes.personalAccount.nested.allResumes },
+  { Icon: MyVacanciesIcon, label: 'Все вакансии', route: routes.personalAccount.nested.myVacancies },
+  { Icon: MessagesIcon, label: 'Сообщения', route: routes.personalAccount.nested.messages },
+  { Icon: SettingsIcon, label: 'Настройки', route: routes.personalAccount.nested.settings },
 ]
 
 export const EMPLOYER_SIDE_BAR_ITEMS: SideBarMenuItem[] = [
-  { Icon: AllResumesIcon, label: 'Все резюме', route: routes.personalAccountAllResumes },
-  { Icon: MyVacanciesIcon, label: 'Мои вакансии', route: routes.personalAccountMyVacancies },
-  { Icon: MessagesIcon, label: 'Сообщения', route: routes.personalAccountMessages },
-  { Icon: SettingsIcon, label: 'Настройки', route: routes.personalAccountSettings },
+  { Icon: AllResumesIcon, label: 'Все резюме', route: routes.personalAccount.nested.allResumes },
+  { Icon: MyVacanciesIcon, label: 'Мои вакансии', route: routes.personalAccount.nested.myVacancies },
+  { Icon: MessagesIcon, label: 'Сообщения', route: routes.personalAccount.nested.messages },
+  { Icon: SettingsIcon, label: 'Настройки', route: routes.personalAccount.nested.settings },
 ]

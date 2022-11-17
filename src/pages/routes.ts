@@ -31,7 +31,12 @@ const routesTree = {
   },
   allVacancies: {
     path: '/all-vacancies',
-    nested: {},
+    nested: {
+      vacancy: (start: string, end: string) => (vacancyId: string) => ({
+        path: `${start}/${vacancyId}${end}`,
+        nested: {},
+      }),
+    },
   },
   allResumes: {
     path: '/all-resumes',
@@ -60,6 +65,13 @@ type RouteFunc = (start: string, end: string) => (...args: any[]) => RouteObj
 
 type Routes = {
   [Route in string]: RouteObj | RouteFunc
+}
+
+export type Route = {
+  exact: string
+  inexact: string
+  absoluteExact: string
+  absoluteInexact: string
 }
 
 type GeneratedRoutes<T extends Routes> = {
