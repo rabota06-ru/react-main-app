@@ -1,0 +1,60 @@
+@import 'variables.scss';
+
+.button {
+  border-radius: $buttonBorderRadius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  transition: filter 0.2s;
+  &:hover {
+    &:not([disabled]) {
+      filter: brightness(90%);
+    }
+  }
+  &:active {
+    &:not([disabled]) {
+      filter: brightness(80%);
+      transform: scale(0.98);
+    }
+  }
+  &_Primary {
+    background-color: var(--primaryColor);
+    color: var(--buttonTextColor);
+    border: none;
+  }
+  &_Outlined {
+    border: 3px solid var(--primaryColor);
+    color: var(--primaryColor);
+    background-color: #fff;
+  }
+  &_Secondary {
+    background-color: var(--secondaryButtonColor);
+    color: var(--buttonSecondaryTextColor);
+    border: none;
+  }
+  &_Attention {
+    background-color: var(--attentionColor);
+    color: var(--buttonTextColor);
+    border: none;
+  }
+  &_LargeSize {
+    height: $buttonLargeSizeHeight;
+    font-size: 17px;
+  }
+  &_MediumSize {
+    height: $buttonMediumSizeHeight;
+    font-size: 16px;
+  }
+  &_SmallSize {
+    height: $buttonSmallSizeHeight;
+    font-size: 14px;
+  }
+  &_Disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
