@@ -7,6 +7,38 @@ import useTypedDispatch from './use-typed-dispatch'
 export function useAuthorization() {
   const [checkIsAuthenticatedQuery, checkIsAuthenticatedData] = useLazyCheckIsAuthenticatedQuery()
   const [refreshAccessTokenMutation] = useRefreshAccessTokenMutation()
+  const dispatch = useTypedDispatch()
+  const fetchAndSetUser = useFetchAndSetAuthorizedUser()
+
+  useEffect(() => {
+    checkIsAuthenticatedQuery()
+      .unwrap()
+      .then(response => {
+        if (response.checkIsAuthenticated.authenticated) {
+          fetchAndSetUser(response.checkIsAuthenticated.accessToken!)
+          dispatch(authSlice.actions.setAccessToken(response.checkIsAuthenticated.accessToken!))
+        }
+      })
+
+    const intervalTimer = setInterval(() => {
+      refreshAccessTokenMutation()
+        .unwrap()
+        .then(response => {
+          dispatch(authSlice.actions.setAccessToken(response.refreshAccessToken.accessToken))
+        })
+    }, 29 * 60 * 1000)
+
+    return () => {
+      clearInterval(intervalTimer)
+    }
+  }, [checkIsAuthenticatedQuery, refreshAccessTokenMutation, dispatch, fetchAndSetUser])
+
+  return {
+    isLoading: checkIsAuthenticatedData.isLoading,
+  }
+}
+
+export function useFetchAndSetAuthorizedUser() {
   const [getUserQuery] = useLazyGetUserQuery()
   const dispatch = useTypedDispatch()
 
@@ -40,30 +72,5 @@ export function useAuthorization() {
     [dispatch, getUserQuery]
   )
 
-  useEffect(() => {
-    checkIsAuthenticatedQuery()
-      .unwrap()
-      .then(response => {
-        if (response.checkIsAuthenticated.authenticated) {
-          fetchAndSetUser(response.checkIsAuthenticated.accessToken!)
-          dispatch(authSlice.actions.setAccessToken(response.checkIsAuthenticated.accessToken!))
-        }
-      })
-
-    const intervalTimer = setInterval(() => {
-      refreshAccessTokenMutation()
-        .unwrap()
-        .then(response => {
-          dispatch(authSlice.actions.setAccessToken(response.refreshAccessToken.accessToken))
-        })
-    }, 29 * 60 * 1000)
-
-    return () => {
-      clearInterval(intervalTimer)
-    }
-  }, [checkIsAuthenticatedQuery, refreshAccessTokenMutation, dispatch, fetchAndSetUser])
-
-  return {
-    isLoading: checkIsAuthenticatedData.isLoading,
-  }
+  return fetchAndSetUser
 }
