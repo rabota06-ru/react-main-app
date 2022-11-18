@@ -1,0 +1,8 @@
+mutation SendMessage($chatId: String!, $message: String!, $sender: UserRole!) {
+  createOneChatMessage(data: { chat: { connect: { id: $chatId } }, message: $message, sender: $sender }) {
+    id
+    message
+    sender
+    createdAt
+  }
+}

@@ -1,0 +1,101 @@
+.responses {
+  margin-top: 20px;
+}
+
+.vacancyCard {
+  padding: 20px 30px;
+  width: 100%;
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &Top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    &Left {
+      display: flex;
+      align-items: center;
+      &Icon {
+        &Container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 60px;
+          width: 60px;
+          background: linear-gradient(180deg, #fcfdff 0%, #e9f2ff 100%);
+          border-radius: 50%;
+        }
+      }
+      &Title {
+        margin-left: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+    &Right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
+  &Content {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    &Actions {
+      display: flex;
+      gap: 20px;
+    }
+  }
+  &Responses {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+  }
+}
+
+.responseToVacancy {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  background-color: #ecf9ff;
+  padding: 20px 40px;
+  &Top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    &Left {
+      display: flex;
+      align-items: center;
+      &Title {
+        margin-right: 20px;
+      }
+      &Icon {
+        &Container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 60px;
+          width: 60px;
+          background: linear-gradient(180deg, #fcfdff 0%, #e9f2ff 100%);
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+  &Divider {
+    margin-bottom: 20px;
+  }
+  &CoverLetter {
+    margin-bottom: 40px;
+  }
+  &Actions {
+    display: flex;
+    gap: 20px;
+    align-self: flex-end;
+  }
+}

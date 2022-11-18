@@ -1,0 +1,21 @@
+query GetChatMessages($userId: String!, $applicantId: String!, $skip: Int!, $take: Int!) {
+  findFirstChat(where: { applicantId: { equals: $applicantId }, employer: { is: { userId: { equals: $userId } } } }) {
+    id
+    applicant {
+      resume {
+        firstname
+      }
+    }
+  }
+  chatMessages(
+    where: { chat: { is: { applicantId: { equals: $applicantId }, employer: { is: { userId: { equals: $userId } } } } } }
+    orderBy: { createdAt: desc }
+    skip: $skip
+    take: $take
+  ) {
+    id
+    message
+    sender
+    createdAt
+  }
+}

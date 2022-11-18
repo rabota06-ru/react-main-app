@@ -1,19 +1,19 @@
-import React, { PropsWithChildren, createContext } from 'react'
+import React, { PropsWithChildren, createContext, useMemo } from 'react'
 import styles from './tabs.module.scss'
 
-interface ITabContext {
+interface ITabsContext {
   selectedIndex?: number
   onSelect: (index: number) => void
 }
 
-export const TabContext = createContext<ITabContext>({
+export const TabsContext = createContext<ITabsContext>({
   onSelect: () => {},
   selectedIndex: 0,
 })
 
-interface TabsProps extends PropsWithChildren {
-  selectedIndex?: number
-  onSelect: (index: number) => void
+interface TabsProps<T extends number> extends PropsWithChildren {
+  selectedIndex: T
+  onSelect: (index: T) => void
 }
 
 /**
@@ -35,9 +35,11 @@ interface TabsProps extends PropsWithChildren {
       </TabPanel>
     </Tabs>
  */
-export function Tabs({ children, selectedIndex = 0, onSelect }: TabsProps) {
+export function Tabs<T extends number>({ children, selectedIndex, onSelect }: TabsProps<T>) {
+  const value = useMemo(() => ({ selectedIndex, onSelect }), [selectedIndex, onSelect])
+
   return (
-    <TabContext.Provider value={{ selectedIndex, onSelect }}>
+    <TabsContext.Provider value={value as unknown as ITabsContext}>
       <div className={styles.tabs}>
         {React.Children.map(children, (child: any, index) => {
           if (index === 0) {
@@ -47,6 +49,6 @@ export function Tabs({ children, selectedIndex = 0, onSelect }: TabsProps) {
           return React.cloneElement(child, { isShown: index - 1 === selectedIndex })
         })}
       </div>
-    </TabContext.Provider>
+    </TabsContext.Provider>
   )
 }

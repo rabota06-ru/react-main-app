@@ -10,17 +10,22 @@
     "generateApi": "graphql-code-generator --config ./src/api/codegen.yml"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
     "@reduxjs/toolkit": "^1.8.6",
     "@rtk-query/graphql-request-base-query": "^2.2.0",
     "classnames": "^2.3.2",
+    "date-fns": "^2.29.3",
     "graphql": "^16.5.0",
     "graphql-codegen": "^0.4.0",
     "graphql-request": "^4.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.39.3",
     "react-icons": "^4.6.0",
+    "react-merge-refs": "^2.0.1",
     "react-redux": "^8.0.4",
-    "react-router-dom": "^6.4.3"
+    "react-router-dom": "^6.4.3",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.8.0",

@@ -1,0 +1,53 @@
+.sideBar {
+  height: 100%;
+  width: 330px;
+  padding-top: 27px;
+  background-color: #f4f9ff;
+  &Top {
+    margin-left: 50px;
+    margin-bottom: 40px;
+  }
+  &Title {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  &Avatar {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+  }
+  &Name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  &Menu {
+    &Item {
+      display: flex;
+      align-items: center;
+      height: 70px;
+      padding-left: 50px;
+      cursor: pointer;
+      color: #999db0;
+      fill: #999db0;
+      stroke: #999db0;
+      border-left: 4px solid transparent;
+      transition: all 0.3s;
+      &Icon {
+        margin-right: 15px;
+        width: 28px;
+      }
+      &Label {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      &_Active {
+        color: var(--primaryColor);
+        fill: var(--primaryColor);
+        stroke: var(--primaryColor);
+        border-color: var(--primaryColor);
+        background: linear-gradient(90deg, var(--primaryColor) -500%, #f4f9ff);
+      }
+    }
+  }
+}

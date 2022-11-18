@@ -1,0 +1,62 @@
+@import '/src/variables';
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  &Info {
+    min-width: 212px;
+    max-width: 212px;
+    margin-right: 10px;
+  }
+  &Label {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--textColor);
+    &Required {
+      color: var(--redColor);
+    }
+  }
+  &Description {
+    color: var(--textColor);
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  &Action {
+    margin-top: 10px;
+    padding: 0;
+  }
+  &InputContainer {
+    flex-grow: 1;
+    max-width: 480px;
+  }
+  &Input {
+    width: 100%;
+    font-size: 14px;
+    // background-color: #f4f9ff;
+    &::placeholder {
+      font-size: 14px;
+    }
+  }
+}
+
+.bottomText {
+  font-size: 14px;
+  margin-bottom: 40px;
+  color: var(--textSecondaryColor);
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: $sm) {
+  .field {
+    flex-direction: column;
+  }
+  .fieldInfo {
+    max-width: 300px;
+    margin-bottom: 10px;
+  }
+}

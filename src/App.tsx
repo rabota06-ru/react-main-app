@@ -6,11 +6,19 @@ import { MainPage } from 'pages/main-page'
 import { AuthModal } from 'components/auth-modal/auth-modal'
 import useTypedSelector from 'hooks/use-typed-selector'
 import { AuthorizedLayout } from 'layouts/authorized-layout'
-import { useLazyCheckIsAuthenticatedQuery, useRefreshAccessTokenMutation } from 'api/enhancedApi'
+import { useLazyCheckIsAuthenticatedQuery, useLazyGetUserQuery, useRefreshAccessTokenMutation } from 'api/enhancedApi'
 import { useEffect } from 'react'
 import useTypedDispatch from 'hooks/use-typed-dispatch'
 import { authSlice } from 'store/slices/auth.slice'
 import { LoadingOverlay } from 'components/loading-overlay'
+import { PersonalAccountPage } from 'pages/personal-account-page/personal-account-page'
+import { parseJwt } from 'utils/parse-jwt'
+import { FullResumePage } from 'pages/full-resume-page'
+import { FullVacancyPage } from 'pages/full-vacancy-page'
+import { AllVacanciesPage } from 'pages/all-vacancies-page'
+import { AllResumesPage } from 'pages/all-resume-page/all-resumes-page'
+import { CreateVacancyPage } from 'pages/create-vacancy-page'
+import { CreateResumePage } from 'pages/create-resume-page'
 
 export interface CarouselCard {
   iconUrl: string
@@ -21,9 +29,11 @@ export interface CarouselCard {
 }
 
 export function App() {
-  const isLoggedIn = useTypedSelector(state => !!state.auth.accessToken)
+  const accessToken = useTypedSelector(state => state.auth.accessToken)
+  const isLoggedIn = !!accessToken
   const [checkIsAuthenticatedQuery, checkIsAuthenticatedData] = useLazyCheckIsAuthenticatedQuery()
   const [refreshAccessTokenMutation] = useRefreshAccessTokenMutation()
+  const [getUserQuery] = useLazyGetUserQuery()
   const dispatch = useTypedDispatch()
 
   useEffect(() => {
@@ -48,17 +58,56 @@ export function App() {
     }
   }, [])
 
+  useEffect(() => {
+    // TODO: отрефакторить
+    if (accessToken !== null) {
+      const { userId } = parseJwt(accessToken)
+      getUserQuery({ userId })
+        .unwrap()
+        .then(response => {
+          const user = response.findFirstUser
+          if (user) {
+            let name: string | null = null
+            if (user.applicantProfile?.resume) {
+              name = user.applicantProfile.resume.firstname + user.applicantProfile.resume.lastname
+            }
+
+            if (user.employerProfile) {
+              name = user.employerProfile.companyName
+            }
+
+            dispatch(
+              authSlice.actions.setUserInfo({
+                id: user.id,
+                role: user.role,
+                name,
+              })
+            )
+          }
+        })
+    }
+  }, [accessToken])
+
   return (
     <div className='app'>
       {isLoggedIn ? (
         <AuthorizedLayout>
-          <Routes>{/* <Route /> */}</Routes>
+          <Routes>
+            <Route path={routes.createVacancy.exact} element={<CreateVacancyPage />} />
+            <Route path={routes.createResume.exact} element={<CreateResumePage />} />
+            <Route path={routes.personalAccount.inexact} element={<PersonalAccountPage />} />
+            <Route path='*' element={<Navigate to={routes.personalAccount.exact} />} />
+          </Routes>
         </AuthorizedLayout>
       ) : (
         <UnauthorizedLayout>
           <Routes>
-            <Route path={routes.main} element={<MainPage />} />
-            <Route path='*' element={<Navigate to={routes.main} />} />
+            <Route path={routes.resume.exact(':vacancyId')} element={<FullVacancyPage />} />
+            <Route path={routes.resume.exact(':resumeId')} element={<FullResumePage />} />
+            <Route path={routes.main.exact} element={<MainPage />} />
+            <Route path={routes.allVacancies.exact} element={<AllVacanciesPage />} />
+            <Route path={routes.allResumes.exact} element={<AllResumesPage />} />
+            <Route path='*' element={<Navigate to={routes.main.exact} />} />
           </Routes>
           <AuthModal />
         </UnauthorizedLayout>

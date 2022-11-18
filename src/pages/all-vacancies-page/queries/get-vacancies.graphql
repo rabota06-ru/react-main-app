@@ -1,0 +1,14 @@
+query GetVacancies($fieldOfActivity: Int!, $placeOfWork: Int!, $skip: Int!, $take: Int!) {
+  vacancies(where: { fieldOfActivity: { equals: $fieldOfActivity }, placeOfWork: { equals: $placeOfWork } }, skip: $skip, take: $take) {
+    id
+    post
+    salary
+    fieldOfActivity
+    createdAt
+    description
+    placeOfWork
+    employer {
+      companyName
+    }
+  }
+}
