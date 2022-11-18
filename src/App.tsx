@@ -1,4 +1,4 @@
-import './scss/index.scss'
+import 'scss/index.scss'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { routes } from 'pages/routes'
 import { UnauthorizedLayout } from 'layouts/unauthorized-layout'
