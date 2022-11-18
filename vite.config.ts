@@ -23,6 +23,7 @@ export default defineConfig({
       utils: path.resolve(__dirname, './src/utils'),
       assets: path.resolve(__dirname, './src/assets'),
       constants: path.resolve(__dirname, './src/constants'),
+      scss: path.resolve(__dirname, './src/scss'),
     },
   },
 })

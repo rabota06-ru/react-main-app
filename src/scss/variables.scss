@@ -1,15 +1,17 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-}
+$inputBaseDefaultSizeHeight: 50px;
+$inputBaseLargeSizeHeight: 60px;
+$buttonLargeSizeHeight: 60px;
+$buttonMediumSizeHeight: 50px;
+$buttonSmallSizeHeight: 40px;
+$buttonExtraSmallSizeHeight: 30px;
+$inputBaseWrapperBorderRadius: 8px;
+$inputBaseWrapperBorder: 1px solid var(--secondaryColor2);
+$cardBorderRadius: 20px;
 
-.app {
-  height: 100vh;
-  width: 100vw;
-  overflow-x: auto;
-}
+$lg: 1199px;
+$md: 991px;
+$sm: 767px;
+$xs: 575px;
 
 :root {
   --buttonShadowColor: rgba(32, 66, 227, 0.25);

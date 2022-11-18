@@ -26,7 +26,8 @@
       "types/*": ["types/*"],
       "utils/*": ["utils/*"],
       "assets/*": ["assets/*"],
-      "constants/*": ["constants/*"]
+      "constants/*": ["constants/*"],
+      "scss/*": ["scss/*"]
     }
   },
   "include": ["src"],
