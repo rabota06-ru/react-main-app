@@ -1,4 +1,5 @@
 import { Modal } from 'components/modal'
+import { useFetchAndSetAuthorizedUser } from 'hooks/use-authorization'
 import useTypedDispatch from 'hooks/use-typed-dispatch'
 import useTypedSelector from 'hooks/use-typed-selector'
 import { routes } from 'pages/routes'
@@ -20,6 +21,7 @@ export function AuthModal() {
   const [codeAuthToken, setCodeAuthToken] = useState('')
   const navigate = useNavigate()
   const dispatch = useTypedDispatch()
+  const fetchAndSetUser = useFetchAndSetAuthorizedUser()
 
   const onPhoneFormSuccess = useCallback((authToken: string, phone: string) => {
     setPhone(phone)
@@ -43,10 +45,11 @@ export function AuthModal() {
   const onUserLoggedId = useCallback(
     (accessToken: string) => {
       dispatch(authSlice.actions.setAccessToken(accessToken))
+      fetchAndSetUser(accessToken)
       navigate(routes.allVacancies.exact)
       resetAndClose()
     },
-    [navigate, resetAndClose, dispatch]
+    [navigate, resetAndClose, dispatch, fetchAndSetUser]
   )
 
   const onUserNotExists = useCallback(() => {
