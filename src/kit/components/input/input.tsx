@@ -1,4 +1,4 @@
-import { InputBase, InputBaseProps, InputSize } from 'components/input-base'
+import { InputBase, InputBaseProps, InputSize } from 'kit/components/input-base'
 import { forwardRef, InputHTMLAttributes } from 'react'
 import cn from 'classnames'
 import styles from './input.module.scss'

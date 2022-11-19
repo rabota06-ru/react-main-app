@@ -3,7 +3,7 @@ import { SlArrowDown } from 'react-icons/sl'
 import { GetVacanciesQuery, GetResumesQuery } from 'api/generated'
 import styles from './list.module.scss'
 import { ListCardVacancy, ListCardResume } from '../list-card'
-import { Button } from '../button'
+import { Button } from '../../kit/components/button'
 
 type ListProps = {} & Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> &
   (

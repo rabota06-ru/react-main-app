@@ -1,5 +1,5 @@
-import { Card } from 'components/card'
-import { Divider } from 'components/divider'
+import { Card } from 'kit/components/card'
+import { Divider } from 'kit/components/divider'
 import { Color } from 'types/index'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 import { getColorVariable } from 'utils/get-color'

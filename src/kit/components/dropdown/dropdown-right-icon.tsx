@@ -1,4 +1,4 @@
-import { getColorVariableByInputStatus, InputStatus } from 'components/input-base'
+import { getColorVariableByInputStatus, InputStatus } from 'kit/components/input-base'
 import { BsFillCaretUpFill, BsXCircle } from 'react-icons/bs'
 import { getColorVariable } from 'utils/get-color'
 import { Color } from 'types/index'

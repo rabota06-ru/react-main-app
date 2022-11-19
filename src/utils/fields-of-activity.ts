@@ -21,7 +21,7 @@ import { ReactComponent as FitnessAndBeautySalonsImage } from 'assets/images/fie
 import { ReactComponent as JurisprudenceImage } from 'assets/images/fields-of-activity/jurisprudence.svg'
 import { ReactComponent as OtherImage } from 'assets/images/fields-of-activity/other.svg'
 import { FC, SVGProps } from 'react'
-import { DropdownItem } from 'components/dropdown'
+import { DropdownItem } from 'kit/components/dropdown'
 import { objectKeys } from './object-keys'
 
 export const FIELDS_OF_ACTIVITY_LABEL: Record<FieldOfActivity, string> = {

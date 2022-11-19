@@ -1,4 +1,4 @@
-import { InputBase, InputBaseProps, InputSize } from 'components/input-base'
+import { InputBase, InputBaseProps, InputSize } from 'kit/components/input-base'
 import { HTMLAttributes, useEffect, useState } from 'react'
 import cn from 'classnames'
 import { useOnClickOutside } from 'hooks/use-on-click-outside'

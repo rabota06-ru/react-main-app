@@ -1,4 +1,4 @@
-import { DropdownItem } from 'components/dropdown'
+import { DropdownItem } from 'kit/components/dropdown'
 
 export enum FormField {
   Text,

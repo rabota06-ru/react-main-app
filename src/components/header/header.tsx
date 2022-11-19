@@ -1,5 +1,5 @@
-import { Button, ButtonSize, ButtonVariant } from 'components/button'
-import { Container } from 'components/container'
+import { Button, ButtonSize, ButtonVariant } from 'kit/components/button'
+import { Container } from 'kit/components/container'
 import { Link } from 'react-router-dom'
 import { routes } from 'pages/routes'
 import { ReactComponent as Logo } from 'assets/images/logo.svg'

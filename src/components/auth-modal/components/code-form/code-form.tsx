@@ -1,6 +1,6 @@
 import { useVerifyAuthCodeMutation } from 'api/enhancedApi'
-import { Button } from 'components/button'
-import { Input, InputStatus } from 'components/input'
+import { Button } from 'kit/components/button'
+import { Input, InputStatus } from 'kit/components/input'
 import { AUTH_CODE_REGEX } from 'constants/regexes'
 import { useCallback, useState } from 'react'
 import styles from './code-form.module.scss'

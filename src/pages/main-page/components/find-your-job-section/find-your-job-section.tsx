@@ -1,5 +1,5 @@
-import { Button, ButtonSize } from 'components/button'
-import { Container } from 'components/container'
+import { Button, ButtonSize } from 'kit/components/button'
+import { Container } from 'kit/components/container'
 import cn from 'classnames'
 import { useMediaValue } from 'hooks/use-media-value'
 import styles from './find-your-job-section.module.scss'
