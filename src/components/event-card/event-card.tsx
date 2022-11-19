@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useMediaValue } from 'hooks';
 import cn from 'classnames';
 import { Button } from '../button';
 import { ButtonSize, ButtonVariant } from '../button/button.types';
@@ -28,6 +29,7 @@ export function EventCard({
   const [isParticipant, setIsParticipant] = useState(false);
   const [isInfoShown, setIsInfoShown] = useState(false);
   const isButtonDisabled = seatsCountOccupied === seatsCountTotal && !isParticipant;
+  const buttonSize = useMediaValue({ xs: ButtonSize.Small, sm: ButtonSize.Medium });
 
   return (
     <Card className={styles.event}>
@@ -51,7 +53,7 @@ export function EventCard({
               className={styles.eventButton}
               variant={ButtonVariant.Attention}
               isDisabled={isButtonDisabled}
-              size={ButtonSize.Medium}>
+              size={buttonSize}>
               Отказаться
             </Button>
           ) : (
@@ -60,7 +62,7 @@ export function EventCard({
               className={styles.eventButton}
               variant={ButtonVariant.Primary}
               isDisabled={isButtonDisabled}
-              size={ButtonSize.Medium}>
+              size={buttonSize}>
               Записаться
             </Button>
           )}
