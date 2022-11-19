@@ -1,7 +1,7 @@
 import { Button, ButtonSize, ButtonVariant } from 'kit/components/button'
 import { Carousel, CarouselCard, ICarouselCard } from 'kit/components/carousel'
 import { Container } from 'kit/components/container'
-import { useMediaValue } from 'hooks/use-media-value'
+import { useMediaValue } from 'kit/hooks'
 import { routes } from 'pages/routes'
 import { createElement, useState } from 'react'
 import { BiRuble, BiMap } from 'react-icons/bi'
