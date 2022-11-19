@@ -1,13 +1,19 @@
 import { useState } from 'react';
 import { Button, ButtonSize, ButtonVariant } from 'components/button';
 import { EventCard } from 'components/event-card';
+import { Modal } from 'components/modal';
+import { Card } from 'components/card';
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
+  const [isModalShown, setIsModalShown] = useState(false);
 
   function onButtonClick() {
     setIsLoading(true);
-    setTimeout(setIsLoading, 2000, false);
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsModalShown(true);
+    }, 2000);
   }
 
   return (
@@ -15,32 +21,13 @@ function App() {
       <Button
         onClick={onButtonClick}
         isLoading={isLoading}
-        size={ButtonSize.Large}
+        size={ButtonSize.Medium}
         variant={ButtonVariant.Primary}>
-        Cоздать аккаунт
+        Открыть модалку
       </Button>
-      <Button
-        onClick={onButtonClick}
-        isLoading={isLoading}
-        size={ButtonSize.Large}
-        variant={ButtonVariant.Attention}>
-        Cоздать аккаунт
-      </Button>
-      <Button
-        onClick={onButtonClick}
-        isLoading={isLoading}
-        size={ButtonSize.Large}
-        variant={ButtonVariant.Outlined}>
-        Cоздать аккаунт
-      </Button>
-      <Button
-        onClick={onButtonClick}
-        isLoading={isLoading}
-        size={ButtonSize.Large}
-        variant={ButtonVariant.Secondary}>
-        Cоздать аккаунт
-      </Button>
-
+      <Modal isShown={isModalShown} onClose={() => setIsModalShown(false)}>
+        контент
+      </Modal>
       <EventCard
         id="555"
         title="День учителя"
