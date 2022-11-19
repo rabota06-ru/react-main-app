@@ -1,5 +1,5 @@
+import { DropdownItem } from 'components/dropdown'
 import { Locations } from 'types/index'
-import { convertToDropdownItems } from './convert-to-dropdown-items'
 import { objectKeys } from './object-keys'
 
 export const LOCATIONS_LABEL: Record<Locations, string> = {
@@ -26,9 +26,7 @@ export const LOCATIONS_LABEL: Record<Locations, string> = {
   [Locations.NizhnieAchaluki]: 'Нижние Ачалуки',
 }
 
-export const LOCATIONS: { field: Locations; label: string }[] = objectKeys(LOCATIONS_LABEL).map(field => ({
-  field,
-  label: LOCATIONS_LABEL[field],
+export const LOCATIONS: DropdownItem<Locations>[] = objectKeys(LOCATIONS_LABEL).map(id => ({
+  id,
+  label: LOCATIONS_LABEL[id],
 }))
-
-export const LOCATIONS_TO_DROPDOWN_ITEMS: { id: Locations; label: string }[] = convertToDropdownItems(LOCATIONS)

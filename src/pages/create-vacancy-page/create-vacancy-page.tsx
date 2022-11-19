@@ -3,8 +3,8 @@ import { Container } from 'components/container'
 import { UniversalForm } from 'components/universal-form'
 import { TUniversalFormField } from 'components/universal-form/universal-form-field'
 import { FormField } from 'components/universal-form/universal-form.types'
-import { FIELDS_OF_ACTIVITY_TO_DROPDOWN_ITEMS } from 'utils/fields-of-activity'
-import { LOCATIONS_TO_DROPDOWN_ITEMS } from 'utils/locations'
+import { FIELDS_OF_ACTIVITY } from 'utils/fields-of-activity'
+import { LOCATIONS } from 'utils/locations'
 import headerImg from 'assets/images/vacancy-form.png'
 import { ReactComponent as Logo } from 'assets/images/logo.svg'
 import { useCreateVacancyMutation } from 'api/enhancedApi'
@@ -24,7 +24,7 @@ const vacancyFields: TUniversalFormField[] = [
     isRequired: true,
     fieldName: 'fieldOfActivity',
     type: FormField.Dropdown,
-    dropdownItems: FIELDS_OF_ACTIVITY_TO_DROPDOWN_ITEMS,
+    dropdownItems: FIELDS_OF_ACTIVITY,
   },
   {
     label: 'Обязанности сотрудника',
@@ -51,7 +51,7 @@ const vacancyFields: TUniversalFormField[] = [
     isRequired: true,
     fieldName: 'placeOfWork',
     type: FormField.Dropdown,
-    dropdownItems: LOCATIONS_TO_DROPDOWN_ITEMS,
+    dropdownItems: LOCATIONS,
   },
   {
     label: 'Номер телефона',
