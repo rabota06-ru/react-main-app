@@ -1,0 +1,137 @@
+@import 'variables.scss';
+
+.event {
+  background-color: #fff;
+  border: 2px solid #d8d8d8;
+  padding: 20px 30px;
+  max-width: 360px;
+  &Content {
+  }
+  &Circles {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+  &Circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    &_Red {
+      background-color: #c65d4f;
+    }
+    &_Yellow {
+      background-color: #e0cc18;
+    }
+    &_Green {
+      background-color: #39ba36;
+    }
+  }
+  &Title {
+    font-weight: 700;
+    font-size: 32px;
+    color: #444040;
+    margin-bottom: 25px;
+  }
+  &Date {
+    width: fit-content;
+    border-radius: 10px;
+    background-color: #edf1f4; // вынести цвет в переменную
+    padding: 5px 10px;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 10px;
+    // color: #000; посмотреть, что можно с ним сделать
+  }
+  &Location {
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  &SeatsCount {
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  &Info {
+    max-height: 1000px;
+    overflow-y: hidden;
+    transition: max-height 1.6s;
+    transition-delay: 100ms;
+    &_Hidden {
+      max-height: 0;
+      transition: max-height 0.6s;
+    }
+  }
+  &Description {
+    font-size: 16px;
+    line-height: 21px;
+    margin-bottom: 30px;
+  }
+  &Button {
+    margin-bottom: 20px;
+  }
+  &ArrowButton {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: transparent;
+    display: block;
+    margin: 0 auto;
+    border: none;
+  }
+  &Arrow {
+    width: 30px;
+    height: 15px;
+    transition: transform 0.4s;
+    &_Rotated {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@media (max-width: $xs) {
+  .event {
+    max-width: 320px;
+    padding: 15px 25px;
+    &Circles {
+      gap: 5px;
+      margin-bottom: 20px;
+    }
+    &Circle {
+      width: 10px;
+      height: 10px;
+    }
+    &Title {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+    &Date,
+    &Location {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    &SeatsCount {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    &Description {
+      font-size: 14px;
+      line-height: 19px;
+      margin-bottom: 20px;
+    }
+    &Button {
+      margin-bottom: 20px;
+    }
+    &ArrowButton {
+      width: 32px;
+      height: 32px;
+    }
+    &Arrow {
+      width: 21px;
+      height: 11px;
+    }
+    &Arrow path {
+      transform: scale(0.7);
+    }
+  }
+}
