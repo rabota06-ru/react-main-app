@@ -1,20 +1,19 @@
-import { Color } from 'types/index'
-import { getColorVariable } from 'utils/get-color'
+import { CssVariable, getCssVariable } from 'utils/get-css-variable'
 import { InputStatus } from './input-base.types'
 
-export function getColorByInputStatus(status: InputStatus): Color {
+export function getColorByInputStatus(status: InputStatus): CssVariable {
   switch (status) {
     case InputStatus.Success:
-      return Color.SuccessColor
+      return CssVariable.SuccessColor
     case InputStatus.Warning:
-      return Color.WarningColor
+      return CssVariable.WarningColor
     case InputStatus.Error:
-      return Color.ErrorColor
+      return CssVariable.ErrorColor
     default:
       throw new Error(`Неизвестный статус: ${status}`)
   }
 }
 
 export function getColorVariableByInputStatus(status: InputStatus): string {
-  return getColorVariable(getColorByInputStatus(status))
+  return getCssVariable(getColorByInputStatus(status))
 }
