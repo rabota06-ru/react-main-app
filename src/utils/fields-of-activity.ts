@@ -21,8 +21,8 @@ import { ReactComponent as FitnessAndBeautySalonsImage } from 'assets/images/fie
 import { ReactComponent as JurisprudenceImage } from 'assets/images/fields-of-activity/jurisprudence.svg'
 import { ReactComponent as OtherImage } from 'assets/images/fields-of-activity/other.svg'
 import { FC, SVGProps } from 'react'
+import { DropdownItem } from 'components/dropdown'
 import { objectKeys } from './object-keys'
-import { convertToDropdownItems } from './convert-to-dropdown-items'
 
 export const FIELDS_OF_ACTIVITY_LABEL: Record<FieldOfActivity, string> = {
   [FieldOfActivity.ITAndInternet]: 'IT, интернет, телеком',
@@ -48,12 +48,10 @@ export const FIELDS_OF_ACTIVITY_LABEL: Record<FieldOfActivity, string> = {
   [FieldOfActivity.Other]: 'Другое',
 }
 
-export const FIELDS_OF_ACTIVITY: { field: FieldOfActivity; label: string }[] = objectKeys(FIELDS_OF_ACTIVITY_LABEL).map(field => ({
-  field,
-  label: FIELDS_OF_ACTIVITY_LABEL[field],
+export const FIELDS_OF_ACTIVITY: DropdownItem<FieldOfActivity>[] = objectKeys(FIELDS_OF_ACTIVITY_LABEL).map(id => ({
+  id,
+  label: FIELDS_OF_ACTIVITY_LABEL[id],
 }))
-
-export const FIELDS_OF_ACTIVITY_TO_DROPDOWN_ITEMS: { id: FieldOfActivity; label: string }[] = convertToDropdownItems(FIELDS_OF_ACTIVITY)
 
 export const FIELDS_OF_ACTIVITY_IMAGE: Record<FieldOfActivity, FC<SVGProps<SVGSVGElement>>> = {
   [FieldOfActivity.ITAndInternet]: ITInternetImage,

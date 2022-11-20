@@ -3,8 +3,8 @@ import { Container } from 'components/container'
 import { UniversalForm } from 'components/universal-form'
 import { TUniversalFormField } from 'components/universal-form/universal-form-field'
 import { FormField } from 'components/universal-form/universal-form.types'
-import { FIELDS_OF_ACTIVITY_TO_DROPDOWN_ITEMS } from 'utils/fields-of-activity'
-import { LOCATIONS_TO_DROPDOWN_ITEMS } from 'utils/locations'
+import { FIELDS_OF_ACTIVITY } from 'utils/fields-of-activity'
+import { LOCATIONS } from 'utils/locations'
 import headerImg from 'assets/images/resume-form.png'
 import { ReactComponent as Logo } from 'assets/images/logo.svg'
 import { useCreateResumeMutation } from 'api/enhancedApi'
@@ -47,7 +47,7 @@ const resumeFields: TUniversalFormField[] = [
     label: 'Место жительства',
     isRequired: true,
     fieldName: 'location',
-    dropdownItems: LOCATIONS_TO_DROPDOWN_ITEMS,
+    dropdownItems: LOCATIONS,
     type: FormField.Dropdown,
   },
   {
@@ -60,7 +60,7 @@ const resumeFields: TUniversalFormField[] = [
     label: 'Ваша профессиональная область деятельности',
     isRequired: true,
     fieldName: 'fieldOfActivity',
-    dropdownItems: FIELDS_OF_ACTIVITY_TO_DROPDOWN_ITEMS,
+    dropdownItems: FIELDS_OF_ACTIVITY,
     type: FormField.Dropdown,
   },
   {
