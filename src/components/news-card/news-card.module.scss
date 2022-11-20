@@ -1,0 +1,51 @@
+.card {
+  background-color: #fff;
+  max-width: 760px;
+  padding: 25px 40px 60px;
+  &Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  &Author {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  &AuthorImg {
+    background-color: gray;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+  &AuthorInfo {
+  }
+  &AuthorName {
+    font-size: 18px;
+    font-weight: 600;
+    color: #444040;
+    margin-bottom: 4px;
+  }
+  &AuthorDate {
+    font-size: 14px;
+    font-weight: 600;
+    color: #7e7e7e;
+  }
+  &FavoriteBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  &Title {
+    color: #444040;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  &Description {
+    color: #444040;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
