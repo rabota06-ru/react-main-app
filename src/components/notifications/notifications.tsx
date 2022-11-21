@@ -52,7 +52,7 @@ export function Notifications({ children }: NotificationsProps) {
   return (
     <NotificationsContextProvider showNotification={showNotification} clearNotification={clearNotification}>
       {children}
-      <NotificationsGroup queue={queue} />
+      <NotificationsGroup queue={queue} onClose={clearNotification} />
     </NotificationsContextProvider>
   )
 }

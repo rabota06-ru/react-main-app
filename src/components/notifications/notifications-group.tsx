@@ -7,9 +7,10 @@ import { NOTIFICATION_ANIMATION_DURATION } from './notification.constants'
 
 interface NotificationsGroupProps {
   queue: QueueNotification[]
+  onClose: (noticationId: QueueNotification['id']) => void
 }
 
-export function NotificationsGroup({ queue }: NotificationsGroupProps) {
+export function NotificationsGroup({ queue, onClose }: NotificationsGroupProps) {
   const notificationsContainerElement = useMemo(() => {
     const body = document.querySelector('body')
     const element = document.createElement('div')
@@ -29,6 +30,7 @@ export function NotificationsGroup({ queue }: NotificationsGroupProps) {
           key={notification.id}
           className={cn(styles.notificationWrapper, { [styles.notificationWrapper_Shown]: notification.isShown })}
           style={{ transitionDuration: `${NOTIFICATION_ANIMATION_DURATION}ms` }}
+          onClick={() => onClose(notification.id)}
         >
           <div
             className={cn(styles.notification, {
