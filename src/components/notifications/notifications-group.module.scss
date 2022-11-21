@@ -1,4 +1,5 @@
 @import '/src/scss/mixins';
+@import '/src/scss/variables';
 
 .notifications {
   &Wrapper {
@@ -19,6 +20,9 @@
 }
 
 $notificationRightOffset: 20px;
+$notificationRightOffsetMobile: 10px;
+$notificationWidth: 300px;
+
 .notification {
   display: flex;
   flex-direction: column;
@@ -47,12 +51,12 @@ $notificationRightOffset: 20px;
   }
   &Wrapper {
     overflow: hidden;
-    width: 300px;
+    width: $notificationWidth;
     padding-left: $notificationRightOffset;
     height: 0px;
     opacity: 0.5;
     margin-bottom: 10px;
-    transition: all 0s linear;
+    transition: height, opacity 0s linear;
     &_Shown {
       height: 80px;
       opacity: 1;
@@ -85,6 +89,25 @@ $notificationRightOffset: 20px;
     transition: transform 0.1s;
     &:active {
       transform: scale(0.95);
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .notification {
+    &_Shown {
+      transform: translateX(-#{$notificationRightOffsetMobile});
+    }
+    &Wrapper {
+      padding-left: $notificationRightOffsetMobile;
+    }
+  }
+}
+
+@media (max-width: #{$notificationWidth + $notificationRightOffsetMobile}) {
+  .notification {
+    &Wrapper {
+      width: calc(100vw - #{$notificationRightOffsetMobile});
     }
   }
 }
