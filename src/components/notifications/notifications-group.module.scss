@@ -1,14 +1,21 @@
-.container {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 0;
-  z-index: 1;
-  padding-top: 10px;
+@import '/src/scss/mixins';
+
+.notifications {
+  &Wrapper {
+    position: absolute;
+    top: 0;
+    max-height: 100vh;
+    right: 0;
+    z-index: 1;
+    overflow-y: auto;
+    padding: 10px 0;
+    @include hideScrollbar();
+  }
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
 }
 
 $notificationRightOffset: 20px;

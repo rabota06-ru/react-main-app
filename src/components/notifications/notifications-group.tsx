@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { createPortal } from 'react-dom'
 import cn from 'classnames'
 import { NotificationType, QueueNotification } from './notifications.types'
@@ -13,13 +13,17 @@ export function NotificationsGroup({ queue }: NotificationsGroupProps) {
   const notificationsContainerElement = useMemo(() => {
     const body = document.querySelector('body')
     const element = document.createElement('div')
-    element.id = 'notifications'
+    element.className = styles.notificationsWrapper
     body?.appendChild(element)
     return element
   }, [])
 
+  useEffect(() => {
+    notificationsContainerElement.scrollTo({ top: 0, behavior: 'auto' })
+  }, [queue])
+
   return createPortal(
-    <div className={styles.container}>
+    <div className={styles.notificationsContainer}>
       {queue.map(notification => (
         <div
           key={notification.id}
