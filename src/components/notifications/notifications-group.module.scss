@@ -49,6 +49,19 @@ $notificationWidth: 300px;
   &_Info {
     background-color: var(--primaryColor);
   }
+  $notification: &;
+  &_OnlyTitle {
+    display: flex;
+    justify-content: center;
+    #{$notification}Title {
+      font-size: 18px;
+    }
+  }
+  &_OnlyTitleWithActions {
+    #{$notification}Action {
+      height: 25px;
+    }
+  }
   &Wrapper {
     overflow: hidden;
     width: $notificationWidth;
@@ -57,10 +70,17 @@ $notificationWidth: 300px;
     opacity: 0.5;
     margin-bottom: 0;
     transition: height, opacity, margin-bottom 0s linear;
+    $wrapper: &;
     &_Shown {
       height: 80px;
       opacity: 1;
       margin-bottom: 10px;
+      &#{$wrapper}_OnlyTitle {
+        height: 40px !important;
+      }
+      &#{$wrapper}_OnlyTitleWithActions {
+        height: 60px !important;
+      }
     }
     &:last-child {
       margin-bottom: 0;
@@ -72,6 +92,7 @@ $notificationWidth: 300px;
   }
   &Description {
     font-size: 13px;
+    line-height: 13px;
     flex-grow: 1;
     overflow: hidden;
   }
@@ -96,11 +117,52 @@ $notificationWidth: 300px;
 
 @media (max-width: $sm) {
   .notification {
+    padding-top: 1px;
     &_Shown {
       transform: translateX(-#{$notificationRightOffsetMobile});
     }
     &Wrapper {
       padding-left: $notificationRightOffsetMobile;
+      $wrapper: &;
+      &_Shown {
+        height: 62px;
+        &#{$wrapper}_OnlyTitle {
+          height: 40px !important;
+        }
+        &#{$wrapper}_OnlyTitleWithActions {
+          height: 50px !important;
+        }
+      }
+    }
+    &Title {
+      font-size: 12px;
+    }
+    &Description {
+      font-size: 11px;
+      line-height: 11px;
+    }
+    &Action {
+      height: 15px;
+      font-size: 11px;
+    }
+    $notification: &;
+    &_OnlyTitle {
+      display: flex;
+      justify-content: center;
+      padding-top: 0;
+      padding-bottom: 0;
+      #{$notification}Title {
+        font-size: 18px;
+      }
+    }
+    &_OnlyTitleWithActions {
+      padding-top: 5px;
+      #{$notification}Title {
+        font-size: 16px;
+      }
+      #{$notification}Action {
+        height: 20px;
+      }
     }
   }
 }

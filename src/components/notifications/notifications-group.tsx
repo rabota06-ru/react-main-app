@@ -28,12 +28,18 @@ export function NotificationsGroup({ queue, onClose }: NotificationsGroupProps) 
       {queue.map(notification => (
         <div
           key={notification.id}
-          className={cn(styles.notificationWrapper, { [styles.notificationWrapper_Shown]: notification.isShown })}
+          className={cn(styles.notificationWrapper, {
+            [styles.notificationWrapper_OnlyTitle]: !notification.description && !notification.actions,
+            [styles.notificationWrapper_OnlyTitleWithActions]: !notification.description && notification.actions,
+            [styles.notificationWrapper_Shown]: notification.isShown,
+          })}
           style={{ transitionDuration: `${NOTIFICATION_ANIMATION_DURATION}ms` }}
           onClick={() => onClose(notification.id)}
         >
           <div
             className={cn(styles.notification, {
+              [styles.notification_OnlyTitle]: !notification.description && !notification.actions,
+              [styles.notification_OnlyTitleWithActions]: !notification.description && notification.actions,
               [styles.notification_Success]: notification.type === NotificationType.Success,
               [styles.notification_Error]: notification.type === NotificationType.Error,
               [styles.notification_Warning]: notification.type === NotificationType.Warning,
@@ -46,10 +52,10 @@ export function NotificationsGroup({ queue, onClose }: NotificationsGroupProps) 
             {notification.description && <span className={styles.notificationDescription}>{notification.description}</span>}
             {notification.actions && (
               <div className={styles.notificationActions}>
-                {notification.actions.map(action => (
+                {notification.actions.map((action, index) => (
                   <button
                     className={styles.notificationAction}
-                    key={action.label}
+                    key={index}
                     onClick={event => {
                       event.stopPropagation()
                       action.onClick()
