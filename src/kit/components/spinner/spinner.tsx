@@ -1,12 +1,11 @@
-import { Color } from 'types'
-import { getColorVariable } from 'utils/get-color'
+import { getCssVariable, CssVariable } from 'utils/get-css-variable'
 import cn from 'classnames'
 import styles from './spinner.module.scss'
 
 interface SpinnerProps {
   size: number
   thickness?: number
-  color?: Color
+  color?: CssVariable
   className?: string
 }
 /**
@@ -15,9 +14,9 @@ interface SpinnerProps {
  * @param thickness толщина стенки спиннера
  * @param color цвет спиннера
  * @param className класс который задается спиннеру
- * @example <Spinner size={30} thickness={5} color={Color.Primary} />
+ * @example <Spinner size={30} thickness={5} color={CssVariable.Primary} />
  */
-export function Spinner({ size, thickness = 5, color = Color.PrimaryColor, className }: SpinnerProps) {
+export function Spinner({ size, thickness = 5, color = CssVariable.PrimaryColor, className }: SpinnerProps) {
   return (
     <span className={cn(styles.spinner, className)} style={{ width: size, height: size }}>
       <span
@@ -26,7 +25,7 @@ export function Spinner({ size, thickness = 5, color = Color.PrimaryColor, class
           width: size,
           height: size,
           borderWidth: thickness,
-          borderColor: `${getColorVariable(color)} transparent ${getColorVariable(color)} transparent`,
+          borderColor: `${getCssVariable(color)} transparent ${getCssVariable(color)} transparent`,
         }}
       />
     </span>

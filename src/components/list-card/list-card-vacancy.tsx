@@ -3,7 +3,8 @@ import { Card } from 'kit/components/card'
 import { BiRuble } from 'react-icons/bi'
 import { TfiLocationPin } from 'react-icons/tfi'
 import { Divider, DividerDirection } from 'kit/components/divider'
-import { Color, FieldOfActivity, Locations } from 'types/index'
+import { FieldOfActivity, Locations } from 'types/index'
+import { CssVariable } from 'utils/get-css-variable'
 import { createElement, useMemo } from 'react'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
 import { LOCATIONS_LABEL } from 'utils/locations'
@@ -39,7 +40,7 @@ export function ListCardVacancy({ title, headerImage, date, company, text, price
             <p>{company}</p>
           </div>
         </div>
-        <Divider direction={DividerDirection.Horizontal} size={0.5} color={Color.SecondaryColor2} />
+        <Divider direction={DividerDirection.Horizontal} size={0.5} color={CssVariable.SecondaryColor2} />
         <p className={styles.vacancyCardText}>{text}</p>
         <div className={styles.vacancyCardFooter}>
           <div className={styles.vacancyCardFooterDiv1}>

@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { HTMLAttributes, PropsWithChildren } from 'react'
 import { Spinner } from 'kit/components/spinner'
-import { Color } from 'types/index'
+import { CssVariable } from 'utils/get-css-variable'
 import { InputSize, InputStatus } from './input-base.types'
 import styles from './input-base.module.scss'
 import { getColorByInputStatus } from './input-base.utils'
@@ -61,7 +61,7 @@ export function InputBase({
           <div className={styles.inputBaseRightIconWrapper}>
             {RightContent && !isLoading ? RightContent : null}
             {isLoading && (
-              <Spinner size={25} thickness={2} color={status !== undefined ? getColorByInputStatus(status) : Color.PrimaryColor} />
+              <Spinner size={25} thickness={2} color={status !== undefined ? getColorByInputStatus(status) : CssVariable.PrimaryColor} />
             )}
           </div>
         )}
