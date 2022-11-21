@@ -1,0 +1,83 @@
+.container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  z-index: 1;
+  padding-top: 10px;
+}
+
+$notificationRightOffset: 20px;
+.notification {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+  color: #fff;
+  transform: translateX(100%);
+  transition: transform 0s ease-in-out;
+  &_Shown {
+    transform: translateX(-#{$notificationRightOffset});
+  }
+  &_Success {
+    background-color: var(--successColor);
+  }
+  &_Error {
+    background-color: var(--errorColor);
+  }
+  &_Warning {
+    background-color: var(--warningColor);
+  }
+  &_Info {
+    background-color: var(--primaryColor);
+  }
+  &Wrapper {
+    overflow: hidden;
+    width: 300px;
+    padding-left: $notificationRightOffset;
+    height: 0px;
+    opacity: 0.5;
+    margin-bottom: 10px;
+    transition: all 0s linear;
+    &_Shown {
+      height: 80px;
+      opacity: 1;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &Title {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  &Description {
+    font-size: 13px;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+  &Actions {
+    display: flex;
+    gap: 10px;
+  }
+  &Action {
+    font-size: 13px;
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 0 10px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
