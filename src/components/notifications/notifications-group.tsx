@@ -47,7 +47,14 @@ export function NotificationsGroup({ queue, onClose }: NotificationsGroupProps) 
             {notification.actions && (
               <div className={styles.notificationActions}>
                 {notification.actions.map(action => (
-                  <button className={styles.notificationAction} key={action.label}>
+                  <button
+                    className={styles.notificationAction}
+                    key={action.label}
+                    onClick={event => {
+                      event.stopPropagation()
+                      action.onClick()
+                    }}
+                  >
                     {action.label}
                   </button>
                 ))}
