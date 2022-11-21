@@ -10,7 +10,13 @@ interface NotificationsGroupProps {
 }
 
 export function NotificationsGroup({ queue }: NotificationsGroupProps) {
-  const notificationsContainerElement = useMemo(() => document.getElementById('notifications') as Element, [])
+  const notificationsContainerElement = useMemo(() => {
+    const body = document.querySelector('body')
+    const element = document.createElement('div')
+    element.id = 'notifications'
+    body?.appendChild(element)
+    return element
+  }, [])
 
   return createPortal(
     <div className={styles.container}>
