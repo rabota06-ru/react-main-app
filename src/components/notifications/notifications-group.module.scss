@@ -55,11 +55,12 @@ $notificationWidth: 300px;
     padding-left: $notificationRightOffset;
     height: 0px;
     opacity: 0.5;
-    margin-bottom: 10px;
-    transition: height, opacity 0s linear;
+    margin-bottom: 0;
+    transition: height, opacity, margin-bottom 0s linear;
     &_Shown {
       height: 80px;
       opacity: 1;
+      margin-bottom: 10px;
     }
     &:last-child {
       margin-bottom: 0;
