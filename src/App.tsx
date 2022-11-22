@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Button, ButtonSize, ButtonVariant } from 'components/button';
 import { EventCard } from 'components/event-card';
 import { Modal } from 'components/modal';
-import { Card } from 'components/card';
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +12,7 @@ function App() {
     setTimeout(() => {
       setIsLoading(false);
       setIsModalShown(true);
-    }, 2000);
+    }, 1000);
   }
 
   return (
@@ -25,8 +24,29 @@ function App() {
         variant={ButtonVariant.Primary}>
         Открыть модалку
       </Button>
+      <Button
+        onClick={onButtonClick}
+        isLoading={isLoading}
+        size={ButtonSize.Medium}
+        variant={ButtonVariant.Secondary}>
+        Открыть модалку
+      </Button>
+      <Button
+        onClick={onButtonClick}
+        isLoading={isLoading}
+        size={ButtonSize.Medium}
+        variant={ButtonVariant.Outlined}>
+        Открыть модалку
+      </Button>
+      <Button
+        onClick={onButtonClick}
+        isLoading={isLoading}
+        size={ButtonSize.Medium}
+        variant={ButtonVariant.Attention}>
+        Открыть модалку
+      </Button>
       <Modal isShown={isModalShown} onClose={() => setIsModalShown(false)}>
-        контент
+        <div style={{ padding: 150 }}>контент</div>
       </Modal>
       <EventCard
         id="555"
