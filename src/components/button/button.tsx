@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { ButtonSize, ButtonVariant } from './button.types';
 import { Spinner } from 'components/spinner';
 import styles from './button.module.scss';
-import { Color } from 'types';
+import { getContentColorByButtonVariant } from './button.utils';
 
 interface ButtonProps
   extends PropsWithChildren,
@@ -33,11 +33,6 @@ export function Button({
   type = 'button',
   ...props
 }: ButtonProps) {
-  let spinnerColor = Color.ButtonTextColor;
-  if (variant === ButtonVariant.Secondary || variant === ButtonVariant.Outlined) {
-    spinnerColor = Color.ButtonSecondaryTextColor;
-  }
-
   return (
     <button
       {...props}
@@ -53,7 +48,7 @@ export function Button({
       })}
       type={type}
       disabled={isLoading || isDisabled}>
-      {isLoading ? <Spinner size={25} color={spinnerColor} /> : children}
+      {isLoading ? <Spinner size={25} color={getContentColorByButtonVariant(variant)} /> : children}
     </button>
   );
 }
