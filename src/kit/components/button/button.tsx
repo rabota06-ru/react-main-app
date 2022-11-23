@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes } from 'react'
-import { Spinner } from 'components/spinner'
+import { Spinner } from 'kit/components/spinner'
 import cn from 'classnames'
 import { ButtonSize, ButtonVariant } from './button.types'
 import styles from './button.module.scss'

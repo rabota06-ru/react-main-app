@@ -1,6 +1,6 @@
 import { GetVacancyResponsesQuery } from 'api/generated'
-import { Button, ButtonVariant } from 'components/button'
-import { Divider } from 'components/divider'
+import { Button, ButtonVariant } from 'kit/components/button'
+import { Divider } from 'kit/components/divider'
 import { format } from 'date-fns'
 import ru from 'date-fns/locale/ru'
 import { routes } from 'pages/routes'

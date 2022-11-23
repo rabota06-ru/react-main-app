@@ -1,4 +1,4 @@
-import { Container } from 'components/container'
+import { Container } from 'kit/components/container'
 import { List } from 'components/list'
 import { ListDropdown } from 'components/list-dropdown'
 import { ItemType } from 'components/list/list'

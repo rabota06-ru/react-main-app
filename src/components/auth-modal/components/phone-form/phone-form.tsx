@@ -1,6 +1,6 @@
 import { useSendAuthCodeMessageMutation } from 'api/enhancedApi'
-import { Button } from 'components/button'
-import { PhoneInput } from 'components/phone-input'
+import { Button } from 'kit/components/button'
+import { PhoneInput } from 'kit/components/phone-input'
 import { RUSSIAN_CLEAR_NUMBER_REGEX } from 'constants/regexes'
 import { useCallback, useState } from 'react'
 import styles from './phone-form.module.scss'

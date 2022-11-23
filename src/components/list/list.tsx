@@ -1,9 +1,9 @@
 import React, { HTMLAttributes } from 'react'
 import { SlArrowDown } from 'react-icons/sl'
 import { GetVacanciesQuery, GetResumesQuery } from 'api/generated'
+import { Button } from 'kit/components/button'
 import styles from './list.module.scss'
 import { ListCardVacancy, ListCardResume } from '../list-card'
-import { Button } from '../button'
 
 type ListProps = {} & Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> &
   (

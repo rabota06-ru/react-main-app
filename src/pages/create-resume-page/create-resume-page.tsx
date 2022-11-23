@@ -1,5 +1,5 @@
-import { Card } from 'components/card'
-import { Container } from 'components/container'
+import { Card } from 'kit/components/card'
+import { Container } from 'kit/components/container'
 import { UniversalForm } from 'components/universal-form'
 import { TUniversalFormField } from 'components/universal-form/universal-form-field'
 import { FormField } from 'components/universal-form/universal-form.types'

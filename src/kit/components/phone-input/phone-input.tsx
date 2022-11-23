@@ -1,4 +1,4 @@
-import { Input, InputProps } from 'components/input'
+import { Input, InputProps } from 'kit/components/input'
 import { forwardRef, useCallback, ChangeEvent } from 'react'
 import { mergeRefs } from 'react-merge-refs'
 import { useRussianPhoneNumber } from './use-russian-phone-number'
