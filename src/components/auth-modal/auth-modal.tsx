@@ -1,4 +1,4 @@
-import { Modal } from 'components/modal'
+import { Modal } from 'kit/components/modal'
 import { useFetchAndSetAuthorizedUser } from 'hooks/use-authorization'
 import useTypedDispatch from 'hooks/use-typed-dispatch'
 import useTypedSelector from 'hooks/use-typed-selector'

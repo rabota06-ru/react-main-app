@@ -24,6 +24,7 @@ export default defineConfig({
       assets: path.resolve(__dirname, './src/assets'),
       constants: path.resolve(__dirname, './src/constants'),
       scss: path.resolve(__dirname, './src/scss'),
+      kit: path.resolve(__dirname, './src/kit'),
     },
   },
 })
