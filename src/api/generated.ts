@@ -7547,7 +7547,7 @@ export type GetResumeQueryVariables = Exact<{
 }>;
 
 
-export type GetResumeQuery = { __typename?: 'Query', resume?: { __typename?: 'Resume', id: string, firstname: string, lastname?: string | null, placeOfResidence: number, views: number, fieldOfActivity: number } | null };
+export type GetResumeQuery = { __typename?: 'Query', resume?: { __typename?: 'Resume', id: string, firstname: string, lastname?: string | null, createdAt: any, placeOfResidence: number, phoneHidden: boolean, phone: string, aboutMe?: string | null, experience?: string | null, desiredPost?: string | null, education?: string | null, views: number, fieldOfActivity: number } | null };
 
 export type GetVacancyQueryVariables = Exact<{
   vacancyId: Scalars['String'];
@@ -7705,7 +7705,14 @@ export const GetResumeDocument = `
     id
     firstname
     lastname
+    createdAt
     placeOfResidence
+    phoneHidden
+    phone
+    aboutMe
+    experience
+    desiredPost
+    education
     views
     fieldOfActivity
   }

@@ -3,7 +3,14 @@ query GetResume($resumeId: String!) {
     id
     firstname
     lastname
+    createdAt
     placeOfResidence
+    phoneHidden
+    phone
+    aboutMe
+    experience
+    desiredPost
+    education
     views
     fieldOfActivity
   }

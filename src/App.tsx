@@ -44,7 +44,7 @@ export function App() {
         <UnauthorizedLayout>
           <Routes>
             <Route path={routes.allVacancies.nested.vacancy(':vacancyId').exact} element={<FullVacancyPage />} />
-            <Route path={routes.allResumes.nested.resume(':resumeId').exact} element={<FullResumePage />} />
+            <Route path={routes.allResumes.nested.resume(':resumeId').absoluteExact} element={<FullResumePage />} />
             <Route path={routes.main.exact} element={<MainPage />} />
             <Route path={routes.allVacancies.exact} element={<AllVacanciesPage />} />
             <Route path={routes.allResumes.exact} element={<AllResumesPage />} />
