@@ -1,6 +1,7 @@
-import React from 'react';
+import { useState } from 'react';
 import { Card } from 'components/card';
 import FavoriteImage from 'assets/images/favorite.svg';
+import cn from 'classnames';
 import styles from './news-card.module.scss';
 
 interface NewsCardProps {
@@ -20,6 +21,12 @@ export function NewsCard({
   title,
   description,
 }: NewsCardProps) {
+  const [isFavorited, setIsFavorited] = useState(false);
+
+  function onFavoriteClick() {
+    setIsFavorited((is) => !is);
+  }
+
   return (
     <Card className={styles.card}>
       <div className={styles.cardHeader}>
@@ -28,14 +35,17 @@ export function NewsCard({
             style={{ background: `url(${authorImgUrl}) center center / cover` }}
             className={styles.cardAuthorImg}
           />
-          {/* <img src="" alt="" className="card__author-img" /> */}
           <div className={styles.cardAuthorInfo}>
             <p className={styles.cardAuthorName}>{`${lastName} ${firstName}`}</p>
             <p className={styles.cardAuthorDate}>{createdAt}</p>
           </div>
         </div>
-        <button className={styles.cardFavoriteBtn}>
-          <FavoriteImage />
+        <button className={styles.cardFavoriteBtn} onClick={onFavoriteClick}>
+          <FavoriteImage
+            className={cn(styles.cardFavoriteIcon, {
+              [styles.cardFavoriteIcon_Favorited]: isFavorited,
+            })}
+          />
         </button>
       </div>
       <h3 className={styles.cardTitle}>{title}</h3>
