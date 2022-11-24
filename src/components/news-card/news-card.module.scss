@@ -37,6 +37,12 @@
     border: none;
     cursor: pointer;
   }
+  &FavoriteIcon {
+    border: none;
+    &_Favorited {
+      fill: var(--primaryColor);
+    }
+  }
   &Title {
     color: #444040;
     font-weight: 600;
