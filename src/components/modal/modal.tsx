@@ -22,7 +22,7 @@ export function Modal({ isShown, onClose, children, className, ...props }: Modal
   return isShown ? (
     <div className={styles.modal}>
       <div onClick={onClose} className={styles.modalOverlay}></div>
-      <Card {...props} shadow={'none'} className={cn(styles.modalContent, className)}>
+      <Card {...props} shadow="none" className={cn(styles.modalContent, className)}>
         {children}
       </Card>
     </div>
