@@ -3,6 +3,7 @@ import { Button, ButtonSize, ButtonVariant } from 'components/button';
 import { EventCard } from 'components/event-card';
 import { Modal } from 'components/modal';
 import { NewsCard } from 'components/news-card/news-card';
+import { CloseButton } from 'components/close-button';
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +14,7 @@ function App() {
     setTimeout(() => {
       setIsLoading(false);
       setIsModalShown(true);
-    }, 1000);
+    }, 300);
   }
 
   return (
@@ -56,7 +57,9 @@ function App() {
         Открыть модалку
       </Button>
       <Modal isShown={isModalShown} onClose={() => setIsModalShown(false)}>
-        <div style={{ padding: 150 }}>контент</div>
+        <div style={{ padding: 100 }}>
+          <CloseButton onClick={() => setIsModalShown(false)} /> контент
+        </div>
       </Modal>
       <EventCard
         id="555"
