@@ -32,7 +32,7 @@ export function NewsCard({
       <div className={styles.cardHeader}>
         <div className={styles.cardAuthor}>
           <div
-            style={{ background: `url(${authorImgUrl}) center center / cover` }}
+            style={{ background: authorImgUrl && `url(${authorImgUrl}) center center / cover` }}
             className={styles.cardAuthorImg}
           />
           <div className={styles.cardAuthorInfo}>
