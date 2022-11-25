@@ -11,7 +11,7 @@ export function NavBar() {
         <UserInfo
           firstName="Елизавета"
           lastName="Кодзоева"
-          userImgUrl="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"
+          userImgUrl="https://images.unsplash.com/photo-1509043759401-136742328bb3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80"
         />
         <Menu items={menuItems} />
         <Button className={styles.navbarButton} variant={ButtonVariant.Attention}>

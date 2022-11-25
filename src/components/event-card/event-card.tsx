@@ -6,16 +6,9 @@ import { ButtonSize, ButtonVariant } from '../button/button.types';
 import { Card } from 'components/card';
 import ArrowDownImage from 'assets/images/arrow-down.svg';
 import styles from './event-card.module.scss';
+import { EventItem } from './event-card.types';
 
-interface EventCardProps {
-  id: string;
-  title: string;
-  date: string;
-  location: string;
-  seatsCountTotal: number;
-  seatsCountOccupied: number;
-  description: string;
-}
+interface EventCardProps extends EventItem {}
 
 export function EventCard({
   id,

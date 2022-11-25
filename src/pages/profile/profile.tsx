@@ -1,5 +1,9 @@
-import React from 'react';
+import styles from './profile.module.scss';
 
 export function Profile() {
-  return <div>Profile</div>;
+  return (
+    <div className={styles.profile}>
+      <h3 className={styles.profileTitle}>Профиль</h3>
+    </div>
+  );
 }

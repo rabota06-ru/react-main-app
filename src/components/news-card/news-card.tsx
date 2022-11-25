@@ -3,17 +3,12 @@ import { Card } from 'components/card';
 import FavoriteImage from 'assets/images/favorite.svg';
 import cn from 'classnames';
 import styles from './news-card.module.scss';
+import { NewsItem } from './news-card.types';
 
-interface NewsCardProps {
-  authorImgUrl?: string;
-  firstName: string;
-  lastName: string;
-  createdAt: string;
-  title: string;
-  description: string;
-}
+interface NewsCardProps extends NewsItem {}
 
 export function NewsCard({
+  id,
   authorImgUrl,
   firstName,
   lastName,
