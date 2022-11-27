@@ -18,7 +18,7 @@ const favorites: NewsItem[] = [
     firstName: 'Муаз',
     lastName: 'Холухаев',
     createdAt: '5 часов назад',
-    title: 'Мероприятие ХуйНа',
+    title: 'Какой-то заголовок',
     description: 'всем добрый день... Жду зачет...',
   },
 ];
@@ -26,7 +26,6 @@ const favorites: NewsItem[] = [
 export function Favorites() {
   return (
     <div className={styles.favorite}>
-      <h2 className={styles.favoriteTitle}>Закладки</h2>
       <List items={favorites} Item={NewsCard} gap={30} />
     </div>
   );

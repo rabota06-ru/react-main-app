@@ -11,7 +11,8 @@ export function NavBar() {
         <UserInfo
           firstName="Елизавета"
           lastName="Кодзоева"
-          userImgUrl="https://images.unsplash.com/photo-1509043759401-136742328bb3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80"
+          userImgUrl="https://i.pinimg.com/236x/c8/05/56/c805568afe4972661c6c8b5206b91511.jpg"
+          // userImgUrl="https://i.seadn.io/gae/kTwnvWma_o6PkJyJKCb_7iwYlXwIpCCbC0ANW_xlU1GGFJfzrk60kCnCehDCQmIv4v6L1zeft14EMh9x0MERzQJKkYXfxFSeDyp12Q?auto=format&w=1000"
         />
         <Menu items={menuItems} />
         <Button className={styles.navbarButton} variant={ButtonVariant.Attention}>

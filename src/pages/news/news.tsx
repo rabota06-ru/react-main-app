@@ -16,7 +16,7 @@ const news: NewsItem[] = [
     firstName: 'Кемран',
     lastName: 'Точиев',
     createdAt: '1 час назад',
-    title: 'Мероприятие ИдиНа',
+    title: 'Какой-то заголовок',
     description: 'Всем Всем Всем Всем Всем Всем Всем Всем',
   },
 ];
@@ -24,7 +24,6 @@ const news: NewsItem[] = [
 export function News() {
   return (
     <div className={styles.news}>
-      <h2 className={styles.newsTitle}>Новости</h2>
       <List items={news} Item={NewsCard} gap={30} />
     </div>
   );

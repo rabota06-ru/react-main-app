@@ -8,7 +8,7 @@ const events: EventItem[] = [
     title: 'День учителя',
     date: '5 октября',
     location: 'Магас, главный корпус',
-    seatsCountOccupied: 7,
+    seatsCountOccupied: 20,
     seatsCountTotal: 20,
     description:
       'В ФизМат корпусе будет проходит конференция юных программистов. Будут представители из МФТИ, ВШЭ и МГУ',
@@ -58,7 +58,6 @@ const events: EventItem[] = [
 export function Events() {
   return (
     <div className={styles.events}>
-      <h2 className={styles.eventsTitle}>График Мероприятий</h2>
       <List items={events} Item={EventCard} listProps={{ className: styles.eventsList }} />
     </div>
   );
