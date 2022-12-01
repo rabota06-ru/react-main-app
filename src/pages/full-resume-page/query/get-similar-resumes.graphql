@@ -1,0 +1,10 @@
+query GetSimilarResumes($fieldOfActivity: Int!) {
+  resumes(where: { fieldOfActivity: { equals: $fieldOfActivity } }) {
+    id
+    firstname
+    lastname
+    fieldOfActivity
+    placeOfResidence
+    desiredPost
+  }
+}

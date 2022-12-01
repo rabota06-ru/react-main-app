@@ -45,8 +45,12 @@ export function FullCardResume({
 }: FullCardResumeProps) {
   const headerImageComponent = useMemo(() => createElement(FIELDS_OF_ACTIVITY_IMAGE[headerImage as FieldOfActivity]), [headerImage])
 
-  const [phoneState, setPhoneState] = useState<boolean>(phoneHidden)
-  const handleShowNumber = () => setPhoneState(phoneState => !phoneState)
+  const [phoneState, setPhoneState] = useState<boolean>(false)
+  const handleShowNumber = () => {
+    if (phoneHidden) {
+      setPhoneState(phoneState => !phoneState)
+    }
+  }
   return (
     <Container>
       <Card className={styles.card} shadow={{ blurRadius: 40, spreadRadius: -25 }}>

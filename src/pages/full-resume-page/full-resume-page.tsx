@@ -4,12 +4,11 @@ import { useParams } from 'react-router-dom'
 import { SimilarResumesSection } from './components/similar-resumes-section/similar-resumes-section'
 import styles from './full-resume-page.module.scss'
 
-interface FullResumePageProps {}
+// interface FullResumePageProps {}
 
-export function FullResumePage(props: FullResumePageProps) {
+export function FullResumePage() {
   const { resumeId } = useParams<string>()
   const { data } = useGetResumeQuery({ resumeId: resumeId as string }, { skip: !resumeId })
-
   return (
     <div className={styles.main}>
       {data?.resume && (
@@ -24,11 +23,11 @@ export function FullResumePage(props: FullResumePageProps) {
           viewCount={data?.resume?.views}
           phoneNumber={data?.resume?.phone}
           phoneHidden={data?.resume?.phoneHidden}
-          headerImage={data?.resume?.placeOfResidence}
+          headerImage={data?.resume?.fieldOfActivity}
           isFavorite={false}
         />
       )}
-      <SimilarResumesSection />
+      <SimilarResumesSection fildOofActivity={data?.resume?.fieldOfActivity as number} />
     </div>
   )
 }

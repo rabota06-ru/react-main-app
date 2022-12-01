@@ -10,101 +10,35 @@ import { Container } from 'components/container'
 import { useMediaValue } from 'hooks/use-media-value'
 import { Button, ButtonSize, ButtonVariant } from 'components/button'
 import { IoIosArrowForward } from 'react-icons/io'
+import { useGetSimilarResumesQuery } from 'api/enhancedApi'
+import { LOCATIONS_LABEL } from 'utils/locations'
 import styles from './similar-resumes-section.module.scss'
 
-export function SimilarResumesSection() {
-  const [carouselItems] = useState<ICarouselCard[]>([
-    {
-      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
-      title: 'Бухгалтер',
+interface ISimilarResumesSectionProps {
+  fildOofActivity: number
+}
+
+export function SimilarResumesSection({ fildOofActivity }: ISimilarResumesSectionProps) {
+  const similarResumesData = useGetSimilarResumesQuery({ fieldOfActivity: fildOofActivity as number }, { skip: !fildOofActivity })
+
+  const carouselItems = similarResumesData?.data?.resumes.map(el => {
+    return {
+      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[el.fieldOfActivity]),
+      title: el.firstname,
       infoItems: [
         {
           Icon: <IoPersonOutline color='#04CDBF' size={20} />,
-          label: 'Анзор В.',
+          label: el.firstname,
         },
         {
           Icon: <BiMap color='#04CDBF' size={20} />,
-          label: 'Назрань',
+          label: LOCATIONS_LABEL[el.placeOfResidence.toString()],
         },
       ],
-      url: routes.allResumes.nested.resume('1').exact,
-    },
-    {
-      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
-      title: 'Бухгалтер',
-      infoItems: [
-        {
-          Icon: <IoPersonOutline color='#04CDBF' size={20} />,
-          label: 'Ахмед С.',
-        },
-        {
-          Icon: <BiMap color='#04CDBF' size={20} />,
-          label: 'Назрань',
-        },
-      ],
-      url: routes.allResumes.nested.resume('2').exact,
-    },
-    {
-      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
-      title: 'Бухгалтер',
-      infoItems: [
-        {
-          Icon: <IoPersonOutline color='#04CDBF' size={20} />,
-          label: 'Адам Т.',
-        },
-        {
-          Icon: <BiMap color='#04CDBF' size={20} />,
-          label: 'Назрань',
-        },
-      ],
-      url: routes.allResumes.nested.resume('3').exact,
-    },
-    {
-      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
-      title: 'Бухгалтер',
-      infoItems: [
-        {
-          Icon: <IoPersonOutline color='#04CDBF' size={20} />,
-          label: 'Ада Ч.',
-        },
-        {
-          Icon: <BiMap color='#04CDBF' size={20} />,
-          label: 'Назрань',
-        },
-      ],
-      url: routes.allResumes.nested.resume('4').exact,
-    },
-    {
-      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
-      title: 'Бухгалтер',
-      infoItems: [
-        {
-          Icon: <IoPersonOutline color='#04CDBF' size={20} />,
-          label: 'Ада Ч.',
-        },
-        {
-          Icon: <BiMap color='#04CDBF' size={20} />,
-          label: 'Назрань',
-        },
-      ],
-      url: routes.allResumes.nested.resume('5').exact,
-    },
-    {
-      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
-      title: 'Бухгалтер',
-      infoItems: [
-        {
-          Icon: <IoPersonOutline color='#04CDBF' size={20} />,
-          label: 'Ада Ч.',
-        },
-        {
-          Icon: <BiMap color='#04CDBF' size={20} />,
-          label: 'Назрань',
-        },
-      ],
-      url: routes.allResumes.nested.resume('6').exact,
-    },
-  ])
+      url: routes.allResumes.nested.resume(el.id).absoluteExact,
+    }
+  })
+
   const carouselVisibleItemsCount = useMediaValue({ xs: 1, sm: 2, lg: 3, xl: 4 })
   const carouselSlideButtonsHidden = useMediaValue({ xs: true, md: false })
   const isCarouselScrollSnapping = useMediaValue({ xs: false, md: true })
@@ -114,28 +48,29 @@ export function SimilarResumesSection() {
   const buttonSize = useMediaValue({ xs: ButtonSize.ExtraSmall, md: ButtonSize.Medium })
   const isButtonShadow = useMediaValue({ xs: false, md: false })
   const buttonRightArrow = useMediaValue({ xs: <IoIosArrowForward size={20} />, md: undefined })
-
-  return (
-    <div className={styles.section}>
-      <Container className={styles.sectionContainer}>
-        <h2 className={styles.sectionTitle}>Похожие резюме</h2>
-        <Carousel
-          Item={CarouselCard}
-          itemAdditionalProps={{ isHoverShadow: isCarouselHoverShadow }}
-          items={carouselItems}
-          visibleItemsCount={carouselVisibleItemsCount}
-          slideButtonsHidden={carouselSlideButtonsHidden}
-          isScrollSnapping={isCarouselScrollSnapping}
-          cardWithCoef={carouselCardWidthCoef}
-          className={styles.sectionCarousel}
-          contentProps={{ className: styles.sectionCarouselContent }}
-          slideLeftButtonProps={{ className: styles.sectionCarouselSlideLeftButton }}
-          slideRightButtonProps={{ className: styles.sectionCarouselSlideRightButton }}
-        />
-        <Button variant={buttonVariant} size={buttonSize} isShadow={isButtonShadow} className={styles.sectionButton}>
-          Посмотреть все резюме {buttonRightArrow}
-        </Button>
-      </Container>
-    </div>
-  )
+  if (similarResumesData?.data?.resumes && !similarResumesData.isLoading) {
+    return (
+      <div className={styles.section}>
+        <Container className={styles.sectionContainer}>
+          <h2 className={styles.sectionTitle}>Похожие резюме</h2>
+          <Carousel
+            Item={CarouselCard}
+            itemAdditionalProps={{ isHoverShadow: isCarouselHoverShadow }}
+            items={carouselItems}
+            visibleItemsCount={carouselVisibleItemsCount}
+            slideButtonsHidden={carouselSlideButtonsHidden}
+            isScrollSnapping={isCarouselScrollSnapping}
+            cardWithCoef={carouselCardWidthCoef}
+            className={styles.sectionCarousel}
+            contentProps={{ className: styles.sectionCarouselContent }}
+            slideLeftButtonProps={{ className: styles.sectionCarouselSlideLeftButton }}
+            slideRightButtonProps={{ className: styles.sectionCarouselSlideRightButton }}
+          />
+          <Button variant={buttonVariant} size={buttonSize} isShadow={isButtonShadow} className={styles.sectionButton}>
+            Посмотреть все резюме {buttonRightArrow}
+          </Button>
+        </Container>
+      </div>
+    )
+  }
 }

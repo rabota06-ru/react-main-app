@@ -7549,6 +7549,13 @@ export type GetResumeQueryVariables = Exact<{
 
 export type GetResumeQuery = { __typename?: 'Query', resume?: { __typename?: 'Resume', id: string, firstname: string, lastname?: string | null, createdAt: any, placeOfResidence: number, phoneHidden: boolean, phone: string, aboutMe?: string | null, experience?: string | null, desiredPost?: string | null, education?: string | null, views: number, fieldOfActivity: number } | null };
 
+export type GetSimilarResumesQueryVariables = Exact<{
+  fieldOfActivity: Scalars['Int'];
+}>;
+
+
+export type GetSimilarResumesQuery = { __typename?: 'Query', resumes: Array<{ __typename?: 'Resume', id: string, firstname: string, lastname?: string | null, fieldOfActivity: number, placeOfResidence: number, desiredPost?: string | null }> };
+
 export type GetVacancyQueryVariables = Exact<{
   vacancyId: Scalars['String'];
 }>;
@@ -7718,6 +7725,18 @@ export const GetResumeDocument = `
   }
 }
     `;
+export const GetSimilarResumesDocument = `
+    query GetSimilarResumes($fieldOfActivity: Int!) {
+  resumes(where: {fieldOfActivity: {equals: $fieldOfActivity}}) {
+    id
+    firstname
+    lastname
+    fieldOfActivity
+    placeOfResidence
+    desiredPost
+  }
+}
+    `;
 export const GetVacancyDocument = `
     query GetVacancy($vacancyId: String!) {
   vacancy(where: {id: $vacancyId}) {
@@ -7863,6 +7882,9 @@ const injectedRtkApi = api.injectEndpoints({
     }),
     GetResume: build.query<GetResumeQuery, GetResumeQueryVariables>({
       query: (variables) => ({ document: GetResumeDocument, variables })
+    }),
+    GetSimilarResumes: build.query<GetSimilarResumesQuery, GetSimilarResumesQueryVariables>({
+      query: (variables) => ({ document: GetSimilarResumesDocument, variables })
     }),
     GetVacancy: build.query<GetVacancyQuery, GetVacancyQueryVariables>({
       query: (variables) => ({ document: GetVacancyDocument, variables })
