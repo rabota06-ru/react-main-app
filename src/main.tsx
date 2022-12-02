@@ -1,4 +1,4 @@
-import React from 'react'
+import { Notifications } from 'kit/components/notifications'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
@@ -11,7 +11,9 @@ root.render(
   // <React.StrictMode>
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <Notifications>
+        <App />
+      </Notifications>
     </BrowserRouter>
   </Provider>
   // </React.StrictMode>
