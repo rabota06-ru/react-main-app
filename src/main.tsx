@@ -1,4 +1,4 @@
-import { Notifications } from 'components/notifications'
+import { Notifications } from 'kit/components/notifications'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
