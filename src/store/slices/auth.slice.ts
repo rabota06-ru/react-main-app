@@ -5,11 +5,21 @@ import { SlicesNames } from 'store/slices-names'
 interface AuthSliceState {
   isAuthModalShown: boolean
   accessToken: string | null
-  user: {
-    id: string
-    role: UserRole
-    name: string | null
-  } | null
+  user:
+    | ({
+        id: string
+        name: string | null
+      } & (
+        | {
+            role: UserRole.Employer
+            employerId: string
+          }
+        | {
+            role: UserRole.Applicant
+            applicantId: string
+          }
+      ))
+    | null
 }
 
 export const authSlice = createSlice({
