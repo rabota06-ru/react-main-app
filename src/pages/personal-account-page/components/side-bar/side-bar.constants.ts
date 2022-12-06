@@ -1,10 +1,10 @@
 import { routes } from 'pages/routes'
 import { SideBarMenuItem } from './side-bar.types'
-import { ReactComponent as AboutMeIcon } from './about-me.svg'
-import { ReactComponent as AllResumesIcon } from './all-resumes.svg'
-import { ReactComponent as MyVacanciesIcon } from './my-vacancies.svg'
-import { ReactComponent as MessagesIcon } from './messages.svg'
-import { ReactComponent as SettingsIcon } from './settings.svg'
+import { ReactComponent as AboutMeIcon } from './assets/about-me.svg'
+import { ReactComponent as AllResumesIcon } from './assets/all-resumes.svg'
+import { ReactComponent as MyVacanciesIcon } from './assets/my-vacancies.svg'
+import { ReactComponent as MessagesIcon } from './assets/messages.svg'
+import { ReactComponent as SettingsIcon } from './assets/settings.svg'
 
 export const APPLICANT_SIDE_BAR_ITEMS: SideBarMenuItem[] = [
   { Icon: AboutMeIcon, label: 'Обо мне', route: routes.personalAccount.nested.allResumes },

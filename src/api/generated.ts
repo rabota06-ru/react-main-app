@@ -7594,7 +7594,7 @@ export type GetUserQueryVariables = Exact<{
 }>;
 
 
-export type GetUserQuery = { __typename?: 'Query', findFirstUser?: { __typename?: 'User', id: string, role: UserRole, applicantProfile?: { __typename?: 'ApplicantProfile', resume?: { __typename?: 'Resume', firstname: string, lastname?: string | null } | null } | null, employerProfile?: { __typename?: 'EmployerProfile', id: string, companyName: string } | null } | null };
+export type GetUserQuery = { __typename?: 'Query', findFirstUser?: { __typename?: 'User', id: string, role: UserRole, applicantProfile?: { __typename?: 'ApplicantProfile', id: string, resume?: { __typename?: 'Resume', firstname: string, lastname?: string | null } | null } | null, employerProfile?: { __typename?: 'EmployerProfile', id: string, companyName: string } | null } | null };
 
 
 export const CheckIsAuthenticatedDocument = `
@@ -7806,6 +7806,7 @@ export const GetUserDocument = `
     id
     role
     applicantProfile {
+      id
       resume {
         firstname
         lastname

@@ -1,4 +1,5 @@
 import { useLazyCheckIsAuthenticatedQuery, useLazyGetUserQuery, useRefreshAccessTokenMutation } from 'api/enhancedApi'
+import { UserRole } from 'api/generated'
 import { useCallback, useEffect } from 'react'
 import { authSlice } from 'store/slices/auth.slice'
 import { parseJwt } from 'utils/parse-jwt'
@@ -7,16 +8,16 @@ import useTypedDispatch from './use-typed-dispatch'
 export function useAuthorization() {
   const [checkIsAuthenticatedQuery, checkIsAuthenticatedData] = useLazyCheckIsAuthenticatedQuery()
   const [refreshAccessTokenMutation] = useRefreshAccessTokenMutation()
-  const dispatch = useTypedDispatch()
   const fetchAndSetUser = useFetchAndSetAuthorizedUser()
+  const dispatch = useTypedDispatch()
 
   useEffect(() => {
     checkIsAuthenticatedQuery()
       .unwrap()
       .then(response => {
         if (response.checkIsAuthenticated.authenticated) {
-          fetchAndSetUser(response.checkIsAuthenticated.accessToken!)
           dispatch(authSlice.actions.setAccessToken(response.checkIsAuthenticated.accessToken!))
+          fetchAndSetUser(response.checkIsAuthenticated.accessToken!)
         }
       })
 
@@ -31,7 +32,7 @@ export function useAuthorization() {
     return () => {
       clearInterval(intervalTimer)
     }
-  }, [checkIsAuthenticatedQuery, refreshAccessTokenMutation, dispatch, fetchAndSetUser])
+  }, [checkIsAuthenticatedQuery, refreshAccessTokenMutation, fetchAndSetUser, dispatch])
 
   return {
     isLoading: checkIsAuthenticatedData.isLoading,
@@ -50,22 +51,27 @@ export function useFetchAndSetAuthorizedUser() {
         .then(response => {
           const user = response.findFirstUser
           if (user) {
-            let name: string | null = null
             if (user.applicantProfile?.resume) {
-              name = user.applicantProfile.resume.firstname + user.applicantProfile.resume.lastname
+              dispatch(
+                authSlice.actions.setUserInfo({
+                  id: user.id,
+                  name: user.applicantProfile.resume.firstname + user.applicantProfile.resume.lastname,
+                  role: UserRole.Applicant,
+                  applicantId: user.applicantProfile.id,
+                })
+              )
             }
 
             if (user.employerProfile) {
-              name = user.employerProfile.companyName
+              dispatch(
+                authSlice.actions.setUserInfo({
+                  id: user.id,
+                  name: user.employerProfile.companyName,
+                  role: UserRole.Employer,
+                  employerId: user.employerProfile.id,
+                })
+              )
             }
-
-            dispatch(
-              authSlice.actions.setUserInfo({
-                id: user.id,
-                role: user.role,
-                name,
-              })
-            )
           }
         })
     },

@@ -3,6 +3,7 @@ query GetUser($userId: String!) {
     id
     role
     applicantProfile {
+      id
       resume {
         firstname
         lastname
