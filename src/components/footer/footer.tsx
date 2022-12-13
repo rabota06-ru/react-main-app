@@ -1,11 +1,11 @@
 import { routes } from 'pages/routes'
-import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from 'assets/images/logo.svg'
 import { ReactComponent as VKIcon } from 'assets/images/vk-icon.svg'
 import { Container } from 'kit/components/container'
 import { FaFacebookF } from 'react-icons/fa'
 import { GrInstagram } from 'react-icons/gr'
 import cn from 'classnames'
+import { Link } from 'wouter'
 import styles from './footer.module.scss'
 
 export function Footer() {
@@ -13,13 +13,13 @@ export function Footer() {
     <div className={styles.footer}>
       <Container className={styles.footerContainer}>
         <div className={styles.footerLeft}>
-          <Link to={routes.allVacancies.exact} className={styles.footerLeftLink}>
+          <Link href={routes.allVacancies.exact} className={styles.footerLeftLink}>
             Все вакансии
           </Link>
-          <Link to={routes.allResumes.exact} className={styles.footerLeftLink}>
+          <Link href={routes.allResumes.exact} className={styles.footerLeftLink}>
             Все резюме
           </Link>
-          <Link to={routes.personalAccount.inexact} className={styles.footerLeftLink}>
+          <Link href={routes.personalAccount.inexact} className={styles.footerLeftLink}>
             Личный кабинет
           </Link>
         </div>

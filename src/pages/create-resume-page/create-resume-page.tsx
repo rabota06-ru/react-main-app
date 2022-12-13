@@ -8,7 +8,7 @@ import { LOCATIONS } from 'utils/locations'
 import headerImg from 'assets/images/resume-form.png'
 import { ReactComponent as Logo } from 'assets/images/logo.svg'
 import { useCreateResumeMutation } from 'api/enhancedApi'
-import { useNavigate } from 'react-router-dom'
+import { useLocation } from 'wouter'
 import styles from './create-resume-page.module.scss'
 
 const resumeFields: TUniversalFormField[] = [
@@ -88,11 +88,11 @@ const resumeFields: TUniversalFormField[] = [
 ]
 
 export function CreateResumePage() {
-  const navigate = useNavigate()
-  const [createResumeMutation, createResumeMutationData] = useCreateResumeMutation()
+  const [, setLocation] = useLocation()
+  const [createResumeMutation] = useCreateResumeMutation()
 
   function onSubmitForm(data: any) {
-    createResumeMutation({ input: data }).finally(() => navigate('/'))
+    createResumeMutation({ input: data }).finally(() => setLocation('/'))
   }
 
   return (

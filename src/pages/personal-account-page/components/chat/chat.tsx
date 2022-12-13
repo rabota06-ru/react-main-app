@@ -4,14 +4,16 @@ import { Button, ButtonSize } from 'kit/components/button'
 import { TextArea } from 'kit/components/text-area'
 import useTypedSelector from 'hooks/use-typed-selector'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom'
 import cn from 'classnames'
 import { format } from 'date-fns'
 import ru from 'date-fns/locale/ru'
+import { useRoute } from 'wouter'
+import { routes } from 'pages/routes'
 import styles from './chat.module.scss'
 
 export function Chat() {
-  const { profileId } = useParams<{ profileId: string }>()
+  const [, params] = useRoute<{ profileId: string }>(routes.personalAccount.nested.messages.nested.chat(':chatId').exact)
+  const profileId = params?.profileId
   const user = useTypedSelector(state => state.auth.user)
   const [messages, setMessages] = useState<GetChatMessagesQuery['chatMessages']>([])
   const [getChatMessagesQuery, getChatMessagesData] = useLazyGetChatMessagesQuery()

@@ -1,5 +1,4 @@
 import 'scss/index.scss'
-import { Routes, Route, Navigate } from 'react-router-dom'
 import { routes } from 'pages/routes'
 import { UnauthorizedLayout } from 'layouts/unauthorized-layout'
 import { MainPage } from 'pages/main-page'
@@ -15,6 +14,7 @@ import { AllResumesPage } from 'pages/all-resume-page/all-resumes-page'
 import { CreateVacancyPage } from 'pages/create-vacancy-page'
 import { CreateResumePage } from 'pages/create-resume-page'
 import { useAuthorization } from 'hooks/use-authorization'
+import { Redirect, Route, Switch } from 'wouter'
 
 export interface CarouselCard {
   iconUrl: string
@@ -33,23 +33,39 @@ export function App() {
     <div className='app'>
       {isLoggedIn ? (
         <AuthorizedLayout>
-          <Routes>
-            <Route path={routes.createVacancy.exact} element={<CreateVacancyPage />} />
-            <Route path={routes.createResume.exact} element={<CreateResumePage />} />
-            <Route path={routes.personalAccount.inexact} element={<PersonalAccountPage />} />
-            <Route path='*' element={<Navigate to={routes.personalAccount.exact} />} />
-          </Routes>
+          <Switch>
+            <Route path={routes.createVacancy.exact}>
+              <CreateVacancyPage />
+            </Route>
+            <Route path={routes.createResume.exact}>
+              <CreateResumePage />
+            </Route>
+            <Route path={routes.personalAccount.inexact}>
+              <PersonalAccountPage />
+            </Route>
+            <Redirect to={routes.personalAccount.inexact} />
+          </Switch>
         </AuthorizedLayout>
       ) : (
         <UnauthorizedLayout>
-          <Routes>
-            <Route path={routes.allVacancies.nested.vacancy(':vacancyId').absoluteExact} element={<FullVacancyPage />} />
-            <Route path={routes.allResumes.nested.resume(':resumeId').absoluteExact} element={<FullResumePage />} />
-            <Route path={routes.main.exact} element={<MainPage />} />
-            <Route path={routes.allVacancies.exact} element={<AllVacanciesPage />} />
-            <Route path={routes.allResumes.exact} element={<AllResumesPage />} />
-            <Route path='*' element={<Navigate to={routes.main.exact} />} />
-          </Routes>
+          <Switch>
+            <Route path={routes.allVacancies.nested.vacancy(':vacancyId').absoluteExact}>
+              <FullVacancyPage />
+            </Route>
+            <Route path={routes.allResumes.nested.resume(':resumeId').absoluteExact}>
+              <FullResumePage />
+            </Route>
+            <Route path={routes.main.exact}>
+              <MainPage />
+            </Route>
+            <Route path={routes.allVacancies.exact}>
+              <AllVacanciesPage />
+            </Route>
+            <Route path={routes.allResumes.exact}>
+              <AllResumesPage />
+            </Route>
+            {/* <Redirect to={routes.main.exact} /> */}
+          </Switch>
           <AuthModal />
         </UnauthorizedLayout>
       )}

@@ -3,9 +3,9 @@ import useTypedDispatch from 'hooks/use-typed-dispatch'
 import useTypedSelector from 'hooks/use-typed-selector'
 import { routes } from 'pages/routes'
 import { useCallback, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { authSlice } from 'store/slices/auth.slice'
 import { useFetchAndSetAuthorizedUser } from 'hooks/use-authorization'
+import { useLocation } from 'wouter'
 import styles from './auth-modal.module.scss'
 import { AuthModalStep } from './auth-modal.types'
 import { CodeForm } from './components/code-form/code-form'
@@ -19,7 +19,7 @@ export function AuthModal() {
   const [phone, setPhone] = useState<string>('')
   const [phoneAuthToken, setPhoneAuthToken] = useState('')
   const [codeAuthToken, setCodeAuthToken] = useState('')
-  const navigate = useNavigate()
+  const [, setLocation] = useLocation()
   const dispatch = useTypedDispatch()
   const fetchAndSetUser = useFetchAndSetAuthorizedUser()
 
@@ -46,10 +46,10 @@ export function AuthModal() {
     (accessToken: string) => {
       dispatch(authSlice.actions.setAccessToken(accessToken))
       fetchAndSetUser(accessToken)
-      navigate(routes.allVacancies.exact)
+      setLocation(routes.allVacancies.exact)
       resetAndClose()
     },
-    [navigate, resetAndClose, dispatch, fetchAndSetUser]
+    [setLocation, resetAndClose, dispatch, fetchAndSetUser]
   )
 
   const onUserNotExists = useCallback(() => {

@@ -1,15 +1,16 @@
 import React from 'react'
 import { FullCardVacancy } from 'components/full-card'
 import { useGetVacancyQuery } from 'api/enhancedApi'
-import { useParams } from 'react-router-dom'
+import { useRoute } from 'wouter'
+import { routes } from 'pages/routes'
 import { SimilarVacanciesSection } from './components/similar-vacancies-section/similar-vacancies-section'
 import styles from './full-vacancy-page.module.scss'
 
 interface FullVacancyPageProps {}
 
 export function FullVacancyPage(props: FullVacancyPageProps) {
-  const { vacancyId } = useParams<string>()
-  const { data: vacancyData } = useGetVacancyQuery({ vacancyId: vacancyId as string }, { skip: !vacancyId })
+  const [, params] = useRoute<{ vacancyId: string }>(routes.allVacancies.nested.vacancy(':vacancyId').exact)
+  const { data: vacancyData } = useGetVacancyQuery({ vacancyId: params?.vacancyId as string }, { skip: !params?.vacancyId })
 
   return (
     <div className={styles.main}>
