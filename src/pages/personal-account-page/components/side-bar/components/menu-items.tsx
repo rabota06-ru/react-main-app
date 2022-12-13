@@ -1,15 +1,14 @@
 import { UserRole } from 'api/generated'
 import useTypedSelector from 'hooks/use-typed-selector'
 import { useMemo } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
 import cn from 'classnames'
+import { useLocation } from 'wouter'
 import { APPLICANT_SIDE_BAR_ITEMS, EMPLOYER_SIDE_BAR_ITEMS } from '../side-bar.constants'
 import styles from '../side-bar.module.scss'
 
 export function MenuItems() {
   const user = useTypedSelector(state => state.auth.user)
-  const navigate = useNavigate()
-  const location = useLocation()
+  const [location, setLocation] = useLocation()
 
   const menuItems = useMemo(() => {
     if (user?.role === UserRole.Applicant) return APPLICANT_SIDE_BAR_ITEMS
@@ -23,9 +22,9 @@ export function MenuItems() {
         <div
           key={route.exact}
           className={cn(styles.sideBarMenuItem, {
-            [styles.sideBarMenuItem_Active]: location.pathname.startsWith(route.absoluteExact),
+            [styles.sideBarMenuItem_Active]: location.startsWith(route.absoluteExact),
           })}
-          onClick={() => navigate(route.absoluteExact)}
+          onClick={() => setLocation(route.absoluteExact)}
         >
           <Icon className={styles.sideBarMenuItemIcon} />
           <p className={styles.sideBarMenuItemLabel}>{label}</p>

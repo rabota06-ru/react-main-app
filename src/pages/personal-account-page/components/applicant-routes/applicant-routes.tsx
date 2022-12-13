@@ -1,16 +1,18 @@
 import { routes } from 'pages/routes'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'wouter'
 import { Chat } from '../chat/chat'
 
 export function ApplicantRoutes() {
   return (
-    <Routes>
-      <Route path={routes.personalAccount.nested.allResumes.exact} element='allResumes' />
-      <Route path={routes.personalAccount.nested.myVacancies.exact} element='myVacancies' />
-      <Route path={routes.personalAccount.nested.messages.exact} element='messages' />
-      <Route path={routes.personalAccount.nested.messages.nested.chat(':profileId').exact} element={<Chat />} />
-      <Route path={routes.personalAccount.nested.settings.exact} element='test4' />
-      <Route path='*' element={<Navigate to={routes.personalAccount.nested.allResumes.absoluteExact} />} />
-    </Routes>
+    <Switch>
+      <Route path={routes.personalAccount.nested.allResumes.exact}>allResumes</Route>
+      <Route path={routes.personalAccount.nested.myVacancies.exact}>myVacancies</Route>
+      <Route path={routes.personalAccount.nested.messages.exact}>messages</Route>
+      <Route path={routes.personalAccount.nested.messages.nested.chat(':profileId').exact}>
+        <Chat />
+      </Route>
+      <Route path={routes.personalAccount.nested.settings.exact}>test4</Route>
+      <Redirect to={routes.personalAccount.nested.allResumes.absoluteExact} />
+    </Switch>
   )
 }

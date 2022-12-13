@@ -104,16 +104,16 @@ function generateRoutes<T extends Routes>(routes: T, parentPath: string): Genera
       typeof route === 'function'
         ? (((...args: Parameters<Exclude<typeof route, RouteObj>>) => ({
             exact: route('', '')(args).path,
-            inexact: route('', '/*')(args).path,
+            inexact: route('', '/:route*')(args).path,
             absoluteExact: route(parentPath, '')(args).path,
-            absoluteInexact: route(parentPath, '/*')(args).path,
+            absoluteInexact: route(parentPath, '/:route*')(args).path,
             nested: generateRoutes(route(parentPath, '')(args).nested, `${parentPath}${route('', '')(args).path}`),
           })) as any)
         : {
             exact: route.path,
-            inexact: `${route.path}/*`,
+            inexact: `${route.path}/:route*`,
             absoluteExact: `${parentPath}${route.path}`,
-            absoluteInexact: `${parentPath}${route.path}/*`,
+            absoluteInexact: `${parentPath}${route.path}/:route*`,
             nested: generateRoutes(route.nested, `${parentPath}${route.path}`),
           }
 

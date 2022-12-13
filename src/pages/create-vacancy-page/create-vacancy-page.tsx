@@ -8,7 +8,7 @@ import { LOCATIONS } from 'utils/locations'
 import headerImg from 'assets/images/vacancy-form.png'
 import { ReactComponent as Logo } from 'assets/images/logo.svg'
 import { useCreateVacancyMutation } from 'api/enhancedApi'
-import { useNavigate } from 'react-router-dom'
+import { useLocation } from 'wouter'
 import styles from './create-vacancy-page.module.scss'
 
 const vacancyFields: TUniversalFormField[] = [
@@ -74,8 +74,8 @@ const vacancyFields: TUniversalFormField[] = [
 ]
 
 export function CreateVacancyPage() {
-  const navigate = useNavigate()
-  const [createVacancyMutation, createVacancyMutationData] = useCreateVacancyMutation()
+  const [, setLocation] = useLocation()
+  const [createVacancyMutation] = useCreateVacancyMutation()
 
   function onSubmitForm(data: any) {
     createVacancyMutation({
@@ -87,7 +87,7 @@ export function CreateVacancyPage() {
           },
         },
       },
-    }).finally(() => navigate('/'))
+    }).finally(() => setLocation('/'))
   }
 
   return (

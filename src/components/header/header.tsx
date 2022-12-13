@@ -1,12 +1,12 @@
 import { Button, ButtonSize, ButtonVariant } from 'kit/components/button'
 import { Container } from 'kit/components/container'
-import { Link } from 'react-router-dom'
 import { routes } from 'pages/routes'
 import { ReactComponent as Logo } from 'assets/images/logo.svg'
 import { useMediaValue } from 'kit/hooks'
 import { useCallback } from 'react'
 import useTypedDispatch from 'hooks/use-typed-dispatch'
 import { authSlice } from 'store/slices/auth.slice'
+import { Link } from 'wouter'
 import styles from './header.module.scss'
 
 export function Header() {
@@ -28,10 +28,10 @@ export function Header() {
       <Container className={styles.headerContainer}>
         <Logo className={styles.headerLogo} />
         <div className={styles.headerLinks}>
-          <Link to={routes.allVacancies.exact} className={styles.headerLink}>
+          <Link href={routes.allVacancies.exact} className={styles.headerLink}>
             Все вакансии
           </Link>
-          <Link to={routes.allResumes.exact} className={styles.headerLink}>
+          <Link href={routes.allResumes.exact} className={styles.headerLink}>
             Все резюме
           </Link>
           <span onClick={scrollToHowItWorksSection} className={styles.headerLink}>

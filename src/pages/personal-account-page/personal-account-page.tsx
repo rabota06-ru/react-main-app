@@ -7,6 +7,7 @@ import styles from './personal-account-page.module.scss'
 
 export function PersonalAccountPage() {
   const user = useTypedSelector(state => state.auth.user)
+
   return (
     <div className={styles.page}>
       <SideBar />

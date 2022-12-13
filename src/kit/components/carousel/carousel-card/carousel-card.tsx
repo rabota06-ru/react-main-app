@@ -2,7 +2,7 @@ import { Card } from 'kit/components/card'
 import { Divider } from 'kit/components/divider'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 import { getCssVariable, CssVariable } from 'utils/get-css-variable'
-import { Link } from 'react-router-dom'
+import { Link } from 'wouter'
 import styles from './carousel-card.module.scss'
 import { ICarouselCard } from './carousel-card.types'
 
@@ -28,7 +28,7 @@ export function CarouselCard({ Icon, title, infoItems, url, isHoverShadow = true
           </div>
         ))}
       </div>
-      <Link to={url} className={styles.cardAction}>
+      <Link href={url} className={styles.cardAction}>
         <span className={styles.cardActionText}>Посмотреть</span>
         <HiArrowNarrowRight className={styles.cardActionIcon} size={20} />
       </Link>
