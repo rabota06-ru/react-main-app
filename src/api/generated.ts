@@ -7575,6 +7575,22 @@ export type SendMessageMutationVariables = Exact<{
 
 export type SendMessageMutation = { __typename?: 'Mutation', createOneChatMessage: { __typename?: 'ChatMessage', id: string, message: string, sender: UserRole, createdAt: any } };
 
+export type CreateChatMutationVariables = Exact<{
+  applicantId: Scalars['String'];
+  employerId: Scalars['String'];
+}>;
+
+
+export type CreateChatMutation = { __typename?: 'Mutation', createOneChat: { __typename?: 'Chat', id: string } };
+
+export type GetChatQueryVariables = Exact<{
+  applicantId: Scalars['String'];
+  employerId: Scalars['String'];
+}>;
+
+
+export type GetChatQuery = { __typename?: 'Query', chat?: { __typename?: 'Chat', id: string } | null };
+
 export type GetVacanciesWithResponsesQueryVariables = Exact<{
   userId: Scalars['String'];
 }>;
@@ -7766,6 +7782,24 @@ export const SendMessageDocument = `
   }
 }
     `;
+export const CreateChatDocument = `
+    mutation CreateChat($applicantId: String!, $employerId: String!) {
+  createOneChat(
+    data: {applicant: {connect: {id: $applicantId}}, employer: {connect: {id: $employerId}}}
+  ) {
+    id
+  }
+}
+    `;
+export const GetChatDocument = `
+    query GetChat($applicantId: String!, $employerId: String!) {
+  chat(
+    where: {employerId_applicantId: {applicantId: $applicantId, employerId: $employerId}}
+  ) {
+    id
+  }
+}
+    `;
 export const GetVacanciesWithResponsesDocument = `
     query GetVacanciesWithResponses($userId: String!) {
   vacancies(
@@ -7866,6 +7900,12 @@ const injectedRtkApi = api.injectEndpoints({
     }),
     SendMessage: build.mutation<SendMessageMutation, SendMessageMutationVariables>({
       query: (variables) => ({ document: SendMessageDocument, variables })
+    }),
+    CreateChat: build.mutation<CreateChatMutation, CreateChatMutationVariables>({
+      query: (variables) => ({ document: CreateChatDocument, variables })
+    }),
+    GetChat: build.query<GetChatQuery, GetChatQueryVariables>({
+      query: (variables) => ({ document: GetChatDocument, variables })
     }),
     GetVacanciesWithResponses: build.query<GetVacanciesWithResponsesQuery, GetVacanciesWithResponsesQueryVariables>({
       query: (variables) => ({ document: GetVacanciesWithResponsesDocument, variables })

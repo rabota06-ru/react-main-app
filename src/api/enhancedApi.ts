@@ -23,4 +23,6 @@ export const {
   useLazyGetVacancyResponsesQuery,
   useLazyGetChatMessagesQuery,
   useSendMessageMutation,
+  useCreateChatMutation,
+  useLazyGetChatQuery,
 } = api

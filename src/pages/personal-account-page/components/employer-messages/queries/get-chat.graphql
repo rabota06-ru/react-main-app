@@ -1,0 +1,6 @@
+# Получить чат
+query GetChat($applicantId: String!, $employerId: String!) {
+  chat(where: { employerId_applicantId: { applicantId: $applicantId, employerId: $employerId } }) {
+    id
+  }
+}
