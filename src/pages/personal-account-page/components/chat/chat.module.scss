@@ -2,9 +2,11 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding: 0 5%;
   &Messages {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     overflow-y: auto;
     padding: 20px 0;
   }
@@ -46,14 +48,15 @@
       }
     }
   }
-  &TextArea {
-    width: 90%;
-    margin: 10px 5%;
-    min-height: 80px;
+  &SendBar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 30px;
   }
-  &ButtonContainer {
+  &TextArea {
+    width: 100%;
+    min-height: 80px;
     margin-bottom: 10px;
-    margin-left: auto;
-    margin-right: 5%;
   }
 }

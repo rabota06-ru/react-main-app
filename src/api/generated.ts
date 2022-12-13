@@ -7557,14 +7557,13 @@ export type GetVacancyQueryVariables = Exact<{
 export type GetVacancyQuery = { __typename?: 'Query', vacancy?: { __typename?: 'Vacancy', id: string, post: string, createdAt: any, fieldOfActivity: number, salary: number, placeOfWork: number, views: number, description: string, phone: string, employer: { __typename?: 'EmployerProfile', companyName: string } } | null };
 
 export type GetChatMessagesQueryVariables = Exact<{
-  userId: Scalars['String'];
-  applicantId: Scalars['String'];
+  chatId: Scalars['String'];
   skip: Scalars['Int'];
   take: Scalars['Int'];
 }>;
 
 
-export type GetChatMessagesQuery = { __typename?: 'Query', findFirstChat?: { __typename?: 'Chat', id: string, applicant: { __typename?: 'ApplicantProfile', resume?: { __typename?: 'Resume', firstname: string } | null } } | null, chatMessages: Array<{ __typename?: 'ChatMessage', id: string, message: string, sender: UserRole, createdAt: any }> };
+export type GetChatMessagesQuery = { __typename?: 'Query', chatMessages: Array<{ __typename?: 'ChatMessage', id: string, message: string, sender: UserRole, createdAt: any }> };
 
 export type SendMessageMutationVariables = Exact<{
   chatId: Scalars['String'];
@@ -7746,19 +7745,9 @@ export const GetVacancyDocument = `
 }
     `;
 export const GetChatMessagesDocument = `
-    query GetChatMessages($userId: String!, $applicantId: String!, $skip: Int!, $take: Int!) {
-  findFirstChat(
-    where: {applicantId: {equals: $applicantId}, employer: {is: {userId: {equals: $userId}}}}
-  ) {
-    id
-    applicant {
-      resume {
-        firstname
-      }
-    }
-  }
+    query GetChatMessages($chatId: String!, $skip: Int!, $take: Int!) {
   chatMessages(
-    where: {chat: {is: {applicantId: {equals: $applicantId}, employer: {is: {userId: {equals: $userId}}}}}}
+    where: {chatId: {equals: $chatId}}
     orderBy: {createdAt: desc}
     skip: $skip
     take: $take
