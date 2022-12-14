@@ -1,0 +1,50 @@
+@import '/src/scss/mixins';
+
+.chat {
+  &Messages {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    margin: 20px 0;
+    @include customScrollbar;
+  }
+  &Message {
+    position: relative;
+    padding: 15px 30px;
+    margin-bottom: 50px;
+    max-width: 80%;
+    $Message: &;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &Me {
+      margin-left: auto;
+      margin-right: 20px;
+      background-color: #d3e7f1;
+    }
+    &Interlocutor {
+      margin-right: auto;
+      margin-left: 20px;
+      background-color: #e5ffe3;
+      #{$Message} {
+        &Info {
+          right: unset;
+          left: 0;
+        }
+      }
+    }
+    &Info {
+      display: flex;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateY(-100%);
+      white-space: nowrap;
+      &Sender {
+        font-weight: bold;
+        margin-right: 20px;
+      }
+    }
+  }
+}

@@ -7565,6 +7565,13 @@ export type GetChatMessagesQueryVariables = Exact<{
 
 export type GetChatMessagesQuery = { __typename?: 'Query', chatMessages: Array<{ __typename?: 'ChatMessage', id: string, message: string, sender: UserRole, createdAt: any }> };
 
+export type GetChatInfoQueryVariables = Exact<{
+  chatId: Scalars['String'];
+}>;
+
+
+export type GetChatInfoQuery = { __typename?: 'Query', chat?: { __typename?: 'Chat', employer: { __typename?: 'EmployerProfile', companyName: string }, applicant: { __typename?: 'ApplicantProfile', resume?: { __typename?: 'Resume', firstname: string, lastname?: string | null } | null }, _count?: { __typename?: 'ChatCount', messages: number } | null } | null };
+
 export type SendMessageMutationVariables = Exact<{
   chatId: Scalars['String'];
   message: Scalars['String'];
@@ -7759,6 +7766,24 @@ export const GetChatMessagesDocument = `
   }
 }
     `;
+export const GetChatInfoDocument = `
+    query GetChatInfo($chatId: String!) {
+  chat(where: {id: $chatId}) {
+    employer {
+      companyName
+    }
+    applicant {
+      resume {
+        firstname
+        lastname
+      }
+    }
+    _count {
+      messages
+    }
+  }
+}
+    `;
 export const SendMessageDocument = `
     mutation SendMessage($chatId: String!, $message: String!, $sender: UserRole!) {
   createOneChatMessage(
@@ -7886,6 +7911,9 @@ const injectedRtkApi = api.injectEndpoints({
     }),
     GetChatMessages: build.query<GetChatMessagesQuery, GetChatMessagesQueryVariables>({
       query: (variables) => ({ document: GetChatMessagesDocument, variables })
+    }),
+    GetChatInfo: build.query<GetChatInfoQuery, GetChatInfoQueryVariables>({
+      query: (variables) => ({ document: GetChatInfoDocument, variables })
     }),
     SendMessage: build.mutation<SendMessageMutation, SendMessageMutationVariables>({
       query: (variables) => ({ document: SendMessageDocument, variables })

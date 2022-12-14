@@ -1,0 +1,17 @@
+# запросить информацию по текущему чату
+query GetChatInfo($chatId: String!) {
+  chat(where: { id: $chatId }) {
+    employer {
+      companyName
+    }
+    applicant {
+      resume {
+        firstname
+        lastname
+      }
+    }
+    _count {
+      messages
+    }
+  }
+}
