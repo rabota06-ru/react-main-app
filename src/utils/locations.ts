@@ -1,4 +1,4 @@
-import { DropdownItem } from 'components/dropdown'
+import { DropdownItem } from 'kit/components/dropdown'
 import { Locations } from 'types/index'
 import { objectKeys } from './object-keys'
 

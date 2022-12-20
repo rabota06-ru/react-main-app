@@ -1,11 +1,11 @@
-import { Container } from 'components/container'
+import { Container } from 'kit/components/container'
 import { List } from 'components/list'
 import { ListDropdown } from 'components/list-dropdown'
 import { ItemType } from 'components/list/list'
-import styles from './all-vacancies-page.module.scss'
 import { useGetVacanciesQuery } from 'api/enhancedApi'
 import { FieldOfActivity, Locations } from 'types/index'
 import { useState } from 'react'
+import styles from './all-vacancies-page.module.scss'
 
 export function AllVacanciesPage() {
   const [selectedFieldOfActivity, setSelectedFieldOfActivity] = useState<FieldOfActivity | null>(null)

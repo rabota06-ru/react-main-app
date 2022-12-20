@@ -7551,6 +7551,7 @@ export type GetResumeQuery = { __typename?: 'Query', resume?: { __typename?: 'Re
 
 export type GetSimilarResumesQueryVariables = Exact<{
   fieldOfActivity: Scalars['Int'];
+  currentResumeId: Scalars['String'];
 }>;
 
 
@@ -7726,8 +7727,10 @@ export const GetResumeDocument = `
 }
     `;
 export const GetSimilarResumesDocument = `
-    query GetSimilarResumes($fieldOfActivity: Int!) {
-  resumes(where: {fieldOfActivity: {equals: $fieldOfActivity}}) {
+    query GetSimilarResumes($fieldOfActivity: Int!, $currentResumeId: String!) {
+  resumes(
+    where: {fieldOfActivity: {equals: $fieldOfActivity}, id: {not: {equals: $currentResumeId}}}
+  ) {
     id
     firstname
     lastname

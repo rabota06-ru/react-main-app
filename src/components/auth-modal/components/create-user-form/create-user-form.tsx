@@ -1,4 +1,4 @@
-import { Button } from 'components/button'
+import { Button } from 'kit/components/button'
 import { uniqueId } from 'utils/unique-id'
 import { useCallback, useMemo, useState } from 'react'
 import { UserRole } from 'api/generated'

@@ -1,4 +1,4 @@
-import { Tab, TabList, TabPanel, Tabs } from 'components/tabs'
+import { Tab, TabList, TabPanel, Tabs } from 'kit/components/tabs'
 import { useState } from 'react'
 import { ResponsesToVacancies } from './components/responses-to-vacancies/responses-to-vacancies'
 import styles from './employer-messages.module.scss'

@@ -1,0 +1,176 @@
+@import '/src/scss/mixins';
+@import '/src/scss/variables';
+
+.notifications {
+  &Wrapper {
+    position: absolute;
+    top: 0;
+    max-height: 100vh;
+    right: 0;
+    z-index: 1;
+    overflow-y: auto;
+    padding: 10px 0;
+    @include hideScrollbar();
+  }
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+$notificationRightOffset: 20px;
+$notificationRightOffsetMobile: 10px;
+$notificationWidth: 300px;
+
+.notification {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+  color: #fff;
+  transform: translateX(100%);
+  transition: transform 0s ease-in-out;
+  &_Shown {
+    transform: translateX(-#{$notificationRightOffset});
+  }
+  &_Success {
+    background-color: var(--successColor);
+  }
+  &_Error {
+    background-color: var(--errorColor);
+  }
+  &_Warning {
+    background-color: var(--warningColor);
+  }
+  &_Info {
+    background-color: var(--primaryColor);
+  }
+  $notification: &;
+  &_OnlyTitle {
+    display: flex;
+    justify-content: center;
+    #{$notification}Title {
+      font-size: 18px;
+    }
+  }
+  &_OnlyTitleWithActions {
+    #{$notification}Action {
+      height: 25px;
+    }
+  }
+  &Wrapper {
+    overflow: hidden;
+    width: $notificationWidth;
+    padding-left: $notificationRightOffset;
+    height: 0px;
+    opacity: 0.5;
+    margin-bottom: 0;
+    transition: height, opacity, margin-bottom 0s linear;
+    $wrapper: &;
+    &_Shown {
+      height: 80px;
+      opacity: 1;
+      margin-bottom: 10px;
+      &#{$wrapper}_OnlyTitle {
+        height: 40px !important;
+      }
+      &#{$wrapper}_OnlyTitleWithActions {
+        height: 60px !important;
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &Title {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  &Description {
+    font-size: 13px;
+    line-height: 13px;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+  &Actions {
+    display: flex;
+    gap: 10px;
+  }
+  &Action {
+    font-size: 13px;
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 0 10px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .notification {
+    padding-top: 1px;
+    &_Shown {
+      transform: translateX(-#{$notificationRightOffsetMobile});
+    }
+    &Wrapper {
+      padding-left: $notificationRightOffsetMobile;
+      $wrapper: &;
+      &_Shown {
+        height: 62px;
+        &#{$wrapper}_OnlyTitle {
+          height: 40px !important;
+        }
+        &#{$wrapper}_OnlyTitleWithActions {
+          height: 50px !important;
+        }
+      }
+    }
+    &Title {
+      font-size: 12px;
+    }
+    &Description {
+      font-size: 11px;
+      line-height: 11px;
+    }
+    &Action {
+      height: 15px;
+      font-size: 11px;
+    }
+    $notification: &;
+    &_OnlyTitle {
+      display: flex;
+      justify-content: center;
+      padding-top: 0;
+      padding-bottom: 0;
+      #{$notification}Title {
+        font-size: 18px;
+      }
+    }
+    &_OnlyTitleWithActions {
+      padding-top: 5px;
+      #{$notification}Title {
+        font-size: 16px;
+      }
+      #{$notification}Action {
+        height: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: #{$notificationWidth + $notificationRightOffsetMobile}) {
+  .notification {
+    &Wrapper {
+      width: calc(100vw - #{$notificationRightOffsetMobile});
+    }
+  }
+}

@@ -1,5 +1,5 @@
-import { Card } from 'components/card'
-import { Container } from 'components/container'
+import { Card } from 'kit/components/card'
+import { Container } from 'kit/components/container'
 import { CgArrowLongDown } from 'react-icons/cg'
 import cn from 'classnames'
 import styles from './how-it-works-section.module.scss'

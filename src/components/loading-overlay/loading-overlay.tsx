@@ -1,4 +1,4 @@
-import { Spinner } from 'components/spinner'
+import { Spinner } from 'kit/components/spinner'
 import cn from 'classnames'
 import { PropsWithChildren } from 'react'
 import styles from './loading-overlay.module.scss'

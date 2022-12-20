@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { HTMLAttributes, PropsWithChildren } from 'react'
-import { Spinner } from 'components/spinner'
+import { Spinner } from 'kit/components/spinner'
 import { CssVariable } from 'utils/get-css-variable'
 import { InputSize, InputStatus } from './input-base.types'
 import styles from './input-base.module.scss'

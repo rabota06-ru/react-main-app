@@ -1,12 +1,12 @@
-import { Card } from 'components/card'
-import { Divider } from 'components/divider'
+import { Card } from 'kit/components/card'
+import { Divider } from 'kit/components/divider'
 import { FieldOfActivity, Locations } from 'types/index'
 import { CssVariable } from 'utils/get-css-variable'
 import { TfiLocationPin } from 'react-icons/tfi'
 import { HiOutlineEye } from 'react-icons/hi'
-import { Button, ButtonSize, ButtonVariant } from 'components/button'
+import { Button, ButtonSize, ButtonVariant } from 'kit/components/button'
 import { useState, createElement, useMemo } from 'react'
-import { Container } from 'components/container'
+import { Container } from 'kit/components/container'
 import cn from 'classnames'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
 import { LOCATIONS_LABEL } from 'utils/locations'
@@ -73,7 +73,7 @@ export function FullCardResume({
               <span>{viewCount} просмотров</span>
             </div>
           </div>
-          <Divider size={2} color={CssVariable.SecondaryColor2} />
+          <Divider className={styles.fullCardDividerBottom} size={2} color={CssVariable.SecondaryColor2} />
           <div className={styles.fullCardDescription}>
             {soughtPosition && (
               <div>

@@ -1,4 +1,4 @@
-import { Input, InputProps } from 'components/input'
+import { Input, InputProps } from 'kit/components/input'
 import { useState } from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 

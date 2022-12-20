@@ -1,10 +1,11 @@
-import { Container } from 'components/container'
-import { Card } from 'components/card'
-import { Button, ButtonSize } from 'components/button'
+import { Container } from 'kit/components/container'
+import { Card } from 'kit/components/card'
+import { Button, ButtonSize } from 'kit/components/button'
 import cn from 'classnames'
-import { useMediaValue } from 'hooks/use-media-value'
-import { CARD_DEFAULT_SHADOW } from 'components/card/card.constants'
-import { CardShadow } from 'components/card/card.types'
+import { useMediaValue } from 'kit/hooks'
+import { CARD_DEFAULT_SHADOW } from 'kit/components/card/card.constants'
+import { CardShadow } from 'kit/components/card/card.types'
+import { NotificationType, useNotifications } from 'kit/components/notifications'
 import mainImage from './main-image.png'
 import searchEmployeeImage from './search-employee.png'
 import searchJobImage from './search-job.png'
@@ -13,6 +14,22 @@ import styles from './first-section.module.scss'
 export function FirstSection() {
   const cardsShadow = useMediaValue<CardShadow>({ xs: 'none', sm: CARD_DEFAULT_SHADOW })
   const buttonSize = useMediaValue({ xs: ButtonSize.Small, sm: ButtonSize.Medium })
+  const { showNotification } = useNotifications()
+
+  const succesNotification = () => {
+    showNotification({
+      title: 'Success',
+      type: NotificationType.Success,
+      duration: 2000,
+    })
+  }
+
+  const errorNotification = () => {
+    showNotification({
+      title: 'Error',
+      type: NotificationType.Error,
+    })
+  }
 
   return (
     <div className={styles.section}>
@@ -27,7 +44,7 @@ export function FirstSection() {
           <Card shadow={cardsShadow} className={cn(styles.sectionAction, styles.sectionActionLeft)}>
             <img src={searchEmployeeImage} alt='ищу работника' className={styles.sectionActionImage} />
             <h2 className={styles.sectionActionTitle}>Ищу работника</h2>
-            <Button size={buttonSize} className={styles.sectionActionButton}>
+            <Button size={buttonSize} className={styles.sectionActionButton} onClick={succesNotification}>
               Разместить вакансию
             </Button>
             <div className={cn(styles.sectionActionBackground, styles.sectionActionBackgroundLeft)} />
@@ -35,7 +52,7 @@ export function FirstSection() {
           <Card shadow={cardsShadow} className={cn(styles.sectionAction, styles.sectionActionRight)}>
             <img src={searchJobImage} alt='ищу работу' className={styles.sectionActionImage} />
             <h2 className={styles.sectionActionTitle}>Ищу работу</h2>
-            <Button size={buttonSize} className={styles.sectionActionButton}>
+            <Button size={buttonSize} className={styles.sectionActionButton} onClick={errorNotification}>
               Создать резюме
             </Button>
             <div className={cn(styles.sectionActionBackground, styles.sectionActionBackgroundRight)} />

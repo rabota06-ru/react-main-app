@@ -1,4 +1,4 @@
-import { Button } from 'components/button'
+import { Button } from 'kit/components/button'
 import { useForm } from 'react-hook-form'
 import { TUniversalFormField, UniversalFormField } from './universal-form-field'
 import { FormField } from './universal-form.types'

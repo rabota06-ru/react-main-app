@@ -34,6 +34,11 @@
       transform: translateX(150%);
     }
   }
+  &Button {
+    width: 270px;
+    font-weight: 700;
+    font-size: 18px;
+  }
 }
 
 @media (max-width: $lg) {
