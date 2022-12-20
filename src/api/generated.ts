@@ -7547,7 +7547,15 @@ export type GetResumeQueryVariables = Exact<{
 }>;
 
 
-export type GetResumeQuery = { __typename?: 'Query', resume?: { __typename?: 'Resume', id: string, firstname: string, lastname?: string | null, placeOfResidence: number, views: number, fieldOfActivity: number } | null };
+export type GetResumeQuery = { __typename?: 'Query', resume?: { __typename?: 'Resume', id: string, firstname: string, lastname?: string | null, createdAt: any, placeOfResidence: number, phoneHidden: boolean, phone: string, aboutMe?: string | null, experience?: string | null, desiredPost?: string | null, education?: string | null, views: number, fieldOfActivity: number } | null };
+
+export type GetSimilarResumesQueryVariables = Exact<{
+  fieldOfActivity: Scalars['Int'];
+  currentResumeId: Scalars['String'];
+}>;
+
+
+export type GetSimilarResumesQuery = { __typename?: 'Query', resumes: Array<{ __typename?: 'Resume', id: string, firstname: string, lastname?: string | null, fieldOfActivity: number, placeOfResidence: number, desiredPost?: string | null }> };
 
 export type GetVacancyQueryVariables = Exact<{
   vacancyId: Scalars['String'];
@@ -7705,9 +7713,30 @@ export const GetResumeDocument = `
     id
     firstname
     lastname
+    createdAt
     placeOfResidence
+    phoneHidden
+    phone
+    aboutMe
+    experience
+    desiredPost
+    education
     views
     fieldOfActivity
+  }
+}
+    `;
+export const GetSimilarResumesDocument = `
+    query GetSimilarResumes($fieldOfActivity: Int!, $currentResumeId: String!) {
+  resumes(
+    where: {fieldOfActivity: {equals: $fieldOfActivity}, id: {not: {equals: $currentResumeId}}}
+  ) {
+    id
+    firstname
+    lastname
+    fieldOfActivity
+    placeOfResidence
+    desiredPost
   }
 }
     `;
@@ -7857,6 +7886,9 @@ const injectedRtkApi = api.injectEndpoints({
     }),
     GetResume: build.query<GetResumeQuery, GetResumeQueryVariables>({
       query: (variables) => ({ document: GetResumeDocument, variables })
+    }),
+    GetSimilarResumes: build.query<GetSimilarResumesQuery, GetSimilarResumesQueryVariables>({
+      query: (variables) => ({ document: GetSimilarResumesDocument, variables })
     }),
     GetVacancy: build.query<GetVacancyQuery, GetVacancyQueryVariables>({
       query: (variables) => ({ document: GetVacancyDocument, variables })

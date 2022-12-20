@@ -10,10 +10,11 @@ import { Container } from 'kit/components/container'
 import cn from 'classnames'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
 import { LOCATIONS_LABEL } from 'utils/locations'
+import { ReactComponent as Favorite } from './img/favorites.svg'
 import styles from './full-card-resume.module.scss'
 
 interface FullCardResumeProps {
-  title: string
+  firstname: string
   date: string
   location: number
   soughtPosition: string
@@ -22,12 +23,13 @@ interface FullCardResumeProps {
   aboutMe: string
   viewCount: number
   phoneNumber: string
+  phoneHidden: boolean
   headerImage: number
   isFavorite: boolean
 }
 
 export function FullCardResume({
-  title,
+  firstname,
   date,
   location,
   soughtPosition,
@@ -36,6 +38,7 @@ export function FullCardResume({
   aboutMe,
   viewCount,
   phoneNumber,
+  phoneHidden,
   headerImage,
   isFavorite,
   ...props
@@ -43,16 +46,19 @@ export function FullCardResume({
   const headerImageComponent = useMemo(() => createElement(FIELDS_OF_ACTIVITY_IMAGE[headerImage as FieldOfActivity]), [headerImage])
 
   const [phoneState, setPhoneState] = useState<boolean>(false)
-  const handleShowNumber = () => setPhoneState(phoneState => !phoneState)
-
+  const handleShowNumber = () => {
+    if (phoneHidden) {
+      setPhoneState(phoneState => !phoneState)
+    }
+  }
   return (
     <Container>
-      <Card className={styles.card} shadow={{ blurRadius: 40, spreadRadius: 5 }}>
+      <Card className={styles.card} shadow={{ blurRadius: 40, spreadRadius: -25 }}>
         <div {...props} className={styles.fullCard}>
           <div className={styles.fullCardHeader}>
             <div className={styles.fullCardHeaderIcon}>
               <div>{headerImageComponent}</div>
-              <h2>{title}</h2>
+              <h2>{firstname}</h2>
             </div>
             <span>{date}</span>
           </div>
@@ -67,24 +73,32 @@ export function FullCardResume({
               <span>{viewCount} просмотров</span>
             </div>
           </div>
-          <Divider size={2} color={CssVariable.SecondaryColor2} />
+          <Divider className={styles.fullCardDividerBottom} size={2} color={CssVariable.SecondaryColor2} />
           <div className={styles.fullCardDescription}>
-            <div>
-              <h3>Желаяемая должность:</h3>
-              <p>{soughtPosition}</p>
-            </div>
-            <div>
-              <h3>Образование:</h3>
-              <p>{education}</p>
-            </div>
-            <div>
-              <h3>Опыт работы:</h3>
-              <p>{experience}</p>
-            </div>
-            <div>
-              <h3>О себе:</h3>
-              <p>{aboutMe}</p>
-            </div>
+            {soughtPosition && (
+              <div>
+                <h3>Желаяемая должность:</h3>
+                <p>{soughtPosition}</p>
+              </div>
+            )}
+            {education && (
+              <div>
+                <h3>Образование:</h3>
+                <p>{education}</p>
+              </div>
+            )}
+            {experience && (
+              <div>
+                <h3>Опыт работы:</h3>
+                <p>{experience}</p>
+              </div>
+            )}
+            {aboutMe && (
+              <div>
+                <h3>О себе:</h3>
+                <p>{aboutMe}</p>
+              </div>
+            )}
           </div>
           <div className={styles.fullCardDescriptionButtons}>
             <Button variant={ButtonVariant.Primary} size={ButtonSize.Medium} isShadow={false}>
@@ -95,21 +109,11 @@ export function FullCardResume({
                 {phoneState ? phoneNumber : 'Показать телефон'}
               </Button>
               <div className={styles.fullCardDescriptionButtonsCheckbox}>
-                <svg
+                <Favorite
                   className={cn(styles.fullCardDescriptionButtonsCheckbox_NoShaded, {
                     [styles.fullCardDescriptionButtonsCheckbox_Shaded]: isFavorite,
                   })}
-                  width='40'
-                  height='49'
-                  viewBox='0 0 40 49'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    d='M0.5 2C0.5 1.17157 1.17157 0.5 2 0.5H38C38.8284 0.5 39.5 1.17157 39.5 2V46.3915C39.5 47.5697 38.2041 48.2879 37.205 47.6635L21.325 37.7385C20.5143 37.2318 19.4857 37.2318 18.675 37.7385L2.795 47.6635C1.79593 48.2879 0.5 47.5697 0.5 46.3915V2Z'
-                    stroke='#395DDE'
-                  />
-                </svg>
+                />
               </div>
             </div>
           </div>

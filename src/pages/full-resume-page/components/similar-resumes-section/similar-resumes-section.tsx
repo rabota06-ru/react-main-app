@@ -1,110 +1,48 @@
-import { Carousel, ICarouselCard } from 'kit/components/carousel'
+import { Carousel } from 'kit/components/carousel'
 import { CarouselCard } from 'kit/components/carousel/carousel-card/carousel-card'
 import { IoPersonOutline } from 'react-icons/io5'
 import { BiMap } from 'react-icons/bi'
 import { routes } from 'pages/routes'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
-import { FieldOfActivity } from 'types/index'
-import { createElement, useState } from 'react'
+import { FieldOfActivity, Locations } from 'types/index'
+import { createElement } from 'react'
 import { Container } from 'kit/components/container'
 import { useMediaValue } from 'kit/hooks'
 import { Button, ButtonSize, ButtonVariant } from 'kit/components/button'
 import { IoIosArrowForward } from 'react-icons/io'
+import { useGetSimilarResumesQuery } from 'api/enhancedApi'
+import { LOCATIONS_LABEL } from 'utils/locations'
 import styles from './similar-resumes-section.module.scss'
 
-export function SimilarResumesSection() {
-  const [carouselItems] = useState<ICarouselCard[]>([
-    {
-      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
-      title: 'Бухгалтер',
+interface ISimilarResumesSectionProps {
+  fildOfActivity: number
+  id: string
+}
+
+export function SimilarResumesSection({ fildOfActivity, id }: ISimilarResumesSectionProps) {
+  const similarResumesData = useGetSimilarResumesQuery(
+    { fieldOfActivity: fildOfActivity as number, currentResumeId: id as string },
+    { skip: !fildOfActivity }
+  )
+
+  const carouselItems = similarResumesData?.data?.resumes.map(el => {
+    return {
+      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[el.fieldOfActivity as FieldOfActivity]),
+      title: el.firstname,
       infoItems: [
         {
           Icon: <IoPersonOutline color='#04CDBF' size={20} />,
-          label: 'Анзор В.',
+          label: el.firstname,
         },
         {
           Icon: <BiMap color='#04CDBF' size={20} />,
-          label: 'Назрань',
+          label: LOCATIONS_LABEL[el.placeOfResidence as Locations],
         },
       ],
-      url: routes.allResumes.nested.resume('1').exact,
-    },
-    {
-      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
-      title: 'Бухгалтер',
-      infoItems: [
-        {
-          Icon: <IoPersonOutline color='#04CDBF' size={20} />,
-          label: 'Ахмед С.',
-        },
-        {
-          Icon: <BiMap color='#04CDBF' size={20} />,
-          label: 'Назрань',
-        },
-      ],
-      url: routes.allResumes.nested.resume('2').exact,
-    },
-    {
-      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
-      title: 'Бухгалтер',
-      infoItems: [
-        {
-          Icon: <IoPersonOutline color='#04CDBF' size={20} />,
-          label: 'Адам Т.',
-        },
-        {
-          Icon: <BiMap color='#04CDBF' size={20} />,
-          label: 'Назрань',
-        },
-      ],
-      url: routes.allResumes.nested.resume('3').exact,
-    },
-    {
-      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
-      title: 'Бухгалтер',
-      infoItems: [
-        {
-          Icon: <IoPersonOutline color='#04CDBF' size={20} />,
-          label: 'Ада Ч.',
-        },
-        {
-          Icon: <BiMap color='#04CDBF' size={20} />,
-          label: 'Назрань',
-        },
-      ],
-      url: routes.allResumes.nested.resume('4').exact,
-    },
-    {
-      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
-      title: 'Бухгалтер',
-      infoItems: [
-        {
-          Icon: <IoPersonOutline color='#04CDBF' size={20} />,
-          label: 'Ада Ч.',
-        },
-        {
-          Icon: <BiMap color='#04CDBF' size={20} />,
-          label: 'Назрань',
-        },
-      ],
-      url: routes.allResumes.nested.resume('5').exact,
-    },
-    {
-      Icon: createElement(FIELDS_OF_ACTIVITY_IMAGE[FieldOfActivity.ITAndInternet]),
-      title: 'Бухгалтер',
-      infoItems: [
-        {
-          Icon: <IoPersonOutline color='#04CDBF' size={20} />,
-          label: 'Ада Ч.',
-        },
-        {
-          Icon: <BiMap color='#04CDBF' size={20} />,
-          label: 'Назрань',
-        },
-      ],
-      url: routes.allResumes.nested.resume('6').exact,
-    },
-  ])
+      url: routes.allResumes.nested.resume(el.id).absoluteExact,
+    }
+  })
+
   const carouselVisibleItemsCount = useMediaValue({ xs: 1, sm: 2, lg: 3, xl: 4 })
   const carouselSlideButtonsHidden = useMediaValue({ xs: true, md: false })
   const isCarouselScrollSnapping = useMediaValue({ xs: false, md: true })
@@ -115,7 +53,7 @@ export function SimilarResumesSection() {
   const isButtonShadow = useMediaValue({ xs: false, md: false })
   const buttonRightArrow = useMediaValue({ xs: <IoIosArrowForward size={20} />, md: undefined })
 
-  return (
+  return similarResumesData?.data?.resumes && carouselItems ? (
     <div className={styles.section}>
       <Container className={styles.sectionContainer}>
         <h2 className={styles.sectionTitle}>Похожие резюме</h2>
@@ -133,9 +71,9 @@ export function SimilarResumesSection() {
           slideRightButtonProps={{ className: styles.sectionCarouselSlideRightButton }}
         />
         <Button variant={buttonVariant} size={buttonSize} isShadow={isButtonShadow} className={styles.sectionButton}>
-          Посмотреть все резюме {buttonRightArrow}
+          {similarResumesData?.data?.resumes.length} похожих резюме {buttonRightArrow}
         </Button>
       </Container>
     </div>
-  )
+  ) : null
 }
