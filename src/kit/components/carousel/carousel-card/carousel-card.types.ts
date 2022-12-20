@@ -5,7 +5,7 @@ export interface ICarouselCard {
   title: string
   infoItems: {
     Icon: ReactNode
-    label: string
+    label: string | number
   }[]
   url: string
 }

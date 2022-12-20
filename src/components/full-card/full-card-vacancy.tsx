@@ -53,7 +53,7 @@ export function FullCardVacancy({
 
   return (
     <Container>
-      <Card shadow={{ blurRadius: 40, spreadRadius: 5 }}>
+      <Card {...props} shadow={{ blurRadius: 40, spreadRadius: -25 }}>
         <div className={styles.fullCard}>
           <div className={styles.fullCardHeader}>
             <div className={styles.fullCardHeaderIcon}>

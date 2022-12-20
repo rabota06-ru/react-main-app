@@ -2,42 +2,37 @@ import React from 'react'
 import { FullCardVacancy } from 'components/full-card'
 import { useGetVacancyQuery } from 'api/enhancedApi'
 import { useParams } from 'react-router-dom'
+import { format, parseISO } from 'date-fns'
+import ru from 'date-fns/locale/ru'
 import { SimilarVacanciesSection } from './components/similar-vacancies-section/similar-vacancies-section'
 import styles from './full-vacancy-page.module.scss'
 
-interface FullVacancyPageProps {}
+// interface FullVacancyPageProps {}
 
-export function FullVacancyPage(props: FullVacancyPageProps) {
+export function FullVacancyPage() {
   const { vacancyId } = useParams<string>()
-  const { data: vacancyData } = useGetVacancyQuery({ vacancyId: vacancyId as string }, { skip: !vacancyId })
+  const { data } = useGetVacancyQuery({ vacancyId: vacancyId as string }, { skip: !vacancyId })
 
   return (
     <div className={styles.main}>
-      <FullCardVacancy
-        title='UX/UI Дизайнер'
-        date='18 октября'
-        price={25000}
-        company='Beeline'
-        location={2}
-        viewCount={77}
-        description='Наша команда ищет Мидл/Старшего UI/UX Дизайнера. Важно, чтобы это был человек,
-        который способен не только создать красивый интерфейс, но и может полностью продумать продукт, 
-        его логику, UX. Мы в свою очередь обещаем работу над интересными 
-        продуктами и задачами в команде специалистов своего дела!'
-        responsibilities='1) Создавать крутые продукты!
-        2) Делать архитектуру продукта в форме чарта. По нему понятны все шаги, которые пользователь может сделать в приложении.
-        3) Работать над Вайрфреймами каждого экрана. Без использования цветов с фокусом на лэйаут каждого экрана.
-        4) Наконец рисовать сам дизайн продукта. Продумывать дизайн систему продукта и прорабатывать дизайн, чтобы он подходил конкретной группе пользователей'
-        requirements='1) Удаленная работа.
-        2) Работаем организованно: используем месенджеры, таск менеджеры (в которых ведем спринты), и тайм трекеры.
-        3) Большая часть работы ведется на английском языке, поэтому необходимо знание языка достаточного для изучения профессиональной литературы и общения на рабочие темы.'
-        schedule='1) Полный рабочий день - 8 часов.
-        2) График работы: Обязательно работать в период 9 утра - 6 вечера.'
-        phoneNumber='+7 (999) 999-99-99'
-        headerImage={1}
-        isFavorite={false}
-      />
-      <SimilarVacanciesSection />
+      {data?.vacancy && (
+        <FullCardVacancy
+          title={data.vacancy.post}
+          date={format(parseISO(data.vacancy.createdAt), 'dd MMMM', { locale: ru })}
+          price={data.vacancy.salary}
+          company={data.vacancy.employer.companyName}
+          location={data.vacancy.placeOfWork}
+          viewCount={data.vacancy.views}
+          description={data.vacancy.description}
+          responsibilities={data.vacancy.duties ? data.vacancy.duties : ''}
+          requirements={data.vacancy.requirements ? data.vacancy.requirements : ''}
+          schedule={data.vacancy.workingSchedule ? data.vacancy.workingSchedule : ''}
+          phoneNumber={data.vacancy.phone}
+          headerImage={data.vacancy.fieldOfActivity}
+          isFavorite={false}
+        />
+      )}
+      <SimilarVacanciesSection fieldOfActivity={data?.vacancy?.fieldOfActivity as number} vacancyId={vacancyId as string} />
     </div>
   )
 }

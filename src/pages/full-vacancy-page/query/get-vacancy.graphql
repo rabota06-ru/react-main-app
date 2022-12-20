@@ -4,6 +4,10 @@ query GetVacancy($vacancyId: String!) {
     post
     createdAt
     fieldOfActivity
+    phoneHidden
+    duties
+    requirements
+    workingSchedule
     salary
     placeOfWork
     employer {

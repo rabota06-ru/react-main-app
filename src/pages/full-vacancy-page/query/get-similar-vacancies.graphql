@@ -1,0 +1,9 @@
+query GetSimilarVacancies($fieldOfActivity: Int!, $id: String!) {
+  vacancies(where: { fieldOfActivity: { equals: $fieldOfActivity }, id: { not: { equals: $id } } }) {
+    id
+    salary
+    placeOfWork
+    post
+    fieldOfActivity
+  }
+}

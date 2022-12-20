@@ -7549,12 +7549,20 @@ export type GetResumeQueryVariables = Exact<{
 
 export type GetResumeQuery = { __typename?: 'Query', resume?: { __typename?: 'Resume', id: string, firstname: string, lastname?: string | null, placeOfResidence: number, views: number, fieldOfActivity: number } | null };
 
+export type GetSimilarVacanciesQueryVariables = Exact<{
+  fieldOfActivity: Scalars['Int'];
+  id: Scalars['String'];
+}>;
+
+
+export type GetSimilarVacanciesQuery = { __typename?: 'Query', vacancies: Array<{ __typename?: 'Vacancy', id: string, salary: number, placeOfWork: number, post: string, fieldOfActivity: number }> };
+
 export type GetVacancyQueryVariables = Exact<{
   vacancyId: Scalars['String'];
 }>;
 
 
-export type GetVacancyQuery = { __typename?: 'Query', vacancy?: { __typename?: 'Vacancy', id: string, post: string, createdAt: any, fieldOfActivity: number, salary: number, placeOfWork: number, views: number, description: string, phone: string, employer: { __typename?: 'EmployerProfile', companyName: string } } | null };
+export type GetVacancyQuery = { __typename?: 'Query', vacancy?: { __typename?: 'Vacancy', id: string, post: string, createdAt: any, fieldOfActivity: number, phoneHidden: boolean, duties?: string | null, requirements?: string | null, workingSchedule?: string | null, salary: number, placeOfWork: number, views: number, description: string, phone: string, employer: { __typename?: 'EmployerProfile', companyName: string } } | null };
 
 export type GetChatMessagesQueryVariables = Exact<{
   userId: Scalars['String'];
@@ -7711,6 +7719,19 @@ export const GetResumeDocument = `
   }
 }
     `;
+export const GetSimilarVacanciesDocument = `
+    query GetSimilarVacancies($fieldOfActivity: Int!, $id: String!) {
+  vacancies(
+    where: {fieldOfActivity: {equals: $fieldOfActivity}, id: {not: {equals: $id}}}
+  ) {
+    id
+    salary
+    placeOfWork
+    post
+    fieldOfActivity
+  }
+}
+    `;
 export const GetVacancyDocument = `
     query GetVacancy($vacancyId: String!) {
   vacancy(where: {id: $vacancyId}) {
@@ -7718,6 +7739,10 @@ export const GetVacancyDocument = `
     post
     createdAt
     fieldOfActivity
+    phoneHidden
+    duties
+    requirements
+    workingSchedule
     salary
     placeOfWork
     employer {
@@ -7856,6 +7881,9 @@ const injectedRtkApi = api.injectEndpoints({
     }),
     GetResume: build.query<GetResumeQuery, GetResumeQueryVariables>({
       query: (variables) => ({ document: GetResumeDocument, variables })
+    }),
+    GetSimilarVacancies: build.query<GetSimilarVacanciesQuery, GetSimilarVacanciesQueryVariables>({
+      query: (variables) => ({ document: GetSimilarVacanciesDocument, variables })
     }),
     GetVacancy: build.query<GetVacancyQuery, GetVacancyQueryVariables>({
       query: (variables) => ({ document: GetVacancyDocument, variables })
