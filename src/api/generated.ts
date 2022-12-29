@@ -7557,14 +7557,20 @@ export type GetVacancyQueryVariables = Exact<{
 export type GetVacancyQuery = { __typename?: 'Query', vacancy?: { __typename?: 'Vacancy', id: string, post: string, createdAt: any, fieldOfActivity: number, salary: number, placeOfWork: number, views: number, description: string, phone: string, employer: { __typename?: 'EmployerProfile', companyName: string } } | null };
 
 export type GetChatMessagesQueryVariables = Exact<{
-  userId: Scalars['String'];
-  applicantId: Scalars['String'];
+  chatId: Scalars['String'];
   skip: Scalars['Int'];
   take: Scalars['Int'];
 }>;
 
 
-export type GetChatMessagesQuery = { __typename?: 'Query', findFirstChat?: { __typename?: 'Chat', id: string, applicant: { __typename?: 'ApplicantProfile', resume?: { __typename?: 'Resume', firstname: string } | null } } | null, chatMessages: Array<{ __typename?: 'ChatMessage', id: string, message: string, sender: UserRole, createdAt: any }> };
+export type GetChatMessagesQuery = { __typename?: 'Query', chatMessages: Array<{ __typename?: 'ChatMessage', id: string, message: string, sender: UserRole, createdAt: any }> };
+
+export type GetChatInfoQueryVariables = Exact<{
+  chatId: Scalars['String'];
+}>;
+
+
+export type GetChatInfoQuery = { __typename?: 'Query', chat?: { __typename?: 'Chat', employer: { __typename?: 'EmployerProfile', companyName: string }, applicant: { __typename?: 'ApplicantProfile', resume?: { __typename?: 'Resume', firstname: string, lastname?: string | null } | null }, _count?: { __typename?: 'ChatCount', messages: number } | null } | null };
 
 export type SendMessageMutationVariables = Exact<{
   chatId: Scalars['String'];
@@ -7574,6 +7580,22 @@ export type SendMessageMutationVariables = Exact<{
 
 
 export type SendMessageMutation = { __typename?: 'Mutation', createOneChatMessage: { __typename?: 'ChatMessage', id: string, message: string, sender: UserRole, createdAt: any } };
+
+export type CreateChatMutationVariables = Exact<{
+  applicantId: Scalars['String'];
+  employerId: Scalars['String'];
+}>;
+
+
+export type CreateChatMutation = { __typename?: 'Mutation', createOneChat: { __typename?: 'Chat', id: string } };
+
+export type GetChatQueryVariables = Exact<{
+  applicantId: Scalars['String'];
+  employerId: Scalars['String'];
+}>;
+
+
+export type GetChatQuery = { __typename?: 'Query', chat?: { __typename?: 'Chat', id: string } | null };
 
 export type GetVacanciesWithResponsesQueryVariables = Exact<{
   userId: Scalars['String'];
@@ -7730,19 +7752,9 @@ export const GetVacancyDocument = `
 }
     `;
 export const GetChatMessagesDocument = `
-    query GetChatMessages($userId: String!, $applicantId: String!, $skip: Int!, $take: Int!) {
-  findFirstChat(
-    where: {applicantId: {equals: $applicantId}, employer: {is: {userId: {equals: $userId}}}}
-  ) {
-    id
-    applicant {
-      resume {
-        firstname
-      }
-    }
-  }
+    query GetChatMessages($chatId: String!, $skip: Int!, $take: Int!) {
   chatMessages(
-    where: {chat: {is: {applicantId: {equals: $applicantId}, employer: {is: {userId: {equals: $userId}}}}}}
+    where: {chatId: {equals: $chatId}}
     orderBy: {createdAt: desc}
     skip: $skip
     take: $take
@@ -7751,6 +7763,24 @@ export const GetChatMessagesDocument = `
     message
     sender
     createdAt
+  }
+}
+    `;
+export const GetChatInfoDocument = `
+    query GetChatInfo($chatId: String!) {
+  chat(where: {id: $chatId}) {
+    employer {
+      companyName
+    }
+    applicant {
+      resume {
+        firstname
+        lastname
+      }
+    }
+    _count {
+      messages
+    }
   }
 }
     `;
@@ -7763,6 +7793,24 @@ export const SendMessageDocument = `
     message
     sender
     createdAt
+  }
+}
+    `;
+export const CreateChatDocument = `
+    mutation CreateChat($applicantId: String!, $employerId: String!) {
+  createOneChat(
+    data: {applicant: {connect: {id: $applicantId}}, employer: {connect: {id: $employerId}}}
+  ) {
+    id
+  }
+}
+    `;
+export const GetChatDocument = `
+    query GetChat($applicantId: String!, $employerId: String!) {
+  chat(
+    where: {employerId_applicantId: {applicantId: $applicantId, employerId: $employerId}}
+  ) {
+    id
   }
 }
     `;
@@ -7864,8 +7912,17 @@ const injectedRtkApi = api.injectEndpoints({
     GetChatMessages: build.query<GetChatMessagesQuery, GetChatMessagesQueryVariables>({
       query: (variables) => ({ document: GetChatMessagesDocument, variables })
     }),
+    GetChatInfo: build.query<GetChatInfoQuery, GetChatInfoQueryVariables>({
+      query: (variables) => ({ document: GetChatInfoDocument, variables })
+    }),
     SendMessage: build.mutation<SendMessageMutation, SendMessageMutationVariables>({
       query: (variables) => ({ document: SendMessageDocument, variables })
+    }),
+    CreateChat: build.mutation<CreateChatMutation, CreateChatMutationVariables>({
+      query: (variables) => ({ document: CreateChatDocument, variables })
+    }),
+    GetChat: build.query<GetChatQuery, GetChatQueryVariables>({
+      query: (variables) => ({ document: GetChatDocument, variables })
     }),
     GetVacanciesWithResponses: build.query<GetVacanciesWithResponsesQuery, GetVacanciesWithResponsesQueryVariables>({
       query: (variables) => ({ document: GetVacanciesWithResponsesDocument, variables })

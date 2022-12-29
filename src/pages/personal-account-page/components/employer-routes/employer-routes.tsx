@@ -11,8 +11,8 @@ export function EmployerRoutes() {
       <Route path={routes.personalAccount.nested.messages.absoluteExact}>
         <EmployerMessages />
       </Route>
-      <Route path={routes.personalAccount.nested.messages.nested.chat(':profileId').absoluteExact}>
-        <Chat />
+      <Route path={routes.personalAccount.nested.messages.nested.chat(':chatId').absoluteExact}>
+        {params => params.chatId && <Chat chatId={params.chatId} />}
       </Route>
       <Route path={routes.personalAccount.nested.settings.absoluteExact}>test4</Route>
       <Redirect to={routes.personalAccount.nested.allResumes.absoluteExact} />

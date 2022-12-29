@@ -1,0 +1,13 @@
+.chat {
+  &SendBar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 30px;
+  }
+  &TextArea {
+    width: 100%;
+    min-height: 80px;
+    margin-bottom: 10px;
+  }
+}

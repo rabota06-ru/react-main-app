@@ -2,24 +2,22 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { UserRole } from 'api/generated'
 import { SlicesNames } from 'store/slices-names'
 
+export type AuthenticatedUser<T extends UserRole> = {
+  id: string
+  name: string | null
+  role: T
+} & (T extends UserRole.Applicant
+  ? {
+      applicantId: string
+    }
+  : {
+      employerId: string
+    })
+
 interface AuthSliceState {
   isAuthModalShown: boolean
   accessToken: string | null
-  user:
-    | ({
-        id: string
-        name: string | null
-      } & (
-        | {
-            role: UserRole.Employer
-            employerId: string
-          }
-        | {
-            role: UserRole.Applicant
-            applicantId: string
-          }
-      ))
-    | null
+  user: AuthenticatedUser<UserRole> | null
 }
 
 export const authSlice = createSlice({

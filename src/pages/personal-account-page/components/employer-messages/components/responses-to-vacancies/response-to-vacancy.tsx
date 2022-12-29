@@ -1,4 +1,4 @@
-import { GetVacancyResponsesQuery } from 'api/generated'
+import { GetVacancyResponsesQuery, UserRole } from 'api/generated'
 import { Button, ButtonVariant } from 'kit/components/button'
 import { Divider } from 'kit/components/divider'
 import { format } from 'date-fns'
@@ -48,7 +48,12 @@ export function ResponseToVacancy({ response }: ResponseToVacancyProps) {
       <Divider className={styles.responseToVacancyDivider} />
       {response.coverLetter && <p className={styles.responseToVacancyCoverLetter}>{response.coverLetter}</p>}
       <div className={styles.responseToVacancyActions}>
-        <Button onClick={() => goToChatWithApplicant(response.resume.applicantProfileId)}>Ответить</Button>
+        <Button
+          onClick={() => goToChatWithApplicant(response.resume.applicantProfileId)}
+          isLoading={getChatQueryData.isLoading || createChatMutationData.isLoading}
+        >
+          Ответить
+        </Button>
         <Button variant={ButtonVariant.Outline}>Показать телефон</Button>
       </div>
     </div>

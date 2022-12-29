@@ -1,0 +1,6 @@
+# Создать чат
+mutation CreateChat($applicantId: String!, $employerId: String!) {
+  createOneChat(data: { applicant: { connect: { id: $applicantId } }, employer: { connect: { id: $employerId } } }) {
+    id
+  }
+}
