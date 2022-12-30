@@ -7,18 +7,10 @@ type ChatSliceState = {
   messages: GetChatMessagesQuery['chatMessages'] // список всех загруженных сообщений
   page: number // номер страницы, который сигнализирует сколько пактов сообщений было загружено
   totalMessagesCount: number // количество всех сообщений в чате за всё время
-} & (
-  | {
-      chatId: null // id чата
-      myName: null // моя имя, т е залогиненного пользователя
-      companionName: null // имя собеседника, с кем общается залогиненный пользователь
-    }
-  | {
-      chatId: string
-      myName: string
-      companionName: string
-    }
-)
+  chatId: string | null // id чата
+  myName: string | null // моя имя, т е залогиненного пользователя
+  companionName: string | null // имя собеседника, с кем общается залогиненный пользователь
+}
 
 export type SetChatInfoPayload = {
   totalMessagesCount: ChatSliceState['totalMessagesCount']

@@ -7556,6 +7556,13 @@ export type GetVacancyQueryVariables = Exact<{
 
 export type GetVacancyQuery = { __typename?: 'Query', vacancy?: { __typename?: 'Vacancy', id: string, post: string, createdAt: any, fieldOfActivity: number, salary: number, placeOfWork: number, views: number, description: string, phone: string, employer: { __typename?: 'EmployerProfile', companyName: string } } | null };
 
+export type GetChatInfoQueryVariables = Exact<{
+  chatId: Scalars['String'];
+}>;
+
+
+export type GetChatInfoQuery = { __typename?: 'Query', chat?: { __typename?: 'Chat', employer: { __typename?: 'EmployerProfile', companyName: string }, applicant: { __typename?: 'ApplicantProfile', resume?: { __typename?: 'Resume', firstname: string, lastname?: string | null } | null }, _count?: { __typename?: 'ChatCount', messages: number } | null } | null };
+
 export type GetChatMessagesQueryVariables = Exact<{
   chatId: Scalars['String'];
   skip: Scalars['Int'];
@@ -7565,12 +7572,13 @@ export type GetChatMessagesQueryVariables = Exact<{
 
 export type GetChatMessagesQuery = { __typename?: 'Query', chatMessages: Array<{ __typename?: 'ChatMessage', id: string, message: string, sender: UserRole, createdAt: any }> };
 
-export type GetChatInfoQueryVariables = Exact<{
+export type GetNewMessagesQueryVariables = Exact<{
   chatId: Scalars['String'];
+  messageFrom: Scalars['DateTime'];
 }>;
 
 
-export type GetChatInfoQuery = { __typename?: 'Query', chat?: { __typename?: 'Chat', employer: { __typename?: 'EmployerProfile', companyName: string }, applicant: { __typename?: 'ApplicantProfile', resume?: { __typename?: 'Resume', firstname: string, lastname?: string | null } | null }, _count?: { __typename?: 'ChatCount', messages: number } | null } | null };
+export type GetNewMessagesQuery = { __typename?: 'Query', chatMessages: Array<{ __typename?: 'ChatMessage', id: string, message: string, sender: UserRole, createdAt: any }> };
 
 export type SendMessageMutationVariables = Exact<{
   chatId: Scalars['String'];
@@ -7751,21 +7759,6 @@ export const GetVacancyDocument = `
   }
 }
     `;
-export const GetChatMessagesDocument = `
-    query GetChatMessages($chatId: String!, $skip: Int!, $take: Int!) {
-  chatMessages(
-    where: {chatId: {equals: $chatId}}
-    orderBy: {createdAt: desc}
-    skip: $skip
-    take: $take
-  ) {
-    id
-    message
-    sender
-    createdAt
-  }
-}
-    `;
 export const GetChatInfoDocument = `
     query GetChatInfo($chatId: String!) {
   chat(where: {id: $chatId}) {
@@ -7781,6 +7774,31 @@ export const GetChatInfoDocument = `
     _count {
       messages
     }
+  }
+}
+    `;
+export const GetChatMessagesDocument = `
+    query GetChatMessages($chatId: String!, $skip: Int!, $take: Int!) {
+  chatMessages(
+    where: {chatId: {equals: $chatId}}
+    orderBy: {createdAt: desc}
+    skip: $skip
+    take: $take
+  ) {
+    id
+    message
+    sender
+    createdAt
+  }
+}
+    `;
+export const GetNewMessagesDocument = `
+    query GetNewMessages($chatId: String!, $messageFrom: DateTime!) {
+  chatMessages(where: {chatId: {equals: $chatId}, createdAt: {gt: $messageFrom}}) {
+    id
+    message
+    sender
+    createdAt
   }
 }
     `;
@@ -7909,11 +7927,14 @@ const injectedRtkApi = api.injectEndpoints({
     GetVacancy: build.query<GetVacancyQuery, GetVacancyQueryVariables>({
       query: (variables) => ({ document: GetVacancyDocument, variables })
     }),
+    GetChatInfo: build.query<GetChatInfoQuery, GetChatInfoQueryVariables>({
+      query: (variables) => ({ document: GetChatInfoDocument, variables })
+    }),
     GetChatMessages: build.query<GetChatMessagesQuery, GetChatMessagesQueryVariables>({
       query: (variables) => ({ document: GetChatMessagesDocument, variables })
     }),
-    GetChatInfo: build.query<GetChatInfoQuery, GetChatInfoQueryVariables>({
-      query: (variables) => ({ document: GetChatInfoDocument, variables })
+    GetNewMessages: build.query<GetNewMessagesQuery, GetNewMessagesQueryVariables>({
+      query: (variables) => ({ document: GetNewMessagesDocument, variables })
     }),
     SendMessage: build.mutation<SendMessageMutation, SendMessageMutationVariables>({
       query: (variables) => ({ document: SendMessageDocument, variables })
