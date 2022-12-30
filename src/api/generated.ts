@@ -7561,7 +7561,7 @@ export type GetChatInfoQueryVariables = Exact<{
 }>;
 
 
-export type GetChatInfoQuery = { __typename?: 'Query', chat?: { __typename?: 'Chat', employer: { __typename?: 'EmployerProfile', companyName: string }, applicant: { __typename?: 'ApplicantProfile', resume?: { __typename?: 'Resume', firstname: string, lastname?: string | null } | null }, _count?: { __typename?: 'ChatCount', messages: number } | null } | null };
+export type GetChatInfoQuery = { __typename?: 'Query', chat?: { __typename?: 'Chat', id: string, employer: { __typename?: 'EmployerProfile', companyName: string }, applicant: { __typename?: 'ApplicantProfile', resume?: { __typename?: 'Resume', firstname: string, lastname?: string | null } | null }, _count?: { __typename?: 'ChatCount', messages: number } | null } | null };
 
 export type GetChatMessagesQueryVariables = Exact<{
   chatId: Scalars['String'];
@@ -7762,6 +7762,7 @@ export const GetVacancyDocument = `
 export const GetChatInfoDocument = `
     query GetChatInfo($chatId: String!) {
   chat(where: {id: $chatId}) {
+    id
     employer {
       companyName
     }

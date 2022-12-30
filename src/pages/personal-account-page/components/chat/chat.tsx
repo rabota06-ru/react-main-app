@@ -30,6 +30,10 @@ export function Chat({ chatId }: ChatProps) {
       .then(response => {
         dispatch(chatSlice.actions.setChatInfo(mapGetChatInfoQueryResponse(user!.role, response)))
       })
+
+    return () => {
+      dispatch(chatSlice.actions.reset())
+    }
   }, [chatId])
 
   return (

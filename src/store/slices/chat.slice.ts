@@ -13,6 +13,7 @@ type ChatSliceState = {
 }
 
 export type SetChatInfoPayload = {
+  chatId: string
   totalMessagesCount: ChatSliceState['totalMessagesCount']
   myName: ChatSliceState['myName']
   companionName: ChatSliceState['companionName']
@@ -40,15 +41,16 @@ export const chatSlice = createSlice({
     increasePage(state: ChatSliceState) {
       state.page += 1
     },
+    setChatInfo(state: ChatSliceState, action: PayloadAction<SetChatInfoPayload>) {
+      state.chatId = action.payload.chatId
+      state.totalMessagesCount = action.payload.totalMessagesCount
+      state.myName = action.payload.myName
+      state.companionName = action.payload.companionName
+    },
     reset(state: ChatSliceState) {
       objectEntries(initialState).forEach(([key, value]) => {
         state[key] = value as never
       })
-    },
-    setChatInfo(state: ChatSliceState, action: PayloadAction<SetChatInfoPayload>) {
-      state.totalMessagesCount = action.payload.totalMessagesCount
-      state.myName = action.payload.myName
-      state.companionName = action.payload.companionName
     },
   },
 })
