@@ -31,8 +31,15 @@ export function MessageBar({ chatId, scrollBottom }: MessageBarProps) {
 
   return (
     <div className={styles.chatSendBar}>
-      <TextArea className={styles.chatTextArea} value={message} onChange={event => setMessage(event.target.value)} />
-      <Button size={ButtonSize.Small} isDisabled={message.length === 0 || sendMessageData.isLoading} onClick={sendMessage}>
+      <TextArea
+        className={styles.chatTextArea}
+        placeholder='Текст сообщения'
+        value={message}
+        isAutoAdaptableHeight
+        maxHeight={300}
+        onChange={event => setMessage(event.target.value)}
+      />
+      <Button size={ButtonSize.Small} isLoading={sendMessageData.isLoading} isDisabled={message.length === 0} onClick={sendMessage}>
         Отправить
       </Button>
     </div>

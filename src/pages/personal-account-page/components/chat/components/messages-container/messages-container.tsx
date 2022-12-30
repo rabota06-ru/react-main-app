@@ -61,11 +61,10 @@ export const MessagesContainer = forwardRef<HTMLDivElement, MessagesContainerPro
             [styles.chatMessageInterlocutor]: message.sender !== user?.role,
           })}
         >
-          <p>{message.message}</p>
-
+          <p className={styles.chatMessageText}>{message.message}</p>
           <div className={styles.chatMessageInfo}>
             <p className={styles.chatMessageInfoSender}>{user?.role === message.sender ? chatInfo.myName : chatInfo.companionName}</p>
-            <p>{format(new Date(message.createdAt), 'd MMMM yyyy, HH:mm', { locale: ru })}</p>
+            <p className={styles.chatMessageInfoDate}>{format(new Date(message.createdAt), 'd MMMM yyyy, HH:mm', { locale: ru })}</p>
           </div>
         </div>
       ))}
