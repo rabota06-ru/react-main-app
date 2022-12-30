@@ -1,7 +1,3 @@
-.responses {
-  margin-top: 20px;
-}
-
 .vacancyCard {
   padding: 20px 30px;
   width: 100%;
@@ -9,6 +5,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--secondaryColor3);
+    &:last-child {
+      border-bottom: unset;
+    }
   }
   &Top {
     display: flex;
@@ -32,12 +33,20 @@
         margin-left: 20px;
         font-size: 18px;
         font-weight: bold;
+        color: #222222;
       }
     }
     &Right {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      justify-content: center;
+      gap: 10px;
+      &Date,
+      &Views {
+        color: var(--secondaryColor2);
+        font-size: 14px;
+      }
     }
   }
   &Content {
@@ -47,6 +56,65 @@
     &Actions {
       display: flex;
       gap: 20px;
+    }
+  }
+  &ShowMessages {
+    &Button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+    }
+    &Arrow {
+      &Down {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 18px;
+        height: 15px;
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          background-color: var(--primaryColor);
+          width: 3px;
+          height: 18px;
+          transition: transform 0.3s;
+        }
+        &::before {
+          transform: rotate(-60deg);
+          left: 0;
+        }
+        &::after {
+          transform: rotate(60deg);
+          right: 0;
+        }
+      }
+      &Up {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 18px;
+        height: 15px;
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          background-color: var(--primaryColor);
+          width: 3px;
+          height: 18px;
+          transition: transform 0.3s;
+        }
+        &::before {
+          transform: rotate(-120deg);
+          left: 0;
+        }
+        &::after {
+          transform: rotate(120deg);
+          right: 0;
+        }
+      }
     }
   }
   &Responses {
@@ -62,17 +130,24 @@
   flex-direction: column;
   width: 70%;
   background-color: #ecf9ff;
-  padding: 20px 40px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
   &Top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 22px;
+    padding: 20px 40px;
     &Left {
       display: flex;
       align-items: center;
-      &Title {
-        margin-right: 20px;
+      &FromWho {
+        color: var(--secondaryColor2);
+      }
+      &Name {
+        font-weight: bold;
       }
       &Icon {
         &Container {
@@ -87,15 +162,17 @@
       }
     }
   }
-  &Divider {
-    margin-bottom: 20px;
+  &Date {
+    color: var(--secondaryColor2);
   }
   &CoverLetter {
-    margin-bottom: 40px;
+    margin: 20px 40px 30px;
+    font-size: 14px;
   }
   &Actions {
     display: flex;
     gap: 20px;
     align-self: flex-end;
+    margin: 0 40px 30px;
   }
 }

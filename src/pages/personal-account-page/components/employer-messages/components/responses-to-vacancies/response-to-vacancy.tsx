@@ -10,6 +10,8 @@ import useTypedSelector from 'hooks/use-typed-selector'
 import { AuthenticatedUser } from 'store/slices/auth.slice'
 import { useCreateChatMutation, useLazyGetChatQuery } from 'api/enhancedApi'
 import { useLocation } from 'wouter'
+import { CssVariable } from 'utils/get-css-variable'
+import { Box } from 'kit/components/box'
 import styles from './responses-to-vacancies.module.scss'
 
 interface ResponseToVacancyProps {
@@ -38,14 +40,17 @@ export function ResponseToVacancy({ response }: ResponseToVacancyProps) {
     <div className={styles.responseToVacancy}>
       <div className={styles.responseToVacancyTop}>
         <div className={styles.responseToVacancyTopLeft}>
-          <p className={styles.responseToVacancyTopLeftTitle}>От кого: {response.resume.firstname}</p>
+          <Box flex gap={10} mr={20}>
+            <p className={styles.responseToVacancyTopLeftFromWho}>От кого:</p>
+            <p className={styles.responseToVacancyTopLeftName}>{response.resume.firstname}</p>
+          </Box>
           <div className={styles.responseToVacancyTopLeftIconContainer}>
             {createElement(FIELDS_OF_ACTIVITY_IMAGE[numberToFieldOfActivity(response.resume.fieldOfActivity)])}
           </div>
         </div>
-        <p>{format(new Date(response.createdAt), 'HH:mm, d MMMM', { locale: ru })}</p>
+        <p className={styles.responseToVacancyDate}>{format(new Date(response.createdAt), 'HH:mm, d MMMM', { locale: ru })}</p>
       </div>
-      <Divider className={styles.responseToVacancyDivider} />
+      <Divider color={CssVariable.SecondaryColor3} />
       {response.coverLetter && <p className={styles.responseToVacancyCoverLetter}>{response.coverLetter}</p>}
       <div className={styles.responseToVacancyActions}>
         <Button

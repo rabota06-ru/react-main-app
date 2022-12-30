@@ -1,5 +1,4 @@
 import React, { PropsWithChildren, createContext, useMemo } from 'react'
-import styles from './tabs.module.scss'
 
 interface ITabsContext {
   selectedIndex?: number
@@ -38,17 +37,5 @@ interface TabsProps<T extends number> extends PropsWithChildren {
 export function Tabs<T extends number>({ children, selectedIndex, onSelect }: TabsProps<T>) {
   const value = useMemo(() => ({ selectedIndex, onSelect }), [selectedIndex, onSelect])
 
-  return (
-    <TabsContext.Provider value={value as unknown as ITabsContext}>
-      <div className={styles.tabs}>
-        {React.Children.map(children, (child: any, index) => {
-          if (index === 0) {
-            return React.cloneElement(child, { selectedIndex })
-          }
-
-          return React.cloneElement(child, { isShown: index - 1 === selectedIndex })
-        })}
-      </div>
-    </TabsContext.Provider>
-  )
+  return <TabsContext.Provider value={value as unknown as ITabsContext}>{children}</TabsContext.Provider>
 }

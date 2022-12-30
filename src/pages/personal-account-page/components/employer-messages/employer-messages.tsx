@@ -11,7 +11,7 @@ export function EmployerMessages() {
     <div className={styles.messages}>
       <p className={styles.messagesTitle}>Сообщения</p>
       <Tabs onSelect={setSelectedTab} selectedIndex={selectedTab}>
-        <TabList>
+        <TabList className={styles.messagesTabList}>
           <Tab index={EmployerMessagesTab.FromEmployers}>От работодателей</Tab>
           <Tab index={EmployerMessagesTab.FromAdmins}>От администрации</Tab>
         </TabList>

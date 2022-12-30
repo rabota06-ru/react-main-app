@@ -1,0 +1,11 @@
+.box {
+  &_DisplayFlex {
+    display: flex;
+  }
+  &_AlignItemsCenter {
+    align-items: center;
+  }
+  &_JustifyContentCenter {
+    justify-content: center;
+  }
+}

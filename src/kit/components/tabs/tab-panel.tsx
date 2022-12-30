@@ -1,13 +1,11 @@
-import { PropsWithChildren, useContext } from 'react'
+import { HTMLAttributes, useContext } from 'react'
 import { TabsContext } from './tabs'
-import styles from './tabs.module.scss'
 
-interface TabPanelProps<T extends number> extends PropsWithChildren {
+interface TabPanelProps<T extends number> extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   index: T
 }
 
-export function TabPanel<T extends number>({ children, index }: TabPanelProps<T>) {
+export function TabPanel<T extends number>({ children, index, ...props }: TabPanelProps<T>) {
   const { selectedIndex } = useContext(TabsContext)
-
-  return index === selectedIndex ? <div className={styles.tabsPanel}>{children}</div> : null
+  return index === selectedIndex ? <div {...props}>{children}</div> : null
 }
