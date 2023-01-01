@@ -1,5 +1,6 @@
 import { LoadingOverlay } from 'components/loading-overlay'
 import { useEffect, useState } from 'react'
+import cn from 'classnames'
 import styles from './infinity-list.module.scss'
 
 interface InfinityListProps<Item> {
@@ -51,9 +52,9 @@ export function InfinityList<Item>({
   }, [page, loadableItemsCount])
 
   return (
-    <div onScroll={handleScroll} className={styles.list}>
+    <div onScroll={handleScroll} className={cn(styles.list, { [styles.list_ScrollDisabled]: isLoading })}>
       {items.map(item => renderItem(item))}
-      {isLoading && <LoadingOverlay isAbsolute />}
+      {isLoading && <LoadingOverlay isSticky />}
     </div>
   )
 }

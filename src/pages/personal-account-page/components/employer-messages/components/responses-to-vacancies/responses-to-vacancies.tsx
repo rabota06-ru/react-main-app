@@ -2,6 +2,7 @@ import { useLazyGetVacanciesWithResponsesQuery } from 'api/enhancedApi'
 import useTypedSelector from 'hooks/use-typed-selector'
 import { InfinityList } from 'kit/components/infinity-list/infinity-list'
 import { VacancyCard } from './vacancy-card'
+import styles from './responses-to-vacancies.module.scss'
 
 export function ResponsesToVacancies() {
   const user = useTypedSelector(state => state.auth.user)
@@ -13,7 +14,7 @@ export function ResponsesToVacancies() {
   }
 
   return (
-    <div style={{ height: '100%' }}>
+    <div className={styles.responsesToVacancies}>
       <InfinityList
         renderItem={vacancy => <VacancyCard key={vacancy.id} vacancy={vacancy} />}
         loadableItemsCount={20}

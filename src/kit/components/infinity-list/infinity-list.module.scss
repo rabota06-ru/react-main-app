@@ -2,4 +2,7 @@
   height: 100%;
   overflow: auto;
   position: relative;
+  &_ScrollDisabled {
+    pointer-events: none;
+  }
 }
