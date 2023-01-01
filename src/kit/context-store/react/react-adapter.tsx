@@ -13,12 +13,10 @@ export function createContextStore<
       subscribe: store.subscribe,
       unsubscribe: store.unsubscribe,
     })
-    const contextValue = useMemo(
-      () => ({ subscribe: store.subscribe, unsubscribe: store.unsubscribe }),
-      [store.subscribe, store.unsubscribe]
-    )
 
     function Provider({ children }: PropsWithChildren) {
+      const contextValue = useMemo(() => ({ subscribe: store.subscribe, unsubscribe: store.unsubscribe }), [])
+
       useEffect(() => {
         store.init()
 
