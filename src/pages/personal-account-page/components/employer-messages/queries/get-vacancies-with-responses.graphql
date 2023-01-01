@@ -1,5 +1,5 @@
-query GetVacanciesWithResponses($userId: String!) {
-  vacancies(where: { employer: { is: { userId: { equals: $userId } } }, responses: { some: {} } }) {
+query GetVacanciesWithResponses($userId: String!, $take: Int!, $skip: Int!) {
+  vacancies(where: { employer: { is: { userId: { equals: $userId } } }, responses: { some: {} } }, take: $take, skip: $skip) {
     id
     fieldOfActivity
     post

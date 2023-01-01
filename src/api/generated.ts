@@ -7607,6 +7607,8 @@ export type GetChatQuery = { __typename?: 'Query', chat?: { __typename?: 'Chat',
 
 export type GetVacanciesWithResponsesQueryVariables = Exact<{
   userId: Scalars['String'];
+  take: Scalars['Int'];
+  skip: Scalars['Int'];
 }>;
 
 
@@ -7834,9 +7836,11 @@ export const GetChatDocument = `
 }
     `;
 export const GetVacanciesWithResponsesDocument = `
-    query GetVacanciesWithResponses($userId: String!) {
+    query GetVacanciesWithResponses($userId: String!, $take: Int!, $skip: Int!) {
   vacancies(
     where: {employer: {is: {userId: {equals: $userId}}}, responses: {some: {}}}
+    take: $take
+    skip: $skip
   ) {
     id
     fieldOfActivity

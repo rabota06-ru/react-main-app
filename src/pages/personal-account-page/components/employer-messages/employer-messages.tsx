@@ -15,7 +15,7 @@ export function EmployerMessages() {
           <Tab index={EmployerMessagesTab.FromEmployers}>От работодателей</Tab>
           <Tab index={EmployerMessagesTab.FromAdmins}>От администрации</Tab>
         </TabList>
-        <TabPanel index={EmployerMessagesTab.FromEmployers}>
+        <TabPanel index={EmployerMessagesTab.FromEmployers} className={styles.messagesTabPanel}>
           <ResponsesToVacancies />
         </TabPanel>
         <TabPanel index={EmployerMessagesTab.FromAdmins}>admin</TabPanel>
