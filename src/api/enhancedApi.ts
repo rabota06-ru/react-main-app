@@ -20,6 +20,7 @@ export const {
   useCreateResumeMutation,
   useLazyGetUserQuery,
   useGetVacanciesWithResponsesQuery,
+  useLazyGetVacanciesWithResponsesQuery,
   useLazyGetVacancyResponsesQuery,
   useLazyGetChatMessagesQuery,
   useSendMessageMutation,

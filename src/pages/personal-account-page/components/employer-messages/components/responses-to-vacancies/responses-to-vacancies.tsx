@@ -1,23 +1,24 @@
-import { useGetVacanciesWithResponsesQuery } from 'api/enhancedApi'
+import { useLazyGetVacanciesWithResponsesQuery } from 'api/enhancedApi'
 import useTypedSelector from 'hooks/use-typed-selector'
-import { useState } from 'react'
+import { InfinityList } from 'kit/components/infinity-list/infinity-list'
 import { VacancyCard } from './vacancy-card'
-
-const FETCH_RESPONSES_COUNT = 10
 
 export function ResponsesToVacancies() {
   const user = useTypedSelector(state => state.auth.user)
-  const [page, setPage] = useState(1)
-  const getVacanciesWithResponsesData = useGetVacanciesWithResponsesQuery(
-    { userId: user!.id, skip: (page - 1) * FETCH_RESPONSES_COUNT, take: FETCH_RESPONSES_COUNT },
-    { skip: user === null }
-  )
+  const [getVacanciesWithResponses] = useLazyGetVacanciesWithResponsesQuery()
+
+  const handleFetchVacancies = async (page: number, count: number) => {
+    const response = await getVacanciesWithResponses({ userId: user!.id, take: count, skip: (page - 1) * count }).unwrap()
+    return response.vacancies
+  }
 
   return (
-    <div>
-      {getVacanciesWithResponsesData.data?.vacancies.map(vacancy => (
-        <VacancyCard key={vacancy.id} vacancy={vacancy} />
-      ))}
+    <div style={{ height: '100%' }}>
+      <InfinityList
+        renderItem={vacancy => <VacancyCard key={vacancy.id} vacancy={vacancy} />}
+        loadableItemsCount={20}
+        fetchItems={handleFetchVacancies}
+      />
     </div>
   )
 }
