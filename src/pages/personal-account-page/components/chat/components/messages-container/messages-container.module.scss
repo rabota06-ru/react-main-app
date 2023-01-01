@@ -28,13 +28,18 @@
     &Interlocutor {
       margin-right: auto;
       margin-left: 20px;
-      background-color: #e5ffe3;
       #{$Message} {
         &Info {
           right: unset;
           left: 0;
         }
       }
+    }
+    &WithAdmin {
+      background-color: #faf1d8;
+    }
+    &WithEmployerOrApplicant {
+      background-color: #e5ffe3;
     }
     &Text {
       font-size: 14px;

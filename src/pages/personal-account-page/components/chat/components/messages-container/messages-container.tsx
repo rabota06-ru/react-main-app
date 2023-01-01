@@ -7,14 +7,16 @@ import useTypedSelector from 'hooks/use-typed-selector'
 import { useForwardedRef } from 'kit/hooks'
 import { forwardRef, UIEvent, useEffect } from 'react'
 import { chatSlice } from 'store/slices/chat.slice'
+import { ChatType } from '../../chat.constants'
 import { NextMessagesLoading } from './components/next-messages-loading/next-messages-loading'
 import styles from './messages-container.module.scss'
 
 interface MessagesContainerProps {
   chatId: string
+  type: ChatType
 }
 
-export const MessagesContainer = forwardRef<HTMLDivElement, MessagesContainerProps>(({ chatId }, ref) => {
+export const MessagesContainer = forwardRef<HTMLDivElement, MessagesContainerProps>(({ chatId, type }, ref) => {
   const user = useTypedSelector(state => state.auth.user)
   const messages = useTypedSelector(state => state.chat.messages)
   const page = useTypedSelector(state => state.chat.page)
@@ -59,6 +61,8 @@ export const MessagesContainer = forwardRef<HTMLDivElement, MessagesContainerPro
           className={cn(styles.chatMessage, {
             [styles.chatMessageMe]: message.sender === user?.role,
             [styles.chatMessageInterlocutor]: message.sender !== user?.role,
+            [styles.chatMessageWithAdmin]: type === ChatType.WithAdmin && message.sender !== user?.role,
+            [styles.chatMessageWithEmployerOrApplicant]: type === ChatType.WithEmployerOrApplicant && message.sender !== user?.role,
           })}
         >
           <p className={styles.chatMessageText}>{message.message}</p>

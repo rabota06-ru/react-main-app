@@ -3,6 +3,7 @@ import useTypedDispatch from 'hooks/use-typed-dispatch'
 import useTypedSelector from 'hooks/use-typed-selector'
 import { useCallback, useEffect, useRef } from 'react'
 import { chatSlice } from 'store/slices/chat.slice'
+import { ChatType } from './chat.constants'
 import styles from './chat.module.scss'
 import { mapGetChatInfoQueryResponse } from './chat.utils'
 import { MessageBar } from './components/message-bar/message-bar'
@@ -10,9 +11,10 @@ import { MessagesContainer } from './components/messages-container/messages-cont
 
 interface ChatProps {
   chatId: string
+  type: ChatType
 }
 
-export function Chat({ chatId }: ChatProps) {
+export function Chat({ chatId, type }: ChatProps) {
   const user = useTypedSelector(state => state.auth.user)
   const messagesContainerRef = useRef<HTMLDivElement>(null)
   const [getChatInfoQuery] = useLazyGetChatInfoQuery()
@@ -38,7 +40,7 @@ export function Chat({ chatId }: ChatProps) {
 
   return (
     <div className={styles.chat}>
-      <MessagesContainer chatId={chatId} ref={messagesContainerRef} />
+      <MessagesContainer chatId={chatId} type={type} ref={messagesContainerRef} />
       <MessageBar chatId={chatId} scrollBottom={scrollToBottom} />
     </div>
   )
