@@ -9,8 +9,8 @@ export type CreateContextStoreOptions<
 
 export type UseSelectorCallback<State extends Record<string, any>, Value> = (state: State) => Value
 
-export type ContextStore<State extends Record<string, any>, UseCases extends UseCasesType> = [
-  FC<PropsWithChildren>,
+export type ContextStore<State extends Record<string, any>, Services extends Record<string, object>, UseCases extends UseCasesType> = [
+  FC<PropsWithChildren<{ services: Services }>>,
   <Value>(cb: (state: State) => Value) => Value,
-  UseCases
+  () => UseCases
 ]
