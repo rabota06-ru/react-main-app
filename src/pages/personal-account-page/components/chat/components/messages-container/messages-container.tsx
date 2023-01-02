@@ -56,19 +56,21 @@ export const MessagesContainer = forwardRef<HTMLDivElement, MessagesContainerPro
     <div className={styles.chatMessages} ref={messagesContainerRef} onScroll={handleMessagesContainerScroll}>
       {getChatMessagesQueryData.isFetching && <NextMessagesLoading />}
       {messages.map(message => (
-        <div
-          key={message.id}
-          className={cn(styles.chatMessage, {
-            [styles.chatMessageMe]: message.sender === user?.role,
-            [styles.chatMessageInterlocutor]: message.sender !== user?.role,
-            [styles.chatMessageWithAdmin]: type === ChatType.WithAdmin && message.sender !== user?.role,
-            [styles.chatMessageWithEmployerOrApplicant]: type === ChatType.WithEmployerOrApplicant && message.sender !== user?.role,
-          })}
-        >
-          <p className={styles.chatMessageText}>{message.message}</p>
-          <div className={styles.chatMessageInfo}>
+        <div className={styles.chatMessageContainer}>
+          <div className={cn(styles.chatMessageInfo, { [styles.chatMessageInfoMe]: message.sender === user?.role })}>
             <p className={styles.chatMessageInfoSender}>{user?.role === message.sender ? chatInfo.myName : chatInfo.companionName}</p>
             <p className={styles.chatMessageInfoDate}>{format(new Date(message.createdAt), 'd MMMM yyyy, HH:mm', { locale: ru })}</p>
+          </div>
+          <div
+            key={message.id}
+            className={cn(styles.chatMessage, {
+              [styles.chatMessageMe]: message.sender === user?.role,
+              [styles.chatMessageInterlocutor]: message.sender !== user?.role,
+              [styles.chatMessageWithAdmin]: type === ChatType.WithAdmin && message.sender !== user?.role,
+              [styles.chatMessageWithEmployerOrApplicant]: type === ChatType.WithEmployerOrApplicant && message.sender !== user?.role,
+            })}
+          >
+            <p className={styles.chatMessageText}>{message.message}</p>
           </div>
         </div>
       ))}
