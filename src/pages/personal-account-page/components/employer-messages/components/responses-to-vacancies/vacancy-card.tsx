@@ -12,6 +12,7 @@ import { ReactComponent as LocationIcon } from 'assets/images/location.svg'
 import { ReactComponent as RubbleIcon } from 'assets/images/ruble.svg'
 import { Box } from 'kit/components/box'
 import cn from 'classnames'
+import { useMediaValue } from 'kit/hooks'
 import { ResponseToVacancy } from './response-to-vacancy'
 import styles from './responses-to-vacancies.module.scss'
 
@@ -22,6 +23,7 @@ interface VacancyCardProps {
 export function VacancyCard({ vacancy }: VacancyCardProps) {
   const [isResponsesShown, setIsResponsesShown] = useState(false)
   const [getVacancyResponsesQuery, getVacancyResponsesData] = useLazyGetVacancyResponsesQuery({})
+  const buttonsSize = useMediaValue({ xs: ButtonSize.Small, lg: ButtonSize.Medium })
 
   const toggleResponses = (vacancyId: string) => {
     setIsResponsesShown(!isResponsesShown)
@@ -56,8 +58,12 @@ export function VacancyCard({ vacancy }: VacancyCardProps) {
             </Box>
           </div>
           <div className={styles.vacancyCardContentActions}>
-            <Button isShadow>Посмотреть</Button>
-            <Button variant={ButtonVariant.Outline}>В архив</Button>
+            <Button isShadow size={buttonsSize}>
+              Посмотреть
+            </Button>
+            <Button variant={ButtonVariant.Outline} size={buttonsSize}>
+              В архив
+            </Button>
           </div>
         </div>
       </Card>

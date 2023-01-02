@@ -1,3 +1,5 @@
+@import '/src/scss/variables';
+
 .vacancyCard {
   padding: 20px 30px;
   width: 100%;
@@ -178,5 +180,62 @@
     gap: 20px;
     align-self: flex-end;
     margin: 0 40px 30px;
+  }
+}
+
+@media (max-width: $md) {
+  .vacancyCard {
+    padding: 10px;
+    &Container {
+      padding: 10px 20px;
+    }
+    &Top {
+      &Left {
+        &Icon {
+          &Container {
+            height: 40px;
+            width: 40px;
+            padding: 7px;
+          }
+        }
+        &Title {
+          overflow: hidden;
+          flex-grow: 1;
+          text-overflow: ellipsis;
+          margin-left: 5px;
+        }
+      }
+      &Right {
+        &Date,
+        &Views {
+          white-space: nowrap;
+        }
+      }
+    }
+    &Content {
+      padding-top: 10px;
+      flex-direction: column;
+      &Actions {
+        margin-top: 10px;
+        gap: 10px;
+        > button {
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  .responseToVacancy {
+    &Top {
+      padding: 10px 20px;
+    }
+    width: 100%;
+    &CoverLetter {
+      margin: 10px 20px 20px;
+    }
+    &Actions {
+      gap: 10px;
+      margin: 0 20px 20px;
+    }
   }
 }

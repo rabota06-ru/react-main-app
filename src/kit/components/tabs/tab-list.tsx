@@ -20,9 +20,7 @@ export function TabList({ children, className, ...props }: TabListProps) {
 
   return (
     <div className={cn(styles.tabsList, className)} {...props}>
-      {React.Children.map(children, (child: any, index) => {
-        return React.cloneElement(child, { index })
-      })}
+      {children}
       <span ref={tabIndicatorRef} className={styles.tabsIndicator} />
     </div>
   )

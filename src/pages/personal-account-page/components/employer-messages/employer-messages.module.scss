@@ -1,4 +1,5 @@
 @import '/src/scss/mixins';
+@import '/src/scss/variables';
 
 .messages {
   display: grid;
@@ -16,5 +17,18 @@
   &TabPanel {
     height: 100%;
     overflow: hidden;
+  }
+}
+
+@media (max-width: $md) {
+  .messages {
+    padding-top: 20px;
+    &Title {
+      font-size: 26px;
+      margin: 0 0 30px 20px;
+    }
+    &TabList {
+      margin-left: 20px;
+    }
   }
 }

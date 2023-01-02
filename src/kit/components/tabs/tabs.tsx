@@ -1,18 +1,22 @@
 import React, { PropsWithChildren, createContext, useMemo } from 'react'
+import { TabsSize } from './tabs.constants'
 
 interface ITabsContext {
   selectedIndex?: number
   onSelect: (index: number) => void
+  size?: TabsSize
 }
 
 export const TabsContext = createContext<ITabsContext>({
   onSelect: () => {},
   selectedIndex: 0,
+  size: TabsSize.Medium,
 })
 
 interface TabsProps<T extends number> extends PropsWithChildren {
   selectedIndex: T
   onSelect: (index: T) => void
+  size?: TabsSize
 }
 
 /**
@@ -34,8 +38,8 @@ interface TabsProps<T extends number> extends PropsWithChildren {
       </TabPanel>
     </Tabs>
  */
-export function Tabs<T extends number>({ children, selectedIndex, onSelect }: TabsProps<T>) {
-  const value = useMemo(() => ({ selectedIndex, onSelect }), [selectedIndex, onSelect])
+export function Tabs<T extends number>({ children, selectedIndex, onSelect, size = TabsSize.Medium }: TabsProps<T>) {
+  const value = useMemo(() => ({ selectedIndex, onSelect, size }), [selectedIndex, onSelect, size])
 
   return <TabsContext.Provider value={value as unknown as ITabsContext}>{children}</TabsContext.Provider>
 }

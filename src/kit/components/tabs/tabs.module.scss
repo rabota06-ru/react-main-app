@@ -4,19 +4,27 @@
     position: relative;
   }
   &Item {
-    flex-basis: 250px;
-    padding: 15px;
     text-align: center;
     color: #9ca4b5;
     border-bottom: 1px solid #c3cbda;
     font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
     user-select: none;
     cursor: pointer;
     transition: color 0.3s;
-    &Active {
+    &_Selected {
       color: var(--primaryColor);
+    }
+    &_SmallSize {
+      font-size: 14px;
+      line-height: 18px;
+      flex-basis: 150px;
+      padding: 10px;
+    }
+    &_MediumSize {
+      font-size: 18px;
+      line-height: 22px;
+      flex-basis: 250px;
+      padding: 15px;
     }
   }
   &Indicator {

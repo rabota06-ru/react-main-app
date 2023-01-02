@@ -1,4 +1,5 @@
 export { Tabs } from './tabs'
 export { TabList } from './tab-list'
-export { Tab } from './tab-item'
+export { Tab } from './tab'
 export { TabPanel } from './tab-panel'
+export { TabsSize } from './tabs.constants'
