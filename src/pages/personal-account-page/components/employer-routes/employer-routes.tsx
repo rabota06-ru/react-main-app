@@ -1,6 +1,7 @@
 import { routes } from 'pages/routes'
 import { Redirect, Route, Switch } from 'wouter'
 import { Chat } from '../chat/chat'
+import { ChatType } from '../chat/chat.constants'
 import { EmployerMessages } from '../employer-messages/employer-messages'
 
 export function EmployerRoutes() {
@@ -12,7 +13,7 @@ export function EmployerRoutes() {
         <EmployerMessages />
       </Route>
       <Route path={routes.personalAccount.nested.messages.nested.chat(':chatId').absoluteExact}>
-        {params => params.chatId && <Chat chatId={params.chatId} />}
+        {params => params.chatId && <Chat chatId={params.chatId} type={ChatType.WithEmployerOrApplicant} />}
       </Route>
       <Route path={routes.personalAccount.nested.settings.absoluteExact}>test4</Route>
       <Redirect to={routes.personalAccount.nested.allResumes.absoluteExact} />

@@ -8,42 +8,67 @@
     overflow-y: auto;
     margin: 20px 0;
     @include customScrollbar;
+    &Empty {
+      text-align: center;
+      margin-top: 40%;
+    }
   }
   &Message {
-    position: relative;
     padding: 15px 30px;
-    margin-bottom: 50px;
     max-width: 80%;
+    border: 1px solid #d3e7f1;
+    border-radius: 10px;
     $Message: &;
     &:last-child {
       margin-bottom: 0;
     }
+    &Container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: calc(100% - 40px);
+      margin: 25px 20px;
+    }
     &Me {
       margin-left: auto;
-      margin-right: 20px;
-      background-color: #d3e7f1;
+      background-color: #e3f2ff;
     }
     &Interlocutor {
       margin-right: auto;
-      margin-left: 20px;
+    }
+    &WithAdmin {
+      background-color: #faf1d8;
+    }
+    &WithEmployerOrApplicant {
       background-color: #e5ffe3;
-      #{$Message} {
-        &Info {
-          right: unset;
-          left: 0;
-        }
-      }
+    }
+    &Text {
+      font-size: 14px;
+      color: #222222;
+      word-break: break-word;
     }
     &Info {
       display: flex;
       position: absolute;
-      top: 0;
+      width: 100%;
+      top: -10px;
       right: 0;
       transform: translateY(-100%);
       white-space: nowrap;
+      &Me {
+        justify-content: end;
+      }
       &Sender {
         font-weight: bold;
+        font-size: 14px;
         margin-right: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #222222;
+      }
+      &Date {
+        font-size: 14px;
+        color: #79859e;
       }
     }
   }

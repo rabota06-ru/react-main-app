@@ -1,0 +1,8 @@
+query GetNewMessages($chatId: String!, $messageFrom: DateTime!) {
+  chatMessages(where: { chatId: { equals: $chatId }, createdAt: { gt: $messageFrom } }) {
+    id
+    message
+    sender
+    createdAt
+  }
+}

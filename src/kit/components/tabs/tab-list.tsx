@@ -1,10 +1,11 @@
-import React, { PropsWithChildren, useContext, useEffect } from 'react'
+import React, { HTMLAttributes, useContext, useEffect } from 'react'
+import cn from 'classnames'
 import { TabsContext } from './tabs'
 import styles from './tabs.module.scss'
 
-interface TabListProps extends PropsWithChildren {}
+interface TabListProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
-export function TabList({ children }: TabListProps) {
+export function TabList({ children, className, ...props }: TabListProps) {
   const tabIndicatorRef = React.useRef<HTMLSpanElement>(null)
   const { selectedIndex } = useContext(TabsContext)
 
@@ -18,10 +19,8 @@ export function TabList({ children }: TabListProps) {
   }, [selectedIndex])
 
   return (
-    <div className={styles.tabsList}>
-      {React.Children.map(children, (child: any, index) => {
-        return React.cloneElement(child, { index })
-      })}
+    <div className={cn(styles.tabsList, className)} {...props}>
+      {children}
       <span ref={tabIndicatorRef} className={styles.tabsIndicator} />
     </div>
   )

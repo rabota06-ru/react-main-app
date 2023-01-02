@@ -7,20 +7,13 @@ type ChatSliceState = {
   messages: GetChatMessagesQuery['chatMessages'] // список всех загруженных сообщений
   page: number // номер страницы, который сигнализирует сколько пактов сообщений было загружено
   totalMessagesCount: number // количество всех сообщений в чате за всё время
-} & (
-  | {
-      chatId: null // id чата
-      myName: null // моя имя, т е залогиненного пользователя
-      companionName: null // имя собеседника, с кем общается залогиненный пользователь
-    }
-  | {
-      chatId: string
-      myName: string
-      companionName: string
-    }
-)
+  chatId: string | null // id чата
+  myName: string | null // моя имя, т е залогиненного пользователя
+  companionName: string | null // имя собеседника, с кем общается залогиненный пользователь
+}
 
 export type SetChatInfoPayload = {
+  chatId: string
   totalMessagesCount: ChatSliceState['totalMessagesCount']
   myName: ChatSliceState['myName']
   companionName: ChatSliceState['companionName']
@@ -48,15 +41,16 @@ export const chatSlice = createSlice({
     increasePage(state: ChatSliceState) {
       state.page += 1
     },
+    setChatInfo(state: ChatSliceState, action: PayloadAction<SetChatInfoPayload>) {
+      state.chatId = action.payload.chatId
+      state.totalMessagesCount = action.payload.totalMessagesCount
+      state.myName = action.payload.myName
+      state.companionName = action.payload.companionName
+    },
     reset(state: ChatSliceState) {
       objectEntries(initialState).forEach(([key, value]) => {
         state[key] = value as never
       })
-    },
-    setChatInfo(state: ChatSliceState, action: PayloadAction<SetChatInfoPayload>) {
-      state.totalMessagesCount = action.payload.totalMessagesCount
-      state.myName = action.payload.myName
-      state.companionName = action.payload.companionName
     },
   },
 })

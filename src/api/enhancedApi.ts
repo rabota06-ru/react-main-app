@@ -20,10 +20,12 @@ export const {
   useCreateResumeMutation,
   useLazyGetUserQuery,
   useGetVacanciesWithResponsesQuery,
+  useLazyGetVacanciesWithResponsesQuery,
   useLazyGetVacancyResponsesQuery,
   useLazyGetChatMessagesQuery,
   useSendMessageMutation,
   useCreateChatMutation,
   useLazyGetChatQuery,
   useLazyGetChatInfoQuery,
+  useLazyGetNewMessagesQuery,
 } = api

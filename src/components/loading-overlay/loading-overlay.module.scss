@@ -9,13 +9,18 @@
     position: absolute;
     z-index: 1;
   }
-  &_Absolute {
-    position: absolute;
+  &_Positioned {
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 1;
+  }
+  &_Absolute {
+    position: absolute;
+  }
+  &_Sticky {
+    position: sticky;
   }
   &_BlurredBackground {
     backdrop-filter: blur(5px);

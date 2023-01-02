@@ -5,8 +5,14 @@ import { Card } from 'kit/components/card'
 import { Divider } from 'kit/components/divider'
 import { format } from 'date-fns'
 import ru from 'date-fns/locale/ru'
-import { createElement, useCallback, useState } from 'react'
+import { createElement, useState } from 'react'
 import { FIELDS_OF_ACTIVITY_IMAGE, numberToFieldOfActivity } from 'utils/fields-of-activity'
+import { CssVariable } from 'utils/get-css-variable'
+import { ReactComponent as LocationIcon } from 'assets/images/location.svg'
+import { ReactComponent as RubbleIcon } from 'assets/images/ruble.svg'
+import { Box } from 'kit/components/box'
+import cn from 'classnames'
+import { useMediaValue } from 'kit/hooks'
 import { ResponseToVacancy } from './response-to-vacancy'
 import styles from './responses-to-vacancies.module.scss'
 
@@ -17,14 +23,12 @@ interface VacancyCardProps {
 export function VacancyCard({ vacancy }: VacancyCardProps) {
   const [isResponsesShown, setIsResponsesShown] = useState(false)
   const [getVacancyResponsesQuery, getVacancyResponsesData] = useLazyGetVacancyResponsesQuery({})
+  const buttonsSize = useMediaValue({ xs: ButtonSize.Small, lg: ButtonSize.Medium })
 
-  const toggleResponses = useCallback(
-    (vacancyId: string) => {
-      setIsResponsesShown(prev => !prev)
-      getVacancyResponsesQuery({ vacancyId })
-    },
-    [getVacancyResponsesQuery]
-  )
+  const toggleResponses = (vacancyId: string) => {
+    setIsResponsesShown(!isResponsesShown)
+    if (!isResponsesShown) getVacancyResponsesQuery({ vacancyId }).finally(() => {})
+  }
 
   return (
     <div key={vacancy.id} className={styles.vacancyCardContainer}>
@@ -37,19 +41,29 @@ export function VacancyCard({ vacancy }: VacancyCardProps) {
             <p className={styles.vacancyCardTopLeftTitle}>{vacancy.post}</p>
           </div>
           <div className={styles.vacancyCardTopRight}>
-            <p>{format(new Date(vacancy.createdAt), 'd MMMM', { locale: ru })}</p>
-            <p>{vacancy.views} просмотров</p>
+            <p className={styles.vacancyCardTopRightDate}>{format(new Date(vacancy.createdAt), 'd MMMM', { locale: ru })}</p>
+            <p className={styles.vacancyCardTopRightViews}>{vacancy.views} просмотров</p>
           </div>
         </div>
-        <Divider />
+        <Divider color={CssVariable.SecondaryColor3} />
         <div className={styles.vacancyCardContent}>
           <div>
-            <p>{vacancy.salary} руб</p>
-            <p>Назрань</p>
+            <Box flex aiCenter gap={12} mb={15}>
+              <RubbleIcon />
+              <p>{vacancy.salary} руб</p>
+            </Box>
+            <Box flex aiCenter gap={12}>
+              <LocationIcon />
+              <p>Назрань</p>
+            </Box>
           </div>
           <div className={styles.vacancyCardContentActions}>
-            <Button>Посмотреть</Button>
-            <Button variant={ButtonVariant.Outline}>В архив</Button>
+            <Button isShadow size={buttonsSize}>
+              Посмотреть
+            </Button>
+            <Button variant={ButtonVariant.Outline} size={buttonsSize}>
+              В архив
+            </Button>
           </div>
         </div>
       </Card>
@@ -58,7 +72,14 @@ export function VacancyCard({ vacancy }: VacancyCardProps) {
         variant={ButtonVariant.Text}
         isLoading={getVacancyResponsesData.isLoading}
         onClick={() => toggleResponses(vacancy.id)}
+        className={styles.vacancyCardShowMessagesButton}
       >
+        <div
+          className={cn({
+            [styles.vacancyCardShowMessagesArrowUp]: isResponsesShown,
+            [styles.vacancyCardShowMessagesArrowDown]: !isResponsesShown,
+          })}
+        />
         {isResponsesShown ? 'скрыть' : 'показать'} сообщения
       </Button>
       {isResponsesShown && (

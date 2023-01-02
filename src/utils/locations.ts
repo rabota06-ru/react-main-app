@@ -1,6 +1,6 @@
 import { DropdownItem } from 'kit/components/dropdown'
 import { Locations } from 'types/index'
-import { objectKeys } from './object-keys'
+import { objectKeys } from 'kit/utils'
 
 export const LOCATIONS_LABEL: Record<Locations, string> = {
   [Locations.Nazran]: 'Назрань',
