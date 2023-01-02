@@ -55,6 +55,9 @@ export const MessagesContainer = forwardRef<HTMLDivElement, MessagesContainerPro
   return (
     <div className={styles.chatMessages} ref={messagesContainerRef} onScroll={handleMessagesContainerScroll}>
       {getChatMessagesQueryData.isFetching && <NextMessagesLoading />}
+      {messages.length === 0 && !getChatMessagesQueryData.isFetching && (
+        <p className={styles.chatMessagesEmpty}>Чат пока пуст. Напишите первое сообщение!</p>
+      )}
       {messages.map(message => (
         <div className={styles.chatMessageContainer}>
           <div className={cn(styles.chatMessageInfo, { [styles.chatMessageInfoMe]: message.sender === user?.role })}>

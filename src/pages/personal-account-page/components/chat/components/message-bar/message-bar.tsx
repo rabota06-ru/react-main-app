@@ -24,7 +24,7 @@ export function MessageBar({ chatId, scrollBottom }: MessageBarProps) {
 
   const sendMessage = useCallback(() => {
     if (chatId) {
-      getNewMessagesQuery({ chatId: chatId as string, messageFrom: lastMessageCreatedAt })
+      getNewMessagesQuery({ chatId: chatId as string, messageFrom: lastMessageCreatedAt ?? new Date(0).toISOString() })
         .unwrap()
         .then(response => {
           dispatch(chatSlice.actions.addMessagesToStart(response.chatMessages))
