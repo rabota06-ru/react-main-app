@@ -1,28 +1,37 @@
-export interface OnInitOptions<State extends Record<string, any>, Services extends Record<string, object>, UseCases extends UseCasesType> {
+export interface OnInitOptions<
+  State extends Record<string, any>,
+  Services extends Record<string, object>,
+  UseCases extends UseCasesType,
+  Params extends Record<string, any>
+> {
   state: State
   services: Services
   useCases: UseCases
+  params: Params
 }
 
 export interface OnCleanUpOptions<
   State extends Record<string, any>,
   Services extends Record<string, object>,
-  UseCases extends UseCasesType
+  UseCases extends UseCasesType,
+  Params extends Record<string, any>
 > {
   state: State
   services: Services
   useCases: UseCases
+  params: Params
 }
 
 export interface CreateStoreOptions<
   State extends Record<string, any>,
   Services extends Record<string, object>,
-  UseCases extends UseCasesType
+  UseCases extends UseCasesType,
+  Params extends Record<string, any>
 > {
   state: State
-  onInit?: (options: OnInitOptions<State, Services, UseCases>) => void
-  onCleanUp?: (options: OnCleanUpOptions<State, Services, UseCases>) => void
-  useCases: InnerUseCases<State, Services, UseCases>
+  onInit?: (options: OnInitOptions<State, Services, UseCases, Params>) => void
+  onCleanUp?: (options: OnCleanUpOptions<State, Services, UseCases, Params>) => void
+  useCases: InnerUseCases<State, Services, UseCases, Params>
 }
 
 export interface Store<State extends Record<string, any>, UseCases extends UseCasesType> {
@@ -35,6 +44,11 @@ export interface Store<State extends Record<string, any>, UseCases extends UseCa
 
 export type UseCasesType = Record<string, (...params: any) => void>
 
-export type InnerUseCases<State extends Record<string, any>, Services extends Record<string, object>, UseCases extends UseCasesType> = {
-  [Key in keyof UseCases]: (...params: Parameters<UseCases[Key]>) => (state: State, services: Services) => void
+export type InnerUseCases<
+  State extends Record<string, any>,
+  Services extends Record<string, object>,
+  UseCases extends UseCasesType,
+  Params extends Record<string, any>
+> = {
+  [Key in keyof UseCases]: (...params: Parameters<UseCases[Key]>) => (state: State, services: Services, params: Params) => void
 }
