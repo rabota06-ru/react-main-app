@@ -1,7 +1,7 @@
 import { Card } from 'kit/components/card'
 import { Divider } from 'kit/components/divider'
 import { FieldOfActivity, Locations } from 'types/index'
-import { CssVariable } from 'utils/get-css-variable'
+import { CssColorVariable } from 'utils/get-css-variable'
 import { BiRuble } from 'react-icons/bi'
 import { TfiLocationPin } from 'react-icons/tfi'
 import { HiOutlineEye } from 'react-icons/hi'
@@ -62,7 +62,7 @@ export function FullCardVacancy({
             </div>
             <span>{date}</span>
           </div>
-          <Divider size={2} color={CssVariable.SecondaryColor2} />
+          <Divider size={2} color={CssColorVariable.SecondaryColor2} />
           <div className={styles.fullCardSalary}>
             <div className={styles.fullCardSalaryInfoPrice}>
               <div>
@@ -84,7 +84,7 @@ export function FullCardVacancy({
               </div>
             </div>
           </div>
-          <Divider size={2} color={CssVariable.SecondaryColor2} />
+          <Divider size={2} color={CssColorVariable.SecondaryColor2} />
           <div className={styles.fullCardDescription}>
             <div>
               <p>{description}</p>

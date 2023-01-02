@@ -4,7 +4,7 @@ import { Card } from 'kit/components/card'
 import { TfiLocationPin } from 'react-icons/tfi'
 import { Divider, DividerDirection } from 'kit/components/divider'
 import { FieldOfActivity, Locations } from 'types/index'
-import { CssVariable } from 'utils/get-css-variable'
+import { CssColorVariable } from 'utils/get-css-variable'
 import { FIELDS_OF_ACTIVITY_IMAGE } from 'utils/fields-of-activity'
 import { LOCATIONS_LABEL } from 'utils/locations'
 import styles from './list-card.module.scss'
@@ -39,7 +39,7 @@ export function ListCardResume({ headerImage, title, name, text, location, ...pr
             {headerImageComponent}
           </div>
         </div>
-        <Divider direction={DividerDirection.Horizontal} size={0.5} color={CssVariable.SecondaryColor2} />
+        <Divider direction={DividerDirection.Horizontal} size={0.5} color={CssColorVariable.SecondaryColor2} />
         <p className={styles.resumeCardText}>{text}</p>
         <div className={styles.resumeCardFooter}>
           <Button

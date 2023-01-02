@@ -7,7 +7,7 @@ import { format } from 'date-fns'
 import ru from 'date-fns/locale/ru'
 import { createElement, useState } from 'react'
 import { FIELDS_OF_ACTIVITY_IMAGE, numberToFieldOfActivity } from 'utils/fields-of-activity'
-import { CssVariable } from 'utils/get-css-variable'
+import { CssColorVariable } from 'utils/get-css-variable'
 import { ReactComponent as LocationIcon } from 'assets/images/location.svg'
 import { ReactComponent as RubbleIcon } from 'assets/images/ruble.svg'
 import { Box } from 'kit/components/box'
@@ -45,14 +45,14 @@ export function VacancyCard({ vacancy }: VacancyCardProps) {
             <p className={styles.vacancyCardTopRightViews}>{vacancy.views} просмотров</p>
           </div>
         </div>
-        <Divider color={CssVariable.SecondaryColor3} />
+        <Divider color={CssColorVariable.SecondaryColor3} />
         <div className={styles.vacancyCardContent}>
           <div>
-            <Box flex aiCenter gap={12} mb={15}>
+            <Box df aic g={12} mb={15}>
               <RubbleIcon />
               <p>{vacancy.salary} руб</p>
             </Box>
-            <Box flex aiCenter gap={12}>
+            <Box df aic g={12}>
               <LocationIcon />
               <p>Назрань</p>
             </Box>
