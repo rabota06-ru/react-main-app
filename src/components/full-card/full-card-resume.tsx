@@ -1,7 +1,7 @@
 import { Card } from 'kit/components/card'
 import { Divider } from 'kit/components/divider'
 import { FieldOfActivity, Locations } from 'types/index'
-import { CssVariable } from 'utils/get-css-variable'
+import { CssColorVariable } from 'utils/get-css-variable'
 import { TfiLocationPin } from 'react-icons/tfi'
 import { HiOutlineEye } from 'react-icons/hi'
 import { Button, ButtonSize, ButtonVariant } from 'kit/components/button'
@@ -56,7 +56,7 @@ export function FullCardResume({
             </div>
             <span>{date}</span>
           </div>
-          <Divider size={2} color={CssVariable.SecondaryColor2} />
+          <Divider size={2} color={CssColorVariable.SecondaryColor2} />
           <div className={styles.fullCardCity}>
             <div>
               <TfiLocationPin className={styles.fullCardCityIcons} />
@@ -67,7 +67,7 @@ export function FullCardResume({
               <span>{viewCount} просмотров</span>
             </div>
           </div>
-          <Divider size={2} color={CssVariable.SecondaryColor2} />
+          <Divider size={2} color={CssColorVariable.SecondaryColor2} />
           <div className={styles.fullCardDescription}>
             <div>
               <h3>Желаяемая должность:</h3>

@@ -1,6 +1,6 @@
 import { getColorVariableByInputStatus, InputStatus } from 'kit/components/input-base'
 import { BsFillCaretUpFill, BsXCircle } from 'react-icons/bs'
-import { CssVariable, getCssVariable } from 'utils/get-css-variable'
+import { CssColorVariable, getCssVariable } from 'utils/get-css-variable'
 import cn from 'classnames'
 import { DropdownItem } from './dropdown.types'
 import styles from './dropdown.module.scss'
@@ -25,14 +25,14 @@ export function DropdownRightIcon<T extends string | number>({
           event.stopPropagation()
           onUnselectItem()
         }}
-        color={status !== undefined ? getColorVariableByInputStatus(status) : getCssVariable(CssVariable.SecondaryColor2)}
+        color={status !== undefined ? getColorVariableByInputStatus(status) : getCssVariable(CssColorVariable.SecondaryColor2)}
       />
     )
   }
   return (
     <BsFillCaretUpFill
       className={cn(styles.dropdownInputBaseArrow, { [styles.dropdownInputBaseArrow_DropdownCollapsed]: isCollapsed })}
-      color={status !== undefined ? getColorVariableByInputStatus(status) : getCssVariable(CssVariable.SecondaryColor2)}
+      color={status !== undefined ? getColorVariableByInputStatus(status) : getCssVariable(CssColorVariable.SecondaryColor2)}
     />
   )
 }

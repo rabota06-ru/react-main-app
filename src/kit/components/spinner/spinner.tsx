@@ -1,11 +1,11 @@
-import { getCssVariable, CssVariable } from 'utils/get-css-variable'
+import { getCssVariable, CssColorVariable } from 'utils/get-css-variable'
 import cn from 'classnames'
 import styles from './spinner.module.scss'
 
 interface SpinnerProps {
   size: number
   thickness?: number
-  color?: CssVariable
+  color?: CssColorVariable
   className?: string
 }
 /**
@@ -16,7 +16,7 @@ interface SpinnerProps {
  * @param className класс который задается спиннеру
  * @example <Spinner size={30} thickness={5} color={CssVariable.Primary} />
  */
-export function Spinner({ size, thickness = 5, color = CssVariable.PrimaryColor, className }: SpinnerProps) {
+export function Spinner({ size, thickness = 5, color = CssColorVariable.PrimaryColor, className }: SpinnerProps) {
   return (
     <span className={cn(styles.spinner, className)} style={{ width: size, height: size }}>
       <span

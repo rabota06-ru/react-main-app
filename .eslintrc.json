@@ -30,6 +30,7 @@
     "import/prefer-default-export": "off",
     "no-param-reassign": "off",
     "no-underscore-dangle": "off",
+    "no-restricted-syntax": "off",
     "react/require-default-props": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-uses-react": ["off"],
