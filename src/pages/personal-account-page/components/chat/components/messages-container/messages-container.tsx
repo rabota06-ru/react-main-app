@@ -59,7 +59,7 @@ export const MessagesContainer = forwardRef<HTMLDivElement, MessagesContainerPro
         <p className={styles.chatMessagesEmpty}>Чат пока пуст. Напишите первое сообщение!</p>
       )}
       {messages.map(message => (
-        <div className={styles.chatMessageContainer}>
+        <div key={message.id} className={styles.chatMessageContainer}>
           <div className={cn(styles.chatMessageInfo, { [styles.chatMessageInfoMe]: message.sender === user?.role })}>
             <p className={styles.chatMessageInfoSender}>{user?.role === message.sender ? chatInfo.myName : chatInfo.companionName}</p>
             <p className={styles.chatMessageInfoDate}>{format(new Date(message.createdAt), 'd MMMM yyyy, HH:mm', { locale: ru })}</p>
