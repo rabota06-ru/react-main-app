@@ -1,4 +1,4 @@
-import { MediaValue, useMediaValueFn } from 'kit/hooks/use-media-value-fn'
+import { MediaValue, useMediaValueFn } from 'kit/hooks'
 import { getFirst } from 'kit/utils'
 import { CSSProperties, HTMLAttributes } from 'react'
 import { CssColorVariable, getCssVariable } from 'utils/get-css-variable'
