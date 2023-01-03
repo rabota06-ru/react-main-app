@@ -1,3 +1,4 @@
+import { MediaValue, useMediaValueFn } from 'kit/hooks/use-media-value-fn'
 import { getFirst } from 'kit/utils'
 import { CSSProperties, HTMLAttributes } from 'react'
 import { CssColorVariable, getCssVariable } from 'utils/get-css-variable'
@@ -34,7 +35,7 @@ interface BoxProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
   gtr?: CSSProperties['gridTemplateRows']
 
   /** Добавляет css-свойство <<gap: *переданное значение*>> */
-  g?: CSSProperties['gap']
+  g?: MediaValue<CSSProperties['gap']>
 
   /** Добавляет css-свойство <<margin-bottom: *переданное значение*>> */
   mb?: CSSProperties['marginBottom']
@@ -188,6 +189,8 @@ export function Box({
   children,
   ...props
 }: BoxProps) {
+  const mediaValue = useMediaValueFn()
+
   return (
     <div
       style={{
@@ -197,7 +200,7 @@ export function Box({
         justifyContent: getFirst([jcc, 'center'], [jcs, 'start'], [jce, 'end'], [jcsb, 'space-between'], [jcsa, 'space-around']),
         gridTemplateColumns: gtc,
         gridTemplateRows: gtr,
-        gap: g,
+        gap: mediaValue(g),
         marginBottom: mv ?? mb,
         marginTop: mv ?? mt,
         marginRight: mh ?? mr,
