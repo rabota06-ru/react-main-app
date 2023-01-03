@@ -1,3 +1,6 @@
 export { useMediaValue } from './use-media-value'
+export type { Values } from './use-media-value'
 export { useOnClickOutside } from './use-on-click-outside'
 export { useForwardedRef } from './use-forwarded-ref'
+export { useMediaValueFn } from './use-media-value-fn'
+export type { MediaValue } from './use-media-value-fn'

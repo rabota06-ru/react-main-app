@@ -40,7 +40,7 @@ export function ResponseToVacancy({ response }: ResponseToVacancyProps) {
     <div className={styles.responseToVacancy}>
       <div className={styles.responseToVacancyTop}>
         <div className={styles.responseToVacancyTopLeft}>
-          <Box df g={10} mr={20} pr={3}>
+          <Box df g={{ xs: 10, md: 100 }} mr={20} pr={3}>
             <p className={styles.responseToVacancyTopLeftFromWho}>От кого:</p>
             <p className={styles.responseToVacancyTopLeftName}>{response.resume.firstname}</p>
           </Box>
