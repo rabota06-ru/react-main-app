@@ -5,127 +5,127 @@ import { CssColorVariable, getCssVariable } from 'utils/get-css-variable'
 
 interface BoxProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   /** Добавляет css-свойство <<display: flex>> */
-  df?: boolean
+  df?: MediaValue<boolean>
   /** Добавляет css-свойство <<align-items: center>> */
-  aic?: boolean
+  aic?: MediaValue<boolean>
   /** Добавляет css-свойство <<align-items: start>> */
-  ais?: boolean
+  ais?: MediaValue<boolean>
   /** Добавляет css-свойство <<align-items: end>> */
-  aie?: boolean
+  aie?: MediaValue<boolean>
   /** Добавляет css-свойство <<align-items: space-between>> */
-  aisb?: boolean
+  aisb?: MediaValue<boolean>
   /** Добавляет css-свойство <<align-items: space-around>> */
-  aisa?: boolean
+  aisa?: MediaValue<boolean>
   /** Добавляет css-свойство <<justify-content: center>> */
-  jcc?: boolean
+  jcc?: MediaValue<boolean>
   /** Добавляет css-свойство <<justify-content: start>> */
-  jcs?: boolean
+  jcs?: MediaValue<boolean>
   /** Добавляет css-свойство <<justify-content: end>> */
-  jce?: boolean
+  jce?: MediaValue<boolean>
   /** Добавляет css-свойство <<justify-content: space-between>> */
-  jcsb?: boolean
+  jcsb?: MediaValue<boolean>
   /** Добавляет css-свойство <<justify-content: space-around>> */
-  jcsa?: boolean
+  jcsa?: MediaValue<boolean>
 
   /** Добавляет css-свойство <<display: grid>> */
-  dg?: boolean
+  dg?: MediaValue<boolean>
   /** Добавляет css-свойство <<grid-template-columns: *переданное значение*>> */
-  gtc?: CSSProperties['gridTemplateColumns']
+  gtc?: MediaValue<CSSProperties['gridTemplateColumns']>
   /** Добавляет css-свойство <<grid-template-rows: *переданное значение*>> */
-  gtr?: CSSProperties['gridTemplateRows']
+  gtr?: MediaValue<CSSProperties['gridTemplateRows']>
 
   /** Добавляет css-свойство <<gap: *переданное значение*>> */
   g?: MediaValue<CSSProperties['gap']>
 
   /** Добавляет css-свойство <<margin-bottom: *переданное значение*>> */
-  mb?: CSSProperties['marginBottom']
+  mb?: MediaValue<CSSProperties['marginBottom']>
   /** Добавляет css-свойство <<margin-top: *переданное значение*>> */
-  mt?: CSSProperties['marginTop']
+  mt?: MediaValue<CSSProperties['marginTop']>
   /** Добавляет css-свойство <<margin-right: *переданное значение*>> */
-  mr?: CSSProperties['marginRight']
+  mr?: MediaValue<CSSProperties['marginRight']>
   /** Добавляет css-свойство <<margin-left: *переданное значение*>> */
-  ml?: CSSProperties['marginLeft']
+  ml?: MediaValue<CSSProperties['marginLeft']>
   /** Добавляет css-свойства <<margin-right: *переданное значение*>> и <<margin-left: *переданное значение*>> */
-  mh?: CSSProperties['margin']
+  mh?: MediaValue<CSSProperties['margin']>
   /** Добавляет css-свойства <<margin-top: *переданное значение*>> и <<margin-bottom: *переданное значение*>> */
-  mv?: CSSProperties['margin']
+  mv?: MediaValue<CSSProperties['margin']>
 
   /** Добавляет css-свойство <<padding-bottom: *переданное значение*>> */
-  pb?: CSSProperties['paddingBottom']
+  pb?: MediaValue<CSSProperties['paddingBottom']>
   /** Добавляет css-свойство <<padding-top: *переданное значение*>> */
-  pt?: CSSProperties['paddingTop']
+  pt?: MediaValue<CSSProperties['paddingTop']>
   /** Добавляет css-свойство <<padding-right: *переданное значение*>> */
-  pr?: CSSProperties['paddingRight']
+  pr?: MediaValue<CSSProperties['paddingRight']>
   /** Добавляет css-свойство <<padding-left: *переданное значение*>> */
-  pl?: CSSProperties['paddingLeft']
+  pl?: MediaValue<CSSProperties['paddingLeft']>
   /** Добавляет css-свойства <<padding-right: *переданное значение*>> и <<padding-left: *переданное значение*>> */
-  ph?: CSSProperties['padding']
+  ph?: MediaValue<CSSProperties['padding']>
   /** Добавляет css-свойства <<padding-top: *переданное значение*>> и <<padding-bottom: *переданное значение*>> */
-  pv?: CSSProperties['padding']
+  pv?: MediaValue<CSSProperties['padding']>
 
   /** Добавляет css-свойство <<background-color: *переданное значение*>> */
-  bgc?: CSSProperties['backgroundColor']
+  bgc?: MediaValue<CSSProperties['backgroundColor']>
   /** Добавляет css-свойство <<background-color: *переданное значение CssColorVariable*>> */
-  bgcvar?: CssColorVariable
+  bgcvar?: MediaValue<CssColorVariable>
   /** Добавляет css-свойство <<color: *переданное значение*>> */
-  c?: CSSProperties['color']
+  c?: MediaValue<CSSProperties['color']>
   /** Добавляет css-свойство <<color: *переданное значение CssColorVariable*>> */
-  cvar?: CssColorVariable
+  cvar?: MediaValue<CssColorVariable>
 
   /** Добавляет css-свойство <<position: absolute>> */
-  poa?: boolean
+  poa?: MediaValue<boolean>
   /** Добавляет css-свойство <<position: relative>> */
-  por?: boolean
+  por?: MediaValue<boolean>
   /** Добавляет css-свойство <<position: sticky>> */
-  pos?: boolean
+  pos?: MediaValue<boolean>
   /** Добавляет css-свойство <<position: fixed>> */
-  pof?: boolean
+  pof?: MediaValue<boolean>
   /** Добавляет css-свойство <<left: *переданное значение*>> */
-  l?: CSSProperties['left']
+  l?: MediaValue<CSSProperties['left']>
   /** Добавляет css-свойство <<right: *переданное значение*>> */
-  r?: CSSProperties['right']
+  r?: MediaValue<CSSProperties['right']>
   /** Добавляет css-свойство <<top: *переданное значение*>> */
-  t?: CSSProperties['top']
+  t?: MediaValue<CSSProperties['top']>
   /** Добавляет css-свойство <<bottom: *переданное значение*>> */
-  b?: CSSProperties['bottom']
+  b?: MediaValue<CSSProperties['bottom']>
 
   /** Добавляет css-свойство <<overflow: hidden>> */
-  oh?: boolean
+  oh?: MediaValue<boolean>
   /** Добавляет css-свойство <<overflow: auto>> */
-  oa?: boolean
+  oa?: MediaValue<boolean>
   /** Добавляет css-свойство <<overflow: scroll>> */
-  os?: boolean
+  os?: MediaValue<boolean>
   /** Добавляет css-свойство <<overflow-x: hidden>> */
-  oxh?: boolean
+  oxh?: MediaValue<boolean>
   /** Добавляет css-свойство <<overflow-x: auto>> */
-  oxa?: boolean
+  oxa?: MediaValue<boolean>
   /** Добавляет css-свойство <<overflow-x: scroll>> */
-  oxs?: boolean
+  oxs?: MediaValue<boolean>
   /** Добавляет css-свойство <<overflow-y: hidden>> */
-  oyh?: boolean
+  oyh?: MediaValue<boolean>
   /** Добавляет css-свойство <<overflow-y: auto>> */
-  oya?: boolean
+  oya?: MediaValue<boolean>
   /** Добавляет css-свойство <<overflow-y: scroll>> */
-  oys?: boolean
+  oys?: MediaValue<boolean>
 
   /** Добавляет css-свойство <<width: *переданное значение*>> */
-  w?: CSSProperties['width']
+  w?: MediaValue<CSSProperties['width']>
   /** Добавляет css-свойство <<height: *переданное значение*>> */
-  h?: CSSProperties['height']
+  h?: MediaValue<CSSProperties['height']>
   /** Добавляет css-свойство <<width: 100%>> */
-  w100?: boolean
+  w100?: MediaValue<boolean>
   /** Добавляет css-свойство <<height: 100%>> */
-  h100?: boolean
+  h100?: MediaValue<boolean>
   /** Добавляет css-свойство <<width: 0px>> */
-  w0?: boolean
+  w0?: MediaValue<boolean>
   /** Добавляет css-свойство <<height: 0px>> */
-  h0?: boolean
+  h0?: MediaValue<boolean>
 
   /** Добавляет css-свойство <<border-radius: *переданное значение*>> */
-  bdrs?: CSSProperties['borderRadius']
+  bdrs?: MediaValue<CSSProperties['borderRadius']>
 
   /** Добавляет css-свойство <<border-radius: *переданное значение*>> */
-  trs?: CSSProperties['transition']
+  trs?: MediaValue<CSSProperties['transition']>
 }
 
 export function Box({
@@ -195,34 +195,51 @@ export function Box({
     <div
       style={{
         ...style,
-        display: getFirst([df, 'flex'], [dg, 'grid']),
-        alignItems: getFirst([aic, 'center'], [ais, 'start'], [aie, 'end'], [aisb, 'space-between'], [aisa, 'space-around']),
-        justifyContent: getFirst([jcc, 'center'], [jcs, 'start'], [jce, 'end'], [jcsb, 'space-between'], [jcsa, 'space-around']),
-        gridTemplateColumns: gtc,
-        gridTemplateRows: gtr,
+        display: getFirst([mediaValue(df), 'flex'], [mediaValue(dg), 'grid']),
+        alignItems: getFirst(
+          [mediaValue(aic), 'center'],
+          [mediaValue(ais), 'start'],
+          [mediaValue(ais), 'end'],
+          [mediaValue(aisb), 'space-between'],
+          [mediaValue(aisa), 'space-around']
+        ),
+        justifyContent: getFirst(
+          [mediaValue(jcc), 'center'],
+          [mediaValue(jcs), 'start'],
+          [mediaValue(jce), 'end'],
+          [mediaValue(jcsb), 'space-between'],
+          [mediaValue(jcsa), 'space-around']
+        ),
+        gridTemplateColumns: mediaValue(gtc),
+        gridTemplateRows: mediaValue(gtr),
         gap: mediaValue(g),
-        marginBottom: mv ?? mb,
-        marginTop: mv ?? mt,
-        marginRight: mh ?? mr,
-        marginLeft: mh ?? ml,
-        paddingBottom: pv ?? pb,
-        paddingTop: pv ?? pt,
-        paddingLeft: ph ?? pl,
-        paddingRight: ph ?? pr,
-        backgroundColor: bgcvar ? getCssVariable(bgcvar) : bgc,
-        color: cvar ? getCssVariable(cvar) : c,
-        position: getFirst([poa, 'absolute'], [por, 'relative'], [pos, 'sticky'], [pof, 'fixed']),
-        left: l,
-        right: r,
-        top: t,
-        bottom: b,
-        overflow: getFirst([oh, 'hidden'], [oa, 'auto'], [os, 'scroll']),
-        overflowX: getFirst([oxh, 'hidden'], [oxa, 'auto'], [oxs, 'scroll']),
-        overflowY: getFirst([oyh, 'hidden'], [oya, 'auto'], [oys, 'scroll']),
-        width: getFirst([w100, '100%'], [w0, '0px'], [w, w]),
-        height: getFirst([h100, '100%'], [h0, '0px'], [h, h]),
-        borderRadius: bdrs,
-        transition: trs,
+        marginBottom: mediaValue(mv ?? mb),
+        marginTop: mediaValue(mv ?? mt),
+        marginRight: mediaValue(mh ?? mr),
+        marginLeft: mediaValue(mh ?? ml),
+        paddingBottom: mediaValue(pv ?? pb),
+        paddingTop: mediaValue(pv ?? pt),
+        paddingLeft: mediaValue(ph ?? pl),
+        paddingRight: mediaValue(ph ?? pr),
+        backgroundColor: bgcvar ? getCssVariable(mediaValue(bgcvar)) : mediaValue(bgc),
+        color: cvar ? getCssVariable(mediaValue(cvar)) : mediaValue(c),
+        position: getFirst(
+          [mediaValue(poa), 'absolute'],
+          [mediaValue(por), 'relative'],
+          [mediaValue(pos), 'sticky'],
+          [mediaValue(pof), 'fixed']
+        ),
+        left: mediaValue(l),
+        right: mediaValue(r),
+        top: mediaValue(t),
+        bottom: mediaValue(b),
+        overflow: getFirst([mediaValue(w100), 'hidden'], [mediaValue(oa), 'auto'], [mediaValue(os), 'scroll']),
+        overflowX: getFirst([mediaValue(oxh), 'hidden'], [mediaValue(oxa), 'auto'], [mediaValue(oxs), 'scroll']),
+        overflowY: getFirst([mediaValue(oyh), 'hidden'], [mediaValue(oya), 'auto'], [mediaValue(oys), 'scroll']),
+        width: getFirst([mediaValue(w100), '100%'], [mediaValue(w0), '0px'], [mediaValue(w), mediaValue(w)]),
+        height: getFirst([mediaValue(h100), '100%'], [mediaValue(h100), '0px'], [mediaValue(h), mediaValue(h)]),
+        borderRadius: mediaValue(bdrs),
+        transition: mediaValue(trs),
       }}
       {...props}
     >
