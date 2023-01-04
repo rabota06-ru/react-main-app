@@ -7508,6 +7508,15 @@ export type VerifyAuthCodeMutationVariables = Exact<{
 
 export type VerifyAuthCodeMutation = { __typename?: 'Mutation', verifyAuthCode: { __typename?: 'VerifyAuthCodeOutput', authenticated: boolean, authToken?: string | null } };
 
+export type GetVacanciesQueryVariables = Exact<{
+  fieldOfActivity?: InputMaybe<Scalars['Int']>;
+  skip: Scalars['Int'];
+  take: Scalars['Int'];
+}>;
+
+
+export type GetVacanciesQuery = { __typename?: 'Query', vacancies: Array<{ __typename?: 'Vacancy', id: string }> };
+
 export type GetResumesQueryVariables = Exact<{
   fieldOfActivity: Scalars['Int'];
   placeOfResidence: Scalars['Int'];
@@ -7517,16 +7526,6 @@ export type GetResumesQueryVariables = Exact<{
 
 
 export type GetResumesQuery = { __typename?: 'Query', resumes: Array<{ __typename?: 'Resume', aboutMe?: string | null, id: string, fieldOfActivity: number, placeOfResidence: number, firstname: string, lastname?: string | null, education?: string | null }> };
-
-export type GetVacanciesQueryVariables = Exact<{
-  fieldOfActivity: Scalars['Int'];
-  placeOfWork: Scalars['Int'];
-  skip: Scalars['Int'];
-  take: Scalars['Int'];
-}>;
-
-
-export type GetVacanciesQuery = { __typename?: 'Query', vacancies: Array<{ __typename?: 'Vacancy', id: string, post: string, salary: number, fieldOfActivity: number, createdAt: any, description: string, placeOfWork: number, employer: { __typename?: 'EmployerProfile', companyName: string } }> };
 
 export type CreateResumeMutationVariables = Exact<{
   input: ResumeCreateInput;
@@ -7621,6 +7620,24 @@ export type GetVacancyResponsesQueryVariables = Exact<{
 
 export type GetVacancyResponsesQuery = { __typename?: 'Query', responseToVacancies: Array<{ __typename?: 'ResponseToVacancy', id: string, coverLetter?: string | null, createdAt: any, resume: { __typename?: 'Resume', id: string, firstname: string, lastname?: string | null, fieldOfActivity: number, applicantProfileId: string } }> };
 
+export type GetEmployerArchivedVacanciesQueryVariables = Exact<{
+  userId: Scalars['String'];
+  take: Scalars['Int'];
+  skip: Scalars['Int'];
+}>;
+
+
+export type GetEmployerArchivedVacanciesQuery = { __typename?: 'Query', vacancies: Array<{ __typename?: 'Vacancy', id: string, post: string, fieldOfActivity: number, createdAt: any, salary: number, placeOfWork: number, views: number }> };
+
+export type GetEmployerPublishedVacanciesQueryVariables = Exact<{
+  userId: Scalars['String'];
+  take: Scalars['Int'];
+  skip: Scalars['Int'];
+}>;
+
+
+export type GetEmployerPublishedVacanciesQuery = { __typename?: 'Query', vacancies: Array<{ __typename?: 'Vacancy', id: string, post: string, createdAt: any, views: number, fieldOfActivity: number, salary: number, placeOfWork: number }> };
+
 export type GetUserQueryVariables = Exact<{
   userId: Scalars['String'];
 }>;
@@ -7680,6 +7697,17 @@ export const VerifyAuthCodeDocument = `
   }
 }
     `;
+export const GetVacanciesDocument = `
+    query GetVacancies($fieldOfActivity: Int, $skip: Int!, $take: Int!) {
+  vacancies(
+    where: {fieldOfActivity: {equals: $fieldOfActivity}}
+    skip: $skip
+    take: $take
+  ) {
+    id
+  }
+}
+    `;
 export const GetResumesDocument = `
     query GetResumes($fieldOfActivity: Int!, $placeOfResidence: Int!, $skip: Int!, $take: Int!) {
   resumes(
@@ -7694,26 +7722,6 @@ export const GetResumesDocument = `
     firstname
     lastname
     education
-  }
-}
-    `;
-export const GetVacanciesDocument = `
-    query GetVacancies($fieldOfActivity: Int!, $placeOfWork: Int!, $skip: Int!, $take: Int!) {
-  vacancies(
-    where: {fieldOfActivity: {equals: $fieldOfActivity}, placeOfWork: {equals: $placeOfWork}}
-    skip: $skip
-    take: $take
-  ) {
-    id
-    post
-    salary
-    fieldOfActivity
-    createdAt
-    description
-    placeOfWork
-    employer {
-      companyName
-    }
   }
 }
     `;
@@ -7871,6 +7879,40 @@ export const GetVacancyResponsesDocument = `
   }
 }
     `;
+export const GetEmployerArchivedVacanciesDocument = `
+    query GetEmployerArchivedVacancies($userId: String!, $take: Int!, $skip: Int!) {
+  vacancies(
+    where: {employer: {is: {userId: {equals: $userId}}}, archived: {equals: true}}
+    take: $take
+    skip: $skip
+  ) {
+    id
+    post
+    fieldOfActivity
+    createdAt
+    salary
+    placeOfWork
+    views
+  }
+}
+    `;
+export const GetEmployerPublishedVacanciesDocument = `
+    query GetEmployerPublishedVacancies($userId: String!, $take: Int!, $skip: Int!) {
+  vacancies(
+    where: {employer: {is: {userId: {equals: $userId}}}, archived: {equals: false}}
+    take: $take
+    skip: $skip
+  ) {
+    id
+    post
+    createdAt
+    views
+    fieldOfActivity
+    salary
+    placeOfWork
+  }
+}
+    `;
 export const GetUserDocument = `
     query GetUser($userId: String!) {
   findFirstUser(where: {id: {equals: $userId}}) {
@@ -7914,11 +7956,11 @@ const injectedRtkApi = api.injectEndpoints({
     VerifyAuthCode: build.mutation<VerifyAuthCodeMutation, VerifyAuthCodeMutationVariables>({
       query: (variables) => ({ document: VerifyAuthCodeDocument, variables })
     }),
-    GetResumes: build.query<GetResumesQuery, GetResumesQueryVariables>({
-      query: (variables) => ({ document: GetResumesDocument, variables })
-    }),
     GetVacancies: build.query<GetVacanciesQuery, GetVacanciesQueryVariables>({
       query: (variables) => ({ document: GetVacanciesDocument, variables })
+    }),
+    GetResumes: build.query<GetResumesQuery, GetResumesQueryVariables>({
+      query: (variables) => ({ document: GetResumesDocument, variables })
     }),
     CreateResume: build.mutation<CreateResumeMutation, CreateResumeMutationVariables>({
       query: (variables) => ({ document: CreateResumeDocument, variables })
@@ -7955,6 +7997,12 @@ const injectedRtkApi = api.injectEndpoints({
     }),
     GetVacancyResponses: build.query<GetVacancyResponsesQuery, GetVacancyResponsesQueryVariables>({
       query: (variables) => ({ document: GetVacancyResponsesDocument, variables })
+    }),
+    GetEmployerArchivedVacancies: build.query<GetEmployerArchivedVacanciesQuery, GetEmployerArchivedVacanciesQueryVariables>({
+      query: (variables) => ({ document: GetEmployerArchivedVacanciesDocument, variables })
+    }),
+    GetEmployerPublishedVacancies: build.query<GetEmployerPublishedVacanciesQuery, GetEmployerPublishedVacanciesQueryVariables>({
+      query: (variables) => ({ document: GetEmployerPublishedVacanciesDocument, variables })
     }),
     GetUser: build.query<GetUserQuery, GetUserQueryVariables>({
       query: (variables) => ({ document: GetUserDocument, variables })

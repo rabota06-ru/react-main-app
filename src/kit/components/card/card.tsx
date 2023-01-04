@@ -1,11 +1,12 @@
-import { CSSProperties, HTMLAttributes, useMemo, useState } from 'react'
+import { CSSProperties, useMemo, useState } from 'react'
 import cn from 'classnames'
 import { CardShadow } from './card.types'
 import styles from './card.module.scss'
 import { isCardCustomizedShadow } from './card.utils'
 import { CARD_DEFAULT_SHADOW } from './card.constants'
+import { Box, BoxProps } from '../box'
 
-interface CardProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface CardProps extends BoxProps {
   shadow?: CardShadow
   hoverShadow?: CardShadow
 }
@@ -34,7 +35,7 @@ export function Card({ shadow, hoverShadow, className, ...props }: CardProps) {
   }
 
   return (
-    <div
+    <Box
       {...props}
       className={cn(styles.card, className)}
       onMouseEnter={() => setHovered(true)}

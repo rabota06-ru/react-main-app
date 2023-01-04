@@ -1,9 +1,10 @@
-import React, { HTMLAttributes, useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import cn from 'classnames'
 import { TabsContext } from './tabs'
 import styles from './tabs.module.scss'
+import { Box, BoxProps } from '../box'
 
-interface TabListProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+interface TabListProps extends BoxProps {}
 
 export function TabList({ children, className, ...props }: TabListProps) {
   const tabIndicatorRef = React.useRef<HTMLSpanElement>(null)
@@ -19,9 +20,9 @@ export function TabList({ children, className, ...props }: TabListProps) {
   }, [selectedIndex])
 
   return (
-    <div className={cn(styles.tabsList, className)} {...props}>
+    <Box className={cn(styles.tabsList, className)} {...props}>
       {children}
       <span ref={tabIndicatorRef} className={styles.tabsIndicator} />
-    </div>
+    </Box>
   )
 }

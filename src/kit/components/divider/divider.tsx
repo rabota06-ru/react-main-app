@@ -1,8 +1,8 @@
-import { HTMLAttributes } from 'react'
 import { CssColorVariable, getCssVariable } from 'utils/get-css-variable'
+import { Box, BoxProps } from '../box'
 import { DividerDirection } from './divider.types'
 
-interface DividerProps extends Omit<Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'color'> {
+interface DividerProps extends Omit<BoxProps, 'color'> {
   direction?: DividerDirection
   size?: number
   color?: CssColorVariable
@@ -15,7 +15,7 @@ export function Divider({
   ...props
 }: DividerProps) {
   return (
-    <div
+    <Box
       {...props}
       style={{
         height: direction === DividerDirection.Horizontal ? size : '100%',

@@ -1,0 +1,11 @@
+query GetEmployerPublishedVacancies($userId: String!, $take: Int!, $skip: Int!) {
+  vacancies(where: { employer: { is: { userId: { equals: $userId } } }, archived: { equals: false } }, take: $take, skip: $skip) {
+    id
+    post
+    createdAt
+    views
+    fieldOfActivity
+    salary
+    placeOfWork
+  }
+}
