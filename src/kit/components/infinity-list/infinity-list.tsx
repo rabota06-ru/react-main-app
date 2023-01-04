@@ -1,9 +1,10 @@
 import { LoadingOverlay } from 'components/loading-overlay'
 import { useEffect, useState } from 'react'
 import cn from 'classnames'
+import { Box, BoxProps } from 'kit/components/box'
 import styles from './infinity-list.module.scss'
 
-interface InfinityListProps<Item> {
+interface InfinityListProps<Item> extends BoxProps {
   page?: number
   loadableItemsCount: number
   distanceToFetch?: number
@@ -19,13 +20,14 @@ export function InfinityList<Item>({
   renderItem,
   fetchItems,
   onFetchError,
+  ...containerProps
 }: InfinityListProps<Item>) {
   const [items, setItems] = useState<Item[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [isMaximumReached, setIsMaximumReached] = useState(false)
   const [page, setPage] = useState(propsPage ?? 1)
 
-  function handleScroll({ currentTarget }: React.UIEvent<HTMLDivElement, UIEvent>) {
+  const handleScroll = ({ currentTarget }: React.UIEvent<HTMLDivElement, UIEvent>) => {
     const distanceToEnd = currentTarget.scrollHeight - currentTarget.clientHeight - currentTarget.scrollTop
 
     if (distanceToEnd - distanceToFetch <= 0 && !isLoading && !isMaximumReached) {
@@ -52,9 +54,13 @@ export function InfinityList<Item>({
   }, [page, loadableItemsCount])
 
   return (
-    <div onScroll={handleScroll} className={cn(styles.list, { [styles.list_ScrollDisabled]: isLoading })}>
+    <Box
+      {...containerProps}
+      onScroll={handleScroll}
+      className={cn(styles.list, containerProps?.className, { [styles.list_ScrollDisabled]: isLoading })}
+    >
       {items.map(item => renderItem(item))}
       {isLoading && <LoadingOverlay isSticky />}
-    </div>
+    </Box>
   )
 }

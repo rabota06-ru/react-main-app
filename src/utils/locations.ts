@@ -30,3 +30,7 @@ export const LOCATIONS: DropdownItem<Locations>[] = objectKeys(LOCATIONS_LABEL).
   id,
   label: LOCATIONS_LABEL[id],
 }))
+
+export function numberToLocation(number: number): Locations {
+  return number as Locations
+}

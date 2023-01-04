@@ -3,9 +3,13 @@ import { getFirst } from 'kit/utils'
 import { CSSProperties, HTMLAttributes } from 'react'
 import { CssColorVariable, getCssVariable } from 'utils/get-css-variable'
 
-interface BoxProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface BoxProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   /** Добавляет css-свойство <<display: flex>> */
   df?: MediaValue<boolean>
+  /** Добавляет css-свойство <<flex-direction: column>> */
+  fdc?: MediaValue<boolean>
+  /** Добавляет css-свойство <<flex-direction: row>> */
+  fdr?: MediaValue<boolean>
   /** Добавляет css-свойство <<align-items: center>> */
   aic?: MediaValue<boolean>
   /** Добавляет css-свойство <<align-items: start>> */
@@ -26,6 +30,8 @@ interface BoxProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
   jcsb?: MediaValue<boolean>
   /** Добавляет css-свойство <<justify-content: space-around>> */
   jcsa?: MediaValue<boolean>
+  /** Добавляет css-свойство <<flex-grow: 1>> */
+  fg1?: MediaValue<boolean>
 
   /** Добавляет css-свойство <<display: grid>> */
   dg?: MediaValue<boolean>
@@ -37,6 +43,8 @@ interface BoxProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
   /** Добавляет css-свойство <<gap: *переданное значение*>> */
   g?: MediaValue<CSSProperties['gap']>
 
+  /** Добавляет css-свойство <<margin: *переданное значение*>> */
+  m?: MediaValue<CSSProperties['margin']>
   /** Добавляет css-свойство <<margin-bottom: *переданное значение*>> */
   mb?: MediaValue<CSSProperties['marginBottom']>
   /** Добавляет css-свойство <<margin-top: *переданное значение*>> */
@@ -50,6 +58,8 @@ interface BoxProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
   /** Добавляет css-свойства <<margin-top: *переданное значение*>> и <<margin-bottom: *переданное значение*>> */
   mv?: MediaValue<CSSProperties['margin']>
 
+  /** Добавляет css-свойство <<padding: *переданное значение*>> */
+  p?: MediaValue<CSSProperties['padding']>
   /** Добавляет css-свойство <<padding-bottom: *переданное значение*>> */
   pb?: MediaValue<CSSProperties['paddingBottom']>
   /** Добавляет css-свойство <<padding-top: *переданное значение*>> */
@@ -130,6 +140,8 @@ interface BoxProps extends Props<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export function Box({
   df,
+  fdc,
+  fdr,
   aic,
   ais,
   aie,
@@ -140,16 +152,19 @@ export function Box({
   jce,
   jcsb,
   jcsa,
+  fg1,
   dg,
   gtc,
   gtr,
   g,
+  m,
   mb,
   mt,
   mr,
   ml,
   mh,
   mv,
+  p,
   pb,
   pt,
   pr,
@@ -194,12 +209,13 @@ export function Box({
   return (
     <div
       style={{
-        ...style,
         display: getFirst([mediaValue(df), 'flex'], [mediaValue(dg), 'grid']),
+        flexDirection: getFirst([mediaValue(fdc), 'column'], [mediaValue(fdr), 'row']),
+        flexGrow: getFirst([mediaValue(fg1), 1]),
         alignItems: getFirst(
           [mediaValue(aic), 'center'],
           [mediaValue(ais), 'start'],
-          [mediaValue(ais), 'end'],
+          [mediaValue(aie), 'end'],
           [mediaValue(aisb), 'space-between'],
           [mediaValue(aisa), 'space-around']
         ),
@@ -213,14 +229,14 @@ export function Box({
         gridTemplateColumns: mediaValue(gtc),
         gridTemplateRows: mediaValue(gtr),
         gap: mediaValue(g),
-        marginBottom: mediaValue(mv ?? mb),
-        marginTop: mediaValue(mv ?? mt),
-        marginRight: mediaValue(mh ?? mr),
-        marginLeft: mediaValue(mh ?? ml),
-        paddingBottom: mediaValue(pv ?? pb),
-        paddingTop: mediaValue(pv ?? pt),
-        paddingLeft: mediaValue(ph ?? pl),
-        paddingRight: mediaValue(ph ?? pr),
+        marginBottom: mediaValue(mb ?? mv ?? m),
+        marginTop: mediaValue(mt ?? mv ?? m),
+        marginRight: mediaValue(mr ?? mh ?? m),
+        marginLeft: mediaValue(ml ?? mh ?? m),
+        paddingBottom: mediaValue(pb ?? pv ?? p),
+        paddingTop: mediaValue(pt ?? pv ?? p),
+        paddingLeft: mediaValue(pl ?? ph ?? p),
+        paddingRight: mediaValue(pr ?? ph ?? p),
         backgroundColor: bgcvar ? getCssVariable(mediaValue(bgcvar)) : mediaValue(bgc),
         color: cvar ? getCssVariable(mediaValue(cvar)) : mediaValue(c),
         position: getFirst(
@@ -233,13 +249,14 @@ export function Box({
         right: mediaValue(r),
         top: mediaValue(t),
         bottom: mediaValue(b),
-        overflow: getFirst([mediaValue(w100), 'hidden'], [mediaValue(oa), 'auto'], [mediaValue(os), 'scroll']),
         overflowX: getFirst([mediaValue(oxh), 'hidden'], [mediaValue(oxa), 'auto'], [mediaValue(oxs), 'scroll']),
         overflowY: getFirst([mediaValue(oyh), 'hidden'], [mediaValue(oya), 'auto'], [mediaValue(oys), 'scroll']),
+        overflow: getFirst([mediaValue(oh), 'hidden'], [mediaValue(oa), 'auto'], [mediaValue(os), 'scroll']),
         width: getFirst([mediaValue(w100), '100%'], [mediaValue(w0), '0px'], [mediaValue(w), mediaValue(w)]),
         height: getFirst([mediaValue(h100), '100%'], [mediaValue(h100), '0px'], [mediaValue(h), mediaValue(h)]),
         borderRadius: mediaValue(bdrs),
         transition: mediaValue(trs),
+        ...style,
       }}
       {...props}
     >

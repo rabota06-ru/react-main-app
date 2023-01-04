@@ -9,7 +9,7 @@ import { LoadingOverlay } from 'components/loading-overlay'
 import { PersonalAccountPage } from 'pages/personal-account-page/personal-account-page'
 import { FullResumePage } from 'pages/full-resume-page'
 import { FullVacancyPage } from 'pages/full-vacancy-page'
-import { AllVacanciesPage } from 'pages/all-vacancies-page'
+// import { AllVacanciesPage } from 'pages/all-vacancies-page'
 import { AllResumesPage } from 'pages/all-resume-page/all-resumes-page'
 import { CreateVacancyPage } from 'pages/create-vacancy-page'
 import { CreateResumePage } from 'pages/create-resume-page'
@@ -58,9 +58,9 @@ export function App() {
             <Route path={routes.main.exact}>
               <MainPage />
             </Route>
-            <Route path={routes.allVacancies.exact}>
+            {/* <Route path={routes.allVacancies.exact}>
               <AllVacanciesPage />
-            </Route>
+            </Route> */}
             <Route path={routes.allResumes.exact}>
               <AllResumesPage />
             </Route>

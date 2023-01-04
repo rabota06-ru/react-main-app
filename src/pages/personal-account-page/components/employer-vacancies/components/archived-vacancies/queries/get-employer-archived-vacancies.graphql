@@ -1,0 +1,11 @@
+query GetEmployerArchivedVacancies($userId: String!, $take: Int!, $skip: Int!) {
+  vacancies(where: { employer: { is: { userId: { equals: $userId } } }, archived: { equals: true } }, take: $take, skip: $skip) {
+    id
+    post
+    fieldOfActivity
+    createdAt
+    salary
+    placeOfWork
+    views
+  }
+}

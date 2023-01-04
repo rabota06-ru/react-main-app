@@ -1,0 +1,5 @@
+query GetVacancies($fieldOfActivity: Int, $skip: Int!, $take: Int!) {
+  vacancies(where: { fieldOfActivity: { equals: $fieldOfActivity } }, skip: $skip, take: $take) {
+    id
+  }
+}
