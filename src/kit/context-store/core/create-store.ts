@@ -1,13 +1,13 @@
 import produce from 'immer'
 import { objectKeys } from 'kit/utils'
-import { Store, CreateStoreOptions, UseCasesType } from './types'
+import { Store, CreateStoreOptions, CreateStoreReturnType } from './types'
 
 export function createStore<
   State extends Record<string, any>,
-  UseCases extends UseCasesType,
+  UseCases extends Record<string, (...params: any) => void>,
   Services extends Record<string, any>,
   Params extends Record<string, any>
->(options: CreateStoreOptions<State, Services, UseCases, Params>) {
+>(options: CreateStoreOptions<State, Services, UseCases, Params>): CreateStoreReturnType<State, Services, UseCases, Params> {
   return {
     providedOptions: options,
     setupStore: (services: Services, params: Params): Store<State, UseCases> => {

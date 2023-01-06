@@ -1,16 +1,13 @@
 import { Context, createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { Store, UseCasesType, CreateStoreOptions } from '../core'
-import { ProviderProps, UseSelectorCallback } from './types'
+import { Store, CreateStoreReturnType } from '../core'
+import { CreateContextStoreReturnType, ProviderProps, UseSelectorCallback } from './types'
 
 export function createContextStore<
   State extends Record<string, any>,
   Services extends Record<string, object>,
-  UseCases extends UseCasesType,
+  UseCases extends Record<string, (...params: any) => void>,
   Params extends Record<string, any>
->(storeCreator: {
-  providedOptions: CreateStoreOptions<State, Services, UseCases, Params>
-  setupStore: (services: Services, params: Params) => Store<State, UseCases>
-}) {
+>(storeCreator: CreateStoreReturnType<State, Services, UseCases, Params>): CreateContextStoreReturnType<State, Services, UseCases, Params> {
   const Context = createContext<Pick<Store<State, UseCases>, 'subscribe' | 'unsubscribe'> & { getUseCases: () => UseCases }>({
     subscribe: () => {},
     unsubscribe: () => {},
@@ -39,7 +36,7 @@ export function createContextStore<
   return [Provider, buildUseSelector(storeCreator.providedOptions.state, Context), buildUseUseCases(Context)]
 }
 
-function buildUseSelector<State extends Record<string, any>, UseCases extends UseCasesType>(
+function buildUseSelector<State extends Record<string, any>, UseCases extends Record<string, (...params: any) => void>>(
   defaultState: State,
   context: Context<Pick<Store<State, UseCases>, 'subscribe' | 'unsubscribe'> & { getUseCases: () => UseCases }>
 ) {
@@ -63,7 +60,7 @@ function buildUseSelector<State extends Record<string, any>, UseCases extends Us
   }
 }
 
-function buildUseUseCases<State extends Record<string, any>, UseCases extends UseCasesType>(
+function buildUseUseCases<State extends Record<string, any>, UseCases extends Record<string, (...params: any) => void>>(
   context: Context<Pick<Store<State, UseCases>, 'subscribe' | 'unsubscribe'> & { getUseCases: () => UseCases }>
 ) {
   return function useUseCases() {

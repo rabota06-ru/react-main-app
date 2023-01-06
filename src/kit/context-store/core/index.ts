@@ -1,2 +1,2 @@
 export { createStore } from './create-store'
-export type { CreateStoreOptions, UseCasesType, Store } from './types'
+export type { CreateStoreOptions, CreateStoreReturnType, Store } from './types'
