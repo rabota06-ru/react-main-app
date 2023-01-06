@@ -1,13 +1,14 @@
 import { objectKeys } from 'kit/utils'
-import { Context, createContext, PropsWithChildren, useContext, useEffect, useMemo, useState } from 'react'
+import { Context, createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { Store, createStore, UseCasesType } from '../core'
-import { ContextStore, CreateContextStoreOptions, UseSelectorCallback } from './types'
+import { ContextStore, CreateContextStoreOptions, ProviderProps, UseSelectorCallback } from './types'
 
 export function createContextStore<
   State extends Record<string, any>,
   Services extends Record<string, object>,
-  UseCases extends UseCasesType
->(options: CreateContextStoreOptions<State, Services, UseCases>): ContextStore<State, Services, UseCases> {
+  UseCases extends UseCasesType,
+  Params extends Record<string, any>
+>(options: CreateContextStoreOptions<State, Services, UseCases, Params>): ContextStore<State, Services, UseCases, Params> {
   let useCases: UseCases = objectKeys(options.useCases).reduce((uc, key) => {
     uc[key] = (() => {}) as UseCases[keyof UseCases]
     return uc
@@ -18,13 +19,13 @@ export function createContextStore<
     getUseCases: () => useCases,
   })
 
-  function Provider({ services, children }: PropsWithChildren<{ services: Services }>) {
-    const setupStore = useMemo(() => createStore<State, UseCases, Services>(options), [])
+  function Provider({ services, params, children }: ProviderProps<Services, Params>) {
+    const setupStore = useMemo(() => createStore<State, UseCases, Services, Params>(options), [])
     const store = useMemo(() => {
-      const store = setupStore(services)
+      const store = setupStore(services, params)
       useCases = store.useCases
       return store
-    }, [services, setupStore])
+    }, [services, setupStore, params])
     const contextValue = useMemo(
       () => ({ subscribe: store.subscribe, unsubscribe: store.unsubscribe, getUseCases: () => store.useCases }),
       [store.subscribe, store.unsubscribe, store.useCases]
