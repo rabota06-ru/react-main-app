@@ -3,12 +3,15 @@ import { Redirect, Route, Switch } from 'wouter'
 import { Chat } from '../chat/chat'
 import { ChatType } from '../chat/chat.constants'
 import { EmployerMessages } from '../employer-messages/employer-messages'
+import { EmployerResumes } from '../employer-resumes/employer-resumes'
 import { EmployerVacancies } from '../employer-vacancies/employer-vacancies'
 
 export function EmployerRoutes() {
   return (
     <Switch>
-      <Route path={routes.personalAccount.nested.allResumes.absoluteExact}>allResumes</Route>
+      <Route path={routes.personalAccount.nested.allResumes.absoluteExact}>
+        <EmployerResumes />
+      </Route>
       <Route path={routes.personalAccount.nested.myVacancies.absoluteExact}>
         <EmployerVacancies />
       </Route>

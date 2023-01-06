@@ -5,7 +5,7 @@ import { Box, BoxProps } from 'kit/components/box'
 import styles from './infinity-list.module.scss'
 
 interface InfinityListProps<Item> extends BoxProps {
-  page?: number
+  resetTrigger?: (cb: VoidFunction) => void
   loadableItemsCount: number
   distanceToFetch?: number
   fetchItems: (page: number, count: number) => Promise<Item[]>
@@ -14,7 +14,7 @@ interface InfinityListProps<Item> extends BoxProps {
 }
 
 export function InfinityList<Item>({
-  page: propsPage,
+  resetTrigger,
   loadableItemsCount,
   distanceToFetch = 0,
   renderItem,
@@ -25,24 +25,17 @@ export function InfinityList<Item>({
   const [items, setItems] = useState<Item[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [isMaximumReached, setIsMaximumReached] = useState(false)
-  const [page, setPage] = useState(propsPage ?? 1)
+  const [page, setPage] = useState(1)
 
   const handleScroll = ({ currentTarget }: React.UIEvent<HTMLDivElement, UIEvent>) => {
-    const distanceToEnd = currentTarget.scrollHeight - currentTarget.clientHeight - currentTarget.scrollTop
+    const distanceToEnd = Math.floor(currentTarget.scrollHeight - currentTarget.clientHeight - currentTarget.scrollTop)
 
     if (distanceToEnd - distanceToFetch <= 0 && !isLoading && !isMaximumReached) {
       setPage(prev => prev + 1)
     }
   }
 
-  useEffect(() => {
-    if (propsPage !== undefined) {
-      setPage(propsPage)
-      setItems(items => items.slice(0, (propsPage - 1) * loadableItemsCount + 1))
-    }
-  }, [propsPage, loadableItemsCount])
-
-  useEffect(() => {
+  const handleFetchItems = () => {
     setIsLoading(true)
     fetchItems(page, loadableItemsCount)
       .then(items => {
@@ -51,7 +44,18 @@ export function InfinityList<Item>({
       })
       .catch(reason => onFetchError?.(reason))
       .finally(() => setIsLoading(false))
-  }, [page, loadableItemsCount])
+  }
+
+  useEffect(handleFetchItems, [page, loadableItemsCount])
+
+  useEffect(() => {
+    resetTrigger?.(() => {
+      if (page === 1) handleFetchItems()
+      else setPage(1)
+      setItems([])
+      setIsMaximumReached(false)
+    })
+  }, [page, handleFetchItems])
 
   return (
     <Box

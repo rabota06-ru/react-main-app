@@ -1,0 +1,20 @@
+query GetOnlySavedResumes($keywords: String!, $fieldOfActivity: Int, $location: Int, $employerId: String!, $take: Int!, $skip: Int!) {
+  resumes(
+    where: {
+      desiredPost: { contains: $keywords, mode: insensitive }
+      fieldOfActivity: { equals: $fieldOfActivity }
+      placeOfResidence: { equals: $location }
+      savedBy: { some: { employerProfileId: { equals: $employerId } } }
+    }
+    take: $take
+    skip: $skip
+  ) {
+    id
+    desiredPost
+    placeOfResidence
+    fieldOfActivity
+    firstname
+    lastname
+    aboutMe
+  }
+}

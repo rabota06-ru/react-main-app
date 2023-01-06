@@ -49,7 +49,7 @@ export const FIELDS_OF_ACTIVITY_LABEL: Record<FieldOfActivity, string> = {
 }
 
 export const FIELDS_OF_ACTIVITY: DropdownItem<FieldOfActivity>[] = objectKeys(FIELDS_OF_ACTIVITY_LABEL).map(id => ({
-  id,
+  id: +id,
   label: FIELDS_OF_ACTIVITY_LABEL[id],
 }))
 

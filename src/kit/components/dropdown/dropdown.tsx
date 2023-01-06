@@ -24,7 +24,7 @@ interface DropdownProps<T extends DropdownItem<K>, K extends string | number>
     Pick<InputBaseProps, 'label' | 'status' | 'bottomText'> {
   items: T[]
   onSelectItem?: (item: T | null) => void
-  selectedItemByDefault?: T | null
+  selectedItemId?: K | null
   isDisabled?: boolean
   isLoading?: boolean
   isCollapsedByDefault?: boolean
@@ -34,7 +34,7 @@ interface DropdownProps<T extends DropdownItem<K>, K extends string | number>
 export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
   items,
   onSelectItem,
-  selectedItemByDefault,
+  selectedItemId: propsSelectedItemId,
   isDisabled,
   isLoading,
   isCollapsedByDefault,
@@ -56,10 +56,14 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
   }
 
   useEffect(() => {
-    if (selectedItemByDefault !== undefined && selectedItemByDefault !== null && selectedItemByDefault !== selectedItem) {
-      setSelectedItem(selectedItemByDefault)
+    if (propsSelectedItemId !== undefined) {
+      if (propsSelectedItemId === null) setSelectedItem(null)
+      else {
+        const candidate = items.find(item => item.id === propsSelectedItemId)
+        if (candidate) setSelectedItem(candidate)
+      }
     }
-  }, [selectedItemByDefault, selectedItem])
+  }, [items, propsSelectedItemId])
 
   useEffect(() => {
     if (isCollapsedByDefault !== undefined) setIsCollapsed(isCollapsedByDefault)
@@ -106,8 +110,9 @@ export function Dropdown<T extends DropdownItem<K>, K extends string | number>({
             key={item.id}
             className={cn(styles.dropdownListItem, { [styles.dropdownListItem_Selected]: selectedItem?.id === item.id })}
             onClick={() => handleSelectItem(item)}
+            title={item.label}
           >
-            {item.label}
+            <span className={styles.dropdownListItemLabel}>{item.label}</span>
           </div>
         ))}
       </div>

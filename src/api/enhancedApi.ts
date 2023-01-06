@@ -30,4 +30,6 @@ export const {
   useLazyGetNewMessagesQuery,
   useLazyGetEmployerPublishedVacanciesQuery,
   useLazyGetEmployerArchivedVacanciesQuery,
+  useLazyGetAllResumesQuery,
+  useLazyGetOnlySavedResumesQuery,
 } = api

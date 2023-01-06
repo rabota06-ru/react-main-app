@@ -2,11 +2,14 @@
 
 .input {
   height: 100%;
-  flex-grow: 1;
+  width: 100%;
   border: none;
   border-radius: 8px;
   padding: 0 15px;
   font-size: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   &::placeholder {
     color: var(--textSecondaryColor);
     font-size: 20px;
