@@ -1,30 +1,22 @@
-import { objectKeys } from 'kit/utils'
-import { Context, createContext, PropsWithChildren, useContext, useEffect, useMemo, useState } from 'react'
-import { Store, createStore, UseCasesType } from '../core'
-import { ContextStore, CreateContextStoreOptions, UseSelectorCallback } from './types'
+import { Context, createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { Store, CreateStoreReturnType } from '../core'
+import { CreateContextStoreReturnType, ProviderProps, UseSelectorCallback } from './types'
 
 export function createContextStore<
   State extends Record<string, any>,
   Services extends Record<string, object>,
-  UseCases extends UseCasesType
->(options: CreateContextStoreOptions<State, Services, UseCases>): ContextStore<State, Services, UseCases> {
-  let useCases: UseCases = objectKeys(options.useCases).reduce((uc, key) => {
-    uc[key] = (() => {}) as UseCases[keyof UseCases]
-    return uc
-  }, {} as UseCases)
+  UseCases extends Record<string, (...params: any) => void>,
+  Params extends Record<string, any>
+>(storeCreator: CreateStoreReturnType<State, Services, UseCases, Params>): CreateContextStoreReturnType<State, Services, UseCases, Params> {
   const Context = createContext<Pick<Store<State, UseCases>, 'subscribe' | 'unsubscribe'> & { getUseCases: () => UseCases }>({
     subscribe: () => {},
     unsubscribe: () => {},
-    getUseCases: () => useCases,
+    getUseCases: () => ({} as UseCases),
   })
-
-  function Provider({ services, children }: PropsWithChildren<{ services: Services }>) {
-    const setupStore = useMemo(() => createStore<State, UseCases, Services>(options), [])
+  function Provider({ services, params, children }: ProviderProps<Services, Params>) {
     const store = useMemo(() => {
-      const store = setupStore(services)
-      useCases = store.useCases
-      return store
-    }, [services, setupStore])
+      return storeCreator.setupStore(services, params)
+    }, [services, params])
     const contextValue = useMemo(
       () => ({ subscribe: store.subscribe, unsubscribe: store.unsubscribe, getUseCases: () => store.useCases }),
       [store.subscribe, store.unsubscribe, store.useCases]
@@ -41,10 +33,10 @@ export function createContextStore<
     return <Context.Provider value={contextValue}>{children}</Context.Provider>
   }
 
-  return [Provider, buildUseSelector(options.state, Context), buildUseUseCases(Context)]
+  return [Provider, buildUseSelector(storeCreator.providedOptions.state, Context), buildUseUseCases(Context)]
 }
 
-function buildUseSelector<State extends Record<string, any>, UseCases extends UseCasesType>(
+function buildUseSelector<State extends Record<string, any>, UseCases extends Record<string, (...params: any) => void>>(
   defaultState: State,
   context: Context<Pick<Store<State, UseCases>, 'subscribe' | 'unsubscribe'> & { getUseCases: () => UseCases }>
 ) {
@@ -68,7 +60,7 @@ function buildUseSelector<State extends Record<string, any>, UseCases extends Us
   }
 }
 
-function buildUseUseCases<State extends Record<string, any>, UseCases extends UseCasesType>(
+function buildUseUseCases<State extends Record<string, any>, UseCases extends Record<string, (...params: any) => void>>(
   context: Context<Pick<Store<State, UseCases>, 'subscribe' | 'unsubscribe'> & { getUseCases: () => UseCases }>
 ) {
   return function useUseCases() {

@@ -1,7 +1,7 @@
 export interface OnInitOptions<
   State extends Record<string, any>,
   Services extends Record<string, object>,
-  UseCases extends UseCasesType,
+  UseCases extends Record<string, (...params: any) => void>,
   Params extends Record<string, any>
 > {
   state: State
@@ -13,7 +13,7 @@ export interface OnInitOptions<
 export interface OnCleanUpOptions<
   State extends Record<string, any>,
   Services extends Record<string, object>,
-  UseCases extends UseCasesType,
+  UseCases extends Record<string, (...params: any) => void>,
   Params extends Record<string, any>
 > {
   state: State
@@ -25,7 +25,7 @@ export interface OnCleanUpOptions<
 export interface CreateStoreOptions<
   State extends Record<string, any>,
   Services extends Record<string, object>,
-  UseCases extends UseCasesType,
+  UseCases extends Record<string, (...params: any) => void>,
   Params extends Record<string, any>
 > {
   state: State
@@ -34,7 +34,17 @@ export interface CreateStoreOptions<
   useCases: InnerUseCases<State, Services, UseCases, Params>
 }
 
-export interface Store<State extends Record<string, any>, UseCases extends UseCasesType> {
+export interface CreateStoreReturnType<
+  State extends Record<string, any>,
+  Services extends Record<string, object>,
+  UseCases extends Record<string, (...params: any) => void>,
+  Params extends Record<string, any>
+> {
+  providedOptions: CreateStoreOptions<State, Services, UseCases, Params>
+  setupStore: (services: Services, params: Params) => Store<State, UseCases>
+}
+
+export interface Store<State extends Record<string, any>, UseCases extends Record<string, (...params: any) => void>> {
   subscribe: (cb: (state: State) => void) => void
   unsubscribe: (cb: (state: State) => void) => void
   useCases: UseCases
@@ -42,12 +52,10 @@ export interface Store<State extends Record<string, any>, UseCases extends UseCa
   cleanUp: VoidFunction
 }
 
-export type UseCasesType = Record<string, (...params: any) => void>
-
 export type InnerUseCases<
   State extends Record<string, any>,
   Services extends Record<string, object>,
-  UseCases extends UseCasesType,
+  UseCases extends Record<string, (...params: any) => void>,
   Params extends Record<string, any>
 > = {
   [Key in keyof UseCases]: (...params: Parameters<UseCases[Key]>) => (state: State, services: Services, params: Params) => void
