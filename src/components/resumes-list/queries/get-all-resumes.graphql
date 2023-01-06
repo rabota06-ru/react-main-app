@@ -1,0 +1,15 @@
+query GetAllResumes($keywords: String!, $fieldOfActivity: Int, $location: Int, $take: Int!, $skip: Int!) {
+  resumes(
+    where: { desiredPost: { contains: $keywords }, fieldOfActivity: { equals: $fieldOfActivity }, placeOfResidence: { equals: $location } }
+    take: $take
+    skip: $skip
+  ) {
+    id
+    desiredPost
+    placeOfResidence
+    fieldOfActivity
+    firstname
+    lastname
+    aboutMe
+  }
+}

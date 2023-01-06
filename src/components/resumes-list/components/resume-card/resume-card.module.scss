@@ -1,0 +1,18 @@
+.resume {
+  &DesiredPost {
+    margin-right: 20px;
+  }
+  &DesiredPost,
+  &Name {
+    flex-grow: 1;
+    font-size: 20px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &AboutMe {
+    font-size: 14px;
+    color: #222;
+  }
+}

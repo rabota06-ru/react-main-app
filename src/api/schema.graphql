@@ -467,7 +467,7 @@ input ResumeWhereInput {
   phoneHidden: BoolFilter
   birthday: DateTimeFilter
   placeOfResidence: IntFilter
-  desiredPost: StringNullableFilter
+  desiredPost: StringFilter
   fieldOfActivity: IntFilter
   education: StringNullableFilter
   experience: StringNullableFilter
@@ -728,7 +728,27 @@ input AdminChatMessageWhereInput {
   chat: AdminChatRelationFilter
   chatId: StringFilter
   message: StringFilter
+  sender: EnumAdminChatMessageSenderFilter
   createdAt: DateTimeFilter
+}
+
+input EnumAdminChatMessageSenderFilter {
+  equals: AdminChatMessageSender
+  in: [AdminChatMessageSender!]
+  notIn: [AdminChatMessageSender!]
+  not: NestedEnumAdminChatMessageSenderFilter
+}
+
+enum AdminChatMessageSender {
+  User
+  Admin
+}
+
+input NestedEnumAdminChatMessageSenderFilter {
+  equals: AdminChatMessageSender
+  in: [AdminChatMessageSender!]
+  notIn: [AdminChatMessageSender!]
+  not: NestedEnumAdminChatMessageSenderFilter
 }
 
 input AdminChatOrderByWithRelationInput {
@@ -886,7 +906,7 @@ type Resume {
   phoneHidden: Boolean!
   birthday: DateTime!
   placeOfResidence: Int!
-  desiredPost: String
+  desiredPost: String!
   fieldOfActivity: Int!
   education: String
   experience: String
@@ -1227,6 +1247,7 @@ type AdminChatMessage {
   id: String!
   chatId: String!
   message: String!
+  sender: AdminChatMessageSender!
   createdAt: DateTime!
   chat: AdminChat!
 }
@@ -1236,6 +1257,7 @@ input AdminChatMessageOrderByWithRelationInput {
   chat: AdminChatOrderByWithRelationInput
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
 }
 
@@ -1247,6 +1269,7 @@ enum AdminChatMessageScalarFieldEnum {
   id
   chatId
   message
+  sender
   createdAt
 }
 
@@ -1348,6 +1371,7 @@ type AdminChatMessageCountAggregate {
   id: Int!
   chatId: Int!
   message: Int!
+  sender: Int!
   createdAt: Int!
   _all: Int!
 }
@@ -1356,6 +1380,7 @@ type AdminChatMessageMinAggregate {
   id: String
   chatId: String
   message: String
+  sender: AdminChatMessageSender
   createdAt: DateTime
 }
 
@@ -1363,6 +1388,7 @@ type AdminChatMessageMaxAggregate {
   id: String
   chatId: String
   message: String
+  sender: AdminChatMessageSender
   createdAt: DateTime
 }
 
@@ -1370,6 +1396,7 @@ type AdminChatMessageGroupBy {
   id: String!
   chatId: String!
   message: String!
+  sender: AdminChatMessageSender!
   createdAt: DateTime!
   _count: AdminChatMessageCountAggregate
   _min: AdminChatMessageMinAggregate
@@ -1380,6 +1407,7 @@ input AdminChatMessageOrderByWithAggregationInput {
   id: SortOrder
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
   _count: AdminChatMessageCountOrderByAggregateInput
   _max: AdminChatMessageMaxOrderByAggregateInput
@@ -1390,6 +1418,7 @@ input AdminChatMessageCountOrderByAggregateInput {
   id: SortOrder
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
 }
 
@@ -1397,6 +1426,7 @@ input AdminChatMessageMaxOrderByAggregateInput {
   id: SortOrder
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
 }
 
@@ -1404,6 +1434,7 @@ input AdminChatMessageMinOrderByAggregateInput {
   id: SortOrder
   chatId: SortOrder
   message: SortOrder
+  sender: SortOrder
   createdAt: SortOrder
 }
 
@@ -1414,7 +1445,28 @@ input AdminChatMessageScalarWhereWithAggregatesInput {
   id: StringWithAggregatesFilter
   chatId: StringWithAggregatesFilter
   message: StringWithAggregatesFilter
+  sender: EnumAdminChatMessageSenderWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
+}
+
+input EnumAdminChatMessageSenderWithAggregatesFilter {
+  equals: AdminChatMessageSender
+  in: [AdminChatMessageSender!]
+  notIn: [AdminChatMessageSender!]
+  not: NestedEnumAdminChatMessageSenderWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumAdminChatMessageSenderFilter
+  _max: NestedEnumAdminChatMessageSenderFilter
+}
+
+input NestedEnumAdminChatMessageSenderWithAggregatesFilter {
+  equals: AdminChatMessageSender
+  in: [AdminChatMessageSender!]
+  notIn: [AdminChatMessageSender!]
+  not: NestedEnumAdminChatMessageSenderWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumAdminChatMessageSenderFilter
+  _max: NestedEnumAdminChatMessageSenderFilter
 }
 
 type AggregateApplicantProfile {
@@ -2389,7 +2441,7 @@ type ResumeGroupBy {
   phoneHidden: Boolean!
   birthday: DateTime!
   placeOfResidence: Int!
-  desiredPost: String
+  desiredPost: String!
   fieldOfActivity: Int!
   education: String
   experience: String
@@ -2509,7 +2561,7 @@ input ResumeScalarWhereWithAggregatesInput {
   phoneHidden: BoolWithAggregatesFilter
   birthday: DateTimeWithAggregatesFilter
   placeOfResidence: IntWithAggregatesFilter
-  desiredPost: StringNullableWithAggregatesFilter
+  desiredPost: StringWithAggregatesFilter
   fieldOfActivity: IntWithAggregatesFilter
   education: StringNullableWithAggregatesFilter
   experience: StringNullableWithAggregatesFilter
@@ -3262,7 +3314,7 @@ input ResumeCreateWithoutApplicantProfileInput {
   phoneHidden: Boolean!
   birthday: DateTime!
   placeOfResidence: Int!
-  desiredPost: String
+  desiredPost: String!
   fieldOfActivity: Int!
   education: String
   experience: String
@@ -3344,6 +3396,7 @@ input AdminChatMessageCreateNestedManyWithoutChatInput {
 input AdminChatMessageCreateWithoutChatInput {
   id: String
   message: String!
+  sender: AdminChatMessageSender!
   createdAt: DateTime
 }
 
@@ -3360,6 +3413,7 @@ input AdminChatMessageCreateManyChatInputEnvelope {
 input AdminChatMessageCreateManyChatInput {
   id: String
   message: String!
+  sender: AdminChatMessageSender!
   createdAt: DateTime
 }
 
@@ -3489,7 +3543,7 @@ input ResumeCreateWithoutSavedByInput {
   phoneHidden: Boolean!
   birthday: DateTime!
   placeOfResidence: Int!
-  desiredPost: String
+  desiredPost: String!
   fieldOfActivity: Int!
   education: String
   experience: String
@@ -3695,7 +3749,7 @@ input ResumeCreateWithoutResponsesInput {
   phoneHidden: Boolean!
   birthday: DateTime!
   placeOfResidence: Int!
-  desiredPost: String
+  desiredPost: String!
   fieldOfActivity: Int!
   education: String
   experience: String
@@ -3826,7 +3880,7 @@ input ResumeCreateWithoutInvitationsInput {
   phoneHidden: Boolean!
   birthday: DateTime!
   placeOfResidence: Int!
-  desiredPost: String
+  desiredPost: String!
   fieldOfActivity: Int!
   education: String
   experience: String
@@ -4221,7 +4275,7 @@ input ResumeUpdateWithoutApplicantProfileInput {
   phoneHidden: BoolFieldUpdateOperationsInput
   birthday: DateTimeFieldUpdateOperationsInput
   placeOfResidence: IntFieldUpdateOperationsInput
-  desiredPost: NullableStringFieldUpdateOperationsInput
+  desiredPost: StringFieldUpdateOperationsInput
   fieldOfActivity: IntFieldUpdateOperationsInput
   education: NullableStringFieldUpdateOperationsInput
   experience: NullableStringFieldUpdateOperationsInput
@@ -4364,7 +4418,12 @@ input AdminChatMessageUpsertWithWhereUniqueWithoutChatInput {
 input AdminChatMessageUpdateWithoutChatInput {
   id: StringFieldUpdateOperationsInput
   message: StringFieldUpdateOperationsInput
+  sender: EnumAdminChatMessageSenderFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
+}
+
+input EnumAdminChatMessageSenderFieldUpdateOperationsInput {
+  set: AdminChatMessageSender
 }
 
 input AdminChatMessageUpdateWithWhereUniqueWithoutChatInput {
@@ -4384,12 +4443,14 @@ input AdminChatMessageScalarWhereInput {
   id: StringFilter
   chatId: StringFilter
   message: StringFilter
+  sender: EnumAdminChatMessageSenderFilter
   createdAt: DateTimeFilter
 }
 
 input AdminChatMessageUpdateManyMutationInput {
   id: StringFieldUpdateOperationsInput
   message: StringFieldUpdateOperationsInput
+  sender: EnumAdminChatMessageSenderFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -4578,7 +4639,7 @@ input ResumeUpdateWithoutSavedByInput {
   phoneHidden: BoolFieldUpdateOperationsInput
   birthday: DateTimeFieldUpdateOperationsInput
   placeOfResidence: IntFieldUpdateOperationsInput
-  desiredPost: NullableStringFieldUpdateOperationsInput
+  desiredPost: StringFieldUpdateOperationsInput
   fieldOfActivity: IntFieldUpdateOperationsInput
   education: NullableStringFieldUpdateOperationsInput
   experience: NullableStringFieldUpdateOperationsInput
@@ -4884,7 +4945,7 @@ input ResumeUpdateWithoutResponsesInput {
   phoneHidden: BoolFieldUpdateOperationsInput
   birthday: DateTimeFieldUpdateOperationsInput
   placeOfResidence: IntFieldUpdateOperationsInput
-  desiredPost: NullableStringFieldUpdateOperationsInput
+  desiredPost: StringFieldUpdateOperationsInput
   fieldOfActivity: IntFieldUpdateOperationsInput
   education: NullableStringFieldUpdateOperationsInput
   experience: NullableStringFieldUpdateOperationsInput
@@ -5067,7 +5128,7 @@ input ResumeUpdateWithoutInvitationsInput {
   phoneHidden: BoolFieldUpdateOperationsInput
   birthday: DateTimeFieldUpdateOperationsInput
   placeOfResidence: IntFieldUpdateOperationsInput
-  desiredPost: NullableStringFieldUpdateOperationsInput
+  desiredPost: StringFieldUpdateOperationsInput
   fieldOfActivity: IntFieldUpdateOperationsInput
   education: NullableStringFieldUpdateOperationsInput
   experience: NullableStringFieldUpdateOperationsInput
@@ -5348,6 +5409,7 @@ input AdminChatMessageCreateManyInput {
   id: String
   chatId: String!
   message: String!
+  sender: AdminChatMessageSender!
   createdAt: DateTime
 }
 
@@ -5355,6 +5417,7 @@ input AdminChatMessageCreateInput {
   id: String
   chat: AdminChatCreateNestedOneWithoutMessagesInput!
   message: String!
+  sender: AdminChatMessageSender!
   createdAt: DateTime
 }
 
@@ -5382,6 +5445,7 @@ input AdminChatMessageUpdateInput {
   id: StringFieldUpdateOperationsInput
   chat: AdminChatUpdateOneRequiredWithoutMessagesNestedInput
   message: StringFieldUpdateOperationsInput
+  sender: EnumAdminChatMessageSenderFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -5676,7 +5740,7 @@ input ResumeCreateManyInput {
   phoneHidden: Boolean!
   birthday: DateTime!
   placeOfResidence: Int!
-  desiredPost: String
+  desiredPost: String!
   fieldOfActivity: Int!
   education: String
   experience: String
@@ -5695,7 +5759,7 @@ input ResumeCreateInput {
   phoneHidden: Boolean!
   birthday: DateTime!
   placeOfResidence: Int!
-  desiredPost: String
+  desiredPost: String!
   fieldOfActivity: Int!
   education: String
   experience: String
@@ -5717,7 +5781,7 @@ input ResumeUpdateManyMutationInput {
   phoneHidden: BoolFieldUpdateOperationsInput
   birthday: DateTimeFieldUpdateOperationsInput
   placeOfResidence: IntFieldUpdateOperationsInput
-  desiredPost: NullableStringFieldUpdateOperationsInput
+  desiredPost: StringFieldUpdateOperationsInput
   fieldOfActivity: IntFieldUpdateOperationsInput
   education: NullableStringFieldUpdateOperationsInput
   experience: NullableStringFieldUpdateOperationsInput
@@ -5735,7 +5799,7 @@ input ResumeUpdateInput {
   phoneHidden: BoolFieldUpdateOperationsInput
   birthday: DateTimeFieldUpdateOperationsInput
   placeOfResidence: IntFieldUpdateOperationsInput
-  desiredPost: NullableStringFieldUpdateOperationsInput
+  desiredPost: StringFieldUpdateOperationsInput
   fieldOfActivity: IntFieldUpdateOperationsInput
   education: NullableStringFieldUpdateOperationsInput
   experience: NullableStringFieldUpdateOperationsInput

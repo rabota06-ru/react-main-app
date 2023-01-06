@@ -179,6 +179,7 @@ export type AdminChatMessage = {
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   message: Scalars['String'];
+  sender: AdminChatMessageSender;
 };
 
 export type AdminChatMessageCountAggregate = {
@@ -188,6 +189,7 @@ export type AdminChatMessageCountAggregate = {
   createdAt: Scalars['Int'];
   id: Scalars['Int'];
   message: Scalars['Int'];
+  sender: Scalars['Int'];
 };
 
 export type AdminChatMessageCountOrderByAggregateInput = {
@@ -195,6 +197,7 @@ export type AdminChatMessageCountOrderByAggregateInput = {
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   message?: InputMaybe<SortOrder>;
+  sender?: InputMaybe<SortOrder>;
 };
 
 export type AdminChatMessageCreateInput = {
@@ -202,12 +205,14 @@ export type AdminChatMessageCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
   message: Scalars['String'];
+  sender: AdminChatMessageSender;
 };
 
 export type AdminChatMessageCreateManyChatInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
   message: Scalars['String'];
+  sender: AdminChatMessageSender;
 };
 
 export type AdminChatMessageCreateManyChatInputEnvelope = {
@@ -220,6 +225,7 @@ export type AdminChatMessageCreateManyInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
   message: Scalars['String'];
+  sender: AdminChatMessageSender;
 };
 
 export type AdminChatMessageCreateNestedManyWithoutChatInput = {
@@ -238,6 +244,7 @@ export type AdminChatMessageCreateWithoutChatInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
   message: Scalars['String'];
+  sender: AdminChatMessageSender;
 };
 
 export type AdminChatMessageGroupBy = {
@@ -249,6 +256,7 @@ export type AdminChatMessageGroupBy = {
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   message: Scalars['String'];
+  sender: AdminChatMessageSender;
 };
 
 export type AdminChatMessageListRelationFilter = {
@@ -263,6 +271,7 @@ export type AdminChatMessageMaxAggregate = {
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['String']>;
   message?: Maybe<Scalars['String']>;
+  sender?: Maybe<AdminChatMessageSender>;
 };
 
 export type AdminChatMessageMaxOrderByAggregateInput = {
@@ -270,6 +279,7 @@ export type AdminChatMessageMaxOrderByAggregateInput = {
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   message?: InputMaybe<SortOrder>;
+  sender?: InputMaybe<SortOrder>;
 };
 
 export type AdminChatMessageMinAggregate = {
@@ -278,6 +288,7 @@ export type AdminChatMessageMinAggregate = {
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['String']>;
   message?: Maybe<Scalars['String']>;
+  sender?: Maybe<AdminChatMessageSender>;
 };
 
 export type AdminChatMessageMinOrderByAggregateInput = {
@@ -285,6 +296,7 @@ export type AdminChatMessageMinOrderByAggregateInput = {
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   message?: InputMaybe<SortOrder>;
+  sender?: InputMaybe<SortOrder>;
 };
 
 export type AdminChatMessageOrderByRelationAggregateInput = {
@@ -299,6 +311,7 @@ export type AdminChatMessageOrderByWithAggregationInput = {
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   message?: InputMaybe<SortOrder>;
+  sender?: InputMaybe<SortOrder>;
 };
 
 export type AdminChatMessageOrderByWithRelationInput = {
@@ -307,13 +320,15 @@ export type AdminChatMessageOrderByWithRelationInput = {
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   message?: InputMaybe<SortOrder>;
+  sender?: InputMaybe<SortOrder>;
 };
 
 export enum AdminChatMessageScalarFieldEnum {
   ChatId = 'chatId',
   CreatedAt = 'createdAt',
   Id = 'id',
-  Message = 'message'
+  Message = 'message',
+  Sender = 'sender'
 }
 
 export type AdminChatMessageScalarWhereInput = {
@@ -324,6 +339,7 @@ export type AdminChatMessageScalarWhereInput = {
   createdAt?: InputMaybe<DateTimeFilter>;
   id?: InputMaybe<StringFilter>;
   message?: InputMaybe<StringFilter>;
+  sender?: InputMaybe<EnumAdminChatMessageSenderFilter>;
 };
 
 export type AdminChatMessageScalarWhereWithAggregatesInput = {
@@ -334,19 +350,27 @@ export type AdminChatMessageScalarWhereWithAggregatesInput = {
   createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
   id?: InputMaybe<StringWithAggregatesFilter>;
   message?: InputMaybe<StringWithAggregatesFilter>;
+  sender?: InputMaybe<EnumAdminChatMessageSenderWithAggregatesFilter>;
 };
+
+export enum AdminChatMessageSender {
+  Admin = 'Admin',
+  User = 'User'
+}
 
 export type AdminChatMessageUpdateInput = {
   chat?: InputMaybe<AdminChatUpdateOneRequiredWithoutMessagesNestedInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   message?: InputMaybe<StringFieldUpdateOperationsInput>;
+  sender?: InputMaybe<EnumAdminChatMessageSenderFieldUpdateOperationsInput>;
 };
 
 export type AdminChatMessageUpdateManyMutationInput = {
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   message?: InputMaybe<StringFieldUpdateOperationsInput>;
+  sender?: InputMaybe<EnumAdminChatMessageSenderFieldUpdateOperationsInput>;
 };
 
 export type AdminChatMessageUpdateManyWithWhereWithoutChatInput = {
@@ -377,6 +401,7 @@ export type AdminChatMessageUpdateWithoutChatInput = {
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   message?: InputMaybe<StringFieldUpdateOperationsInput>;
+  sender?: InputMaybe<EnumAdminChatMessageSenderFieldUpdateOperationsInput>;
 };
 
 export type AdminChatMessageUpsertWithWhereUniqueWithoutChatInput = {
@@ -394,6 +419,7 @@ export type AdminChatMessageWhereInput = {
   createdAt?: InputMaybe<DateTimeFilter>;
   id?: InputMaybe<StringFilter>;
   message?: InputMaybe<StringFilter>;
+  sender?: InputMaybe<EnumAdminChatMessageSenderFilter>;
 };
 
 export type AdminChatMessageWhereUniqueInput = {
@@ -2497,6 +2523,27 @@ export type EmployerProfileWhereUniqueInput = {
   userId?: InputMaybe<Scalars['String']>;
 };
 
+export type EnumAdminChatMessageSenderFieldUpdateOperationsInput = {
+  set?: InputMaybe<AdminChatMessageSender>;
+};
+
+export type EnumAdminChatMessageSenderFilter = {
+  equals?: InputMaybe<AdminChatMessageSender>;
+  in?: InputMaybe<Array<AdminChatMessageSender>>;
+  not?: InputMaybe<NestedEnumAdminChatMessageSenderFilter>;
+  notIn?: InputMaybe<Array<AdminChatMessageSender>>;
+};
+
+export type EnumAdminChatMessageSenderWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntFilter>;
+  _max?: InputMaybe<NestedEnumAdminChatMessageSenderFilter>;
+  _min?: InputMaybe<NestedEnumAdminChatMessageSenderFilter>;
+  equals?: InputMaybe<AdminChatMessageSender>;
+  in?: InputMaybe<Array<AdminChatMessageSender>>;
+  not?: InputMaybe<NestedEnumAdminChatMessageSenderWithAggregatesFilter>;
+  notIn?: InputMaybe<Array<AdminChatMessageSender>>;
+};
+
 export type EnumApplicationTypeFieldUpdateOperationsInput = {
   set?: InputMaybe<ApplicationType>;
 };
@@ -3738,6 +3785,23 @@ export type NestedDateTimeWithAggregatesFilter = {
   lte?: InputMaybe<Scalars['DateTime']>;
   not?: InputMaybe<NestedDateTimeWithAggregatesFilter>;
   notIn?: InputMaybe<Array<Scalars['DateTime']>>;
+};
+
+export type NestedEnumAdminChatMessageSenderFilter = {
+  equals?: InputMaybe<AdminChatMessageSender>;
+  in?: InputMaybe<Array<AdminChatMessageSender>>;
+  not?: InputMaybe<NestedEnumAdminChatMessageSenderFilter>;
+  notIn?: InputMaybe<Array<AdminChatMessageSender>>;
+};
+
+export type NestedEnumAdminChatMessageSenderWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntFilter>;
+  _max?: InputMaybe<NestedEnumAdminChatMessageSenderFilter>;
+  _min?: InputMaybe<NestedEnumAdminChatMessageSenderFilter>;
+  equals?: InputMaybe<AdminChatMessageSender>;
+  in?: InputMaybe<Array<AdminChatMessageSender>>;
+  not?: InputMaybe<NestedEnumAdminChatMessageSenderWithAggregatesFilter>;
+  notIn?: InputMaybe<Array<AdminChatMessageSender>>;
 };
 
 export type NestedEnumApplicationTypeFilter = {
@@ -5001,7 +5065,7 @@ export type Resume = {
   applicantProfileId: Scalars['String'];
   birthday: Scalars['DateTime'];
   createdAt: Scalars['DateTime'];
-  desiredPost?: Maybe<Scalars['String']>;
+  desiredPost: Scalars['String'];
   education?: Maybe<Scalars['String']>;
   experience?: Maybe<Scalars['String']>;
   fieldOfActivity: Scalars['Int'];
@@ -5113,7 +5177,7 @@ export type ResumeCreateInput = {
   applicantProfile: ApplicantProfileCreateNestedOneWithoutResumeInput;
   birthday: Scalars['DateTime'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  desiredPost?: InputMaybe<Scalars['String']>;
+  desiredPost: Scalars['String'];
   education?: InputMaybe<Scalars['String']>;
   experience?: InputMaybe<Scalars['String']>;
   fieldOfActivity: Scalars['Int'];
@@ -5135,7 +5199,7 @@ export type ResumeCreateManyInput = {
   applicantProfileId: Scalars['String'];
   birthday: Scalars['DateTime'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  desiredPost?: InputMaybe<Scalars['String']>;
+  desiredPost: Scalars['String'];
   education?: InputMaybe<Scalars['String']>;
   experience?: InputMaybe<Scalars['String']>;
   fieldOfActivity: Scalars['Int'];
@@ -5197,7 +5261,7 @@ export type ResumeCreateWithoutApplicantProfileInput = {
   aboutMe?: InputMaybe<Scalars['String']>;
   birthday: Scalars['DateTime'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  desiredPost?: InputMaybe<Scalars['String']>;
+  desiredPost: Scalars['String'];
   education?: InputMaybe<Scalars['String']>;
   experience?: InputMaybe<Scalars['String']>;
   fieldOfActivity: Scalars['Int'];
@@ -5219,7 +5283,7 @@ export type ResumeCreateWithoutInvitationsInput = {
   applicantProfile: ApplicantProfileCreateNestedOneWithoutResumeInput;
   birthday: Scalars['DateTime'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  desiredPost?: InputMaybe<Scalars['String']>;
+  desiredPost: Scalars['String'];
   education?: InputMaybe<Scalars['String']>;
   experience?: InputMaybe<Scalars['String']>;
   fieldOfActivity: Scalars['Int'];
@@ -5240,7 +5304,7 @@ export type ResumeCreateWithoutResponsesInput = {
   applicantProfile: ApplicantProfileCreateNestedOneWithoutResumeInput;
   birthday: Scalars['DateTime'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  desiredPost?: InputMaybe<Scalars['String']>;
+  desiredPost: Scalars['String'];
   education?: InputMaybe<Scalars['String']>;
   experience?: InputMaybe<Scalars['String']>;
   fieldOfActivity: Scalars['Int'];
@@ -5261,7 +5325,7 @@ export type ResumeCreateWithoutSavedByInput = {
   applicantProfile: ApplicantProfileCreateNestedOneWithoutResumeInput;
   birthday: Scalars['DateTime'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  desiredPost?: InputMaybe<Scalars['String']>;
+  desiredPost: Scalars['String'];
   education?: InputMaybe<Scalars['String']>;
   experience?: InputMaybe<Scalars['String']>;
   fieldOfActivity: Scalars['Int'];
@@ -5288,7 +5352,7 @@ export type ResumeGroupBy = {
   applicantProfileId: Scalars['String'];
   birthday: Scalars['DateTime'];
   createdAt: Scalars['DateTime'];
-  desiredPost?: Maybe<Scalars['String']>;
+  desiredPost: Scalars['String'];
   education?: Maybe<Scalars['String']>;
   experience?: Maybe<Scalars['String']>;
   fieldOfActivity: Scalars['Int'];
@@ -5735,7 +5799,7 @@ export type ResumeScalarWhereWithAggregatesInput = {
   applicantProfileId?: InputMaybe<StringWithAggregatesFilter>;
   birthday?: InputMaybe<DateTimeWithAggregatesFilter>;
   createdAt?: InputMaybe<DateTimeWithAggregatesFilter>;
-  desiredPost?: InputMaybe<StringNullableWithAggregatesFilter>;
+  desiredPost?: InputMaybe<StringWithAggregatesFilter>;
   education?: InputMaybe<StringNullableWithAggregatesFilter>;
   experience?: InputMaybe<StringNullableWithAggregatesFilter>;
   fieldOfActivity?: InputMaybe<IntWithAggregatesFilter>;
@@ -5767,7 +5831,7 @@ export type ResumeUpdateInput = {
   applicantProfile?: InputMaybe<ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput>;
   birthday?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  desiredPost?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  desiredPost?: InputMaybe<StringFieldUpdateOperationsInput>;
   education?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   experience?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>;
@@ -5788,7 +5852,7 @@ export type ResumeUpdateManyMutationInput = {
   aboutMe?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   birthday?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  desiredPost?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  desiredPost?: InputMaybe<StringFieldUpdateOperationsInput>;
   education?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   experience?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>;
@@ -5840,7 +5904,7 @@ export type ResumeUpdateWithoutApplicantProfileInput = {
   aboutMe?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   birthday?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  desiredPost?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  desiredPost?: InputMaybe<StringFieldUpdateOperationsInput>;
   education?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   experience?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>;
@@ -5862,7 +5926,7 @@ export type ResumeUpdateWithoutInvitationsInput = {
   applicantProfile?: InputMaybe<ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput>;
   birthday?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  desiredPost?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  desiredPost?: InputMaybe<StringFieldUpdateOperationsInput>;
   education?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   experience?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>;
@@ -5883,7 +5947,7 @@ export type ResumeUpdateWithoutResponsesInput = {
   applicantProfile?: InputMaybe<ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput>;
   birthday?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  desiredPost?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  desiredPost?: InputMaybe<StringFieldUpdateOperationsInput>;
   education?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   experience?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>;
@@ -5904,7 +5968,7 @@ export type ResumeUpdateWithoutSavedByInput = {
   applicantProfile?: InputMaybe<ApplicantProfileUpdateOneRequiredWithoutResumeNestedInput>;
   birthday?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  desiredPost?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  desiredPost?: InputMaybe<StringFieldUpdateOperationsInput>;
   education?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   experience?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   fieldOfActivity?: InputMaybe<IntFieldUpdateOperationsInput>;
@@ -5949,7 +6013,7 @@ export type ResumeWhereInput = {
   applicantProfileId?: InputMaybe<StringFilter>;
   birthday?: InputMaybe<DateTimeFilter>;
   createdAt?: InputMaybe<DateTimeFilter>;
-  desiredPost?: InputMaybe<StringNullableFilter>;
+  desiredPost?: InputMaybe<StringFilter>;
   education?: InputMaybe<StringNullableFilter>;
   experience?: InputMaybe<StringNullableFilter>;
   fieldOfActivity?: InputMaybe<IntFilter>;
@@ -7508,14 +7572,28 @@ export type VerifyAuthCodeMutationVariables = Exact<{
 
 export type VerifyAuthCodeMutation = { __typename?: 'Mutation', verifyAuthCode: { __typename?: 'VerifyAuthCodeOutput', authenticated: boolean, authToken?: string | null } };
 
-export type GetVacanciesQueryVariables = Exact<{
+export type GetAllResumesQueryVariables = Exact<{
+  keywords: Scalars['String'];
   fieldOfActivity?: InputMaybe<Scalars['Int']>;
-  skip: Scalars['Int'];
+  location?: InputMaybe<Scalars['Int']>;
   take: Scalars['Int'];
+  skip: Scalars['Int'];
 }>;
 
 
-export type GetVacanciesQuery = { __typename?: 'Query', vacancies: Array<{ __typename?: 'Vacancy', id: string }> };
+export type GetAllResumesQuery = { __typename?: 'Query', resumes: Array<{ __typename?: 'Resume', id: string, desiredPost: string, placeOfResidence: number, fieldOfActivity: number, firstname: string, lastname?: string | null, aboutMe?: string | null }> };
+
+export type GetOnlySavedResumesQueryVariables = Exact<{
+  keywords: Scalars['String'];
+  fieldOfActivity?: InputMaybe<Scalars['Int']>;
+  location?: InputMaybe<Scalars['Int']>;
+  employerId: Scalars['String'];
+  take: Scalars['Int'];
+  skip: Scalars['Int'];
+}>;
+
+
+export type GetOnlySavedResumesQuery = { __typename?: 'Query', resumes: Array<{ __typename?: 'Resume', id: string, desiredPost: string, placeOfResidence: number, fieldOfActivity: number, firstname: string, lastname?: string | null, aboutMe?: string | null }> };
 
 export type GetResumesQueryVariables = Exact<{
   fieldOfActivity: Scalars['Int'];
@@ -7526,6 +7604,16 @@ export type GetResumesQueryVariables = Exact<{
 
 
 export type GetResumesQuery = { __typename?: 'Query', resumes: Array<{ __typename?: 'Resume', aboutMe?: string | null, id: string, fieldOfActivity: number, placeOfResidence: number, firstname: string, lastname?: string | null, education?: string | null }> };
+
+export type GetVacanciesQueryVariables = Exact<{
+  fieldOfActivity: Scalars['Int'];
+  placeOfWork: Scalars['Int'];
+  skip: Scalars['Int'];
+  take: Scalars['Int'];
+}>;
+
+
+export type GetVacanciesQuery = { __typename?: 'Query', vacancies: Array<{ __typename?: 'Vacancy', id: string, post: string, salary: number, fieldOfActivity: number, createdAt: any, description: string, placeOfWork: number, employer: { __typename?: 'EmployerProfile', companyName: string } }> };
 
 export type CreateResumeMutationVariables = Exact<{
   input: ResumeCreateInput;
@@ -7697,14 +7785,37 @@ export const VerifyAuthCodeDocument = `
   }
 }
     `;
-export const GetVacanciesDocument = `
-    query GetVacancies($fieldOfActivity: Int, $skip: Int!, $take: Int!) {
-  vacancies(
-    where: {fieldOfActivity: {equals: $fieldOfActivity}}
-    skip: $skip
+export const GetAllResumesDocument = `
+    query GetAllResumes($keywords: String!, $fieldOfActivity: Int, $location: Int, $take: Int!, $skip: Int!) {
+  resumes(
+    where: {desiredPost: {contains: $keywords}, fieldOfActivity: {equals: $fieldOfActivity}, placeOfResidence: {equals: $location}}
     take: $take
+    skip: $skip
   ) {
     id
+    desiredPost
+    placeOfResidence
+    fieldOfActivity
+    firstname
+    lastname
+    aboutMe
+  }
+}
+    `;
+export const GetOnlySavedResumesDocument = `
+    query GetOnlySavedResumes($keywords: String!, $fieldOfActivity: Int, $location: Int, $employerId: String!, $take: Int!, $skip: Int!) {
+  resumes(
+    where: {desiredPost: {contains: $keywords, mode: insensitive}, fieldOfActivity: {equals: $fieldOfActivity}, placeOfResidence: {equals: $location}, savedBy: {some: {employerProfileId: {equals: $employerId}}}}
+    take: $take
+    skip: $skip
+  ) {
+    id
+    desiredPost
+    placeOfResidence
+    fieldOfActivity
+    firstname
+    lastname
+    aboutMe
   }
 }
     `;
@@ -7722,6 +7833,26 @@ export const GetResumesDocument = `
     firstname
     lastname
     education
+  }
+}
+    `;
+export const GetVacanciesDocument = `
+    query GetVacancies($fieldOfActivity: Int!, $placeOfWork: Int!, $skip: Int!, $take: Int!) {
+  vacancies(
+    where: {fieldOfActivity: {equals: $fieldOfActivity}, placeOfWork: {equals: $placeOfWork}}
+    skip: $skip
+    take: $take
+  ) {
+    id
+    post
+    salary
+    fieldOfActivity
+    createdAt
+    description
+    placeOfWork
+    employer {
+      companyName
+    }
   }
 }
     `;
@@ -7956,11 +8087,17 @@ const injectedRtkApi = api.injectEndpoints({
     VerifyAuthCode: build.mutation<VerifyAuthCodeMutation, VerifyAuthCodeMutationVariables>({
       query: (variables) => ({ document: VerifyAuthCodeDocument, variables })
     }),
-    GetVacancies: build.query<GetVacanciesQuery, GetVacanciesQueryVariables>({
-      query: (variables) => ({ document: GetVacanciesDocument, variables })
+    GetAllResumes: build.query<GetAllResumesQuery, GetAllResumesQueryVariables>({
+      query: (variables) => ({ document: GetAllResumesDocument, variables })
+    }),
+    GetOnlySavedResumes: build.query<GetOnlySavedResumesQuery, GetOnlySavedResumesQueryVariables>({
+      query: (variables) => ({ document: GetOnlySavedResumesDocument, variables })
     }),
     GetResumes: build.query<GetResumesQuery, GetResumesQueryVariables>({
       query: (variables) => ({ document: GetResumesDocument, variables })
+    }),
+    GetVacancies: build.query<GetVacanciesQuery, GetVacanciesQueryVariables>({
+      query: (variables) => ({ document: GetVacanciesDocument, variables })
     }),
     CreateResume: build.mutation<CreateResumeMutation, CreateResumeMutationVariables>({
       query: (variables) => ({ document: CreateResumeDocument, variables })

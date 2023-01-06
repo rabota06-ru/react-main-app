@@ -27,7 +27,7 @@ export const LOCATIONS_LABEL: Record<Locations, string> = {
 }
 
 export const LOCATIONS: DropdownItem<Locations>[] = objectKeys(LOCATIONS_LABEL).map(id => ({
-  id,
+  id: +id,
   label: LOCATIONS_LABEL[id],
 }))
 
